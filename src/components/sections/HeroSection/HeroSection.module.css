@@ -1,0 +1,208 @@
+.hero {
+  background: linear-gradient(180deg, #f5f3ff 0%, #fff 100%);
+  padding: 100px 40px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 10% 90%, rgba(102, 126, 234, 0.1) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 80% at 90% 20%, rgba(118, 75, 162, 0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 70% 60% at 50% 50%, rgba(102, 126, 234, 0.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1440' height='700' viewBox='0 0 1440 700'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23667eea' stop-opacity='0.09'/%3E%3Cstop offset='100%25' stop-color='%23764ba2' stop-opacity='0.05'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' x1='100%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23667eea' stop-opacity='0.07'/%3E%3Cstop offset='100%25' stop-color='%23764ba2' stop-opacity='0.1'/%3E%3C/linearGradient%3E%3ClinearGradient id='c' x1='50%25' y1='0%25' x2='50%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23667eea' stop-opacity='0.05'/%3E%3Cstop offset='100%25' stop-color='%23764ba2' stop-opacity='0.08'/%3E%3C/linearGradient%3E%3ClinearGradient id='d' x1='0%25' y1='50%25' x2='100%25' y2='50%25'%3E%3Cstop offset='0%25' stop-color='%23667eea' stop-opacity='0.06'/%3E%3Cstop offset='100%25' stop-color='%23764ba2' stop-opacity='0.09'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M-100,500 C200,350 400,550 720,400 C1040,250 1200,450 1540,300' fill='none' stroke='url(%23a)' stroke-width='220'/%3E%3Cpath d='M-200,300 C100,150 350,400 700,250 C1050,100 1250,350 1600,200' fill='none' stroke='url(%23b)' stroke-width='250'/%3E%3Cpath d='M-150,650 C250,500 500,700 800,550 C1100,400 1300,600 1600,450' fill='none' stroke='url(%23c)' stroke-width='200'/%3E%3Cpath d='M-50,100 C300,0 500,200 850,80 C1200,-40 1350,150 1550,50' fill='none' stroke='url(%23a)' stroke-width='180'/%3E%3Cpath d='M-300,400 C0,250 250,480 600,340 C950,200 1150,420 1500,280' fill='none' stroke='url(%23d)' stroke-width='260'/%3E%3Cpath d='M-200,580 C150,430 380,620 730,480 C1080,340 1280,530 1600,390' fill='none' stroke='url(%23b)' stroke-width='190'/%3E%3Cpath d='M-100,180 C200,60 450,280 780,150 C1110,20 1300,220 1550,120' fill='none' stroke='url(%23d)' stroke-width='210'/%3E%3C/svg%3E")
+    center / cover no-repeat;
+  opacity: 1;
+}
+
+.h1 {
+  font-size: 56px;
+  font-weight: 800;
+  color: var(--dark);
+  line-height: 1.1;
+  margin-bottom: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: var(--text-dim);
+  max-width: 640px;
+  margin: 0 auto 32px;
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+}
+
+.subNote {
+  font-size: 13px;
+  color: #94a3b8;
+  margin: -16px auto 32px;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.signupWrap {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.signupRow {
+  display: flex;
+  gap: 0;
+}
+
+.signupInput {
+  flex: 1;
+  padding: 14px 18px;
+  border: 2px solid #e5e7eb;
+  border-right: none;
+  border-radius: 10px 0 0 10px;
+  font-family: var(--font);
+  font-size: 14px;
+  color: var(--dark);
+  outline: none;
+  background: #fff;
+  transition: border-color 0.15s;
+}
+
+.signupInput:focus {
+  border-color: var(--purple);
+}
+
+.signupInput::placeholder {
+  color: #94a3b8;
+}
+
+.signupBtn {
+  padding: 14px 24px;
+  background: var(--gradient);
+  color: #fff;
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  border-radius: 0 10px 10px 0;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.signupBtn:hover {
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 14px 0;
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #e5e7eb;
+}
+
+.oauthRow {
+  display: flex;
+  gap: 12px;
+}
+
+.oauthBtn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  background: #fff;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--dark);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.oauthBtn:hover {
+  border-color: var(--purple);
+  background: #fafafa;
+}
+
+@media (max-width: 900px) {
+  .h1 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 70px 20px 60px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .signupRow {
+    flex-direction: column;
+  }
+
+  .signupInput {
+    border-right: 2px solid #e5e7eb;
+    border-radius: 10px;
+    margin-bottom: 12px;
+  }
+
+  .signupBtn {
+    border-radius: 10px;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .h1 {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+  }
+
+  .oauthRow {
+    flex-direction: column;
+  }
+
+  .oauthBtn {
+    width: 100%;
+  }
+}

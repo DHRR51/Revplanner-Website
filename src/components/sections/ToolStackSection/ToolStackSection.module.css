@@ -1,0 +1,183 @@
+.section {
+  background: #f8f9fb;
+  color: var(--dark);
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 40px;
+}
+
+.stackVisual {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.sourcesRow {
+  display: flex;
+  gap: 16px;
+}
+
+.tool {
+  flex: 1;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.toolName {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+
+.toolDoes {
+  font-size: 12px;
+  color: var(--teal);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.toolCant {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 0;
+}
+
+.arrowLine {
+  flex: 1;
+  height: 2px;
+  background: var(--gradient);
+}
+
+.arrowLabel {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--purple);
+  text-align: center;
+  white-space: nowrap;
+  padding: 6px 16px;
+  background: rgba(102, 126, 234, 0.08);
+  border-radius: 20px;
+  border: 1px solid rgba(102, 126, 234, 0.15);
+}
+
+.outputCol {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.result {
+  display: flex;
+  gap: 16px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.2s;
+}
+
+.result:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.resultIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.resultContent {
+  flex: 1;
+}
+
+.resultContent h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+
+.resultContent p {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.roles {
+  font-size: 11px;
+  color: var(--purple);
+  font-weight: 600;
+}
+
+.ticketTag {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+@media (max-width: 900px) {
+  .sourcesRow {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 640px) {
+  .inner {
+    padding: 60px 20px;
+  }
+
+  .tool {
+    padding: 14px;
+  }
+
+  .result {
+    padding: 14px;
+    gap: 12px;
+  }
+
+  .resultIcon {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+
+  .arrowLabel {
+    font-size: 11px;
+    padding: 5px 12px;
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .inner {
+    padding: 40px 16px;
+  }
+
+  .result {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

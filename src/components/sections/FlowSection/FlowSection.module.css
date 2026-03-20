@@ -1,0 +1,21 @@
+.section {
+  background: #fff;
+  padding: 80px 40px;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 60px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 40px 16px;
+  }
+}

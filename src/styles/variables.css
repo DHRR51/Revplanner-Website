@@ -1,0 +1,18 @@
+:root {
+  --purple: #667eea;
+  --purple-deep: #764ba2;
+  --dark: #1a1a2e;
+  --dark-2: #F8F9FB;
+  --dark-3: #F1F5F9;
+  --text: #1a1a2e;
+  --text-dim: #6b7280;
+  --text-muted: #94a3b8;
+  --border: #e5e7eb;
+  --red: #EF4444;
+  --orange: #F59E0B;
+  --teal: #14B8A6;
+  --blue: #3B82F6;
+  --green: #10B981;
+  --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --font: 'DM Sans', -apple-system, sans-serif;
+}

@@ -1,0 +1,155 @@
+.nav {
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--purple);
+}
+
+.logoIcon {
+  width: 34px;
+  height: 34px;
+  background: var(--gradient);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 800;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.navLinks {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+.navLink {
+  color: #6b7280;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.navLink:hover {
+  color: var(--purple);
+}
+
+/* ==================== HAMBURGER BUTTON (hidden on desktop) ==================== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--dark);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  transform-origin: center;
+}
+
+.barTop {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.barMid {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.barBot {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ==================== MOBILE DROPDOWN MENU ==================== */
+.mobileMenu {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+  background: #fff;
+  padding: 8px 20px 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.mobileLink {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 14px 4px;
+  border-bottom: 1px solid #f1f5f9;
+  transition: color 0.2s;
+  display: block;
+}
+
+.mobileLink:hover {
+  color: var(--purple);
+}
+
+.mobileCta {
+  margin-top: 16px;
+  display: flex;
+}
+
+.mobileCta > * {
+  flex: 1;
+  justify-content: center;
+  text-align: center;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 900px) {
+  .navLinks {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .navLinks {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}

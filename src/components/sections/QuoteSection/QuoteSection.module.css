@@ -1,0 +1,44 @@
+.section {
+  background: #f5f3ff;
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.quoteText {
+  font-size: 22px;
+  color: var(--text-dim);
+  max-width: 800px;
+  margin: 0 auto 12px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.quoteText span {
+  color: var(--dark);
+  font-weight: 600;
+}
+
+.quoteAttr {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 40px 20px;
+  }
+
+  .quoteText {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quoteText {
+    font-size: 15px;
+  }
+
+  .quoteAttr {
+    font-size: 12px;
+  }
+}

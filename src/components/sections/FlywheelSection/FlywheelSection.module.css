@@ -1,0 +1,56 @@
+.sectionDark {
+  background: #f8f9fb;
+  color: var(--dark);
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 40px;
+}
+
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.body {
+  font-size: 15px;
+  color: #ccc;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.quote {
+  font-size: 20px;
+  font-weight: 800;
+  color: #ccc;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.4;
+}
+
+@media (max-width: 640px) {
+  .inner {
+    padding: 40px 20px;
+  }
+
+  .quote {
+    font-size: 17px;
+  }
+
+  .body {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .inner {
+    padding: 32px 16px;
+  }
+
+  .quote {
+    font-size: 15px;
+  }
+}

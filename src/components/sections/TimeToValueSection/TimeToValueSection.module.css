@@ -1,0 +1,33 @@
+.sectionDark {
+  background: #f8f9fb;
+  color: var(--dark);
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 40px;
+}
+
+.footnote {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.footnote b {
+  color: var(--purple);
+}
+
+@media (max-width: 640px) {
+  .inner {
+    padding: 40px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .inner {
+    padding: 32px 16px;
+  }
+}
