@@ -67,6 +67,7 @@
 
 .signupRow {
   display: flex;
+  flex-wrap: wrap;
   gap: 0;
 }
 
@@ -114,7 +115,9 @@
 }
 
 .inputError {
-  color: red;
+  flex-basis: 100%;
+  order: 3;
+  color: #e53e3e;
   font-size: 13px;
   margin-top: 6px;
   text-align: left;
@@ -183,16 +186,24 @@
     flex-direction: column;
   }
 
+  .inputError {
+    flex-basis: auto;
+    order: 0;
+    margin-top: 4px;
+    margin-bottom: 0px;
+  }
+
   .signupInput {
     border-right: 2px solid #e5e7eb;
     border-radius: 10px;
-    margin-bottom: 12px;
+    margin-bottom: 0;
   }
 
   .signupBtn {
     border-radius: 10px;
     width: 100%;
     justify-content: center;
+    margin-top: 12px;
   }
 }
 

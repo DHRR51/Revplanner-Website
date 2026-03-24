@@ -57,15 +57,15 @@ export default function HeroSection() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <button className={styles.signupBtn} type="button" onClick={handleSignup}>
-            Sign up for free
-          </button>
-        </div>
-         {error && (
+          {error && (
             <div className={styles.inputError} role="alert">
               {error}
             </div>
           )}
+          <button className={styles.signupBtn} type="button" onClick={handleSignup}>
+            Sign up for free
+          </button>
+        </div>
         <div className={styles.divider}>
           <span>or</span>
         </div>
