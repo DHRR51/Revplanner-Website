@@ -1,0 +1,17 @@
+# RevPlanner SEO-Friendly Robots Configuration
+User-agent: *
+Allow: /
+Allow: /index.html
+Disallow: /revplanner-signup.html
+
+# Specific Rules for Search Engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+# Sitemap
+Sitemap: https://revplanner.io/sitemap.xml
