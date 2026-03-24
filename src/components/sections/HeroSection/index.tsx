@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Badge from '../../ui/Badge/Badge';
 import GradientText from '../../ui/GradientText/GradientText';
 import GoogleIcon from '../../ui/icons/GoogleIcon';
@@ -5,8 +6,27 @@ import MicrosoftIcon from '../../ui/icons/MicrosoftIcon';
 import styles from './HeroSection.module.css';
 
 export default function HeroSection() {
-  function handleOAuth() {
-    window.location.href = 'revplanner-signup.html';
+  function handleOAuth({ provider }: { provider: string }) {
+    window.location.href = `http://localhost:5173/signup?provider=${provider}`;
+  }
+
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
+
+  function handleSignup() {
+    if (!email) {
+      setError('Please enter your email address');
+      return;
+    }
+
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRe.test(email)) {
+      setError('Please enter a valid email address');
+      return;
+    }
+
+    setError('');
+    window.location.href = `http://localhost:5173/signup?email=${encodeURIComponent(email)}`;
   }
 
   return (
@@ -34,20 +54,27 @@ export default function HeroSection() {
             className={styles.signupInput}
             placeholder="Enter email"
             aria-label="Email address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
-          <a href="revplanner-signup.html" className={styles.signupBtn}>
+          <button className={styles.signupBtn} type="button" onClick={handleSignup}>
             Sign up for free
-          </a>
+          </button>
         </div>
+         {error && (
+            <div className={styles.inputError} role="alert">
+              {error}
+            </div>
+          )}
         <div className={styles.divider}>
           <span>or</span>
         </div>
         <div className={styles.oauthRow}>
-          <button className={styles.oauthBtn} type="button" onClick={handleOAuth}>
+          <button className={styles.oauthBtn} type="button" onClick={() => handleOAuth({ provider: 'google' })}>
             <GoogleIcon />
             Sign up with Google
           </button>
-          <button className={styles.oauthBtn} type="button" onClick={handleOAuth}>
+          <button className={styles.oauthBtn} type="button" onClick={() => handleOAuth({ provider: 'microsoft' })}>
             <MicrosoftIcon />
             Sign up with Microsoft
           </button>

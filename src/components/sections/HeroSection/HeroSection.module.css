@@ -113,6 +113,13 @@
   box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
 }
 
+.inputError {
+  color: red;
+  font-size: 13px;
+  margin-top: 6px;
+  text-align: left;
+}
+
 .divider {
   display: flex;
   align-items: center;
