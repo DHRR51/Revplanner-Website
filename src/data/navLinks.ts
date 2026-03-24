@@ -5,7 +5,7 @@ export const navLinks: NavLink[] = [
   { href: '#tickets', label: 'What It Does', variant: 'default' },
   { href: '#compare', label: 'Compare', variant: 'default' },
   { href: '#who', label: "Who It's For", variant: 'default' },
-  { href: 'revplanner-signup.html', label: 'Start Free Scan', variant: 'cta' },
+  { href: 'https://app.revplanner.app/signup', label: 'Start Free Scan', variant: 'cta' },
 ];
 
 export const footerColumns: FooterColumn[] = [
