@@ -6,8 +6,10 @@ import MicrosoftIcon from '../../ui/icons/MicrosoftIcon';
 import styles from './HeroSection.module.css';
 
 export default function HeroSection() {
+  const SIGNUP_URL = (import.meta.env.VITE_SIGNUP_URL as string) || 'http://localhost:5173/signup';
+
   function handleOAuth({ provider }: { provider: string }) {
-    window.location.href = `http://localhost:5173/signup?provider=${provider}`;
+    window.location.href = `${SIGNUP_URL}?provider=${provider}`;
   }
 
   const [email, setEmail] = useState('');
@@ -26,7 +28,7 @@ export default function HeroSection() {
     }
 
     setError('');
-    window.location.href = `http://localhost:5173/signup?email=${encodeURIComponent(email)}`;
+    window.location.href = `${SIGNUP_URL}?email=${encodeURIComponent(email)}`;
   }
 
   return (
