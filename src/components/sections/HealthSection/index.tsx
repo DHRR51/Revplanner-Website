@@ -40,7 +40,7 @@ export default function HealthSection() {
                 </div>
               ))}
             </div>
-            <Button variant="primary" href="revplanner-signup.html">
+            <Button variant="primary" href={`${(import.meta.env.VITE_APP_URL as string)}/signup`}>
               Run Your First Scan Free
             </Button>
           </div>

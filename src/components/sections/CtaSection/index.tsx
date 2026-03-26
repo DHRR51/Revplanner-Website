@@ -14,8 +14,8 @@ export default function CtaSection() {
         Connect your tools in 5 minutes. Get your first deliverable in 10. No implementation. No content to write. No programs to build.
       </p>
       <div className={styles.ctas}>
-        <Button variant="primary" href="revplanner-signup.html">Run Free System Scan</Button>
-        <Button variant="secondary" href="#">Schedule a Demo</Button>
+        <Button variant="primary" href={`${(import.meta.env.VITE_APP_URL as string)}/signup`}>Run Free System Scan</Button>
+        <Button variant="secondary" href={`${(import.meta.env.VITE_APP_URL as string)}/signup`}>Schedule a Demo</Button>
       </div>
     </section>
   );

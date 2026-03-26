@@ -6,7 +6,7 @@ import MicrosoftIcon from '../../ui/icons/MicrosoftIcon';
 import styles from './HeroSection.module.css';
 
 export default function HeroSection() {
-  const SIGNUP_URL = (import.meta.env.VITE_SIGNUP_URL as string) || 'http://localhost:5173/signup';
+  const SIGNUP_URL = `${(import.meta.env.VITE_APP_URL as string)}/signup`;
 
   function handleOAuth({ provider }: { provider: string }) {
     window.location.href = `${SIGNUP_URL}?provider=${provider}`;
