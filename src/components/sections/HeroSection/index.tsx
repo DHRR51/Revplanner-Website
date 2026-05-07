@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import Badge from '../../ui/Badge/Badge';
 import GradientText from '../../ui/GradientText/GradientText';
-import GoogleIcon from '../../ui/icons/GoogleIcon';
-import MicrosoftIcon from '../../ui/icons/MicrosoftIcon';
 import styles from './HeroSection.module.css';
 import { validateBusinessEmail } from '../../../utils/emailValidation';
 import { submitHubSpotForm } from '../../../lib/hubspot';
@@ -13,9 +11,9 @@ export default function HeroSection() {
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
   const [submitting, setSubmitting] = useState(false);
-  const [submittedProvider, setSubmittedProvider] = useState<'email' | 'google' | 'microsoft' | null>(null);
+  const [submitted, setSubmitted] = useState(false);
 
-  async function submit(provider: 'email' | 'google' | 'microsoft') {
+  async function submit() {
     const validation = validateBusinessEmail(email);
     if (!validation.ok) {
       setError(validation.error);
@@ -29,7 +27,6 @@ export default function HeroSection() {
       formId: FREE_SIGNUP_FORM_ID,
       fields: [
         { name: 'email', value: email.trim() },
-        { name: 'preferred_signup_method', value: provider },
         { name: 'cta_source', value: 'hero_signup' },
       ],
     });
@@ -37,7 +34,7 @@ export default function HeroSection() {
     setSubmitting(false);
 
     if (result.ok) {
-      setSubmittedProvider(provider);
+      setSubmitted(true);
       setEmail('');
     } else {
       setError('Something went wrong. Please try again or email hello@revplanner.io.');
@@ -45,7 +42,7 @@ export default function HeroSection() {
   }
 
   return (
-    <section className={styles.hero}>
+    <section id="hero-signup" className={styles.hero}>
       <Badge variant="hero">The AI Revenue Team You Don&apos;t Have to Hire</Badge>
       <h1 className={styles.h1}>
         Your Revenue Engine
@@ -62,8 +59,8 @@ export default function HeroSection() {
       <p className={styles.subNote}>
         No implementation team. No enablement team required. No content to migrate.
       </p>
-      <div id="hero-signup" className={styles.signupWrap}>
-        {submittedProvider ? (
+      <div className={styles.signupWrap}>
+        {submitted ? (
           <div className={styles.successMessage} role="status" aria-live="polite">
             <strong>You&apos;re on the list.</strong> We&apos;ll be in touch with access details shortly.
           </div>
@@ -77,6 +74,7 @@ export default function HeroSection() {
                 aria-label="Work email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                onKeyDown={(e) => { if (e.key === 'Enter') submit(); }}
                 disabled={submitting}
               />
               {error && (
@@ -87,35 +85,15 @@ export default function HeroSection() {
               <button
                 className={styles.signupBtn}
                 type="button"
-                onClick={() => submit('email')}
+                onClick={submit}
                 disabled={submitting}
               >
                 {submitting ? 'Submitting…' : 'Sign up for free'}
               </button>
             </div>
-            <div className={styles.divider}>
-              <span>or</span>
-            </div>
-            <div className={styles.oauthRow}>
-              <button
-                className={styles.oauthBtn}
-                type="button"
-                onClick={() => submit('google')}
-                disabled={submitting}
-              >
-                <GoogleIcon />
-                Sign up with Google
-              </button>
-              <button
-                className={styles.oauthBtn}
-                type="button"
-                onClick={() => submit('microsoft')}
-                disabled={submitting}
-              >
-                <MicrosoftIcon />
-                Sign up with Microsoft
-              </button>
-            </div>
+            <p className={styles.ssoNote}>
+              Google and Microsoft single sign-on available at launch.
+            </p>
           </>
         )}
       </div>
