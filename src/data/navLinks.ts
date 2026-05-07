@@ -5,7 +5,7 @@ export const navLinks: NavLink[] = [
   { href: '#tickets', label: 'What It Does', variant: 'default' },
   { href: '#compare', label: 'Compare', variant: 'default' },
   { href: '#who', label: "Who It's For", variant: 'default' },
-  { href: `${(import.meta.env.VITE_APP_URL as string)}/signup`, label: 'Start Free Scan', variant: 'cta' },
+  { href: "#hero-signup", label: 'Start Free Scan', variant: 'cta' },
 ];
 
 export const footerColumns: FooterColumn[] = [
@@ -16,7 +16,7 @@ export const footerColumns: FooterColumn[] = [
       { label: 'Agent Console', href: '#' },
       { label: 'Ticketing System', href: '#' },
       { label: 'Integrations', href: '#' },
-      { label: 'Pricing', href: `${(import.meta.env.VITE_APP_URL as string)}/pricing` },
+      { label: 'Pricing', href: "#hero-signup" },
     ],
   },
   {

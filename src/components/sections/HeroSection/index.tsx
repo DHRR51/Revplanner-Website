@@ -62,7 +62,7 @@ export default function HeroSection() {
       <p className={styles.subNote}>
         No implementation team. No enablement team required. No content to migrate.
       </p>
-      <div className={styles.signupWrap}>
+      <div id="hero-signup" className={styles.signupWrap}>
         {submittedProvider ? (
           <div className={styles.successMessage} role="status" aria-live="polite">
             <strong>You&apos;re on the list.</strong> We&apos;ll be in touch with access details shortly.
