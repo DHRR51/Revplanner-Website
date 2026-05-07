@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import Navbar from './components/sections/Navbar';
 import HeroSection from './components/sections/HeroSection';
 import StatsBar from './components/sections/StatsBar';
@@ -29,7 +30,7 @@ function App() {
         canonical="https://revplanner.io/"
         ogImage="https://revplanner.io/og-image.png"
       />
-      
+
       <SchemaContainer schema={generateOrganizationSchema()} />
       <SchemaContainer schema={generateSoftwareApplicationSchema()} />
 
@@ -50,6 +51,9 @@ function App() {
       <SocialProofSection />
       <CtaSection />
       <Footer />
+
+      {/* Vercel Web Analytics — privacy-first pageview tracking, complements HubSpot for top-of-funnel data */}
+      <Analytics />
     </>
   )
 }
