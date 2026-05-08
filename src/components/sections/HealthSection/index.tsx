@@ -41,7 +41,7 @@ export default function HealthSection() {
               ))}
             </div>
             <Button variant="primary" href={"#hero-signup"}>
-              Run Your First Scan Free
+              Join the Waitlist
             </Button>
           </div>
 

@@ -62,7 +62,7 @@ export default function HeroSection() {
       <div className={styles.signupWrap}>
         {submitted ? (
           <div className={styles.successMessage} role="status" aria-live="polite">
-            <strong>You&apos;re on the list.</strong> We&apos;ll be in touch with access details shortly.
+            <strong>You&apos;re on the waitlist.</strong> We&apos;ll email you with next steps and a calendar link to book a 20-min walkthrough.
           </div>
         ) : (
           <>
@@ -88,7 +88,7 @@ export default function HeroSection() {
                 onClick={submit}
                 disabled={submitting}
               >
-                {submitting ? 'Submitting…' : 'Sign up for free'}
+                {submitting ? 'Submitting…' : 'Join the waitlist'}
               </button>
             </div>
             <p className={styles.ssoNote}>
