@@ -11,11 +11,10 @@ export default function CtaSection() {
         <GradientText>RevPlanner does.</GradientText>
       </h2>
       <p className={styles.subtitle}>
-        Connect your tools in 5 minutes. Get your first deliverable in 10. No implementation. No content to write. No programs to build.
+        We're letting people in cohort by cohort. Join the waitlist to get notified when access opens, plus a calendar link to book a 20-min walkthrough with the founder.
       </p>
       <div className={styles.ctas}>
-        <Button variant="primary" href={"#hero-signup"}>Run Free System Scan</Button>
-        <Button variant="secondary" href={"#hero-signup"}>Schedule a Demo</Button>
+        <Button variant="primary" href={"#hero-signup"}>Join the Waitlist</Button>
       </div>
     </section>
   );

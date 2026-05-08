@@ -13,7 +13,7 @@ export default function SocialProofSection() {
           ))}
         </div>
         <div className={styles.caption}>
-          Logo bar activates after first 5 customers. Run your free scan to be among the first.
+          Logo bar activates after first 5 customers. Join the waitlist to be among the first.
         </div>
       </div>
     </section>
