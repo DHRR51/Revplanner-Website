@@ -7,13 +7,13 @@ import FlowSection from './components/sections/FlowSection';
 import ToolStackSection from './components/sections/ToolStackSection';
 import VsSection from './components/sections/VsSection';
 import ReplacesSection from './components/sections/ReplacesSection';
+import PricingSection from './components/sections/PricingSection';
 import CompareSection from './components/sections/CompareSection';
 import QuoteSection from './components/sections/QuoteSection';
 import HowItWorksSection from './components/sections/HowItWorksSection';
 import WhoSection from './components/sections/WhoSection';
 import TimeToValueSection from './components/sections/TimeToValueSection';
 import FlywheelSection from './components/sections/FlywheelSection';
-import SocialProofSection from './components/sections/SocialProofSection';
 import CtaSection from './components/sections/CtaSection';
 import Footer from './components/sections/Footer';
 import SEO from './components/SEO/SEO';
@@ -42,13 +42,13 @@ function App() {
       <ToolStackSection />
       <VsSection />
       <ReplacesSection />
+      <PricingSection />
       <CompareSection />
       <QuoteSection />
       <HowItWorksSection />
       <WhoSection />
       <TimeToValueSection />
       <FlywheelSection />
-      <SocialProofSection />
       <CtaSection />
       <Footer />
 
