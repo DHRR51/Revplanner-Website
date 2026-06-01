@@ -6,6 +6,7 @@ export const navLinks: NavLink[] = [
   { href: '#pricing', label: 'Pricing', variant: 'default' },
   { href: '#compare', label: 'Compare', variant: 'default' },
   { href: '#who', label: "Who It's For", variant: 'default' },
+  { href: 'https://revplanner-demo-fe.onrender.com/login', label: 'Sign In', variant: 'default' },
   { href: 'https://revplanner-demo-fe.onrender.com', label: 'Try the Demo', variant: 'cta' },
 ];
 
