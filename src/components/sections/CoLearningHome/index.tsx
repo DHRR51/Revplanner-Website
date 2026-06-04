@@ -1,10 +1,15 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './CoLearningHome.css';
+import { submitHubSpotForm } from '../../../lib/hubspot';
+import { validateBusinessEmail } from '../../../utils/emailValidation';
 
 // Cross-origin demo app (W-014). Try the Demo -> signup wizard, Sign In -> login.
 const DEMO = 'https://revplanner-demo-fe.onrender.com';
 const SIGNUP = `${DEMO}/signup`;
 const LOGIN = `${DEMO}/login`;
+
+// Reuse the existing "Free Signup Waitlist" HubSpot form (portal/form via env, same as the old hero).
+const WAITLIST_FORM_ID = import.meta.env.VITE_HUBSPOT_FORM_FREE_SIGNUP as string;
 
 // Brand lightning logo
 const Logo = () => (
@@ -15,6 +20,36 @@ const Logo = () => (
 
 export default function CoLearningHome() {
   const rootRef = useRef<HTMLDivElement>(null);
+
+  // Cohort waitlist — reuses the existing HubSpot "Free Signup Waitlist" form.
+  const [waitEmail, setWaitEmail] = useState('');
+  const [waitErr, setWaitErr] = useState('');
+  const [waitSubmitting, setWaitSubmitting] = useState(false);
+  const [waitSubmitted, setWaitSubmitted] = useState(false);
+
+  async function submitWaitlist() {
+    const v = validateBusinessEmail(waitEmail);
+    if (!v.ok) {
+      setWaitErr(v.error);
+      return;
+    }
+    setWaitErr('');
+    setWaitSubmitting(true);
+    const result = await submitHubSpotForm({
+      formId: WAITLIST_FORM_ID,
+      fields: [
+        { name: 'email', value: waitEmail.trim() },
+        { name: 'cta_source', value: 'cohome_cohort_waitlist' },
+      ],
+    });
+    setWaitSubmitting(false);
+    if (result.ok) {
+      setWaitSubmitted(true);
+      setWaitEmail('');
+    } else {
+      setWaitErr('Something went wrong. Please try again or email hello@revplanner.io.');
+    }
+  }
 
   // Hologram showcase modal: open/close, slideshow, auto-advance, dots/arrows/Esc.
   useEffect(() => {
@@ -352,16 +387,16 @@ export default function CoLearningHome() {
           <div className="grid proof-grid">
             <div className="scan-card">
               <div className="scan-head">
-                <div className="scan-grade">F</div>
+                <div className="scan-grade" style={{ color: '#F59E0B', borderColor: '#F59E0B' }}>C</div>
                 <div>
                   <div style={{ fontWeight: 800, fontSize: 16 }}>System Health · live scan</div>
                   <div style={{ fontSize: 12, color: '#9A9AA8' }}>Example output — your numbers, your deals</div>
                 </div>
               </div>
               <div className="scan-stats">
-                <div><div className="v" style={{ color: '#EF4444' }}>$487K</div><div className="l">at risk</div></div>
-                <div><div className="v" style={{ color: '#F59E0B' }}>8</div><div className="l">content gaps</div></div>
-                <div><div className="v" style={{ color: '#3B82F6' }}>4</div><div className="l">reps need coaching</div></div>
+                <div><div className="v" style={{ color: '#F59E0B' }}>$268K</div><div className="l">at risk</div></div>
+                <div><div className="v" style={{ color: '#F59E0B' }}>5</div><div className="l">content gaps</div></div>
+                <div><div className="v" style={{ color: '#3B82F6' }}>2</div><div className="l">reps need coaching</div></div>
               </div>
             </div>
             <div className="card founder">
@@ -417,15 +452,41 @@ export default function CoLearningHome() {
       </section>
 
       {/* 9 · FINAL CTA */}
-      <section className="final sec-dark">
+      <section id="waitlist" className="final sec-dark">
         <div className="wrap">
           <div className="sec-eyebrow">Get started</div>
           <h2 className="h2">See your revenue health in a few minutes.</h2>
           <p className="lead center">Try the demo on your own pipeline, or join the cohort waitlist for hands-on onboarding.</p>
           <div className="hero-cta">
             <a className="btn btn-primary" href={SIGNUP}>Try the Demo →</a>
-            <a className="btn btn-ghost" href="#waitlist">Join the cohort waitlist</a>
           </div>
+          {waitSubmitted ? (
+            <p className="waitlist-ok" role="status" aria-live="polite">
+              You're on the cohort waitlist — we'll email you with next steps.
+            </p>
+          ) : (
+            <>
+              <form
+                className="waitlist-form"
+                onSubmit={(e) => { e.preventDefault(); void submitWaitlist(); }}
+              >
+                <input
+                  className="waitlist-input"
+                  type="email"
+                  placeholder="Enter your work email"
+                  aria-label="Work email address"
+                  value={waitEmail}
+                  onChange={(e) => setWaitEmail(e.target.value)}
+                  disabled={waitSubmitting}
+                />
+                <button className="btn btn-primary" type="submit" disabled={waitSubmitting}>
+                  {waitSubmitting ? 'Joining…' : 'Join the cohort waitlist'}
+                </button>
+                {waitErr && <div className="waitlist-err" role="alert">{waitErr}</div>}
+              </form>
+              <p className="waitlist-note">Cohort spots are limited. No spam — we'll email you with next steps.</p>
+            </>
+          )}
         </div>
       </section>
 
@@ -476,11 +537,11 @@ export default function CoLearningHome() {
                 <h3>See your revenue health in seconds</h3>
                 <p>System Scan grades your pipeline on live data and flags the deals and gaps at risk.</p>
                 <div className="holo-visual"><div className="hv-row">
-                  <div className="hv-grade">F<span>42</span></div>
+                  <div className="hv-grade" style={{ borderColor: 'rgba(245,158,11,.6)', color: '#FBD27A' }}>C<span>74</span></div>
                   <div className="hv-stats">
-                    <div><b style={{ color: '#FF8C8C' }}>$487K</b><span>at risk</span></div>
-                    <div><b style={{ color: '#FFC56B' }}>8</b><span>content gaps</span></div>
-                    <div><b style={{ color: '#8FB7FF' }}>4</b><span>need coaching</span></div>
+                    <div><b style={{ color: '#FFC56B' }}>$268K</b><span>at risk</span></div>
+                    <div><b style={{ color: '#FFC56B' }}>5</b><span>content gaps</span></div>
+                    <div><b style={{ color: '#8FB7FF' }}>2</b><span>need coaching</span></div>
                   </div>
                 </div></div>
               </div>
