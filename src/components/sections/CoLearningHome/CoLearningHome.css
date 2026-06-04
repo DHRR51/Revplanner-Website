@@ -90,7 +90,7 @@
 .cohome .hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:26px}
 .cohome .hero .btn-ghost{background:rgba(255,255,255,.06);color:#fff;border:1.5px solid rgba(255,255,255,.35)}
 .cohome .hero .btn-ghost:hover{border-color:#fff;color:#fff;background:rgba(255,255,255,.12)}
-.cohome .microcopy{font-size:13px;color:#A79FD0;margin-top:18px}
+.cohome .microcopy{font-size:26px;line-height:1.35;color:#A79FD0;margin-top:18px}
 
 /* shift */
 .cohome .shift-grid{grid-template-columns:repeat(3,1fr);margin-top:34px}
