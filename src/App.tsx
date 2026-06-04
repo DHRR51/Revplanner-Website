@@ -1,21 +1,5 @@
 import { Analytics } from '@vercel/analytics/react';
-import Navbar from './components/sections/Navbar';
-import HeroSection from './components/sections/HeroSection';
-import StatsBar from './components/sections/StatsBar';
-import HealthSection from './components/sections/HealthSection';
-import FlowSection from './components/sections/FlowSection';
-import ToolStackSection from './components/sections/ToolStackSection';
-import VsSection from './components/sections/VsSection';
-import ReplacesSection from './components/sections/ReplacesSection';
-import PricingSection from './components/sections/PricingSection';
-import CompareSection from './components/sections/CompareSection';
-import QuoteSection from './components/sections/QuoteSection';
-import HowItWorksSection from './components/sections/HowItWorksSection';
-import WhoSection from './components/sections/WhoSection';
-import TimeToValueSection from './components/sections/TimeToValueSection';
-import FlywheelSection from './components/sections/FlywheelSection';
-import CtaSection from './components/sections/CtaSection';
-import Footer from './components/sections/Footer';
+import CoLearningHome from './components/sections/CoLearningHome';
 import SEO from './components/SEO/SEO';
 import SchemaContainer from './components/SchemaContainer/SchemaContainer';
 import { generateOrganizationSchema, generateSoftwareApplicationSchema } from './utils/schemaGenerators';
@@ -24,9 +8,9 @@ function App() {
   return (
     <>
       <SEO
-        title="RevPlanner — Your Revenue Engine Has Blind Spots"
-        description="AI Revenue Enablement Platform. Automated sales coaching, battlecards, and recovery scripts from your CRM, calls, and knowledge base. No implementation team required."
-        keywords="AI sales enablement, revenue coaching, automated battlecards, sales intelligence, CRM analysis, AI revenue engine"
+        title="RevPlanner — Co-learning for Human+Agent Revenue Teams"
+        description="The revenue co-learning hub for lean teams running humans + agents. Diagnose, generate, prove reps learned it, and tie it to pipeline — in one tool, grounded in your real CRM. No implementation team, no 12-week rollout."
+        keywords="AI revenue enablement, human agent co-learning, agent dock, pipeline saved, sales enablement for lean teams, revenue co-learning, AI SDR orchestration"
         canonical="https://revplanner.io/"
         ogImage="https://revplanner.io/og-image.png"
       />
@@ -34,23 +18,7 @@ function App() {
       <SchemaContainer schema={generateOrganizationSchema()} />
       <SchemaContainer schema={generateSoftwareApplicationSchema()} />
 
-      <Navbar />
-      <HeroSection />
-      <StatsBar />
-      <HealthSection />
-      <FlowSection />
-      <ToolStackSection />
-      <VsSection />
-      <ReplacesSection />
-      <PricingSection />
-      <CompareSection />
-      <QuoteSection />
-      <HowItWorksSection />
-      <WhoSection />
-      <TimeToValueSection />
-      <FlywheelSection />
-      <CtaSection />
-      <Footer />
+      <CoLearningHome />
 
       {/* Vercel Web Analytics — privacy-first pageview tracking, complements HubSpot for top-of-funnel data */}
       <Analytics />
