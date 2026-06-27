@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>ProvenLoop — Co-learning for Human + Agent Revenue Teams</title>
-<meta name="description" content="Your pipeline is leaking deals you can&#39;t see. ProvenLoop finds the leak in dollars, then runs the whole loop to fix it — built for lean human + agent revenue teams." />
-<meta name="keywords" content="revenue enablement, sales enablement, AI sales agents, pipeline health, sales coaching, RevOps, CRM, human and agent teams" />
-<!-- robots: index,follow (production homepage) -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ProvenLoop: Run enablement like a big revenue org, with the team you have today</title>
+<meta name="description" content="The revenue platform for startups going from zero to 100. Connect your CRM and see your own ICP, losses, and content gaps in about 10 minutes. No setup project." />
+<meta name="keywords" content="revenue enablement, sales enablement, AI sales agents, ICP, win loss analysis, sales onboarding, RevOps, CRM, startup go-to-market" />
 <meta name="robots" content="index, follow" />
-<meta name="theme-color" content="#6D5DF6" />
+<meta name="theme-color" content="#8B5CF6" />
 <link rel="canonical" href="https://provenloop.io/" />
 <link rel="icon" href="/favicon.svg" />
 <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -16,19 +15,18 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/icon-16.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/icon-180.png" />
 <link rel="manifest" href="/site.webmanifest" />
-<!-- Open Graph / social -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="ProvenLoop" />
-<meta property="og:title" content="ProvenLoop — Co-learning for Human + Agent Revenue Teams" />
-<meta property="og:description" content="Find the leak in your pipeline in 30 seconds — in dollars — then run the loop to fix it. Built for lean human + agent revenue teams." />
+<meta property="og:title" content="Run enablement like a big revenue org, with the team you have today" />
+<meta property="og:description" content="The revenue platform for startups going from zero to 100. See your own ICP, losses, and content gaps in about 10 minutes." />
 <meta property="og:url" content="https://provenloop.io/" />
 <meta property="og:image" content="/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:locale" content="en_US" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="ProvenLoop — Co-learning for Human + Agent Revenue Teams" />
-<meta name="twitter:description" content="Find the leak in your pipeline in 30 seconds — in dollars — then run the loop to fix it." />
+<meta name="twitter:title" content="ProvenLoop: enablement for startups going zero to 100" />
+<meta name="twitter:description" content="See your own ICP, losses, and content gaps in about 10 minutes. No setup project." />
 <meta name="twitter:image" content="/og-image.png" />
 <!-- HubSpot tracking (marketing portal 246125112) -->
 <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/246125112.js"></script>
@@ -36,601 +34,443 @@
 <script defer src="/_vercel/insights/script.js"></script>
 <style>
   :root{
-    --bg:#FFFFFF; --wash:#F4F3FB; --wash2:#EEEDFE;
-    --ink:#16162A; --ink2:#3A3A52; --muted:#6B6B82; --line:#E7E6F2;
-    --purple:#6D5DF6; --purple-d:#5848D6; --indigo:#6366F1; --violet:#8B5CF6;
-    --teal:#14B8A6; --green:#10B981; --amber:#F59E0B; --red:#EF4444;
-    --grad:linear-gradient(135deg,#6366F1,#8B5CF6);
-    --r:14px; --r-lg:20px; --maxw:1120px;
+    --bg:#121016;--bg2:#17141d;--card:#1d1a25;--card2:#221e2b;--line:#2c2737;--line2:#3a3348;
+    --ink:#F4F2F8;--ink2:#C9C4D6;--muted:#8E8799;
+    --purple:#8B5CF6;--pink:#EC4899;--blue:#3B82F6;--green:#10B981;--amber:#F59E0B;--red:#EF4444;--teal:#14B8A6;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;line-height:1.55}
-  a{text-decoration:none;color:inherit}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
-  .eyebrow{display:inline-block;background:var(--wash2);color:var(--purple-d);font-size:13px;font-weight:700;padding:7px 16px;border-radius:30px;letter-spacing:.01em}
-  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;border-radius:11px;cursor:pointer;border:none;transition:transform .12s,box-shadow .12s;font-size:15px}
-  .btn-primary{background:var(--grad);color:#fff;padding:13px 22px;box-shadow:0 10px 24px rgba(109,93,246,.28)}
-  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 14px 30px rgba(109,93,246,.36)}
-  .btn-ghost{background:#fff;color:var(--ink);padding:12px 20px;border:1.5px solid var(--line)}
-  .btn-ghost:hover{border-color:var(--purple);color:var(--purple-d)}
-  h1,h2,h3{letter-spacing:-.02em;line-height:1.08}
-  .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-  section{padding:84px 0}
-  .sec-eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:800;color:var(--purple)}
-  .h2{font-size:clamp(28px,4vw,42px);font-weight:800;margin:12px 0 14px}
-  .lead{font-size:clamp(16px,1.6vw,19px);color:var(--muted);max-width:680px}
-  .center{text-align:center}
-  .center .lead{margin-left:auto;margin-right:auto}
-  .card{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:26px}
-  .grid{display:grid;gap:18px}
-  .badge-note{display:inline-block;font-size:12px;font-weight:700;color:var(--teal);background:rgba(20,184,166,.1);padding:3px 10px;border-radius:20px;margin-bottom:10px}
-  .badge-soon{color:var(--amber);background:rgba(245,158,11,.12)}
-  /* alternating section themes */
-  .sec-dark{position:relative;overflow:hidden;background:linear-gradient(180deg,#191040,#241a56);color:#fff}
-  .sec-dark .sec-eyebrow{color:#C9B8FF}
-  .sec-dark .h2,.sec-dark h3{color:#fff}
-  .sec-dark .lead,.sec-dark p{color:#C7C2E0}
-  .sec-dark .card{background:rgba(255,255,255,.055);border-color:rgba(255,255,255,.11)}
-  .sec-dark .loop-step{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)}
-  .sec-dark .loop-step .n{background:rgba(139,92,246,.28);color:#D7CCFF}
-  .sec-dark .loop-arrow{color:#6B5FA8}
-  .sec-dark .badge-note{background:rgba(20,184,166,.18);color:#5EE7C9}
-  .sec-dark .badge-soon{background:rgba(245,158,11,.20);color:#FBD27A}
-  .sec-dark .btn-ghost{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.4)}
-  .sec-dark .btn-ghost:hover{background:rgba(255,255,255,.16);border-color:#fff;color:#fff}
-  /* hub on dark */
-  .sec-dark .hub{background:rgba(255,255,255,.05);border-color:rgba(167,139,250,.28);box-shadow:inset 0 0 50px rgba(124,92,246,.14)}
-  .sec-dark .hub-center span{color:#B7AEDA}
-  .sec-dark .dock-chip{background:rgba(255,255,255,.07);border-color:rgba(167,139,250,.28);color:#EDE7FF}
-  .sec-dark .dock-list li{color:#D6D0EC}
-  .sec-dark .dock-list .ck{color:#C9B8FF}
-  .sec-light{position:relative;background:#fff}
-  .dots::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(rgba(99,102,241,.13) 1.2px, transparent 1.2px);background-size:24px 24px;-webkit-mask:radial-gradient(86% 76% at 50% 24%,#000,transparent 82%);mask:radial-gradient(86% 76% at 50% 24%,#000,transparent 82%)}
-  .sec-light .wrap,.dots .wrap{position:relative;z-index:1}
-  /* line-icon tiles */
-  .ic{width:46px;height:46px;border-radius:13px;background:rgba(139,92,246,.12);color:var(--purple);display:inline-flex;align-items:center;justify-content:center;margin-bottom:12px}
-  .ic svg{width:23px;height:23px}
-  .sec-dark .ic{background:rgba(167,139,250,.18);color:#C9B8FF}
-  /* mockup control bar (review-only) */
-  .mockbar{background:#0E0A24;color:#E7E2FA;border-bottom:1px solid rgba(167,139,250,.3);font-size:13px}
-  .mockbar .in{max-width:var(--maxw);margin:0 auto;padding:9px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-  .mockbar .tag{font-weight:800;letter-spacing:.12em;font-size:10.5px;color:#FBD27A;text-transform:uppercase}
-  .mockbar .lbl{color:#A79FD0}
-  .mockbar .seg{display:inline-flex;border:1px solid rgba(167,139,250,.4);border-radius:9px;overflow:hidden}
-  .mockbar .seg button{background:transparent;color:#CFC9E8;border:none;padding:6px 13px;font-size:12.5px;font-weight:700;cursor:pointer}
-  .mockbar .seg button.on{background:var(--grad);color:#fff}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+  .ico{width:22px;height:22px;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+  .grad-tx{background:linear-gradient(95deg,#EC4899,#8B5CF6,#3B82F6);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* pills */
+  .pill{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:999px}
+  .pill.live{color:#34d399;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.35)}
+  .pill.roll{color:#fcd34d;background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.35)}
+  .pill .d{width:6px;height:6px;border-radius:50%;background:currentColor}
+
   /* nav */
-  nav{position:sticky;top:0;z-index:50;background:rgba(18,14,38,.82);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
-  nav .brand{color:#fff}
-  .nav-in{display:flex;align-items:center;justify-content:space-between;height:66px}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;color:var(--purple-d)}
-  .logo{width:34px;height:34px;border-radius:9px;background:var(--grad);display:flex;align-items:center;justify-content:center}
-  .logo svg{width:18px;height:18px}
-  .nav-links{display:flex;align-items:center;gap:26px}
-  .nav-links a{font-size:14px;font-weight:600;color:#CFC9E8}
-  .nav-links a:hover{color:#fff}
-  .nav-cta{display:flex;align-items:center;gap:12px}
-  .nav-cta .signin{font-size:14px;font-weight:700;color:#E5E4F0}
-  @media(max-width:860px){.nav-links{display:none}}
-  /* hero */
-  .hero{position:relative;overflow:hidden;text-align:center;color:#fff;padding:96px 0 96px;background:#2a1550 url('/hero-bg.png') center top/cover no-repeat}
-  .poly{display:none}
-  .hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg, rgba(16,10,36,.30) 0%, rgba(16,10,36,.06) 30%, rgba(16,10,36,.14) 55%, rgba(28,12,46,.58) 100%)}
-  .hero .wrap{position:relative;z-index:2}
-  .hero .eyebrow{background:rgba(255,255,255,.14);color:#F0EAFF;text-transform:uppercase;letter-spacing:.16em;font-size:12px;font-weight:800}
-  .hero .grad-text{background:linear-gradient(135deg,#E9DEFF,#FCEBFF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-  .hero h1{font-size:clamp(38px,6.2vw,66px);font-weight:800;margin:24px auto 16px;max-width:920px;color:#fff;text-shadow:0 2px 34px rgba(8,5,26,.5)}
-  .hero .lead{font-size:clamp(17px,1.8vw,21px);margin:0 auto 14px;color:#EBE5FA;text-shadow:0 1px 18px rgba(8,5,26,.45)}
-  .play{width:62px;height:62px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;margin:20px 0 6px;box-shadow:0 14px 40px rgba(124,92,246,.55);cursor:pointer;transition:transform .15s}
-  .play:hover{transform:scale(1.06)}
-  .play svg{width:20px;height:20px;margin-left:3px;fill:#6D5DF6}
-  .hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:26px}
-  .hero .btn-ghost{background:rgba(255,255,255,.06);color:#fff;border:1.5px solid rgba(255,255,255,.35)}
-  .hero .btn-ghost:hover{border-color:#fff;color:#fff;background:rgba(255,255,255,.12)}
-  .microcopy{font-size:13px;color:#A79FD0;margin-top:18px}
-  .heroOpt{display:none}
-  .heroOpt.show{display:block}
-  /* why now */
-  .now-grid{grid-template-columns:repeat(3,1fr);margin-top:34px;text-align:left}
-  .now-card{position:relative;padding-top:30px}
-  .now-card .num{position:absolute;top:22px;right:24px;font-size:13px;font-weight:800;color:var(--purple);opacity:.5}
-  .now-grid h3{font-size:18px;font-weight:800;margin-bottom:7px}
-  .now-grid p{font-size:14.5px;color:var(--muted)}
-  .now-closer{margin-top:30px;font-size:clamp(16px,1.7vw,20px);font-weight:700;color:var(--ink);max-width:760px}
-  .now-closer .grad-text{font-weight:800}
+  nav{position:sticky;top:0;z-index:50;background:rgba(18,16,22,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .navin{display:flex;align-items:center;gap:26px;height:62px}
+  .logo{font-weight:800;font-size:18px;display:flex;align-items:center;gap:8px}
+  .logo .mk{width:22px;height:22px;border-radius:7px;background:linear-gradient(135deg,#EC4899,#3B82F6)}
+  .logo .lp{background:linear-gradient(90deg,#EC4899,#3B82F6);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .navlinks{display:flex;gap:22px;font-size:13.5px;color:var(--ink2);font-weight:500;margin-left:8px}
+  .navlinks a:hover{color:var(--ink)}
+  .navr{margin-left:auto;display:flex;align-items:center;gap:14px}
+  .nbtn{font-size:13px;font-weight:600;padding:8px 16px;border-radius:9px;border:1px solid var(--line2);background:var(--card2)}
+  .nbtn.grad{border:none;color:#fff;background:linear-gradient(95deg,#EC4899,#8B5CF6,#3B82F6);box-shadow:0 4px 16px rgba(139,92,246,.32)}
+
+  /* hero: real live nebula asset (do not replace) */
+  .hero{position:relative;overflow:hidden;padding:78px 0 92px;
+    background:#2a1550 url('/hero-bg.png') center top/cover no-repeat}
+  .hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(180deg, rgba(16,10,36,.30) 0%, rgba(16,10,36,.06) 30%, rgba(16,10,36,.16) 55%, rgba(28,12,46,.55) 100%)}
+  .brand-wordmark{height:20px;display:block}
+  .hero .wrap{position:relative;z-index:2;max-width:880px;text-align:center}
+  .kicker{display:inline-block;font-size:21px;font-weight:800;letter-spacing:-.01em;margin-bottom:16px}
+  .kicker .arr{font-size:14px;color:var(--ink2);font-weight:600;margin-left:7px}
+  .eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.18em;color:var(--ink2);text-transform:uppercase;margin-bottom:18px}
+  h1.hh{font-size:50px;line-height:1.08;font-weight:800;letter-spacing:-.025em;margin-bottom:18px}
+  .subh{font-size:17px;color:var(--ink2);max-width:640px;margin:0 auto 28px}
+  .cta-row{display:flex;gap:13px;justify-content:center;flex-wrap:wrap}
+  .cta{font-size:15px;font-weight:700;padding:13px 26px;border-radius:12px;cursor:pointer}
+  .cta.p{border:none;color:#fff;background:linear-gradient(95deg,#EC4899,#8B5CF6,#3B82F6);box-shadow:0 8px 26px rgba(139,92,246,.36)}
+  .cta.s{border:1px solid var(--line2);background:rgba(34,30,43,.7);color:var(--ink)}
+  .trust{font-size:12.5px;color:var(--muted);margin-top:20px}
+
+  /* sections */
+  section{padding:74px 0}
+  .sec-alt{background:var(--bg2)}
+  .sh{text-align:center;max-width:680px;margin:0 auto 44px}
+  .sh .tag{margin-bottom:14px}
+  .sh h2{font-size:33px;font-weight:800;letter-spacing:-.02em;margin-bottom:12px}
+  .sh p{font-size:16px;color:var(--ink2)}
+  .eyebrow-c{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--purple);margin-bottom:12px}
+
+  /* why now grid */
+  .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .why{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+  .why .n{font-size:12px;font-weight:800;color:var(--purple);margin-bottom:10px}
+  .why h3{font-size:16px;font-weight:700;margin-bottom:7px;letter-spacing:-.01em}
+  .why p{font-size:13px;color:var(--muted)}
+  .whyhero{grid-column:span 4;background:linear-gradient(120deg,rgba(236,72,153,.1),rgba(59,130,246,.08));border-color:var(--line2);text-align:center;padding:26px}
+  .whyhero h3{font-size:22px;margin-bottom:6px}
+  .whyhero p{font-size:14px;color:var(--ink2)}
+
+  /* day-1 reveal */
+  .reveal3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .rv{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;position:relative}
+  .rv .rh{display:flex;align-items:center;gap:9px;margin-bottom:14px}
+  .rv .rh .ttl{font-size:13.5px;font-weight:700}
+  .rv .big{font-size:30px;font-weight:800;letter-spacing:-.02em;color:#fff}
+  .rv .cap{font-size:12.5px;color:var(--ink2);margin-top:4px}
+  .rv .label{display:inline-block;font-size:10.5px;color:var(--teal);background:rgba(20,184,166,.1);border:1px solid rgba(20,184,166,.3);border-radius:7px;padding:3px 8px;margin-top:13px}
+  .illus{text-align:center;font-size:11.5px;color:var(--muted);margin-top:18px}
+  .quad{margin-top:10px;border:1px solid var(--line2);border-radius:10px;height:96px;position:relative;background:linear-gradient(135deg,rgba(139,92,246,.06),transparent)}
+  .quad .dot{position:absolute;border-radius:50%}
+  .quad .axis{position:absolute;background:var(--line2)}
+  .barwrap{display:flex;flex-direction:column;gap:7px;margin-top:6px}
+  .brow{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--ink2)}
+  .brow .bar{flex:1;height:7px;border-radius:99px;background:#2a2533;overflow:hidden}
+  .brow .bar>span{display:block;height:100%;border-radius:99px}
+
+  /* pillars */
+  .pillars{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .pillar{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px}
+  .pillar .pn{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);margin-bottom:12px}
+  .pillar h3{font-size:20px;font-weight:800;letter-spacing:-.015em;margin-bottom:10px}
+  .pillar p{font-size:14px;color:var(--ink2)}
+
+  /* zero-to-100 band */
+  .arc{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border:1px solid var(--line2);border-radius:18px;overflow:hidden}
+  .arcseg{padding:24px;position:relative;background:var(--card)}
+  .arcseg+.arcseg{border-left:1px solid var(--line)}
+  .arcseg .z{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:9px}
+  .arcseg h3{font-size:17px;font-weight:700;margin-bottom:10px;letter-spacing:-.01em}
+  .arcseg ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+  .arcseg li{font-size:12.5px;color:var(--ink2);display:flex;gap:8px}
+  .arcseg li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--purple);margin-top:7px;flex:none}
+  .arcband{height:5px;background:linear-gradient(90deg,#EC4899,#8B5CF6,#3B82F6)}
+
   /* loop */
-  .loop-row{display:flex;align-items:stretch;gap:14px;margin-top:38px;flex-wrap:wrap;justify-content:center}
-  .loop-step{flex:1;min-width:210px;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:22px;position:relative}
-  .loop-step .n{width:30px;height:30px;border-radius:9px;background:var(--wash2);color:var(--purple-d);font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
-  .loop-step h3{font-size:16px;font-weight:800;margin-bottom:5px}
-  .loop-step p{font-size:13.5px;color:var(--muted)}
-  .loop-tag{position:absolute;top:18px;right:18px;font-size:10.5px;font-weight:800;padding:3px 10px;border-radius:20px;letter-spacing:.04em;text-transform:uppercase}
-  .loop-tag.live{color:#5EE7C9;background:rgba(20,184,166,.18)}
-  .loop-tag.soon{color:#FBD27A;background:rgba(245,158,11,.2)}
-  .loop-arrow{display:flex;align-items:center;color:#6B5FA8;font-size:22px;font-weight:700}
-  @media(max-width:760px){.loop-arrow{transform:rotate(90deg)}}
-  /* proof / see your grade */
-  .proof-grid{grid-template-columns:1fr 1fr;gap:24px;margin-top:30px}
-  .scan-card{background:var(--ink);color:#fff;border-radius:var(--r-lg);padding:28px;position:relative;border:1px solid rgba(20,184,166,.35);box-shadow:0 0 0 1px rgba(20,184,166,.18),0 20px 50px rgba(10,30,28,.25)}
-  .scan-head{display:flex;align-items:center;gap:16px;margin-bottom:18px}
-  .scan-grade{width:64px;height:64px;border-radius:50%;border:3px solid var(--teal);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;color:#5EE7C9}
-  .scan-ex{position:absolute;top:16px;right:16px;font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#9FE9D8;background:rgba(20,184,166,.14);padding:3px 10px;border-radius:20px}
-  .scan-stats{display:flex;gap:26px;margin-top:6px;flex-wrap:wrap}
-  .scan-stats .v{font-size:20px;font-weight:800}
-  .scan-stats .l{font-size:11px;color:#9A9AA8;text-transform:uppercase;letter-spacing:.06em}
-  .scan-note{margin-top:16px;font-size:12px;color:#8E8EA0}
-  .founder p{font-size:15.5px;color:var(--ink2);font-style:italic;line-height:1.6}
-  .founder .who{margin-top:14px;font-style:normal;font-weight:700;font-size:14px}
-  .founder .who span{display:block;color:var(--muted);font-weight:500;font-size:13px}
-  @media(max-width:840px){.proof-grid{grid-template-columns:1fr}}
-  /* dock */
-  .dock-grid{grid-template-columns:1.1fr .9fr;align-items:center;gap:40px;margin-top:30px}
-  .hub{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:30px;text-align:center}
-  .hub-center{display:inline-flex;flex-direction:column;align-items:center;gap:8px;margin:8px 0 18px}
-  .hub-center .logo{width:54px;height:54px;border-radius:14px}
-  .hub-center .logo svg{width:28px;height:28px}
-  .hub-center b{font-size:15px}
-  .hub-center span{font-size:12px;color:var(--muted)}
-  .dock-chips{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  .dock-chip{display:flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:12px;padding:11px 13px;font-size:13px;font-weight:700;background:var(--wash)}
-  .dock-chip .d{width:8px;height:8px;border-radius:50%;background:var(--green)}
-  .dock-list{list-style:none}
-  .dock-list li{display:flex;gap:11px;align-items:flex-start;margin-bottom:14px;font-size:15px;color:var(--ink2)}
-  .dock-list .ck{color:var(--purple);font-weight:800;flex-shrink:0;margin-top:1px}
-  @media(max-width:840px){.dock-grid{grid-template-columns:1fr}}
+  .loop4{display:grid;grid-template-columns:repeat(4,1fr);gap:0;align-items:stretch}
+  .lp{background:var(--card);border:1px solid var(--line);padding:22px 18px;position:relative}
+  .lp:first-child{border-radius:16px 0 0 16px}.lp:last-child{border-radius:0 16px 16px 0}
+  .lp+.lp{border-left:none}
+  .lp .ln{font-size:11px;font-weight:800;color:var(--muted);margin-bottom:10px}
+  .lp h3{font-size:16px;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+  .lp p{font-size:12.5px;color:var(--muted);margin-bottom:12px}
+
+  /* agent tower */
+  .tower{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center}
+  .tower .moat{font-size:24px;font-weight:800;letter-spacing:-.015em;margin-bottom:14px}
+  .tower p{font-size:14.5px;color:var(--ink2);margin-bottom:14px}
+  .orbit{position:relative;width:100%;aspect-ratio:1/.82;max-width:430px;margin:0 auto}
+
+  /* automations week grid */
+  .mc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+  .week{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+  .day{background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:9px;min-height:96px}
+  .day .dn{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;margin-bottom:7px}
+  .ev{font-size:10px;font-weight:600;border-radius:6px;padding:4px 6px;margin-bottom:5px;line-height:1.25}
+  .ev.p{background:rgba(139,92,246,.16);color:#cbb6ff}
+  .ev.b{background:rgba(59,130,246,.14);color:#9fc3ff}
+  .ev.t{background:rgba(20,184,166,.14);color:#7fe0d3}
+
+  /* founder stack */
+  .stack{max-width:560px;margin:0 auto;background:var(--card);border:1px solid var(--line2);border-radius:20px;padding:26px;text-align:center}
+  .stack .price{font-size:44px;font-weight:800;letter-spacing:-.02em}
+  .stack .price small{font-size:16px;color:var(--muted);font-weight:600}
+  .stack .rows{text-align:left;margin:18px 0;display:flex;flex-direction:column;gap:1px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .srow{display:flex;align-items:center;gap:11px;background:var(--card2);padding:11px 14px;font-size:13px}
+  .srow .sp{margin-left:auto;font-weight:700}
+  .srow .sp.free{color:var(--green)}
+
   /* compounds */
-  .ben-grid{grid-template-columns:repeat(4,1fr);margin-top:34px}
-  .ben-grid .card{padding:22px}
-  .ben-grid h3{font-size:16px;font-weight:800;margin-bottom:6px}
-  .ben-grid p{font-size:13.5px;color:var(--muted)}
-  @media(max-width:920px){.ben-grid,.now-grid{grid-template-columns:1fr 1fr}}
-  @media(max-width:560px){.ben-grid,.now-grid{grid-template-columns:1fr}}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .comp{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+  .comp h3{font-size:16px;font-weight:700;margin:10px 0 7px}
+  .comp p{font-size:13px;color:var(--muted)}
+
   /* who */
-  .who-grid{grid-template-columns:repeat(3,1fr);margin-top:32px}
-  .who-grid h3{font-size:16px;font-weight:800;margin-bottom:6px}
-  .who-grid p{font-size:14px;color:var(--muted)}
-  @media(max-width:780px){.who-grid{grid-template-columns:1fr}}
-  /* status tags live/partial/roadmap */
-  .stag{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:20px;vertical-align:middle}
-  .stag.live{color:#0c7a5e;background:rgba(16,185,129,.16)}
-  .stag.partial{color:#9a6b1a;background:rgba(245,158,11,.16)}
-  .stag.road{color:#5848D6;background:rgba(139,92,246,.14)}
-  .sec-dark .stag.live{color:#6FCF9A;background:rgba(16,185,129,.2)}
-  .sec-dark .stag.partial{color:#FBD27A;background:rgba(245,158,11,.22)}
-  .sec-dark .stag.road{color:#C9B8FF;background:rgba(139,92,246,.24)}
-  /* See Your Number card */
-  .num-card{background:var(--ink);color:#fff;border-radius:var(--r-lg);padding:28px;border:1px solid rgba(20,184,166,.35);box-shadow:0 0 0 1px rgba(20,184,166,.16),0 20px 50px rgba(10,30,28,.22);position:relative}
-  .num-ex{position:absolute;top:16px;right:16px;font-size:10px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#9FE9D8;background:rgba(20,184,166,.14);padding:3px 10px;border-radius:20px}
-  .num-head{font-weight:800;font-size:14px;color:#cfeee8}
-  .num-big{font-size:36px;font-weight:800;color:#5EE7C9;margin:12px 0 2px;letter-spacing:-.02em}
-  .num-sub{font-size:13.5px;color:#B9C4C0}
-  .num-trust{margin-top:16px;display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:#9FE9D8;background:rgba(20,184,166,.1);border:1px solid rgba(20,184,166,.28);border-radius:20px;padding:6px 12px}
-  .num-trust .ring{width:13px;height:13px;border-radius:50%;background:conic-gradient(#14B8A6 83%,#2c3a37 0)}
-  /* persona "built for every seat" */
-  .roles-grid{grid-template-columns:repeat(2,1fr);margin-top:30px;text-align:left}
-  .role-card .rh{display:flex;align-items:center;gap:9px;margin-bottom:9px;flex-wrap:wrap}
-  .role-card .rh h3{font-size:16.5px;font-weight:800}
-  .role-card p{font-size:14px;color:var(--muted)}
-  .role-card .wedge{margin-top:10px;font-size:12.5px;font-weight:700;color:#C9B8FF}
-  @media(max-width:720px){.roles-grid{grid-template-columns:1fr}}
-  /* proof it works */
-  .science-card{max-width:580px;margin:28px auto 0;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:28px;text-align:center;box-shadow:0 12px 34px rgba(99,102,241,.07)}
-  .science-card .big{font-size:clamp(24px,3vw,32px);font-weight:800;color:var(--ink);letter-spacing:-.02em}
-  .science-card .lift{color:#0c9b75}
-  .science-card .ex{font-size:12px;color:var(--muted);margin-top:12px}
-  /* final CTA band */
-  .final-cta{background:var(--grad);color:#fff;text-align:center}
-  .final-cta .sec-eyebrow{color:#EADFFF}
-  .final-cta .h2,.final-cta p{color:#fff}
-  .final-cta .lead{color:#EFEAFF}
-  .final-cta .btn-ghost{background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.5)}
-  .final-cta .btn-ghost:hover{background:rgba(255,255,255,.2);border-color:#fff}
-  .final-cta .btn-primary{background:#fff;color:var(--purple-d);box-shadow:0 12px 30px rgba(8,5,26,.28)}
-  /* footer */
-  footer{border-top:1px solid var(--line);padding:46px 0 40px;background:var(--wash)}
-  .foot-in{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
-  .foot-col h4{font-size:13px;font-weight:800;margin-bottom:12px;color:var(--ink)}
-  .foot-col a{display:block;font-size:13.5px;color:var(--muted);margin-bottom:8px}
-  .foot-col a:hover{color:var(--purple-d)}
-  .foot-bottom{margin-top:34px;padding-top:20px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-  /* holo showcase */
-  .holo-overlay{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:24px;background:radial-gradient(circle at 50% 58%, rgba(46,24,104,.5), rgba(6,4,20,.9));backdrop-filter:blur(8px);perspective:1400px}
-  .holo-overlay.open{display:flex}
-  .holo{position:relative;width:min(880px,94vw);border-radius:22px;overflow:hidden;background:linear-gradient(160deg,rgba(40,28,92,.5),rgba(18,12,42,.62));border:1px solid rgba(167,139,250,.5);box-shadow:0 0 0 1px rgba(124,92,246,.3),0 30px 90px rgba(10,4,40,.6),0 0 70px rgba(124,92,246,.45),inset 0 0 70px rgba(124,92,246,.1);backdrop-filter:blur(16px);transform-origin:50% 100%;animation:holoIn .55s cubic-bezier(.2,.9,.25,1.15)}
-  @keyframes holoIn{0%{opacity:0;transform:translateY(46px) scale(.84) rotateX(20deg)}100%{opacity:1;transform:none}}
-  .holo::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:3;background:repeating-linear-gradient(0deg,rgba(167,139,250,.06) 0 1px,transparent 1px 4px);mix-blend-mode:screen}
-  .holo::after{content:"";position:absolute;top:0;left:0;right:0;height:2px;z-index:4;background:linear-gradient(90deg,transparent,rgba(214,200,255,.95),transparent)}
-  .holo-close{position:absolute;top:12px;right:14px;z-index:8;width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;font-size:15px;cursor:pointer;backdrop-filter:blur(4px)}
-  .holo-close:hover{background:rgba(255,255,255,.18)}
-  .holo-view{overflow:hidden;border-radius:22px;position:relative;z-index:2}
-  .holo-track{display:flex;transition:transform .5s ease}
-  .holo-slide{min-width:100%;box-sizing:border-box;padding:54px 44px 30px;color:#fff;text-align:center}
-  .holo-eyebrow{display:inline-block;text-transform:uppercase;letter-spacing:.18em;font-size:11.5px;font-weight:800;color:#C9B8FF;background:rgba(167,139,250,.16);padding:5px 14px;border-radius:30px}
-  .holo-slide h3{font-size:clamp(21px,3vw,30px);font-weight:800;margin:14px 0 8px;letter-spacing:-.02em;color:#fff}
-  .holo-slide>p{color:#D2CCEC;font-size:14.5px;max-width:540px;margin:0 auto 22px}
-  .holo-visual{background:rgba(255,255,255,.05);border:1px solid rgba(167,139,250,.3);border-radius:16px;padding:26px;max-width:560px;margin:0 auto;box-shadow:inset 0 0 40px rgba(124,92,246,.12)}
-  .hv-row{display:flex;align-items:center;gap:26px;justify-content:center;flex-wrap:wrap}
-  .hv-grade{width:78px;height:78px;border-radius:50%;border:3px solid rgba(239,68,68,.55);display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:26px;font-weight:800;color:#FF8C8C}
-  .hv-grade span{font-size:12px;color:#B7AEDA;font-weight:600}
-  .hv-stats{display:flex;gap:22px}
-  .hv-stats div{text-align:center}
-  .hv-stats b{display:block;font-size:19px;font-weight:800}
-  .hv-stats span{font-size:10.5px;color:#9A93C4;text-transform:uppercase;letter-spacing:.05em}
-  .hv-chead{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
-  .hv-pill{font-size:10.5px;font-weight:700;color:#C9B8FF;background:rgba(139,92,246,.25);padding:3px 10px;border-radius:20px;letter-spacing:.04em}
-  .hv-live{font-size:11px;color:#7DF0CE}
-  .hv-lines{display:flex;flex-direction:column;gap:9px;align-items:stretch}
-  .hv-lines span{height:9px;border-radius:6px;background:linear-gradient(90deg,rgba(167,139,250,.55),rgba(99,102,241,.25))}
-  .hv-foot{margin-top:14px;font-size:11.5px;color:#9A93C4;text-align:left}
-  .hv-score{font-size:48px;font-weight:800;color:#7DF0CE}
-  .hv-score span{font-size:22px;color:#B7AEDA}
-  .hv-big{font-size:46px;font-weight:800}
-  .hv-sub{font-size:13px;color:#CFC9E8;margin-top:8px}
-  .hv-ex{font-size:11px;color:#9A93C4;margin-top:10px;text-transform:uppercase;letter-spacing:.05em}
-  .hv-dock{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-  .hv-dock span{font-size:12px;font-weight:700;color:#E4DBFF;background:rgba(255,255,255,.08);border:1px solid rgba(167,139,250,.3);padding:8px 14px;border-radius:10px}
-  .holo-foot{display:flex;align-items:center;justify-content:center;gap:18px;padding:6px 0 26px;position:relative;z-index:5}
-  .holo-dots{display:flex;gap:8px}
-  .holo-dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);cursor:pointer;transition:all .2s}
-  .holo-dots i.on{background:#C4B5FD;width:22px;border-radius:5px}
-  .holo-arrow{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.06);color:#fff;cursor:pointer;font-size:16px}
-  .holo-arrow:hover{background:rgba(255,255,255,.16)}
-  img.logo{background:none !important;object-fit:contain;padding:0}
-  nav .brand .logo{width:30px;height:30px}
-  .brand .brand-wordmark{height:22px;width:auto;display:inline-block;vertical-align:middle}
+  .who{background:linear-gradient(120deg,rgba(139,92,246,.1),rgba(59,130,246,.06));border:1px solid var(--line2);border-radius:20px;padding:36px;text-align:center}
+  .who h2{font-size:30px;font-weight:800;letter-spacing:-.02em;margin-bottom:12px}
+  .who p{font-size:15px;color:var(--ink2);max-width:660px;margin:0 auto 8px}
+
+  /* final cta */
+  .final{text-align:center;padding:84px 0;background:
+    radial-gradient(700px 360px at 50% 0%, rgba(139,92,246,.22), transparent 60%),var(--bg2)}
+  .final h2{font-size:38px;font-weight:800;letter-spacing:-.025em;margin-bottom:14px}
+  .final p{font-size:16px;color:var(--ink2);margin-bottom:26px}
+
+  footer{border-top:1px solid var(--line);padding:40px 0;background:var(--bg)}
+  .foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:24px}
+  .foot h4{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:13px}
+  .foot a{display:block;font-size:13px;color:var(--ink2);margin-bottom:9px}
+  .foot a:hover{color:var(--ink)}
+
+  @media (max-width:880px){.grid4,.reveal3,.pillars,.arc,.loop4,.tower,.grid3,.week,.foot{grid-template-columns:1fr}.navlinks{display:none}h1.hh{font-size:36px}}
 </style>
 </head>
 <body>
 
-<!-- CTAs -> the live app at provenloop.ai (cutover complete 2026-06-14). UTMs per marketing-ops/utm-tagging-scheme.md. -->
-<!-- NAV -->
+<!-- icon sprite (Style B) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="aig" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EC4899"/><stop offset=".5" stop-color="#A855F7"/><stop offset="1" stop-color="#3B82F6"/></linearGradient></defs>
+  <symbol id="pl-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="currentColor" fill-opacity=".12" stroke="none"/><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="pl-history" viewBox="0 0 24 24"><path d="M3.5 9A9 9 0 1 1 4 14" fill="none" stroke="currentColor"/><path d="M3.5 4v5h5M12 7v5l3.5 2" fill="none" stroke="currentColor"/></symbol>
+  <symbol id="pl-file-text" viewBox="0 0 24 24"><path d="M6 3h8l5 5v12a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" fill="currentColor" fill-opacity=".16" stroke="none"/><path d="M6 3h8l5 5v12a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v5h5M8.5 13h7M8.5 16.5h7" fill="none" stroke="currentColor"/></symbol>
+  <symbol id="pl-zap" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z" fill="currentColor" fill-opacity=".18" stroke="none"/><path d="M13 2 4 14h7l-1 8 9-12h-7z" fill="none" stroke="currentColor"/></symbol>
+  <symbol id="pl-graduation-cap" viewBox="0 0 24 24"><path d="M12 4 2 9l10 5 10-5z" fill="currentColor" fill-opacity=".18" stroke="none"/><path d="M12 4 2 9l10 5 10-5z" fill="none" stroke="currentColor"/><path d="M6 11v5c0 1.1 2.7 2.5 6 2.5s6-1.4 6-2.5v-5M22 9v5" fill="none" stroke="currentColor"/></symbol>
+  <symbol id="pl-trending-up" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M16 7h5v5" fill="none" stroke="currentColor"/></symbol>
+  <symbol id="pl-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="currentColor" fill-opacity=".18" stroke="none"/><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor"/><path d="M8.2 12.3l2.6 2.6 5-5.4" fill="none" stroke="currentColor"/></symbol>
+  <symbol id="pl-sparkles" viewBox="0 0 24 24"><path d="M12 3l1.9 4.9L18.8 9.7l-4.9 1.4L12 16l-1.9-4.9L5.2 9.7l4.9-1.4z" fill="url(#aig)" fill-opacity=".18" stroke="url(#aig)" stroke-width="1.75" stroke-linejoin="round"/><path d="M19 13l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z" fill="none" stroke="url(#aig)" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+  <symbol id="pl-bot" viewBox="0 0 24 24"><rect x="4" y="7.5" width="16" height="11.5" rx="3.2" fill="url(#aig)" fill-opacity=".16" stroke="url(#aig)" stroke-width="1.75"/><path d="M12 4.2V7.5M8.6 12.4h.01M15.4 12.4h.01M9.5 16h5" fill="none" stroke="url(#aig)" stroke-width="1.75" stroke-linecap="round"/></symbol>
+  <symbol id="pl-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.4" fill="currentColor" fill-opacity=".18" stroke="none"/><circle cx="9" cy="8" r="3.4" fill="none" stroke="currentColor"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0M16 5.2a3.4 3.4 0 0 1 0 6.4M17.5 14.5A5.5 5.5 0 0 1 20.5 20" fill="none" stroke="currentColor"/></symbol>
+</svg>
+
 <nav>
-  <div class="wrap nav-in">
-    <div class="brand">
-      <img class="logo" src="/favicon.svg" alt="" aria-hidden="true" />
-      <img class="brand-wordmark" src="/provenloop-wordmark-dark.png" alt="ProvenLoop" />
-    </div>
-    <div class="nav-links">
-      <a href="#now">Why now</a>
-      <a href="#loop">The loop</a>
-      <a href="#proof">See your number</a>
-      <a href="#roles">Every role</a>
-      <a href="#dock">Agent Dock</a>
-    </div>
-    <div class="nav-cta">
-      <a class="signin" href="https://provenloop.ai/login">Sign In</a>
-      <a class="btn btn-primary" href="https://provenloop.ai/signup?utm_source=provenloop-site&amp;utm_medium=referral&amp;utm_campaign=site-launch">Try the Demo</a>
-    </div>
+  <div class="wrap navin">
+    <a class="logo" href="/"><img src="/favicon.svg" alt="" aria-hidden="true" style="width:26px;height:26px" /><img class="brand-wordmark" src="/provenloop-wordmark-dark.png" alt="ProvenLoop" /></a>
+    <div class="navlinks"><a href="#loop">Product</a><a href="#roles">For every role</a><a href="#tower">LoopOps</a><a href="#stack">Pricing</a></div>
+    <div class="navr"><a href="https://provenloop.ai/login" style="font-size:13px;color:var(--ink2)">Sign In</a><a class="nbtn grad" href="https://provenloop.ai/signup?utm_source=provenloop-site&amp;utm_medium=referral&amp;utm_campaign=site-launch">Try the Demo</a></div>
   </div>
 </nav>
 
-<!-- 1 · HERO (A/B togglable) -->
+<!-- 1. HERO -->
 <header class="hero">
-  <canvas class="poly" aria-hidden="true"></canvas>
   <div class="wrap">
-    <!-- HERO — Option A (locked, Dan rev 143) -->
-    <div>
-      <span class="eyebrow">Where your humans and agents get better together</span>
-      <h1><span class="grad-text">Co-learning</span><br />for<br />Human+Agent<br />Revenue Teams</h1>
-      <p class="lead" style="margin-top:8px">Your pipeline is leaking deals you can't see. ProvenLoop finds the leak in 30 seconds — in dollars, naming the deals — then runs the whole loop to fix it: generate the play from your real deals, confirm the rep learned it, tie it to pipeline. One tool a manager actually uses.</p>
+    <a href="#tower" class="kicker grad-tx">Selling is the new moat.<span class="arr" style="-webkit-text-fill-color:initial">read why &rarr;</span></a>
+    <div class="eyebrow">The revenue platform for startups going from zero to 100</div>
+    <h1 class="hh">Run enablement like a big revenue org.<br>With the team you have today.</h1>
+    <p class="subh">ProvenLoop takes you from your first closed deals to Series C scale, and lets a small team operate like a large enablement organization the whole way.</p>
+    <div class="cta-row">
+      <a class="cta p" href="https://provenloop.ai/signup?utm_source=provenloop-site&amp;utm_medium=referral&amp;utm_campaign=site-launch">Try the Demo</a>
+      <a class="cta s" href="#loop">See how the loop works</a>
     </div>
-    <!-- shared -->
-    <a class="play" href="#" id="heroPlay" aria-label="Watch the platform showcase"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></a>
-    <div class="hero-cta">
-      <a class="btn btn-primary" href="https://provenloop.ai/signup?utm_source=provenloop-site&amp;utm_medium=referral&amp;utm_campaign=site-launch">Try the Demo →</a>
-      <a class="btn btn-ghost" href="https://provenloop.ai/login">Sign In</a>
-    </div>
-    <p class="microcopy">No implementation team. No multi-month rollout. Grounded in your real CRM, calls, and docs.</p>
+    <div class="trust">Connect your CRM and see your own ICP, losses, and content gaps in about 10 minutes. No setup project.</div>
   </div>
 </header>
 
-<!-- 2 · WHY NOW -->
-<section id="now" class="sec-light dots">
-  <div class="wrap center">
-    <div class="sec-eyebrow">Why now</div>
-    <h2 class="h2">Three things just changed — and they're costing you now.</h2>
-    <p class="lead">You don't have an enablement department, the enterprise suites are the wrong shape and price, and your pipeline is leaking quietly. Doing nothing has a number.</p>
-    <div class="grid now-grid">
-      <div class="card now-card">
-        <span class="num">01</span>
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="12" rx="2"/><path d="M2 20h20"/><path d="M9 9h.01M15 9h.01M9.5 13h5"/></svg></div>
-        <h3>You deployed AI; nobody's measuring it</h3>
-        <p>You've added copilots and AI SDRs that act on your live deals. Nothing coordinates them, proves they help, or governs what they touch.</p>
-      </div>
-      <div class="card now-card">
-        <span class="num">02</span>
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18"/><path d="M2 22h20"/><path d="M10 6h.01M10 10h.01M10 14h.01M14 6h.01M14 10h.01M14 14h.01"/></svg></div>
-        <h3>Legacy suites are built for the wrong company</h3>
-        <p>Gong, Highspot, Mindtickle assume a big team, a multi-month rollout, and an enterprise budget. Below ~200 reps that's a Ferrari to the grocery store.</p>
-      </div>
-      <div class="card now-card">
-        <span class="num">03</span>
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 7l-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></svg></div>
-        <h3>The bar went up; the headcount didn't</h3>
-        <p>You're expected to hit a bigger number with the same lean team — no RevOps hire, no enablement department coming. The gap gets closed by a manager and a fleet of agents, or it doesn't get closed.</p>
-      </div>
-    </div>
-    <p class="now-closer center" style="margin-left:auto;margin-right:auto">ProvenLoop is the opposite of all three: <span class="grad-text">one simple loop, lean-team-priced, that you own</span> — and it shows you the dollars on the line today.</p>
-  </div>
-</section>
-
-<!-- 3 · THE LOOP -->
-<section id="loop" class="sec-dark">
-  <div class="wrap center">
-    <div class="sec-eyebrow">The loop</div>
-    <h2 class="h2">One closed loop, on your real data.</h2>
-    <p class="lead">Diagnose the gap, generate the fix, confirm the rep actually learned it, and measure the dollars it moved — then start again, smarter.</p>
-    <div class="loop-row">
-      <div class="loop-step">
-        <div class="loop-tag live">live</div>
-        <div class="n">1</div>
-        <h3>Diagnose</h3>
-        <p>System Scan reads your CRM + calls and grades your revenue health — flagging the deals and gaps at risk, in dollars.</p>
-      </div>
-      <div class="loop-arrow">→</div>
-      <div class="loop-step">
-        <div class="loop-tag live">live</div>
-        <div class="n">2</div>
-        <h3>Generate</h3>
-        <p>The agent drafts the enablement — battlecards, talk tracks, coaching — grounded in your real deals, in seconds.</p>
-      </div>
-      <div class="loop-arrow">→</div>
-      <div class="loop-step">
-        <div class="loop-tag soon">rolling out</div>
-        <div class="n">3</div>
-        <h3>Prove it landed</h3>
-        <p>A short knowledge-check confirms the rep absorbed it — so you know it stuck, not just that it was sent.</p>
-      </div>
-      <div class="loop-arrow">→</div>
-      <div class="loop-step">
-        <div class="loop-tag soon">rolling out</div>
-        <div class="n">4</div>
-        <h3>Measure the $</h3>
-        <p>Pipeline Saved is built to tie the behavior change back to revenue — measured before/after, not assumed.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 4 · SEE YOUR NUMBER (proof — real dollars, no letter) -->
-<section id="proof" class="sec-light dots">
+<!-- 2. WHY NOW -->
+<section>
   <div class="wrap">
-    <div class="center">
-      <div class="sec-eyebrow">See your number</div>
-      <h2 class="h2">Run it on your real pipeline — see the dollars on the line.</h2>
-      <p class="lead">Connect your CRM and ProvenLoop scores your revenue health on live data — the dollars recoverable, the share of pipeline at risk, the gaps to fix. Computed on your CRM, not benchmarks.</p>
-    </div>
-    <div class="grid proof-grid">
-      <div class="num-card">
-        <span class="num-ex">Example output</span>
-        <div class="num-head">System Scan · live · your numbers, your deals</div>
-        <div class="num-big">$120K still recoverable</div>
-        <div class="num-sub">32% of your $1.4M open pipeline at risk · 3 data gaps to fix</div>
-        <div class="num-trust"><span class="ring"></span> Based on 83%-complete data — see exactly what's missing →</div>
-        <div class="scan-note" style="margin-top:14px">Illustrative — your real scan runs on your own connected pipeline. No letter grade; real dollars.</div>
+    <div class="sh"><div class="eyebrow-c">Why now</div><h2>The window to figure out your motion got short</h2></div>
+    <div class="grid4">
+      <div class="whyhero">
+        <h3 class="grad-tx">You have 18 to 24 months, not years.</h3>
+        <p>Companies used to have years to slowly figure out who buys and why deals are lost. Now the clock is compressed, and falling behind on your motion is an existential speed risk, not a maturity nice-to-have.</p>
       </div>
-      <div class="card founder">
-        <span class="badge-note">Founder story</span>
-        <p>“We run our own company this way — a tiny human team orchestrating a fleet of agents. ProvenLoop is the system we built to measure and coordinate that. We're the prototype customer.”</p>
-        <div class="who">Dan Hughes<span>Founder, ProvenLoop</span></div>
-      </div>
+      <div class="why"><div class="n">01</div><h3>7 to 10 entrants</h3><p>A category you may have created now has a crowd in it. Standing still is losing ground.</p></div>
+      <div class="why"><div class="n">02</div><h3>Building collapsed</h3><p>The cost to build a competing product fell through the floor. The product is no longer the moat.</p></div>
+      <div class="why"><div class="n">03</div><h3>Live in weeks</h3><p>A new competitor can be in market in weeks. The advantage goes to whoever sells smarter, faster.</p></div>
+      <div class="why"><div class="n">04</div><h3>Same gaps, every size</h3><p>Wrong ICP, no learning from losses, a library full of holes. It happens at 14 people and at 800.</p></div>
     </div>
   </div>
 </section>
 
-<!-- 5 · BUILT FOR EVERY SEAT (persona section) -->
-<section id="roles" class="sec-dark">
-  <div class="wrap center">
-    <div class="sec-eyebrow">Built for every role</div>
-    <h2 class="h2">One loop, the right view for every role.</h2>
-    <p class="lead">From the rep logging a deal to the leader reading the number — each role gets exactly what they need, and nothing they don't.</p>
-    <div class="grid roles-grid">
-      <div class="card role-card">
-        <div class="rh"><h3>RevOps</h3><span class="stag live">live</span></div>
-        <p><b style="color:#fff">Messy data isn't a blocker — it's what your first scan is for.</b> Your first System Scan grades your CRM 0–100 and turns every gap — duplicate owners, missing close dates, unmapped stages — into a prioritized to-do, each tagged with what fixing it unlocks. You don't clean up to use ProvenLoop; ProvenLoop is how you clean up.</p>
-      </div>
-      <div class="card role-card">
-        <div class="rh"><h3>Sales leaders</h3><span class="stag live">live</span></div>
-        <p>Real dollars, and proof of what works. See recoverable pipeline and what's at risk — in dollars, attributed to the real deal owner — with every rep's focus and at-risk deals on one surface. No letter grade, no black box.</p>
-      </div>
-      <div class="card role-card">
-        <div class="rh"><h3>Sales reps</h3><span class="stag live">live</span><span class="stag partial">view rolling out</span></div>
-        <p>Your book, your three priorities, an agent that talks to you as a seller. A rep logs in and sees their pipeline, their three priorities today, their work items — not the team's fifty. The agent speaks to you about your own deals.</p>
-        <div class="wedge">Manager-simple — one focused view, not another overwhelming dashboard.</div>
-      </div>
-      <div class="card role-card">
-        <div class="rh"><h3>Your agents</h3><span class="stag road">coming</span></div>
-        <p>Measure what your AI agents recover, alongside your humans. As you connect your BDR and outreach agents, ProvenLoop is built to measure agent-vs-human efficacy on real deal outcomes — so you can see which is the better play, by the dollar.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 6 · PROOF IT WORKS (loop-science beat) -->
-<section id="science" class="sec-light dots">
-  <div class="wrap center">
-    <div class="sec-eyebrow">Proof it works <span class="stag partial">rolling out</span></div>
-    <h2 class="h2">We measure lift over doing nothing — and grade our own forecasts.</h2>
-    <p class="lead">Most tools credit a play for deals that would've recovered anyway. ProvenLoop compares every fix against the deals you didn't touch — so the number is a real effect, not noise. Then it forecasts each loop's outcome and grades itself against what really happened.</p>
-    <div class="science-card">
-      <div class="big">Loops like this recover <span class="lift">$132K–$154K</span><br />— a <span class="lift">+28-point lift</span> over doing nothing.</div>
-      <div class="ex">Example — rolling out with our first cohort. Your real numbers appear as your loops mature.</div>
-    </div>
-  </div>
-</section>
-
-<!-- 5 · AGENT DOCK -->
-<section id="dock" class="sec-dark">
+<!-- 3. DAY-1 REVEAL -->
+<section class="sec-alt" id="reveal">
   <div class="wrap">
-    <div class="center">
-      <div class="sec-eyebrow">New · Agent Dock</div>
-      <h2 class="h2">Dock your agents. They learn alongside your humans — under your control.</h2>
-      <p class="lead">Your CRM copilot, your AI SDRs, your custom GPTs — plug them into ProvenLoop over a standard protocol. They read your accumulated outcome data and act through your tools, under scopes you control. Finally, one place that measures <em>and governs</em> the blended team.</p>
+    <div class="sh">
+      <div class="tag"><span class="pill live"><span class="d"></span>Live</span></div>
+      <h2>Connect your CRM. See the truth in 10 minutes.</h2>
+      <p>Before you change anything, ProvenLoop reads your own deals and shows you three things you have never seen this clearly. Every number comes from your data, not a projection.</p>
     </div>
-    <div class="grid dock-grid">
-      <div class="hub">
-        <div class="hub-center">
-          <img class="logo" src="/favicon.svg" alt="ProvenLoop" />
-          <b>ProvenLoop</b>
-          <span>the revenue co-learning hub</span>
+    <div class="reveal3">
+      <div class="rv">
+        <div class="rh"><svg class="ico" style="color:var(--purple)"><use href="#pl-target"/></svg><span class="ttl">Your real ICP</span></div>
+        <div class="big">Mid-Market SaaS</div>
+        <div class="cap">is where you actually win, not the Enterprise you target.</div>
+        <div class="quad">
+          <div class="axis" style="left:50%;top:8%;bottom:8%;width:1px"></div>
+          <div class="axis" style="top:50%;left:8%;right:8%;height:1px"></div>
+          <div class="dot" style="width:22px;height:22px;left:24%;top:26%;background:rgba(16,185,129,.7)"></div>
+          <div class="dot" style="width:13px;height:13px;left:62%;top:60%;background:rgba(239,68,68,.6)"></div>
+          <div class="dot" style="width:9px;height:9px;left:70%;top:34%;background:rgba(245,158,11,.6)"></div>
         </div>
-        <div class="dock-chips">
-          <div class="dock-chip"><span class="d"></span>CRM copilot</div>
-          <div class="dock-chip"><span class="d"></span>AI SDR</div>
-          <div class="dock-chip"><span class="d"></span>Custom GPT</div>
-          <div class="dock-chip"><span class="d"></span>Partner agent</div>
+        <div class="label">from your own won and lost deals</div>
+      </div>
+      <div class="rv">
+        <div class="rh"><svg class="ico" style="color:var(--amber)"><use href="#pl-history"/></svg><span class="ttl">The retrospective</span></div>
+        <div class="big">$120K</div>
+        <div class="cap">recoverable, from deals that slipped past close last year.</div>
+        <div style="margin-top:14px;font-size:12px;color:var(--ink2);line-height:1.7">
+          <div>At risk now: <b style="color:#fff">32%</b> of your $1.4M open pipeline</div>
+          <div>Most common reason: no next step booked</div>
         </div>
+        <div class="label">read from your own deal history, not a projection</div>
       </div>
-      <div>
-        <ul class="dock-list">
-          <li><span class="ck">→</span> Your whole AI stack gets ProvenLoop-smart — every agent can query competency, Pipeline Saved, and deal-grounded context.</li>
-          <li><span class="ck">→</span> Docked agents contribute signals back, so the outcome record gets richer the more you connect.</li>
-          <li><span class="ck">→</span> Per-agent scopes, approval to dock, full audit, one-click kill switch — governance a CRO can sign off on.</li>
-          <li><span class="ck">→</span> The more of your stack docks in, the more ProvenLoop becomes the connective tissue of your revenue org.</li>
-        </ul>
-        <span class="badge-note badge-soon">Rolling out with our first cohort</span>
+      <div class="rv">
+        <div class="rh"><svg class="ico" style="color:var(--blue)"><use href="#pl-file-text"/></svg><span class="ttl">Your content map</span></div>
+        <div class="big">83% complete</div>
+        <div class="cap">your library has holes where customers need it most.</div>
+        <div class="barwrap">
+          <div class="brow"><span style="width:78px">Discovery</span><span class="bar"><span style="width:92%;background:var(--green)"></span></span></div>
+          <div class="brow"><span style="width:78px">Pricing</span><span class="bar"><span style="width:38%;background:var(--amber)"></span></span></div>
+          <div class="brow"><span style="width:78px">Competitive</span><span class="bar"><span style="width:24%;background:var(--red)"></span></span></div>
+          <div class="brow"><span style="width:78px">Negotiation</span><span class="bar"><span style="width:60%;background:var(--amber)"></span></span></div>
+        </div>
+        <div class="label">mapped from your pipeline against your library</div>
+      </div>
+    </div>
+    <div class="illus">Figures shown are illustrative. Your reveal is built from your own connected data.</div>
+  </div>
+</section>
+
+<!-- 4. SMALL TEAM, BIG-FIRM ENABLEMENT -->
+<section>
+  <div class="wrap">
+    <div class="sh"><div class="eyebrow-c">The core</div><h2>A small team. The enablement of a large firm.</h2><p>A big company runs a whole enablement department. A startup has a founder and a few reps wearing every hat. ProvenLoop gives you the department.</p></div>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pn">Pillar 1</div>
+        <h3>Operate like a large enablement org</h3>
+        <p>Someone to own your ICP, run win and loss, build the content library, ramp new hires. You get that entire function in one platform, run by a manager and a fleet of agents. The output of a large enablement org, without the headcount.</p>
+      </div>
+      <div class="pillar">
+        <div class="pn">Pillar 2</div>
+        <h3>Onboard new roles the right way, not the deep end</h3>
+        <p>Most startups hand a new rep a login and a quota and hope. ProvenLoop builds the ramp from your own winning deals: who buys, what works, the real objections, the content they need, and a knowledge check that proves they absorbed it before they touch a live deal.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 6 · WHY IT COMPOUNDS -->
-<section class="sec-light dots">
-  <div class="wrap center">
-    <div class="sec-eyebrow">Why it compounds</div>
-    <h2 class="h2">Built so the team gets better every month.</h2>
-    <div class="grid ben-grid">
-      <div class="card">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3>Do more with a smaller team</h3>
-        <p>One manager + a fleet of agents covers what used to take a whole enablement org.</p>
+<!-- 5. ZERO-TO-100 ARC -->
+<section class="sec-alt">
+  <div class="wrap">
+    <div class="sh"><div class="eyebrow-c">The arc</div><h2>Zero to 100, on one platform</h2><p>What is live now, what is rolling out, and where it goes. The brand and the honest status line are the same line.</p></div>
+    <div class="arc">
+      <div class="arcseg">
+        <div class="arcband" style="position:absolute;top:0;left:0;right:0"></div>
+        <div class="z grad-tx">Zero</div>
+        <span class="pill live"><span class="d"></span>Live today</span>
+        <h3 style="margin-top:12px">The day-one reveal</h3>
+        <ul><li>Learn your real ICP from who actually bought</li><li>Understand what failed, from your own losses</li><li>See your content gaps across the cycle</li></ul>
       </div>
-      <div class="card">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 7l-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></svg></div>
-        <h3>Compounding by design</h3>
-        <p>Every outcome feeds the next recommendation — month 6 is meant to be sharper than month 1.</p>
+      <div class="arcseg">
+        <div class="z" style="color:var(--ink2)">One to ten</div>
+        <span class="pill live"><span class="d"></span>Live / rolling out</span>
+        <h3 style="margin-top:12px">The loop and onboarding</h3>
+        <ul><li>Generate the fix, prove the rep learned it</li><li>Onboard new roles on the proven playbook</li><li>Automations run the standing work on a schedule</li></ul>
       </div>
-      <div class="card">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/></svg></div>
-        <h3>Measured, not assumed</h3>
-        <p>Pipeline Saved is built to tie enablement to real before/after dollars — you see what worked.</p>
-      </div>
-      <div class="card">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/></svg></div>
-        <h3>Knowledge survives churn</h3>
-        <p>Competency and context live in the system, not in the rep who just left.</p>
+      <div class="arcseg">
+        <div class="z" style="color:var(--muted)">Ten to 100</div>
+        <span class="pill roll"><span class="d"></span>Rolling out</span>
+        <h3 style="margin-top:12px">Scale</h3>
+        <ul><li>The Agent Tower makes every connected agent smarter</li><li>Per-role views, compounding outcomes</li><li>Knowledge that survives churn</li></ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 7 · WHO IT'S FOR -->
-<section id="who" class="sec-dark">
-  <div class="wrap center">
-    <div class="sec-eyebrow">Who it's for</div>
-    <h2 class="h2">Lean revenue orgs running a human + agent model.</h2>
-    <p class="lead">Built for teams the enterprise suites won't price down to — and that don't want a multi-month rollout.</p>
-    <div class="grid who-grid">
-      <div class="card">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><path d="M2 13h20"/></svg></div>
-        <h3>Mid-market B2B SaaS</h3>
-        <p>~20–100 reps, manager-led enablement, no dedicated enablement department.</p>
-      </div>
-      <div class="card">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/><circle cx="10" cy="11" r="1"/><circle cx="14" cy="11" r="1"/></svg></div>
-        <h3>Already AI-augmenting</h3>
-        <p>You've added copilots and AI SDRs and need one place to coordinate + measure them.</p>
-      </div>
-      <div class="card">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2"/><path d="M16 12a2 2 0 0 0 0 4h5v-4z"/></svg></div>
-        <h3>Can't-afford / don't-fit the enterprise suites</h3>
-        <p>You want the loop without the enterprise price tag, services fee, or rollout slog.</p>
+<!-- 6. THE LOOP -->
+<section id="loop">
+  <div class="wrap">
+    <div class="sh"><div class="eyebrow-c">How it works</div><h2>The loop that closes</h2><p>Diagnose what is wrong, generate the fix, prove the team learned it, measure what it moved. Then do it again.</p></div>
+    <div class="loop4">
+      <div class="lp"><div class="ln">01</div><h3><svg class="ico" style="color:var(--purple)"><use href="#pl-target"/></svg>Diagnose</h3><p>Read your CRM and pipeline. Find the gap that is costing you.</p><span class="pill live"><span class="d"></span>Live</span></div>
+      <div class="lp"><div class="ln">02</div><h3><svg class="ico" style="color:var(--purple)"><use href="#pl-file-text"/></svg>Generate</h3><p>Build the content, course, or playbook from what your wins prove.</p><span class="pill live"><span class="d"></span>Live</span></div>
+      <div class="lp"><div class="ln">03</div><h3><svg class="ico" style="color:var(--amber)"><use href="#pl-graduation-cap"/></svg>Prove</h3><p>Assign it, and a knowledge check confirms the rep actually absorbed it.</p><span class="pill roll"><span class="d"></span>Rolling out</span></div>
+      <div class="lp"><div class="ln">04</div><h3><svg class="ico" style="color:var(--amber)"><use href="#pl-trending-up"/></svg>Measure</h3><p>Track what moved. Pipeline Saved closes the loop back to revenue.</p><span class="pill roll"><span class="d"></span>Rolling out</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. AGENT TOWER -->
+<section class="sec-alt" id="tower">
+  <div class="wrap tower">
+    <div>
+      <span class="pill roll"><span class="d"></span>Rolling out</span>
+      <div class="moat grad-tx" style="margin-top:14px">Selling is the new moat.</div>
+      <p>The product stopped being the moat. How well you sell is the moat now. The Agent Tower puts ProvenLoop on top of every agentic platform you run, so your CRM, outreach, and call agents all get smarter on what actually closes.</p>
+      <p>Connect Apollo, HeyReach, HubSpot Breeze, Gong. ProvenLoop sits in the center as the brain, feeding every agent your real ICP, your won and lost patterns, your proven plays. One control tower over the whole fleet.</p>
+      <a class="cta s" href="https://provenloop.ai/signup?utm_source=provenloop-site&amp;utm_medium=referral&amp;utm_campaign=agent-tower" style="display:inline-block;margin-top:6px">See the Agent Tower &rarr;</a>
+    </div>
+    <div>
+      <svg class="orbit" viewBox="0 0 430 352" role="img" aria-label="ProvenLoop at the center of a fleet of connected agents">
+        <defs><radialGradient id="brain" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#A855F7"/><stop offset="1" stop-color="#6d28d9"/></radialGradient></defs>
+        <ellipse cx="215" cy="176" rx="180" ry="150" fill="none" stroke="#3a3348" stroke-width="1" stroke-dasharray="3 5"/>
+        <line x1="215" y1="176" x2="70" y2="70" stroke="#3a3348" stroke-width="1.2"/>
+        <line x1="215" y1="176" x2="360" y2="74" stroke="#3a3348" stroke-width="1.2"/>
+        <line x1="215" y1="176" x2="64" y2="282" stroke="#3a3348" stroke-width="1.2"/>
+        <line x1="215" y1="176" x2="366" y2="280" stroke="#3a3348" stroke-width="1.2"/>
+        <circle cx="215" cy="176" r="50" fill="url(#brain)"/>
+        <text x="215" y="172" text-anchor="middle" font-size="14" font-weight="800" fill="#fff" font-family="Inter,sans-serif">Proven</text>
+        <text x="215" y="190" text-anchor="middle" font-size="14" font-weight="800" fill="#fff" font-family="Inter,sans-serif">Loop</text>
+        <g font-family="Inter,sans-serif" font-size="12.5" font-weight="700">
+          <g><rect x="24" y="48" width="92" height="40" rx="10" fill="#221e2b" stroke="#3a3348"/><text x="70" y="72" text-anchor="middle" fill="#C9C4D6">Apollo</text></g>
+          <g><rect x="314" y="52" width="92" height="40" rx="10" fill="#221e2b" stroke="#3a3348"/><text x="360" y="76" text-anchor="middle" fill="#C9C4D6">HeyReach</text></g>
+          <g><rect x="18" y="260" width="92" height="40" rx="10" fill="#221e2b" stroke="#3a3348"/><text x="64" y="284" text-anchor="middle" fill="#C9C4D6">Breeze</text></g>
+          <g><rect x="320" y="258" width="92" height="40" rx="10" fill="#221e2b" stroke="#3a3348"/><text x="366" y="282" text-anchor="middle" fill="#C9C4D6">Gong</text></g>
+        </g>
+      </svg>
+      <div style="text-align:center;font-size:11px;color:var(--muted);margin-top:6px">Agent Tower and its integrations are rolling out with our cohort.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. AUTOMATIONS -->
+<section id="automations">
+  <div class="wrap">
+    <div class="sh"><div class="tag"><span class="pill live"><span class="d"></span>Live</span></div><h2>The standing work runs itself</h2><p>Set the enablement work that should just happen, then watch it run. Mission Control shows you the week ahead at a glance.</p></div>
+    <div class="mc">
+      <div class="week">
+        <div class="day"><div class="dn">Mon</div><div class="ev p">Weekly enablement report</div><div class="ev b">Pipeline scan</div></div>
+        <div class="day"><div class="dn">Tue</div><div class="ev t">BDR course, module 2</div></div>
+        <div class="day"><div class="dn">Wed</div><div class="ev b">Pipeline scan</div></div>
+        <div class="day"><div class="dn">Thu</div><div class="ev p">Cold-deal re-engage</div></div>
+        <div class="day"><div class="dn">Fri</div><div class="ev t">Data-hygiene check</div><div class="ev b">Pipeline scan</div></div>
+        <div class="day"><div class="dn">Sat</div></div>
+        <div class="day"><div class="dn">Sun</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 8 · FINAL CTA -->
-<section class="final-cta">
-  <div class="wrap center">
-    <div class="sec-eyebrow">Get started</div>
-    <h2 class="h2">See your revenue health in a few minutes.</h2>
-    <p class="lead center">Try the demo on your own pipeline, or join the cohort waitlist for hands-on onboarding.</p>
-    <div class="hero-cta">
-      <a class="btn btn-primary" href="https://provenloop.ai/signup?utm_source=provenloop-site&amp;utm_medium=referral&amp;utm_campaign=site-launch">Try the Demo →</a>
-      <a class="btn btn-ghost" href="https://provenloop.ai/signup?utm_source=provenloop-site&amp;utm_medium=referral&amp;utm_campaign=cohort1-recruit">Join the cohort waitlist</a>
+<!-- 9. FOUNDER STACK -->
+<section class="sec-alt" id="stack">
+  <div class="wrap">
+    <div class="sh"><div class="tag"><span class="pill live"><span class="d"></span>Live</span></div><h2>The Founder Stack</h2><p>Everything a one-person revenue team needs to run like a department. Connect your CRM and you are live in ten minutes.</p></div>
+    <div class="stack">
+      <div class="price">$158<small> / mo</small></div>
+      <div style="font-size:13px;color:var(--muted);margin-top:4px">the whole stack, real prices</div>
+      <div class="rows">
+        <div class="srow"><svg class="ico" style="color:var(--ink2)"><use href="#pl-users"/></svg>HubSpot CRM<span class="sp free">$0</span></div>
+        <div class="srow"><svg class="ico" style="color:var(--ink2)"><use href="#pl-target"/></svg>Apollo, prospecting<span class="sp">$49</span></div>
+        <div class="srow"><svg class="ico" style="color:var(--ink2)"><use href="#pl-zap"/></svg>HeyReach, outreach<span class="sp">$59</span></div>
+        <div class="srow"><svg class="ico" style="color:var(--purple)"><use href="#pl-sparkles"/></svg>ProvenLoop Solo<span class="sp">$50</span></div>
+      </div>
+      <a class="cta p" href="https://provenloop.ai/signup?utm_source=provenloop-site&amp;utm_medium=referral&amp;utm_campaign=founder-stack" style="display:inline-block">Start the Founder Stack</a>
+      <div style="font-size:11.5px;color:var(--muted);margin-top:12px">An $80K first enablement hire, or $158 a month. That is the trade.</div>
     </div>
   </div>
 </section>
 
-<!-- 9 · FOOTER -->
+<!-- 10. WHY IT COMPOUNDS -->
+<section>
+  <div class="wrap">
+    <div class="sh"><div class="eyebrow-c">Why it compounds</div><h2>Every loop makes the next one smarter</h2></div>
+    <div class="grid3">
+      <div class="comp"><svg class="ico" style="color:var(--purple)"><use href="#pl-target"/></svg><h3>It learns your truth</h3><p>Every closed deal sharpens your real ICP and what your winners actually do. The picture gets truer over time, not staler.</p></div>
+      <div class="comp"><svg class="ico" style="color:var(--purple)"><use href="#pl-graduation-cap"/></svg><h3>Knowledge survives churn</h3><p>When a rep leaves, the playbook they ramped on stays. The next hire starts on proven ground, not from scratch.</p></div>
+      <div class="comp"><svg class="ico" style="color:var(--purple)"><use href="#pl-bot"/></svg><h3>The fleet gets smarter</h3><p>As you add agents, ProvenLoop feeds them what closes. Every platform you connect compounds on the same intelligence.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 11. WHO IT'S FOR -->
+<section class="sec-alt" id="roles">
+  <div class="wrap">
+    <div class="who">
+      <h2>Startup is a posture, not a size</h2>
+      <p>"Startup" here does not mean small or young. It means a company still figuring out the fundamentals: who actually buys, why deals are lost, what the library is missing, how to ramp a new hire.</p>
+      <p>A company can be 23 years old and 800 people and still behave exactly like a startup on enablement. If that is you, this is for you, from the solo founder closing first deals to the scaleup that never built the enablement function.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 12. FINAL CTA -->
+<section class="final">
+  <div class="wrap">
+    <h2>See what your own data already says.</h2>
+    <p>Connect your CRM and get your ICP, your losses, and your content gaps in about ten minutes.</p>
+    <div class="cta-row"><a class="cta p" href="https://provenloop.ai/signup?utm_source=provenloop-site&amp;utm_medium=referral&amp;utm_campaign=site-launch">Try the Demo</a><a class="cta s" href="#loop">See how the loop works</a></div>
+  </div>
+</section>
+
 <footer>
-  <div class="wrap">
-    <div class="foot-in">
-      <div class="foot-col" style="max-width:280px">
-        <div class="brand" style="font-size:17px;margin-bottom:10px"><img class="logo" style="width:28px;height:28px" src="/favicon.svg" alt="ProvenLoop" />ProvenLoop</div>
-        <p style="font-size:13px;color:var(--muted)">The revenue co-learning hub for lean human + agent teams.</p>
-      </div>
-      <div class="foot-col">
-        <h4>Product</h4>
-        <a href="#loop">The loop</a>
-        <a href="#dock">Agent Dock</a>
-        <a href="https://provenloop.ai/signup?utm_source=provenloop-site&amp;utm_medium=referral&amp;utm_campaign=site-launch">Try the demo</a>
-      </div>
-      <div class="foot-col">
-        <h4>Company</h4>
-        <a href="#who">Who it's for</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-      </div>
-      <div class="foot-col">
-        <h4>Legal</h4>
-        <a href="/terms.html">Terms</a>
-        <a href="/privacy.html">Privacy</a>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <span>© 2026 ProvenLoop. DLEA.IO LLC d/b/a ProvenLoop.</span>
-      <span>provenloop.io</span>
-    </div>
+  <div class="wrap foot">
+    <div><div class="logo" style="margin-bottom:10px"><img src="/favicon.svg" alt="" aria-hidden="true" style="width:24px;height:24px" /><img class="brand-wordmark" src="/provenloop-wordmark-dark.png" alt="ProvenLoop" /></div><div style="font-size:12.5px;color:var(--muted);max-width:240px">The revenue platform for startups going from zero to 100.</div></div>
+    <div><h4>Product</h4><a href="#loop">The Loop</a><a href="#reveal">The Retrospective</a><a href="#tower">Agent Tower</a><a href="#automations">Automations</a><a href="#stack">Founder Stack</a></div>
+    <div><h4>Company</h4><a href="#tower">LoopOps</a><a href="#roles">About</a><a href="mailto:dan@dlea.io">Contact</a></div>
+    <div><h4>Legal</h4><a href="/terms">Terms</a><a href="/privacy">Privacy</a></div>
   </div>
 </footer>
 
-<!-- HOLOGRAPHIC PLATFORM SHOWCASE (opens from the hero play button) -->
-<div class="holo-overlay" id="holo" role="dialog" aria-modal="true" aria-label="Platform showcase">
-  <div class="holo">
-    <button class="holo-close" id="holoClose" aria-label="Close">✕</button>
-    <div class="holo-view">
-      <div class="holo-track" id="holoTrack">
-        <div class="holo-slide">
-          <span class="holo-eyebrow">Diagnose</span>
-          <h3>See your revenue health in seconds</h3>
-          <p>System Scan grades your pipeline on live data and flags the dollars at risk — real dollars, no letter grade.</p>
-          <div class="holo-visual"><div class="hv-row">
-            <div class="hv-stats">
-              <div><b style="color:#7DF0CE">$487K</b><span>recoverable</span></div>
-              <div><b style="color:#FF8C8C">32%</b><span>of $1.4M at risk</span></div>
-              <div><b style="color:#FFC56B">8</b><span>gaps</span></div>
-              <div><b style="color:#8FB7FF">4</b><span>need coaching</span></div>
-            </div>
-          </div><div class="hv-ex">Example output</div></div>
-        </div>
-        <div class="holo-slide">
-          <span class="holo-eyebrow">RevOps</span>
-          <h3>Score your CRM data 0–100</h3>
-          <p>Every gap shows what fixing it unlocks — duplicate owners, missing close dates, unmapped stages. Messy data isn't a blocker; it's what your first scan is for.</p>
-          <div class="holo-visual"><div class="hv-score" style="color:#7DF0CE">62<span>/100</span></div><div class="hv-sub">RevOps · climbing as you fix</div><div class="hv-ex">Example</div></div>
-        </div>
-        <div class="holo-slide">
-          <span class="holo-eyebrow">Generate</span>
-          <h3>Draft enablement from real deals</h3>
-          <p>The agent writes the battlecard, talk track, or coaching — grounded in your actual pipeline.</p>
-          <div class="holo-visual">
-            <div class="hv-chead"><span class="hv-pill">CONTENT · email sequence</span><span class="hv-live">● generating</span></div>
-            <div class="hv-lines"><span style="width:92%"></span><span style="width:80%"></span><span style="width:86%"></span><span style="width:58%"></span></div>
-            <div class="hv-foot">Grounded in your real deals · drafted in seconds</div>
-          </div>
-        </div>
-        <div class="holo-slide">
-          <span class="holo-eyebrow">Prove it land
+</body>
+</html>
