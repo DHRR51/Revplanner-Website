@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ProvenLoop: Run enablement like a big revenue org, with the team you have today</title>
+<meta name="description" content="The revenue platform for startups going from zero to 100. Connect your CRM and see your own ICP, losses, and content gaps in about 10 minutes. No setup project." />
+<meta name="keywords" content="revenue enablement, sales enablement, AI sales agents, ICP, win loss analysis, sales onboarding, RevOps, CRM, startup go-to-market" />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#8B5CF6" />
+<link rel="canonical" href="https://provenloop.io/" />
+<link rel="icon" href="/favicon.svg" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/icon-16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/icon-180.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="ProvenLoop" />
+<meta property="og:title" content="Run enablement like a big revenue org, with the team you have today" />
+<meta property="og:description" content="The revenue platform for startups going from zero to 100. See your own ICP, losses, and content gaps in about 10 minutes." />
+<meta property="og:url" content="https://provenloop.io/" />
+<meta property="og:image" content="/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="ProvenLoop: enablement for startups going zero to 100" />
+<meta name="twitter:description" content="See your own ICP, losses, and content gaps in about 10 minutes. No setup project." />
+<meta name="twitter:image" content="/og-image.png" />
+<!-- HubSpot tracking (marketing portal 246125112) -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/246125112.js"></script>
+<!-- Vercel Web Analytics -->
+<script defer src="/_vercel/insights/script.js"></script>
+<style>
+  :root{
+    --bg:#121016;--bg2:#17141d;--card:#1d1a25;--card2:#221e2b;--line:#2c2737;--line2:#3a3348;
+    --ink:#F4F2F8;--ink2:#C9C4D6;--muted:#8E8799;
+    --purple:#8B5CF6;--pink:#EC4899;--blue:#3B82F6;--green:#10B981;--amber:#F59E0B;--red:#EF4444;--teal:#14B8A6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+  .ico{width:22px;height:22px;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+  .grad-tx{background:linear-gradient(95deg,#EC4899,#8B5CF6,#3B82F6);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* pills */
+  .pill{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:999px}
+  .pill.live{color:#34d399;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.35)}
+  .pill.roll{color:#fcd34d;background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.35)}
+  .pill .d{width:6px;height:6px;border-radius:50%;background:currentColor}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;background:rgba(18,16,22,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .navin{display:flex;align-items:center;gap:26px;height:62px}
+  .logo{font-weight:800;font-size:18px;display:flex;align-items:center;gap:8px}
+  .logo .mk{width:22px;height:22px;border-radius:7px;background:linear-gradient(135deg,#EC4899,#3B82F6)}
+  .logo .lp{background:linear-gradient(90deg,#EC4899,#3B82F6);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .navlinks{display:flex;gap:22px;font-size:13.5px;color:var(--ink2);font-weight:500;margin-left:8px}
+  .navlinks a:hover{color:var(--ink)}
+  .navr{margin-left:auto;display:flex;align-items:center;gap:14px}
+  .nbtn{font-size:13px;font-weight:600;padding:8px 16px;border-radius:9px;border:1px solid var(--line2);background:var(--card2)}
+  .nbtn.grad{border:none;color:#fff;background:linear-gradient(95deg,#EC4899,#8B5CF6,#3B82F6);box-shadow:0 4px 16px rgba(139,92,246,.32)}
+
+  /* hero: real live nebula asset (do not replace) */
+  .hero{position:relative;overflow:hidden;padding:78px 0 92px;
+    background:#2a1550 url('/hero-bg.png') center top/cover no-repeat}
+  .hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(180deg, rgba(16,10,36,.30) 0%, rgba(16,10,36,.06) 30%, rgba(16,10,36,.16) 55%, rgba(28,12,46,.55) 100%)}
+  .brand-wordmark{height:20px;display:block}
+  .hero .wrap{position:relative;z-index:2;max-width:880px;text-align:center}
+  .kicker{display:inline-block;font-size:21px;font-weight:800;letter-spacing:-.01em;margin-bottom:16px}
+  .kicker .arr{font-size:14px;color:var(--ink2);font-weight:600;margin-left:7px}
+  .eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.18em;color:var(--ink2);text-transform:uppercase;margin-bottom:18px}
+  h1.hh{font-size:50px;line-height:1.08;font-weight:800;letter-spacing:-.025em;margin-bottom:18px}
+  .subh{font-size:17px;color:var(--ink2);max-width:640px;margin:0 auto 28px}
+  .cta-row{display:flex;gap:13px;justify-content:center;flex-wrap:wrap}
+  .cta{font-size:15px;font-weight:700;padding:13px 26px;border-radius:12px;cursor:pointer}
+  .cta.p{border:none;color:#fff;background:linear-gradient(95deg,#EC4899,#8B5CF6,#3B82F6);box-shadow:0 8px 26px rgba(139,92,246,.36)}
+  .cta.s{border:1px solid var(--line2);background:rgba(34,30,43,.7);color:var(--ink)}
+  .trust{font-size:12.5px;color:var(--muted);margin-top:20px}
+
+  /* sections */
+  section{padding:74px 0}
+  .sec-alt{background:var(--bg2)}
+  .sh{text-align:center;max-width:680px;margin:0 auto 44px}
+  .sh .tag{margin-bottom:14px}
+  .sh h2{font-size:33px;font-weight:800;letter-spacing:-.02em;margin-bottom:12px}
+  .sh p{font-size:16px;color:var(--ink2)}
+  .eyebrow-c{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--purple);margin-bottom:12px}
+
+  /* why now grid */
+  .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .why{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+  .why .n{font-size:12px;font-weight:800;color:var(--purple);margin-bottom:10px}
+  .why h3{font-size:16px;font-weight:700;margin-bottom:7px;letter-spacing:-.01em}
+  .why p{font-size:13px;color:var(--muted)}
+  .whyhero{grid-column:span 4;background:linear-gradient(120deg,rgba(236,72,153,.1),rgba(59,130,246,.08));border-color:var(--line2);text-align:center;padding:26px}
+  .whyhero h3{font-size:22px;margin-bottom:6px}
+  .whyhero p{font-size:14px;color:var(--ink2)}
+
+  /* day-1 reveal */
+  .reveal3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .rv{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;position:relative}
+  .rv .rh{display:flex;align-items:center;gap:9px;margin-bottom:14px}
+  .rv .rh .ttl{font-size:13.5px;font-weight:700}
+  .rv .big{font-size:30px;font-weight:800;letter-spacing:-.02em;color:#fff}
+  .rv .cap{font-size:12.5px;color:var(--ink2);margin-top:4px}
+  .rv .label{display:inline-block;font-size:10.5px;color:var(--teal);background:rgba(20,184,166,.1);border:1px solid rgba(20,184,166,.3);border-radius:7px;padding:3px 8px;margin-top:13px}
+  .illus{text-align:center;font-size:11.5px;color:var(--muted);margin-top:18px}
+  .quad{margin-top:10px;border:1px solid var(--line2);border-radius:10px;height:96px;position:relative;background:linear-gradient(135deg,rgba(139,92,246,.06),transparent)}
+  .quad .dot{position:absolute;border-radius:50%}
+  .quad .axis{position:absolute;background:var(--line2)}
+  .barwrap{display:flex;flex-direction:column;gap:7px;margin-top:6px}
+  .brow{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--ink2)}
+  .brow .bar{flex:1;height:7px;border-radius:99px;background:#2a2533;overflow:hidden}
+  .brow .bar>span{display:block;height:100%;border-radius:99px}
+
+  /* pillars */
+  .pillars{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .pillar{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px}
+  .pillar .pn{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);margin-bottom:12px}
+  .pillar h3{font-size:20px;font-weight:800;letter-spacing:-.015em;margin-bottom:10px}
+  .pillar p{font-size:14px;color:var(--ink2)}
+
+  /* zero-to-100 band */
+  .arc{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border:1px solid var(--line2);border-radius:18px;overflow:hidden}
+  .arcseg{padding:24px;position:relative;background:var(--card)}
+  .arcseg+.arcseg{border-left:1px solid var(--line)}
+  .arcseg .z{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:9px}
+  .arcseg h3{font-size:17px;font-weight:700;margin-bottom:10px;letter-spacing:-.01em}
+  .arcseg ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+  .arcseg li{font-size:12.5px;color:var(--ink2);display:flex;gap:8px}
+  .arcseg li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--purple);margin-top:7px;flex:none}
+  .arcband{height:5px;background:linear-gradient(90deg,#EC4899,#8B5CF6,#3B82F6)}
+
+  /* loop */
+  .loop4{display:grid;grid-template-columns:repeat(4,1fr);gap:0;align-items:stretch}
+  .lp{background:var(--card);border:1px solid var(--line);padding:22px 18px;position:relative}
+  .lp:first-child{border-radius:16px 0 0 16px}.lp:last-child{border-radius:0 16px 16px 0}
+  .lp+.lp{border-left:none}
+  .lp .ln{font-size:11px;font-weight:800;color:var(--muted);margin-bottom:10px}
+  .lp h3{font-size:16px;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+  .lp p{font-size:12.5px;color:var(--muted);margin-bottom:12px}
+
+  /* agent tower */
+  .tower{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center}
+  .tower .moat{font-size:24px;font-weight:800;letter-spacing:-.015em;margin-bottom:14px}
+  .tower p{font-size:14.5px;color:var(--ink2);margin-bottom:14px}
+  .orbit{position:relative;width:100%;aspect-ratio:1/.82;max-width:430px;margin:0 auto}
+
+  /* automations week grid */
+  .mc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+  .week{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+  .day{background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:9px;min-height:96px}
+  .day .dn{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;margin-bottom:7px}
+  .ev{font-size:10px;font-weight:600;border-radius:6px;padding:4px 6px;margin-bottom:5px;line-height:1.25}
+  .ev.p{background:rgba(139,92,246,.16);color:#cbb6ff}
+  .ev.b{background:rgba(59,130,246,.14);color:#9fc3ff}
+  .ev.t{background:rgba(20,184,166,.14);color:#7fe0d3}
+
+  /* founder stack */
+  .stack{max-width:560px;margin:0 auto;background:var(--card);border:1px solid var(--line2);border-radius:20px;padding:26px;text-align:center}
+  .stack .price{font-size:44px;font-weight:800;letter-spacing:-.02em}
+  .stack .price small{font-size:16px;color:var(--muted);font-weight:600}
+  .stack .rows{text-align:left;margin:18px 0;display:flex;flex-direction:column;gap:1px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .srow{display:flex;align-items:center;gap:11px;background:var(--card2);padding:11px 14px;font-size:13px}
+  .srow .sp{margin-left:auto;font-weight:700}
+  .srow .sp.free{color:var(--green)}
+
+  /* compounds */
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .comp{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+  .comp h3{font-size:16px;font-weight:700;margin:10px 0 7px}
+  .comp p{font-size:13px;color:var(--muted)}
+
+  /* who */
+  .who{background:linear-gradient(120deg,rgba(139,92,246,.1),rgba(59,130,246,.06));border:1px solid var(--line2);border-radius:20px;padding:36px;text-align:center}
+  .who h2{font-size:30px;font-weight:800;letter-spacing:-.02em;margin-bottom:12px}
+  .who p{font-size:15px;color:var(--ink2);max-width:660px;margin:0 auto 8px}
+
+  /* final cta */
+  .final{text-align:center;padding:84px 0;background:
+    radial-gradient(700px 360px at 50% 0%, rgba(139,92,246,.22), transparent 60%),var(--bg2)}
+  .final h2{font-size:38px;font-weight:800;letter-spacing:-.025em;margin-bottom:14px}
+  .final p{font-size:16px;color:var(--ink2);margin-bottom:26px}
+
+  footer{border-top:1px solid var(--line);padding:40px 0;background:var(--bg)}
+  .foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:24px}
+  .foot h4{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:13px}
+  .foot a{display:block;font-size:13px;color:var(--ink2);margin-bottom:9px}
+  .foot a:hover{color:var(--ink)}
+
+  /* hero AI agent (explainer bot) */
+  .agent-launch{margin-top:32px;display:inline-flex;flex-direction:column;align-items:center;gap:11px;cursor:pointer;background:none;border:none}
+  .agent-orb{position:relative;width:96px;height:96px;border-radius:50%;padding:3px;background:linear-gradient(135deg,#EC4899,#A855F7,#3B82F6)}
+  .agent-orb .face{width:100%;height:100%;border-radius:50%;background:#1d1a25;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .agent-orb .face img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+  .agent-orb::after{content:"";position:absolute;inset:-9px;border-radius:50%;background:radial-gradient(closest-side,rgba(168,85,247,.55),transparent);z-index:-1;animation:breath 5s ease-in-out infinite}
+  @keyframes breath{0%,100%{opacity:.3}50%{opacity:.6}}
+  .agent-talk{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:#fff;background:linear-gradient(95deg,#EC4899,#8B5CF6,#3B82F6);padding:8px 17px;border-radius:999px;box-shadow:0 6px 20px rgba(139,92,246,.42)}
+  .agent-cap{font-size:12px;color:var(--ink2)}
+  @media (prefers-reduced-motion:reduce){.agent-orb::after{animation:none}}
+  .agent-ov{position:fixed;inset:0;z-index:100;background:rgba(8,6,16,.62);backdrop-filter:blur(4px);display:none;align-items:flex-end;justify-content:center}
+  .agent-ov.on{display:flex}
+  @media(min-width:720px){.agent-ov{align-items:center}}
+  .agent-panel{width:100%;max-width:384px;background:#161320;border:1px solid var(--line2);border-radius:20px 20px 0 0;overflow:hidden;max-height:94vh;display:flex;flex-direction:column}
+  @media(min-width:720px){.agent-panel{border-radius:20px}}
+  .agent-top{position:relative;aspect-ratio:16/11;background:linear-gradient(135deg,#2b1d54,#7b2fbf)}
+  .agent-top>img{width:100%;height:100%;object-fit:cover}
+  .agent-top .badge{position:absolute;top:12px;left:14px;display:flex;align-items:center;gap:7px;font-size:13px;font-weight:800;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+  .agent-top .badge svg{width:20px;height:20px}
+  .agent-top .talkbtn{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:#fff;background:linear-gradient(95deg,#EC4899,#8B5CF6,#3B82F6);padding:10px 22px;border-radius:999px;border:none;cursor:pointer;box-shadow:0 8px 22px rgba(139,92,246,.45)}
+  .agent-x{position:absolute;top:10px;right:12px;width:30px;height:30px;border-radius:50%;background:rgba(0,0,0,.42);color:#fff;border:none;cursor:pointer;font-size:15px}
+  .agent-body{padding:18px;overflow-y:auto}
+  .agent-body h3{font-size:19px;font-weight:800;text-align:center;letter-spacing:-.01em;margin-bottom:16px}
+  .agent-q{display:block;width:100%;text-align:center;font-size:14px;font-weight:700;color:#fff;background:linear-gradient(95deg,#7c3aed,#6d28d9);border:none;border-radius:12px;padding:13px;margin-bottom:10px;cursor:pointer}
+  .agent-q:hover{filter:brightness(1.08)}
+  .agent-msgs{display:flex;flex-direction:column;gap:9px;margin:8px 0}
+  .agent-msg{font-size:13px;line-height:1.5;background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:11px 13px;color:var(--ink2)}
+  .agent-msg.you{align-self:flex-end;background:rgba(139,92,246,.18);color:#eae3ff;border-color:transparent;max-width:85%}
+  .agent-ask{display:flex;align-items:center;gap:8px;border:1px solid var(--line2);border-radius:999px;padding:6px 6px 6px 16px;margin-top:8px}
+  .agent-ask input{flex:1;background:transparent;border:none;outline:none;color:var(--ink);font-size:14px}
+  .agent-ask button{width:34px;height:34px;flex:none;border-radius:50%;border:none;background:var(--card2);color:var(--ink2);cursor:pointer;font-size:15px}
+  .agent-priv{font-size:10.5px;color:var(--muted);text-align:center;margin-top:12px;line-height:1.5}
+  .agent-priv a{color:var(--ink2);text-decoration:underline}
+
+  @media (max-width:880px){.grid4,.reveal3,.pillars,.arc,.loop4,.tower,.grid3,.week,.foot{grid-template-columns:1fr}.navlinks{display:none}h1.hh{font-size:36px}}
+</style>
+</head>
+<body>
+
+<!-- icon sprite (Style B) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="aig" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EC4899"/><stop offset=".5" stop-color="#A855F7"/><stop offset="1" stop-color="#3B82F6"/></linearGradient></defs>
+  <symbol id="pl-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="currentColor" fill-opacity=".12" stroke="none"/><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="pl-history" viewBox="0 0 24 24"><path d="M3.5 9A9 9 0 1 1 4 14" fill="none" stroke="currentColor"/><path d="M3.5 4v5h5M12 7v5l3.5 2" fill="none" stroke="currentColor"/></symbol>
+  <symbol id="pl-file-text" viewBox="0 0 24 24"><path d="M6 3h8l5 5v12a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" fill="currentColor" fill-opacity=".16" stroke="none"/><path d="M6 3h8l5 5v12a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v5h5M8.5 13h7M8.5 16.5h7" fill="none" stroke="currentColor"/></symbol>
+  <symbol id="pl-zap" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z" fill="currentColor" fill-opacity=".18" stroke="none"/><path d="M13 2 4 14h7l-1 8 9-12h-7z" fill="none" stroke="currentColor"/></symbol>
+  <symbol id="pl-graduation-cap" viewBox="0 0 24 24"><path d="M12 4 2 9l10 5 10-5z" fill="currentColor" fill-opacity=".18" stroke="none"/><path d="M12 4 2 9l10 5 10-5z" fill="none" stroke="currentColor"/><path d="M6 11v5c0 1.1 2.7 2.5 6 2.5s6-1.4 6-2.5v-5M22 9v5" fill="none" stroke="currentColor"/></symbol>
+  <symbol id="pl-trending-up" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M16 7h5v5" fill="none" stroke="currentColor"/></symbol>
+  <symbol id="pl-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="currentColor" fill-opacity=".18" stroke="none"/><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor"/><path d="M8.2 12.3l2.6 2.6 5-5.4" fill="none" stroke="currentColor"/></symbol>
+  <symbol id="pl-sparkles" viewBox="0 0 24 24"><path d="M12 3l1.9 4.9L18.8 9.7l-4.9 1.4L12 16l-1.9-4.9L5.2 9.7l4.9-1.4z" fill="url(#aig)" fill-opacity=".18" stroke="url(#aig)" stroke-width="1.75" stroke-linejoin="round"/><path d="M19 13l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z" fill="none" stroke="url(#aig)" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+  <symbol id="pl-bot" viewBox="0 0 24 24"><rect x="4" y="7.5" width="16" height="11.5" rx="3.2" fill="url(#aig)" fill-opacity=".16" stroke="url(#aig)" stroke-width="1.75"/><path d="M12 4.2V7.5M8.6 12.4h.01M15.4 12.4h.01M9.5 16h5" fill="none" stroke="url(#aig)" stroke-width="1.75" stroke-linecap="round"/></symbol>
+  <symbol id="pl-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.4" fill="currentColor" fill-opacity=".18" stroke="none"/><circle cx="9" cy="8" r="3.4" fill="none" stroke="currentColor"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0M16 5.2a3.4 3.4 0 0 1 0 6.4M17.5 14.5A5.5 5.5 0 0 1 20.5 20" fill="none" stroke="currentColor"/></symbol>
+</svg>
+
+<nav>
+  <div class="wrap navin">
+    <a class="logo" href="/"><img src="/favicon.svg" alt="" aria-hidden="true" style="width:26px;height:26px" /><img class="brand-wordmark" src="/provenloop-wordmark-dark.png" alt="ProvenLoop" /></a>
+    <div class="navlinks"><a href="#loop">Product</a><a href="#roles">For every role</a><a href="#tower">LoopOps</a><a href="#stack">Pricing</a></div>
+    <div class="navr"><a href="https://provenloop.ai/login" style="font-size:13px;color:var(--ink2)">Sign In</a><a class="nbtn grad" href="https://provenloop.ai/signup?utm_source=provenloop-site&amp;utm_medium=referral&amp;utm_campaign=site-launch">Try the Demo</a></div>
+  </div>
+</nav>
+
+<!-- 1. HERO -->
+<header class="hero">
+  <div class="wrap">
+    <a href="#tower" class="kicker grad-tx">Selling is the new moat.<span class="arr" style="-webkit-text-fill-color:initial">read why &rarr;</span></a>
+    <div class="eyebrow">The revenue platform for startups going from zero to 100</div>
+    <h1 class="hh">Run enablement like a big revenue org.<br>With the team you have today.</h1>
+    <p class="subh">ProvenLoop takes you from your first closed deals to Series C scale, and lets a small team operate like a large enablement organization the whole way.</p>
+    <div class="cta-row">
+      <a class="cta p" href="https://provenloop.ai/signup?utm_source=provenloop-site&amp;utm_medium=referral&amp;utm_campaign=site-launch">Try the Demo</a>
+      <a class="cta s" href="#loop">See how the loop works</a>
+    </div>
+    <div class="trust">Connect your CRM and see your own ICP, losses, and content gaps in about 10 minutes. No setup project.</div>
+    <button class="agent-launch" onclick="openAgent()" aria-label="Talk to the ProvenLoop agent">
+      <span class="agent-orb"><span class="face"><svg width="46" height="46"><use href="#pl-bot"/></svg></span></span>
+      <span class="agent-talk"><svg class="ico" style="width:15px;height:15px"><use href="#pl-sparkles"/></svg>Talk now</span>
+      <span class="agent-cap">Meet Mira, your ProvenLoop guide</span>
+    </button>
+  </div>
+</header>
+
+<!-- 2. WHY NOW -->
+<section>
+  <div class="wrap">
+    <div class="sh"><div class="eyebrow-c">Why now</div><h2>The window to figure out your motion got short</h2></div>
+    <div class="grid4">
+      <div class="whyhero">
+        <h3 class="grad-tx">You have 18 to 24 months, not years.</h3>
+        <p>Companies used to have years to slowly figure out who buys and why deals are lost. Now the clock is compressed, and falling behind on your motion is an existential speed risk, not a maturity nice-to-have.</p>
+      </div>
+      <div class="why"><div class="n">01</div><h3>7 to 10 entrants</h3><p>A category you may have created now has a crowd in it. Standing still is losing ground.</p></div>
+      <div class="why"><div class="n">02</div><h3>Building collapsed</h3><p>The cost to build a competing product fell through the floor. The product is no longer the moat.</p></div>
+      <div class="why"><div class="n">03</div><h3>Live in weeks</h3><p>A new competitor can be in market in weeks. The advantage goes to whoever sells smarter, faster.</p></div>
+      <div class="why"><div class="n">04</div><h3>Same gaps, every size</h3><p>Wrong ICP, no learning from losses, a library full of holes. It happens at 14 people and at 800.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. DAY-1 REVEAL -->
+<section class="sec-alt" id="reveal">
+  <div class="wrap">
+    <div class="sh">
+      <div class="tag"><span class="pill live"><span class="d"></span>Live</span></div>
+      <h2>Connect your CRM. See the truth in 10 minutes.</h2>
+      <p>Before you change anything, ProvenLoop reads your own deals and shows you three things you have never seen this clearly. Every number comes from your data, not a projection.</p>
+    </div>
+    <div class="reveal3">
+      <div class="rv">
+        <div class="rh"><svg class="ico" style="color:var(--purple)"><use href="#pl-target"/></svg><span class="ttl">Your real ICP</span></div>
+        <div class="big">Mid-Market SaaS</div>
+        <div class="cap">is where you actually win, not the Enterprise you target.</div>
+        <div class="quad">
+          <div class="axis" style="left:50%;top:8%;bottom:8%;width:1px"></div>
+          <div class="axis" style="top:50%;left:8%;right:8%;height:1px"></div>
+          <div class="dot" style="width:22px;height:22px;left:24%;top:26%;background:rgba(16,185,129,.7)"></div>
+          <div class="dot" style="width:13px;height:13px;left:62%;top:60%;background:rgba(239,68,68,.6)"></div>
+          <div class="dot" style="width:9px;height:9px;left:70%;top:34%;background:rgba(245,158,11,.6)"></div>
+        </div>
+        <div class="label">from your own won and lost deals</div>
+      </div>
+      <div class="rv">
+        <div class="rh"><svg class="ico" style="color:var(--amber)"><use href="#pl-history"/></svg><span class="ttl">The retrospective</span></div>
+        <div class="big">$120K</div>
+        <div class="cap">recoverable, from deals that slipped past close last year.</div>
+        <div style="margin-top:14px;font-size:12px;color:var(--ink2);line-height:1.7">
+          <div>At risk now: <b style="color:#fff">32%</b> of your $1.4M open pipeline</div>
+          <div>Most common reason: no next step booked</div>
+        </div>
+        <div class="label">read from your own deal history, not a projection</div>
+      </div>
+      <div class="rv">
+        <div class="rh"><svg class="ico" style="color:var(--blue)"><use href="#pl-file-text"/></svg><span class="ttl">Your content map</span></div>
+        <div class="big">83% complete</div>
+        <div class="cap">your library has holes where customers need it most.</div>
+        <div class="barwrap">
+          <div class="brow"><span style="width:78px">Discovery</span><span class="bar"><span style="width:92%;background:var(--green)"></span></span></div>
+          <div class="brow"><span style="width:78px">Pricing</span><span class="bar"><span style="width:38%;background:var(--amber)"></span></span></div>
+          <div class="brow"><span style="width:78px">Competitive</span><span class="bar"><span style="width:24%;background:var(--red)"></span></span></div>
+          <div class="brow"><span style="width:78px">Negotiation</span><span class="bar"><span style="width:60%;background:var(--amber)"></span></span></div>
+        </div>
+        <div class="label">mapped from your pipeline against your library</div>
+      </div>
+    </div>
+    <div class="illus">Figures shown are illustrative. Your reveal is built from your own connected data.</div>
+  </div>
+</section>
+
+<!-- 4. SMALL TEAM, BIG-FIRM ENABLEMENT -->
+<section>
+  <div class="wrap">
+    <div class="sh"><div class="eyebrow-c">The core</div><h2>A small team. The enablement of a large firm.</h2><p>A big company runs a whole enablement department. A startup has a founder and a few reps wearing every hat. ProvenLoop gives you the department.</p></div>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pn">Pillar 1</div>
+        <h3>Operate like a large enablement org</h3>
+        <p>Someone to own your ICP, run win and loss, build the content library, ramp new hires. You get that entire function in one platform, run by a manager and a fleet of agents. The output of a large enablement org, without the headcount.</p>
+      </div>
+      <div class="pillar">
+        <div class="pn">Pillar 2</div>
+        <h3>Onboard new roles the right way, not the deep end</h3>
+        <p>Most startups hand a new rep a login and a quota and hope. ProvenLoop builds the ramp from your own winning deals: who buys, what works, the real objections, the content they need, and a knowledge check that proves they absorbed it before they touch a live deal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. ZERO-TO-100 ARC -->
+<section class="sec-alt">
+  <div class="wrap">
+    <div class="sh"><div class="eyebrow-c">The arc</div><h2>Zero to 100, on one platform</h2><p>What is live now, what is rolling out, and where it goes. The brand and the honest status line are the same line.</p></div>
+    <div class="arc">
+      <div class="arcseg">
+        <div class="arcband" style="position:absolute;top:0;left:0;right:0"></div>
+        <div class="z grad-tx">Zero</div>
+        <span class="pill live"><span class="d"></span>Live today</span>
+        <h3 style="margin-top:12px">The day-one reveal</h3>
+        <ul><li>Learn your real ICP from who actually bought</li><li>Understand what failed, from your own losses</li><li>See your content gaps across the cycle</li></ul>
+      </div>
+      <div class="arcseg">
+        <div class="z" style="color:var(--ink2)">One to ten</div>
+        <span class="pill live"><span class="d"></span>Live / rolling out</span>
+        <h3 style="margin-top:12px">The loop and onboarding</h3>
+        <ul><li>Generate the fix, prove the rep learned it</li><li>Onboard new roles on the proven playbook</li><li>Automations run the standing work on a schedule</li></ul>
+      </div>
+      <div class="arcseg">
+        <div class="z" style="color:var(--muted)">Ten to 100</div>
+        <span class="pill roll"><span class="d"></span>Rolling out</span>
+        <h3 style="margin-top:12px">Scale</h3>
+        <ul><li>The Agent Tower makes every connected agent smarter</li><li>Per-role views, compounding outcomes</li><li>Knowledge that survives churn</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. THE LOOP -->
+<section id="loop">
+  <div class="wrap">
+    <div class="sh"><div class="eyebrow-c">How it works</div><h2>The loop that closes</h2><p>Diagnose what is wrong, generate the fix, prove the team learned it, measure what it moved. Then do it again.</p></div>
+    <div class="loop4">
+      <div class="lp"><div class="ln">01</div><h3><svg class="ico" style="color:var(--purple)"><use href="#pl-target"/></svg>Diagnose</h3><p>Read your CRM and pipeline. Find the gap that is costing you.</p><span class="pill live"><span class="d"></span>Live</span></div>
+      <div class="lp"><div class="ln">02</div><h3><svg class="ico" style="color:var(--purple)"><use href="#pl-file-text"/></svg>Generate</h3><p>Build the content, course, or playbook from what your wins prove.</p><span class="pill live"><span class="d"></span>Live</span></div>
+      <div class="lp"><div class="ln">03</div><h3><svg class="ico" style="color:var(--amber)"><use href="#pl-graduation-cap"/></svg>Prove</h3><p>Assign it, and a knowledge check confirms the rep actually absorbed it.</p><span class="pill roll"><span class="d"></span>Rolling out</span></div>
+      <div class="lp"><div class="ln">04</div><h3><svg class="ico" style="color:var(--amber)"><use href="#pl-trending-up"/></svg>Measure</h3><p>Track what moved. Pipeline Saved closes the loop back to revenue.</p><span class="pill roll"><span class="d"></span>Rolling out</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. AGENT TOWER -->
+<section class="sec-alt" id="tower">
+  <div class="wrap tower">
+    <div>
+      <span class="pill roll"><span class="d"></span>Rolling out</span>
+      <div class="moat grad-tx" style="margin-top:14px">Selling is the new moat.</div>
+      <p>The product stopped being the moat. How well you sell is the moat now. The Agent Tower puts ProvenLoop on top of every agentic platform you run, so your CRM, outreach, and call agents all get smarter on what actually closes.</p>
+      <p>Connect Apollo, HeyReach, HubSpot Breeze, Gong. ProvenLoop sits in the center as the brain, feeding every agent your real ICP, your won and lost patterns, your proven plays. One control tower over the whole fleet.</p>
+      <a class="cta s" href="https://provenloop.ai/signup?utm_source=provenloop-site&amp;utm_medium=referral&amp;utm_campaign=agent-tower" style="display:inline-block;margin-top:6px">See the Agent Tower &rarr;</a>
+    </div>
+    <div>
+      <svg class="orbit" viewBox="0 0 430 352" role="img" aria-label="ProvenLoop at the center of a fleet of connected agents">
+        <defs><radialGradient id="brain" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#A855F7"/><stop offset="1" stop-color="#6d28d9"/></radialGradient></defs>
+        <ellipse cx="215" cy="176" rx="180" ry="150" fill="none" stroke="#3a3348" stroke-width="1" stroke-dasharray="3 5"/>
+        <line x1="215" y1="176" x2="70" y2="70" stroke="#3a3348" stroke-width="1.2"/>
+        <line x1="215" y1="176" x2="360" y2="74" stroke="#3a3348" stroke-width="1.2"/>
+        <line x1="215" y1="176" x2="64" y2="282" stroke="#3a3348" stroke-width="1.2"/>
+        <line x1="215" y1="176" x2="366" y2="280" stroke="#3a3348" stroke-width="1.2"/>
+        <circle cx="215" cy="176" r="50" fill="url(#brain)"/>
+        <text x="215" y="172" text-anchor="middle" font-size="14" font-weight="800" fill="#fff" font-family="Inter,sans-serif">Proven</text>
+        <text x="215" y="190" text-anchor="middle" font-size="14" font-weight="800" fill="#fff" font-family="Inter,sans-serif">Loop</text>
+        <g font-family="Inter,sans-serif" font-size="12.5" font-weight="700">
+          <g><rect x="24" y="48" width="92" height="40" rx="10" fill="#221e2b" stroke="#3a3348"/><text x="70" y="72" text-anchor="middle" fill="#C9C4D6">Apollo</text></g>
+          <g><rect x="314" y="52" width="92" height="40" rx="10" fill="#221e2b" stroke="#3a3348"/><text x="360" y="76" text-anchor="middle" fill="#C9C4D6">HeyReach</text></g>
+          <g><rect x="18" y="260" width="92" height="40" rx="10" fill="#221e2b" stroke="#3a3348"/><text x="64" y="284" text-anchor="middle" fill="#C9C4D6">Breeze</text></g>
+          <g><rect x="320" y="258" width="92" height="40" rx="10" fill="#221e2b" stroke="#3a3348"/><text x="366" y="282" text-anchor="middle" fill="#C9C4D6">Gong</text></g>
+        </g>
+      </svg>
+      <div style="text-align:center;font-size:11px;color:var(--muted);margin-top:6px">Agent Tower and its integrations are rolling out with our cohort.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. AUTOMATIONS -->
+<section id="automations">
+  <div class="wrap">
+    <div class="sh"><div class="tag"><span class="pill live"><span class="d"></span>Live</span></div><h2>The standing work runs itself</h2><p>Set the enablement work that should just happen, then watch it run. Mission Control shows you the week ahead at a glance.</p></div>
+    <div class="mc">
+      <div class="week">
+        <div class="day"><div class="dn">Mon</div><div class="ev p">Weekly enablement report</div><div class="ev b">Pipeline scan</div></div>
+        <div class="day"><div class="dn">Tue</div><div class="ev t">BDR course, module 2</div></div>
+        <div class="day"><div class="dn">Wed</div><div class="ev b">Pipeline scan</div></div>
+        <div class="day"><div class="dn">Thu</div><div class="ev p">Cold-deal re-engage</div></div>
+        <div class="day"><div class="dn">Fri</div><div class="ev t">Data-hygiene check</div><div class="ev b">Pipeline scan</div></div>
+        <div class="day"><div class="dn">Sat</div></div>
+        <div class="day"><div class="dn">Sun</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. FOUNDER STACK -->
+<section class="sec-alt" id="stack">
+  <div class="wrap">
+    <div class="sh"><div class="tag"><span class="pill live"><span class="d"></span>Live</span></div><h2>The Founder Stack</h2><p>Everything a one-person revenue team needs to run like a department. Connect your CRM and you are live in ten minutes.</p></div>
+    <div class="stack">
+      <div class="price">$158<small> / mo</small></div>
+      <div style="font-size:13px;color:var(--muted);margin-top:4px">the whole stack, real prices</div>
+      <div class="rows">
+        <div class="srow"><svg class="ico" style="color:var(--ink2)"><use href="#pl-users"/></svg>HubSpot CRM<span class="sp free">$0</span></div>
+        <div class="srow"><svg class="ico" style="color:var(--ink2)"><use href="#pl-target"/></svg>Apollo, prospecting<span class="sp">$49</span></div>
+        <div class="srow"><svg class="ico" style="color:var(--ink2)"><use href="#pl-zap"/></svg>HeyReach, outreach<span class="sp">$59</span></div>
+        <div class="srow"><svg class="ico" style="color:var(--purple)"><use href="#pl-sparkles"/></svg>ProvenLoop Solo<span class="sp">$50</span></div>
+      </div>
+      <a class="cta p" href="https://provenloop.ai/signup?utm_source=provenloop-site&amp;utm_medium=referral&amp;utm_campaign=founder-stack" style="display:inline-block">Start the Founder Stack</a>
+      <div style="font-size:11.5px;color:var(--muted);margin-top:12px">An $80K first enablement hire, or $158 a month. That is the trade.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. WHY IT COMPOUNDS -->
+<section>
+  <div class="wrap">
+    <div class="sh"><div class="eyebrow-c">Why it compounds</div><h2>Every loop makes the next one smarter</h2></div>
+    <div class="grid3">
+      <div class="comp"><svg class="ico" style="color:var(--purple)"><use href="#pl-target"/></svg><h3>It learns your truth</h3><p>Every closed deal sharpens your real ICP and what your winners actually do. The picture gets truer over time, not staler.</p></div>
+      <div class="comp"><svg class="ico" style="color:var(--purple)"><use href="#pl-graduation-cap"/></svg><h3>Knowledge survives churn</h3><p>When a rep leaves, the playbook they ramped on stays. The next hire starts on proven ground, not from scratch.</p></div>
+      <div class="comp"><svg class="ico" style="color:var(--purple)"><use href="#pl-bot"/></svg><h3>The fleet gets smarter</h3><p>As you add agents, ProvenLoop feeds them what closes. Every platform you connect compounds on the same intelligence.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 11. WHO IT'S FOR -->
+<section class="sec-alt" id="roles">
+  <div class="wrap">
+    <div class="who">
+      <h2>Startup is a posture, not a size</h2>
+      <p>"Startup" here does not mean small or young. It means a company still figuring out the fundamentals: who actually buys, why deals are lost, what the library is missing, how to ramp a new hire.</p>
+      <p>A company can be 23 years old and 800 people and still behave exactly like a startup on enablement. If that is you, this is for you, from the solo founder closing first deals to the scaleup that never built the enablement function.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 12. FINAL CTA -->
+<section class="final">
+  <div class="wrap">
+    <h2>See what your own data already says.</h2>
+    <p>Connect your CRM and get your ICP, your losses, and your content gaps in about ten minutes.</p>
+    <div class="cta-row"><a class="cta p" href="https://provenloop.ai/signup?utm_source=provenloop-site&amp;utm_medium=referral&amp;utm_campaign=site-launch">Try the Demo</a><a class="cta s" href="#loop">See how the loop works</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div><div class="logo" style="margin-bottom:10px"><img src="/favicon.svg" alt="" aria-hidden="true" style="width:24px;height:24px" /><img class="brand-wordmark" src="/provenloop-wordmark-dark.png" alt="ProvenLoop" /></div><div style="font-size:12.5px;color:var(--muted);max-width:240px">The revenue platform for startups going from zero to 100.</div></div>
+    <div><h4>Product</h4><a href="#loop">The Loop</a><a href="#reveal">The Retrospective</a><a href="#tower">Agent Tower</a><a href="#automations">Automations</a><a href="#stack">Founder Stack</a></div>
+    <div><h4>Company</h4><a href="#tower">LoopOps</a><a href="#roles">About</a><a href="mailto:dan@dlea.io">Contact</a></div>
+    <div><h4>Legal</h4><a href="/terms">Terms</a><a href="/privacy">Privacy</a></div>
+  </div>
+</footer>
+
+<!-- AI explainer agent panel -->
+<div class="agent-ov" id="agentOv" onclick="if(event.target===this)closeAgent()">
+  <div class="agent-panel" role="dialog" aria-label="ProvenLoop agent">
+    <div class="agent-top">
+      <img src="/agent-avatar.jpg" alt="" onerror="this.style.display='none'" />
+      <div class="badge"><svg><use href="#pl-sparkles"/></svg>ProvenLoop</div>
+      <button class="agent-x" onclick="closeAgent()" aria-label="Close">&#10005;</button>
+      <button class="talkbtn" onclick="agentVoice()"><svg class="ico" style="width:16px;height:16px"><use href="#pl-sparkles"/></svg>Talk now</button>
+    </div>
+    <div class="agent-body">
+      <h3>Want to see ProvenLoop in action? Start here</h3>
+      <a class="agent-q" href="https://provenloop.ai/signup?utm_source=provenloop-site&amp;utm_medium=agent&amp;utm_campaign=meet-with-us">Meet with us</a>
+      <a class="agent-q" href="https://provenloop.ai/signup?utm_source=provenloop-site&amp;utm_medium=agent&amp;utm_campaign=virtual-demo">See a virtual demo</a>
+      <button class="agent-q" onclick="agentExplain()">What is ProvenLoop?</button>
+      <div class="agent-msgs" id="agentMsgs"></div>
+      <div class="agent-ask"><input id="agentInput" placeholder="Ask Mira anything..." onkeydown="if(event.key==='Enter')agentSend()" /><button onclick="agentSend()" aria-label="Send">&#8593;</button></div>
+      <div class="agent-priv">Please do not add sensitive or confidential information. To learn how we handle your data, see our <a href="/privacy">Privacy Policy</a>.</div>
+    </div>
+  </div>
+</div>
+<script>
+function openAgent(){document.getElementById('agentOv').classList.add('on')}
+function closeAgent(){document.getElementById('agentOv').classList.remove('on')}
+function agentSay(html){var m=document.getElementById('agentMsgs');var d=document.createElement('div');d.className='agent-msg';d.innerHTML=html;m.appendChild(d);d.scrollIntoView({block:'nearest'})}
+function agentExplain(){agentSay(`ProvenLoop is the revenue platform for startups going from zero to 100. Connect your CRM and in about 10 minutes you see your real ICP from who actually bought, the deals that slipped past close, and the gaps in your content library. Then the loop fixes them: diagnose, generate, prove, measure. <a href="https://provenloop.ai/signup?utm_source=provenloop-site&utm_medium=agent&utm_campaign=what-is" style="color:#c9b6ff;text-decoration:underline">Start the demo &rarr;</a>`)}
+function agentVoice(){agentSay(`Voice walkthrough is rolling out with our cohort. For now, ask me anything here or <a href="https://provenloop.ai/signup?utm_source=provenloop-site&utm_medium=agent&utm_campaign=talk" style="color:#c9b6ff;text-decoration:underline">try the demo &rarr;</a>`)}
+function agentSend(){var i=document.getElementById('agentInput');var v=i.value.trim();if(!v)return;var m=document.getElementById('agentMsgs');var y=document.createElement('div');y.className='agent-msg you';y.textContent=v;m.appendChild(y);i.value='';setTimeout(function(){agentSay(`The fastest way to get a real answer for your team is the 10-minute demo on your own CRM data. <a href="https://provenloop.ai/signup?utm_source=provenloop-site&utm_medium=agent&utm_campaign=ask" style="color:#c9b6ff;text-decoration:underline">Try the demo &rarr;</a>`)},350)}
+</script>
+</body>
+</html>
