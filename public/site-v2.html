@@ -63,6 +63,18 @@
   .navr{margin-left:auto;display:flex;align-items:center;gap:14px}
   .nbtn{font-size:13px;font-weight:600;padding:8px 16px;border-radius:9px;border:1px solid var(--line2);background:var(--card2)}
   .nbtn.grad{border:none;color:#fff;background:#3B82F6;box-shadow:0 4px 16px rgba(59,130,246,.36)}
+  .navdd{position:relative}
+  .navdd>a{cursor:pointer}
+  .navdd .ddmenu{position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:14px;display:none;z-index:60}
+  .navdd:hover .ddmenu{display:block}
+  .megacard{background:#1b1726;border:1px solid var(--line2);border-radius:18px;padding:14px;min-width:344px;box-shadow:0 20px 50px rgba(0,0,0,.55)}
+  .megacard .mega-h{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:6px 10px 10px}
+  .mrow{display:flex;gap:13px;align-items:flex-start;padding:11px 10px;border-radius:12px}
+  .mrow:hover{background:var(--card2)}
+  .mtile{width:38px;height:38px;flex:none;border-radius:11px;background:rgba(139,92,246,.14);display:flex;align-items:center;justify-content:center}
+  .mtile svg{width:20px;height:20px}
+  .mt{display:block;font-size:14px;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+  .md{display:block;font-size:12px;color:var(--muted);margin-top:2px;line-height:1.4}
 
   /* hero: real live nebula asset (do not replace) */
   .hero{position:relative;overflow:hidden;padding:78px 0 92px;
@@ -188,7 +200,7 @@
   .final p{font-size:16px;color:var(--ink2);margin-bottom:26px}
 
   footer{border-top:1px solid var(--line);padding:40px 0;background:var(--bg)}
-  .foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:24px}
+  .foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr;gap:24px}
   .foot h4{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:13px}
   .foot a{display:block;font-size:13px;color:var(--ink2);margin-bottom:9px}
   .foot a:hover{color:var(--ink)}
@@ -215,7 +227,7 @@
 <nav>
   <div class="wrap navin">
     <a class="logo" href="/"><img src="/favicon.svg" alt="" aria-hidden="true" style="width:26px;height:26px" /><img class="brand-wordmark" src="/provenloop-wordmark-dark.png" alt="ProvenLoop" /></a>
-    <div class="navlinks"><a href="#loop">Product</a><a href="#roles">For every role</a><a href="#tower">LoopOps</a><a href="#stack">Pricing</a></div>
+    <div class="navlinks"><a href="#loop">Product</a><span class="navdd"><a href="#roles">For every role &#9662;</a><div class="ddmenu"><div class="megacard"><div class="mega-h">By role</div><a class="mrow" href="/for-founder.html"><span class="mtile"><svg style="color:var(--purple)"><use href="#pl-target"/></svg></span><span><span class="mt">For Founders</span><span class="md">Founder-led sales into a motion your team can run.</span></span></a><a class="mrow" href="/for-sales-leaders.html"><span class="mtile"><svg style="color:var(--blue)"><use href="#pl-trending-up"/></svg></span><span><span class="mt">For Sales Leaders</span><span class="md">See the leak in your pipeline, in dollars.</span></span></a></div></div></span><a href="#tower">LoopOps</a><a href="#stack">Pricing</a></div>
     <div class="navr"><a href="https://provenloop.ai/login" style="font-size:13px;color:var(--ink2)">Sign In</a><a class="nbtn grad" href="https://provenloop.ai/signup?utm_source=provenloop-site&amp;utm_medium=referral&amp;utm_campaign=site-launch">Try the Demo</a></div>
   </div>
 </nav>
@@ -467,6 +479,7 @@
   <div class="wrap foot">
     <div><div class="logo" style="margin-bottom:10px"><img src="/favicon.svg" alt="" aria-hidden="true" style="width:24px;height:24px" /><img class="brand-wordmark" src="/provenloop-wordmark-dark.png" alt="ProvenLoop" /></div><div style="font-size:12.5px;color:var(--muted);max-width:240px">The revenue platform for startups going from zero to 100.</div></div>
     <div><h4>Product</h4><a href="#loop">The Loop</a><a href="#reveal">The Retrospective</a><a href="#tower">Agent Tower</a><a href="#automations">Automations</a><a href="#stack">Founder Stack</a></div>
+    <div><h4>For every role</h4><a href="/for-founder.html">For Founders</a><a href="/for-sales-leaders.html">For Sales Leaders</a></div>
     <div><h4>Company</h4><a href="#tower">LoopOps</a><a href="#roles">About</a><a href="mailto:dan@dlea.io">Contact</a></div>
     <div><h4>Legal</h4><a href="/terms">Terms</a><a href="/privacy">Privacy</a></div>
   </div>
