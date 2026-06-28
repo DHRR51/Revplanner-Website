@@ -40,6 +40,8 @@
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
+
+/* ── NAV (matches site standard) ── */
 nav{position:sticky;top:0;z-index:50;background:rgba(18,16,22,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .navin{display:flex;align-items:center;gap:26px;height:62px;max-width:1040px;margin:0 auto;padding:0 28px}
 .logo{font-weight:800;font-size:18px;display:flex;align-items:center;gap:8px}
@@ -61,6 +63,8 @@ nav{position:sticky;top:0;z-index:50;background:rgba(18,16,22,.82);backdrop-filt
 .mtile svg{width:20px;height:20px}
 .mt{display:block;font-size:14px;font-weight:700;color:var(--ink);letter-spacing:-.01em}
 .md{display:block;font-size:12px;color:var(--muted);margin-top:2px;line-height:1.4}
+
+/* ── HERO ── */
 .hero{padding:90px 28px 72px;max-width:900px;margin:0 auto;text-align:center;position:relative}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% 0%,rgba(139,92,246,.13),transparent);pointer-events:none}
 .eyebrow{display:block;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);margin-bottom:16px}
@@ -72,15 +76,23 @@ nav{position:sticky;top:0;z-index:50;background:rgba(18,16,22,.82);backdrop-filt
 .btn-primary{background:#3B82F6;color:#fff;font-size:14px;font-weight:700;padding:13px 26px;border-radius:11px;display:inline-block;box-shadow:0 8px 26px rgba(59,130,246,.4)}
 .btn-secondary{border:1px solid var(--line2);color:var(--ink2);font-size:14px;font-weight:600;padding:13px 24px;border-radius:11px;display:inline-block;background:var(--card2)}
 .btn-secondary:hover{border-color:var(--purple);color:var(--ink)}
+
+/* ── REPLACED TICKER ── */
 .replaced-ticker{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 40px;display:flex;align-items:center;gap:10px;overflow:hidden;flex-wrap:wrap}
 .ticker-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap;margin-right:8px;flex:none}
 .ticker-items{display:flex;gap:8px;flex-wrap:wrap}
 .ticker-item{font-size:12px;font-weight:600;padding:4px 12px;border-radius:999px;background:var(--card);border:1px solid var(--line2);color:var(--ink2)}
+
+/* ── LAYOUT ── */
 .wrap{max-width:1060px;margin:0 auto;padding:0 28px}
+
+/* ── CLAIM PILLS ── */
 .pill{display:inline-flex;align-items:center;gap:5px;font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;vertical-align:middle}
 .pill::before{content:'';width:5px;height:5px;border-radius:50%;background:currentColor;flex:none}
 .pill-live{color:#34d399;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.35)}
 .pill-roll{color:#fcd34d;background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.35)}
+
+/* ── WORKFLOW CARD ── */
 .wf-card{background:var(--card);border:1px solid var(--line2);border-radius:20px;margin-bottom:20px;overflow:hidden}
 .wf-card-header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:22px 28px 16px;border-bottom:1px solid var(--line)}
 .wf-num-badge{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;flex:none;margin-top:2px}
@@ -88,6 +100,8 @@ nav{position:sticky;top:0;z-index:50;background:rgba(18,16,22,.82);backdrop-filt
 .wf-title{font-size:18px;font-weight:800;letter-spacing:-.015em;margin-bottom:4px}
 .wf-short{font-size:13px;color:var(--muted)}
 .wf-pills{display:flex;align-items:center;gap:8px;flex-wrap:wrap;flex:none}
+
+/* ── BEFORE/AFTER ── */
 .wf-cols{display:grid;grid-template-columns:1fr 1fr;gap:0}
 .wf-col{padding:22px 28px}
 .wf-col:first-child{border-right:1px solid var(--line)}
@@ -97,19 +111,25 @@ nav{position:sticky;top:0;z-index:50;background:rgba(18,16,22,.82);backdrop-filt
 .col-icon{width:18px;height:18px;flex:none}
 .wf-col p{font-size:14px;color:var(--ink2);line-height:1.65}
 .wf-col p b{color:var(--ink);font-weight:600}
-.video-slot{margin:0 28px 24px;border:1px dashed var(--line2);border-radius:12px;padding:20px;display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.02)}
-.video-icon{width:36px;height:36px;border-radius:10px;background:rgba(139,92,246,.15);border:1px solid rgba(139,92,246,.3);display:flex;align-items:center;justify-content:center;flex:none}
-.video-slot .vt{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:2px}
-.video-slot .vs{font-size:12px;color:var(--muted)}
+
+/* ── WORKFLOW GRAPHIC ── */
+.wf-graphic{margin:0 28px 24px;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+.wf-graphic svg{display:block;width:100%;height:auto}
+
+/* ── CARD FOOTER LINKS ── */
 .wf-footer{padding:14px 28px;border-top:1px solid var(--line);display:flex;align-items:center;gap:16px}
 .xlink{font-size:12px;font-weight:600;color:var(--purple);display:inline-flex;align-items:center;gap:5px}
 .xlink:hover{color:#a78bfa}
 .xlink svg{width:12px;height:12px}
+
+/* ── STACK TALLY ── */
 .stack-tally{background:linear-gradient(135deg,rgba(139,92,246,.1),rgba(236,72,153,.06));border:1px solid rgba(139,92,246,.25);border-radius:20px;padding:32px 36px;margin:40px 0;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}
 .st-text h3{font-size:18px;font-weight:800;margin-bottom:6px;letter-spacing:-.01em}
 .st-text p{font-size:14px;color:var(--ink2);max-width:520px}
 .st-chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end}
 .st-chip{font-size:11px;font-weight:700;padding:5px 12px;border-radius:8px;background:var(--card2);border:1px solid var(--line2);color:var(--ink2);text-decoration:line-through;text-decoration-color:rgba(239,68,68,.5)}
+
+/* ── ROI CALCULATOR ── */
 .roi-section{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:72px 0}
 .roi-inner{max-width:900px;margin:0 auto;padding:0 28px}
 .roi-header{text-align:center;margin-bottom:40px}
@@ -143,16 +163,21 @@ nav{position:sticky;top:0;z-index:50;background:rgba(18,16,22,.82);backdrop-filt
 .roi-email:focus{border-color:var(--purple)}
 .roi-submit{background:#3B82F6;color:#fff;font-size:13px;font-weight:700;padding:10px 18px;border-radius:9px;border:none;cursor:pointer;font-family:inherit;white-space:nowrap}
 .roi-saved{font-size:13px;color:var(--green);display:none;align-items:center;gap:6px}
+
+/* ── FINAL CTA BAND ── */
 .final-cta{padding:80px 28px;text-align:center;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(139,92,246,.1),transparent)}
 .final-cta h2{font-size:34px;font-weight:900;letter-spacing:-.025em;margin-bottom:20px}
 .xlinks-bar{display:flex;align-items:center;justify-content:center;gap:24px;margin-top:28px;flex-wrap:wrap}
 .xlinks-bar a{font-size:13px;font-weight:600;color:var(--muted);display:inline-flex;align-items:center;gap:5px}
 .xlinks-bar a:hover{color:var(--purple)}
+
+/* ── FOOTER ── */
 footer{border-top:1px solid var(--line);padding:40px 0;background:var(--bg)}
 .foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:24px;max-width:1040px;margin:0 auto;padding:0 28px}
 .foot h4{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:13px}
 .foot a{display:block;font-size:13px;color:var(--ink2);margin-bottom:9px}
 .foot a:hover{color:var(--ink)}
+
 @media(max-width:720px){
   .wf-cols{grid-template-columns:1fr}
   .wf-col:first-child{border-right:none;border-bottom:1px solid var(--line)}
@@ -169,9 +194,19 @@ footer{border-top:1px solid var(--line);padding:40px 0;background:var(--bg)}
 </style>
 </head>
 <body>
+
+<!-- SVG sprite defs -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <linearGradient id="aig" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EC4899"/><stop offset=".5" stop-color="#A855F7"/><stop offset="1" stop-color="#3B82F6"/></linearGradient>
+    <linearGradient id="aig" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#EC4899"/>
+      <stop offset=".5" stop-color="#A855F7"/>
+      <stop offset="1" stop-color="#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="ag" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#EC4899"/>
+      <stop offset="1" stop-color="#3B82F6"/>
+    </linearGradient>
   </defs>
   <symbol id="pl-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="currentColor" fill-opacity=".12" stroke="none"/><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/></symbol>
   <symbol id="pl-trending-up" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M16 7h5v5" fill="none" stroke="currentColor"/></symbol>
@@ -179,6 +214,8 @@ footer{border-top:1px solid var(--line);padding:40px 0;background:var(--bg)}
   <symbol id="pl-grad" viewBox="0 0 24 24"><path d="M12 4 2 9l10 5 10-5z" fill="currentColor" fill-opacity=".18" stroke="none"/><path d="M12 4 2 9l10 5 10-5z" fill="none" stroke="currentColor"/><path d="M6 11v5c0 1.1 2.7 2.5 6 2.5s6-1.4 6-2.5v-5M22 9v5" fill="none" stroke="currentColor"/></symbol>
   <symbol id="pl-message" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="3" fill="currentColor" fill-opacity=".14" stroke="none"/><rect x="3" y="4" width="18" height="14" rx="3" fill="none" stroke="currentColor"/><path d="M3 18l3-3M8 11h8M8 14.5h5" fill="none" stroke="currentColor"/></symbol>
 </svg>
+
+<!-- NAV -->
 <nav>
   <div class="navin">
     <a class="logo" href="/"><img src="/favicon.svg" alt="" aria-hidden="true" style="width:26px;height:26px" /><img class="brand-wordmark" src="/provenloop-wordmark-dark.png" alt="ProvenLoop" /></a>
@@ -191,20 +228,24 @@ footer{border-top:1px solid var(--line);padding:40px 0;background:var(--bg)}
     </div>
     <div class="navr">
       <a href="https://provenloop.ai/login" style="font-size:13px;color:var(--ink2)">Sign In</a>
-      <a class="nbtn grad" href="https://provenloop.ai/signup?utm_source=provenloop-site&utm_medium=referral&utm_campaign=workflows">Try the Demo</a>
+      <a class="nbtn grad" href="https://provenloop.ai/signup?utm_source=provenloop-site&amp;utm_medium=referral&amp;utm_campaign=workflows">Try the Demo</a>
     </div>
   </div>
 </nav>
+
+<!-- HERO -->
 <section class="hero">
   <span class="kicker-line"><span class="kicker-dot"></span>Selling is the new moat.<span class="kicker-dot"></span></span>
   <span class="eyebrow">What you can do in ProvenLoop</span>
   <h1>The work that used to take a team, a stack, and two weeks. In one platform, in minutes.</h1>
   <p>Every workflow below replaced something: a RevOps analyst, an LMS, a content vendor, five tools that did not talk. Here is what each one used to cost you, and what it looks like now.</p>
   <div class="cta-row">
-    <a href="https://provenloop.ai/signup?utm_source=provenloop-site&utm_medium=referral&utm_campaign=workflows" class="btn-primary">Try the Demo. Run these on your own data.</a>
+    <a href="https://provenloop.ai/signup?utm_source=provenloop-site&amp;utm_medium=referral&amp;utm_campaign=workflows" class="btn-primary">Try the Demo. Run these on your own data.</a>
     <a href="#roi" class="btn-secondary">See what it is worth to you</a>
   </div>
 </section>
+
+<!-- REPLACED TICKER -->
 <div class="replaced-ticker">
   <span class="ticker-label">Replaced by this page:</span>
   <div class="ticker-items">
@@ -218,143 +259,671 @@ footer{border-top:1px solid var(--line);padding:40px 0;background:var(--bg)}
     <span class="ticker-item">Data reconciliation ops</span>
   </div>
 </div>
+
+<!-- WORKFLOW CARDS -->
 <div class="wrap" style="padding-top:56px;padding-bottom:16px">
   <h2 style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:36px">10 workflows · each one a before and an after</h2>
+
+  <!-- ── WF 1 ── -->
   <div class="wf-card" id="wf1">
     <div class="wf-card-header">
       <div class="wf-num-badge" style="background:rgba(236,72,153,.14);color:#f472b6">01</div>
-      <div class="wf-title-group"><div class="wf-title">See what your last year really cost you</div><div class="wf-short">Day-One Retrospective · connects to your CRM once</div></div>
+      <div class="wf-title-group">
+        <div class="wf-title">See what your last year really cost you</div>
+        <div class="wf-short">Day-One Retrospective · connects to your CRM once</div>
+      </div>
       <div class="wf-pills"><span class="pill pill-live">Live</span></div>
     </div>
     <div class="wf-cols">
-      <div class="wf-col"><div class="col-label col-label-before"><svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>Before</div><p>You connected your CRM, stared at a pipeline report, and could not tell what your deal history was actually saying. The real analysis needed a RevOps analyst and two-plus days, and the slide deck was stale by the time anyone read it. Most companies never run it at all.</p></div>
-      <div class="wf-col"><div class="col-label col-label-after"><svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>After</div><p>About 10 minutes from connecting your CRM, you see three numbers from your own history: how much slipped past close dates, where your win rate breaks by deal type, and the cost of the current pattern projected forward. <b>Your own data read back to you, not a ProvenLoop number.</b></p></div>
+      <div class="wf-col">
+        <div class="col-label col-label-before">
+          <svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>Before
+        </div>
+        <p>You connected your CRM, stared at a pipeline report, and could not tell what your deal history was actually saying. The real analysis needed a RevOps analyst and two-plus days, and the slide deck was stale by the time anyone read it. Most companies never run it at all.</p>
+      </div>
+      <div class="wf-col">
+        <div class="col-label col-label-after">
+          <svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>After
+        </div>
+        <p>About 10 minutes from connecting your CRM, you see three numbers from your own history: how much slipped past close dates, where your win rate breaks by deal type, and the cost of the current pattern projected forward. <b>Your own data read back to you, not a ProvenLoop number.</b></p>
+      </div>
     </div>
-    <div class="video-slot"><div class="video-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div><div class="vt">Build video</div><div class="vs">ASMR walkthrough · drops in when produced</div></div></div>
-    <div class="wf-footer"><a href="/#reveal" class="xlink">Retrospective tour <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><a href="/#loop" class="xlink">How the loop works <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <div class="wf-graphic">
+      <svg viewBox="0 0 840 130" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <rect width="840" height="130" fill="#17141d"/>
+        <!-- Bar chart: 8 deals, won=green lost=pink -->
+        <rect x="60"  y="67" width="30" height="43" rx="3" fill="#EC4899" fill-opacity=".55"/>
+        <rect x="98"  y="35" width="30" height="75" rx="3" fill="#10B981" fill-opacity=".55"/>
+        <rect x="136" y="77" width="30" height="33" rx="3" fill="#EC4899" fill-opacity=".55"/>
+        <rect x="174" y="45" width="30" height="65" rx="3" fill="#10B981" fill-opacity=".55"/>
+        <rect x="212" y="52" width="30" height="58" rx="3" fill="#10B981" fill-opacity=".55"/>
+        <rect x="250" y="82" width="30" height="28" rx="3" fill="#EC4899" fill-opacity=".55"/>
+        <rect x="288" y="38" width="30" height="72" rx="3" fill="#10B981" fill-opacity=".55"/>
+        <rect x="326" y="70" width="30" height="40" rx="3" fill="#EC4899" fill-opacity=".55"/>
+        <line x1="50" y1="110" x2="376" y2="110" stroke="#2c2737" stroke-width="1"/>
+        <rect x="60" y="118" width="7" height="7" rx="1" fill="#10B981" fill-opacity=".7"/>
+        <text x="72" y="125" fill="#8E8799" font-size="8.5" font-family="Inter,sans-serif">Won</text>
+        <rect x="105" y="118" width="7" height="7" rx="1" fill="#EC4899" fill-opacity=".7"/>
+        <text x="117" y="125" fill="#8E8799" font-size="8.5" font-family="Inter,sans-serif">Lost</text>
+        <!-- Divider -->
+        <line x1="415" y1="12" x2="415" y2="118" stroke="#2c2737" stroke-width="1"/>
+        <!-- Right: 3 insight rows -->
+        <text x="440" y="28" fill="#8E8799" font-size="8" font-family="Inter,sans-serif" font-weight="700" letter-spacing=".1em">READ FROM YOUR OWN CLOSED DEALS</text>
+        <circle cx="448" cy="50" r="5" fill="rgba(239,68,68,.2)" stroke="#EF4444" stroke-width="1.5"/>
+        <text x="460" y="54" fill="#F4F2F8" font-size="12" font-weight="700" font-family="Inter,sans-serif">How much slipped past close dates</text>
+        <line x1="440" y1="65" x2="820" y2="65" stroke="#2c2737" stroke-width=".5"/>
+        <circle cx="448" cy="81" r="5" fill="rgba(245,158,11,.2)" stroke="#F59E0B" stroke-width="1.5"/>
+        <text x="460" y="85" fill="#C9C4D6" font-size="12" font-family="Inter,sans-serif">Where your win rate breaks by deal type</text>
+        <line x1="440" y1="96" x2="820" y2="96" stroke="#2c2737" stroke-width=".5"/>
+        <circle cx="448" cy="112" r="5" fill="rgba(16,185,129,.2)" stroke="#10B981" stroke-width="1.5"/>
+        <text x="460" y="116" fill="#C9C4D6" font-size="12" font-family="Inter,sans-serif">Cost of the current pattern projected forward</text>
+      </svg>
+    </div>
+    <div class="wf-footer">
+      <a href="/#reveal" class="xlink">Retrospective tour <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="/#loop" class="xlink">How the loop works <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
   </div>
+
+  <!-- ── WF 2 ── -->
   <div class="wf-card" id="wf2">
     <div class="wf-card-header">
       <div class="wf-num-badge" style="background:rgba(139,92,246,.14);color:#a78bfa">02</div>
-      <div class="wf-title-group"><div class="wf-title">Review 30 deals for risk in 30 seconds</div><div class="wf-short">System Scan · live pipeline analysis</div></div>
+      <div class="wf-title-group">
+        <div class="wf-title">Review 30 deals for risk in 30 seconds</div>
+        <div class="wf-short">System Scan · live pipeline analysis</div>
+      </div>
       <div class="wf-pills"><span class="pill pill-live">Live</span></div>
     </div>
     <div class="wf-cols">
-      <div class="wf-col"><div class="col-label col-label-before"><svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>Before</div><p>Reviewing a pipeline for risk meant exporting from the CRM, filtering by close date, cross-referencing last activity, opening each deal, and making a judgment call. Two to four hours, weekly if you were disciplined, quarterly if you were not.</p></div>
-      <div class="wf-col"><div class="col-label col-label-after"><svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>After</div><p>A 30-second scan flags past-close, cold, single-threaded, and stalled deals ranked by dollar value, with a one-click fix on each. <b>The review you used to run quarterly, you now run weekly.</b></p></div>
+      <div class="wf-col">
+        <div class="col-label col-label-before">
+          <svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>Before
+        </div>
+        <p>Reviewing a pipeline for risk meant exporting from the CRM, filtering by close date, cross-referencing last activity, opening each deal, and making a judgment call. Two to four hours, weekly if you were disciplined, quarterly if you were not.</p>
+      </div>
+      <div class="wf-col">
+        <div class="col-label col-label-after">
+          <svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>After
+        </div>
+        <p>A 30-second scan flags past-close, cold, single-threaded, and stalled deals ranked by dollar value, with a one-click fix on each. <b>The review you used to run quarterly, you now run weekly.</b></p>
+      </div>
     </div>
-    <div class="video-slot"><div class="video-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div><div class="vt">Build video</div><div class="vs">ASMR walkthrough · drops in when produced</div></div></div>
+    <div class="wf-graphic">
+      <svg viewBox="0 0 840 130" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <rect width="840" height="130" fill="#17141d"/>
+        <!-- 5 deal rows with risk badges -->
+        <text x="40" y="24" fill="#8E8799" font-size="8" font-family="Inter,sans-serif" font-weight="700" letter-spacing=".1em">PIPELINE · 30-SECOND SCAN</text>
+        <!-- Row 1: Past close (red) -->
+        <rect x="40" y="32" width="520" height="16" rx="4" fill="#221e2b"/>
+        <rect x="52" y="36" width="120" height="8" rx="2" fill="#3a3348"/>
+        <rect x="184" y="36" width="70" height="8" rx="2" fill="#3a3348"/>
+        <rect x="266" y="36" width="50" height="8" rx="2" fill="#3a3348"/>
+        <rect x="476" y="33" width="72" height="14" rx="7" fill="rgba(239,68,68,.15)" stroke="#EF4444" stroke-width="1"/>
+        <text x="512" y="42.5" fill="#EF4444" font-size="8" font-family="Inter,sans-serif" font-weight="700" text-anchor="middle">Past close</text>
+        <!-- Row 2: Cold (amber) -->
+        <rect x="40" y="52" width="520" height="16" rx="4" fill="#221e2b"/>
+        <rect x="52" y="56" width="90" height="8" rx="2" fill="#3a3348"/>
+        <rect x="154" y="56" width="100" height="8" rx="2" fill="#3a3348"/>
+        <rect x="266" y="56" width="60" height="8" rx="2" fill="#3a3348"/>
+        <rect x="476" y="53" width="72" height="14" rx="7" fill="rgba(245,158,11,.15)" stroke="#F59E0B" stroke-width="1"/>
+        <text x="512" y="62.5" fill="#F59E0B" font-size="8" font-family="Inter,sans-serif" font-weight="700" text-anchor="middle">Cold · 47d</text>
+        <!-- Row 3: Single-threaded (amber) -->
+        <rect x="40" y="72" width="520" height="16" rx="4" fill="#221e2b"/>
+        <rect x="52" y="76" width="140" height="8" rx="2" fill="#3a3348"/>
+        <rect x="204" y="76" width="55" height="8" rx="2" fill="#3a3348"/>
+        <rect x="266" y="76" width="80" height="8" rx="2" fill="#3a3348"/>
+        <rect x="476" y="73" width="84" height="14" rx="7" fill="rgba(245,158,11,.15)" stroke="#F59E0B" stroke-width="1"/>
+        <text x="518" y="82.5" fill="#F59E0B" font-size="8" font-family="Inter,sans-serif" font-weight="700" text-anchor="middle">Single thread</text>
+        <!-- Row 4: Healthy (green) -->
+        <rect x="40" y="92" width="520" height="16" rx="4" fill="#221e2b"/>
+        <rect x="52" y="96" width="110" height="8" rx="2" fill="#3a3348"/>
+        <rect x="174" y="96" width="80" height="8" rx="2" fill="#3a3348"/>
+        <rect x="266" y="96" width="45" height="8" rx="2" fill="#3a3348"/>
+        <rect x="476" y="93" width="72" height="14" rx="7" fill="rgba(16,185,129,.15)" stroke="#10B981" stroke-width="1"/>
+        <text x="512" y="102.5" fill="#10B981" font-size="8" font-family="Inter,sans-serif" font-weight="700" text-anchor="middle">On track</text>
+        <!-- Scan sweep gradient -->
+        <rect x="40" y="32" width="520" height="76" rx="4" fill="url(#scangrad)" pointer-events="none"/>
+        <defs><linearGradient id="scangrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8B5CF6" stop-opacity="0"/><stop offset=".55" stop-color="#8B5CF6" stop-opacity=".07"/><stop offset=".58" stop-color="#8B5CF6" stop-opacity=".22"/><stop offset=".61" stop-color="#8B5CF6" stop-opacity=".07"/><stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/></linearGradient></defs>
+        <!-- Right stat -->
+        <text x="600" y="55" fill="#8E8799" font-size="10" font-family="Inter,sans-serif">Ranked by</text>
+        <text x="600" y="70" fill="#F4F2F8" font-size="13" font-weight="800" font-family="Inter,sans-serif">dollar value</text>
+        <text x="600" y="85" fill="#8E8799" font-size="10" font-family="Inter,sans-serif">One-click fix</text>
+        <text x="600" y="100" fill="#F4F2F8" font-size="13" font-weight="800" font-family="Inter,sans-serif">on each finding</text>
+      </svg>
+    </div>
     <div class="wf-footer"></div>
   </div>
+
+  <!-- ── WF 3 ── -->
   <div class="wf-card" id="wf3">
     <div class="wf-card-header">
       <div class="wf-num-badge" style="background:rgba(59,130,246,.14);color:#60a5fa">03</div>
-      <div class="wf-title-group"><div class="wf-title">Turn a finding into action in the same session</div><div class="wf-short">Finding to Fix · one-click work item creation</div></div>
+      <div class="wf-title-group">
+        <div class="wf-title">Turn a finding into action in the same session</div>
+        <div class="wf-short">Finding to Fix · one-click work item creation</div>
+      </div>
       <div class="wf-pills"><span class="pill pill-live">Live</span></div>
     </div>
     <div class="wf-cols">
-      <div class="wf-col"><div class="col-label col-label-before"><svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>Before</div><p>The gap between "we found a problem" and "someone did something" was measured in weeks. The finding lived in a slide or a Slack message; acting on it needed a meeting, a brief, an assignment. Two more deals closed wrong for the same reason in the meantime.</p></div>
-      <div class="wf-col"><div class="col-label col-label-after"><svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>After</div><p>One click from a scan finding creates a fully-typed, grounded work item, the right content type already selected, the relevant deals already referenced. <b>Diagnosis and response happen in the same session.</b></p></div>
+      <div class="wf-col">
+        <div class="col-label col-label-before">
+          <svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>Before
+        </div>
+        <p>The gap between "we found a problem" and "someone did something" was measured in weeks. The finding lived in a slide or a Slack message; acting on it needed a meeting, a brief, an assignment. Two more deals closed wrong for the same reason in the meantime.</p>
+      </div>
+      <div class="wf-col">
+        <div class="col-label col-label-after">
+          <svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>After
+        </div>
+        <p>One click from a scan finding creates a fully-typed, grounded work item, the right content type already selected, the relevant deals already referenced. <b>Diagnosis and response happen in the same session.</b></p>
+      </div>
     </div>
-    <div class="video-slot"><div class="video-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div><div class="vt">Build video</div><div class="vs">ASMR walkthrough · drops in when produced</div></div></div>
+    <div class="wf-graphic">
+      <svg viewBox="0 0 840 130" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <rect width="840" height="130" fill="#17141d"/>
+        <!-- Finding card (left) -->
+        <rect x="80" y="20" width="230" height="88" rx="10" fill="#1d1a25" stroke="#3B82F6" stroke-width="1.5" stroke-opacity=".6"/>
+        <rect x="80" y="20" width="230" height="28" rx="10" fill="rgba(59,130,246,.1)"/>
+        <rect x="80" y="36" width="230" height="12" rx="0" fill="rgba(59,130,246,.1)"/>
+        <circle cx="100" cy="34" r="8" fill="rgba(239,68,68,.2)" stroke="#EF4444" stroke-width="1.5"/>
+        <text x="100" y="38" fill="#EF4444" font-size="10" text-anchor="middle" font-family="Inter,sans-serif" font-weight="700">!</text>
+        <text x="116" y="32" fill="#F4F2F8" font-size="11" font-weight="700" font-family="Inter,sans-serif">Finding detected</text>
+        <text x="116" y="43" fill="#8E8799" font-size="8.5" font-family="Inter,sans-serif">Scan · 3 deals at risk</text>
+        <text x="96" y="64" fill="#C9C4D6" font-size="10" font-family="Inter,sans-serif">Discovery gap — no playbook</text>
+        <text x="96" y="78" fill="#8E8799" font-size="9.5" font-family="Inter,sans-serif">$321K at risk · 4 reps affected</text>
+        <rect x="96" y="86" width="80" height="14" rx="4" fill="rgba(59,130,246,.15)" stroke="rgba(59,130,246,.4)" stroke-width="1"/>
+        <text x="136" y="96" fill="#3B82F6" font-size="9" font-family="Inter,sans-serif" font-weight="700" text-anchor="middle">Create work item →</text>
+        <!-- Arrow -->
+        <path d="M318 65 L380 65" stroke="#3a3348" stroke-width="2" stroke-dasharray="4,3"/>
+        <polygon points="380,60 392,65 380,70" fill="#3a3348"/>
+        <!-- Work item card (right) -->
+        <rect x="400" y="20" width="230" height="88" rx="10" fill="#1d1a25" stroke="#10B981" stroke-width="1.5" stroke-opacity=".6"/>
+        <rect x="400" y="20" width="230" height="28" rx="10" fill="rgba(16,185,129,.08)"/>
+        <rect x="400" y="36" width="230" height="12" rx="0" fill="rgba(16,185,129,.08)"/>
+        <circle cx="420" cy="34" r="8" fill="rgba(16,185,129,.2)" stroke="#10B981" stroke-width="1.5"/>
+        <path d="M416 34 L419 37 L424 31" stroke="#10B981" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <text x="436" y="32" fill="#F4F2F8" font-size="11" font-weight="700" font-family="Inter,sans-serif">Work item created</text>
+        <text x="436" y="43" fill="#8E8799" font-size="8.5" font-family="Inter,sans-serif">Build Playbook · grounded in deals</text>
+        <text x="416" y="64" fill="#C9C4D6" font-size="10" font-family="Inter,sans-serif">Type auto-selected · deals referenced</text>
+        <text x="416" y="78" fill="#8E8799" font-size="9.5" font-family="Inter,sans-serif">Assigned · ready to generate</text>
+        <rect x="416" y="86" width="92" height="14" rx="4" fill="rgba(16,185,129,.15)" stroke="rgba(16,185,129,.4)" stroke-width="1"/>
+        <text x="462" y="96" fill="#10B981" font-size="9" font-family="Inter,sans-serif" font-weight="700" text-anchor="middle">Generate content →</text>
+        <!-- Label -->
+        <text x="420" y="122" fill="#8E8799" font-size="9" font-family="Inter,sans-serif">Same session · no meeting, no brief, no handoff</text>
+      </svg>
+    </div>
     <div class="wf-footer"></div>
   </div>
+
+  <!-- ── WF 4 ── -->
   <div class="wf-card" id="wf4">
     <div class="wf-card-header">
       <div class="wf-num-badge" style="background:rgba(16,185,129,.12);color:#34d399">04</div>
-      <div class="wf-title-group"><div class="wf-title">Run a closed loop you can actually measure</div><div class="wf-short">The Loop · Diagnose through Measure</div></div>
-      <div class="wf-pills"><span class="pill pill-live">Live</span><span class="pill pill-roll">Measure rolling out</span></div>
+      <div class="wf-title-group">
+        <div class="wf-title">Run a closed loop you can actually measure</div>
+        <div class="wf-short">The Loop · Diagnose through Measure</div>
+      </div>
+      <div class="wf-pills">
+        <span class="pill pill-live">Live</span>
+        <span class="pill pill-roll">Measure rolling out</span>
+      </div>
     </div>
     <div class="wf-cols">
-      <div class="wf-col"><div class="col-label col-label-before"><svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>Before</div><p>Enablement could prove inputs (courses created, hours trained) but never outputs. "Did it move pipeline?" was unanswerable, and budgets got cut because the argument always ended at activity.</p></div>
-      <div class="wf-col"><div class="col-label col-label-after"><svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>After</div><p>A trail from scan finding to content created to rep assigned to knowledge checked to deal outcome to Pipeline Saved, tied to specific loops, reps, and deals. Pipeline Saved is rolling out; it shows $0 until there is real signal. <b>You do not claim you recovered it, you show the number with the deal trail behind it.</b></p></div>
+      <div class="wf-col">
+        <div class="col-label col-label-before">
+          <svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>Before
+        </div>
+        <p>Enablement could prove inputs (courses created, hours trained) but never outputs. "Did it move pipeline?" was unanswerable, and budgets got cut because the argument always ended at activity.</p>
+      </div>
+      <div class="wf-col">
+        <div class="col-label col-label-after">
+          <svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>After
+        </div>
+        <p>A trail from scan finding to content created to rep assigned to knowledge checked to deal outcome to Pipeline Saved, tied to specific loops, reps, and deals. Pipeline Saved is rolling out; it shows $0 until there is real signal. <b>You do not claim you recovered it, you show the number with the deal trail behind it.</b></p>
+      </div>
     </div>
-    <div class="video-slot"><div class="video-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div><div class="vt">Build video</div><div class="vs">ASMR walkthrough · drops in when produced</div></div></div>
-    <div class="wf-footer"><a href="/#loop" class="xlink">How the loop works <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <div class="wf-graphic">
+      <svg viewBox="0 0 840 130" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <rect width="840" height="130" fill="#17141d"/>
+        <!-- 4-stage loop diagram -->
+        <!-- Diagnose (top) -->
+        <circle cx="420" cy="28" r="22" fill="rgba(59,130,246,.12)" stroke="#3B82F6" stroke-width="1.5"/>
+        <text x="420" y="25" fill="#3B82F6" font-size="9" font-weight="700" font-family="Inter,sans-serif" text-anchor="middle">Diagnose</text>
+        <text x="420" y="36" fill="#3B82F6" font-size="8" font-family="Inter,sans-serif" text-anchor="middle">Scan</text>
+        <!-- Generate (right) -->
+        <circle cx="560" cy="65" r="22" fill="rgba(139,92,246,.12)" stroke="#8B5CF6" stroke-width="1.5"/>
+        <text x="560" y="62" fill="#8B5CF6" font-size="9" font-weight="700" font-family="Inter,sans-serif" text-anchor="middle">Generate</text>
+        <text x="560" y="73" fill="#8B5CF6" font-size="8" font-family="Inter,sans-serif" text-anchor="middle">Content</text>
+        <!-- Prove (bottom) -->
+        <circle cx="420" cy="102" r="22" fill="rgba(245,158,11,.12)" stroke="#F59E0B" stroke-width="1.5"/>
+        <text x="420" y="99" fill="#F59E0B" font-size="9" font-weight="700" font-family="Inter,sans-serif" text-anchor="middle">Prove</text>
+        <text x="420" y="110" fill="#F59E0B" font-size="8" font-family="Inter,sans-serif" text-anchor="middle">Know. Check</text>
+        <!-- Measure (left) -->
+        <circle cx="280" cy="65" r="22" fill="rgba(16,185,129,.12)" stroke="#10B981" stroke-width="1.5"/>
+        <text x="280" y="62" fill="#10B981" font-size="9" font-weight="700" font-family="Inter,sans-serif" text-anchor="middle">Measure</text>
+        <text x="280" y="73" fill="#10B981" font-size="8" font-family="Inter,sans-serif" text-anchor="middle">Pipeline $</text>
+        <!-- Connecting arcs -->
+        <path d="M438 46 Q510 46 542 47" fill="none" stroke="#3a3348" stroke-width="1.5" marker-end="url(#a4r)"/>
+        <path d="M558 87 Q555 102 442 102" fill="none" stroke="#3a3348" stroke-width="1.5" marker-end="url(#a4r)"/>
+        <path d="M398 102 Q300 100 298 87" fill="none" stroke="#3a3348" stroke-width="1.5" marker-end="url(#a4r)"/>
+        <path d="M282 43 Q290 28 398 28" fill="none" stroke="#3a3348" stroke-width="1.5" marker-end="url(#a4r)"/>
+        <defs><marker id="a4r" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#3a3348"/></marker></defs>
+        <!-- Center label -->
+        <text x="420" y="62" fill="#8E8799" font-size="9" font-family="Inter,sans-serif" font-weight="700" text-anchor="middle">Pipeline</text>
+        <text x="420" y="73" fill="#10B981" font-size="10" font-family="Inter,sans-serif" font-weight="800" text-anchor="middle">Saved</text>
+        <!-- Left label -->
+        <text x="80" y="55" fill="#8E8799" font-size="10" font-family="Inter,sans-serif" text-anchor="middle">Closed</text>
+        <text x="80" y="68" fill="#8E8799" font-size="10" font-family="Inter,sans-serif" text-anchor="middle">loop you</text>
+        <text x="80" y="81" fill="#8E8799" font-size="10" font-family="Inter,sans-serif" text-anchor="middle">can show</text>
+        <!-- Right label -->
+        <text x="748" y="55" fill="#8E8799" font-size="10" font-family="Inter,sans-serif" text-anchor="middle">Deal trail</text>
+        <text x="748" y="68" fill="#8E8799" font-size="10" font-family="Inter,sans-serif" text-anchor="middle">behind</text>
+        <text x="748" y="81" fill="#8E8799" font-size="10" font-family="Inter,sans-serif" text-anchor="middle">every $</text>
+      </svg>
+    </div>
+    <div class="wf-footer">
+      <a href="/#loop" class="xlink">How the loop works <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
   </div>
+
+  <!-- ── WF 5 ── -->
   <div class="wf-card" id="wf5">
     <div class="wf-card-header">
       <div class="wf-num-badge" style="background:rgba(245,158,11,.12);color:#fbbf24">05</div>
-      <div class="wf-title-group"><div class="wf-title">Build enablement content from your own wins</div><div class="wf-short">Content Generation · 8 types in seconds</div></div>
+      <div class="wf-title-group">
+        <div class="wf-title">Build enablement content from your own wins</div>
+        <div class="wf-short">Content Generation · 8 types in seconds</div>
+      </div>
       <div class="wf-pills"><span class="pill pill-live">Live</span></div>
     </div>
     <div class="wf-cols">
-      <div class="wf-col"><div class="col-label col-label-before"><svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>Before</div><p>A playbook from scratch took 3 to 4 hours, a case study took a day, a battlecard meant pulling calls and interviewing a rep who remembered the win. Teams outsourced it or skipped it and let reps wing it.</p></div>
-      <div class="wf-col"><div class="col-label col-label-after"><svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>After</div><p>8 content types built in seconds, grounded in your actual closed deals, the real competitors named, the real objections your reps faced, the real pricing context from your wins. Not templates. <b>Content from your own deals is the content reps actually use.</b></p></div>
+      <div class="wf-col">
+        <div class="col-label col-label-before">
+          <svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>Before
+        </div>
+        <p>A playbook from scratch took 3 to 4 hours, a case study took a day, a battlecard meant pulling calls and interviewing a rep who remembered the win. Teams outsourced it or skipped it and let reps wing it.</p>
+      </div>
+      <div class="wf-col">
+        <div class="col-label col-label-after">
+          <svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>After
+        </div>
+        <p>8 content types built in seconds, grounded in your actual closed deals, the real competitors named, the real objections your reps faced, the real pricing context from your wins. Not templates. <b>Content from your own deals is the content reps actually use.</b></p>
+      </div>
     </div>
-    <div class="video-slot"><div class="video-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div><div class="vt">Build video</div><div class="vs">ASMR walkthrough · drops in when produced</div></div></div>
+    <div class="wf-graphic">
+      <svg viewBox="0 0 840 130" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <rect width="840" height="130" fill="#17141d"/>
+        <text x="420" y="18" fill="#8E8799" font-size="8" font-weight="700" font-family="Inter,sans-serif" letter-spacing=".1em" text-anchor="middle">8 CONTENT TYPES · BUILT FROM YOUR CLOSED DEALS</text>
+        <!-- Row 1: 4 content type chips -->
+        <rect x="60"  y="28" width="148" height="34" rx="8" fill="#1d1a25" stroke="#3a3348" stroke-width="1"/>
+        <rect x="60"  y="28" width="4"   height="34" rx="2" fill="#8B5CF6"/>
+        <text x="76"  y="42" fill="#F4F2F8" font-size="11" font-weight="700" font-family="Inter,sans-serif">Playbook</text>
+        <text x="76"  y="54" fill="#8E8799" font-size="9"  font-family="Inter,sans-serif">Grounded in your wins</text>
+
+        <rect x="222" y="28" width="148" height="34" rx="8" fill="#1d1a25" stroke="#3a3348" stroke-width="1"/>
+        <rect x="222" y="28" width="4"   height="34" rx="2" fill="#EC4899"/>
+        <text x="238" y="42" fill="#F4F2F8" font-size="11" font-weight="700" font-family="Inter,sans-serif">Battlecard</text>
+        <text x="238" y="54" fill="#8E8799" font-size="9"  font-family="Inter,sans-serif">Real competitors named</text>
+
+        <rect x="384" y="28" width="148" height="34" rx="8" fill="#1d1a25" stroke="#3a3348" stroke-width="1"/>
+        <rect x="384" y="28" width="4"   height="34" rx="2" fill="#3B82F6"/>
+        <text x="400" y="42" fill="#F4F2F8" font-size="11" font-weight="700" font-family="Inter,sans-serif">Case Study</text>
+        <text x="400" y="54" fill="#8E8799" font-size="9"  font-family="Inter,sans-serif">From a real closed deal</text>
+
+        <rect x="546" y="28" width="148" height="34" rx="8" fill="#1d1a25" stroke="#3a3348" stroke-width="1"/>
+        <rect x="546" y="28" width="4"   height="34" rx="2" fill="#10B981"/>
+        <text x="562" y="42" fill="#F4F2F8" font-size="11" font-weight="700" font-family="Inter,sans-serif">Role-Play</text>
+        <text x="562" y="54" fill="#8E8799" font-size="9"  font-family="Inter,sans-serif">Real objections, real scenarios</text>
+
+        <!-- Row 2: 4 more chips -->
+        <rect x="60"  y="74" width="148" height="34" rx="8" fill="#1d1a25" stroke="#3a3348" stroke-width="1"/>
+        <rect x="60"  y="74" width="4"   height="34" rx="2" fill="#F59E0B"/>
+        <text x="76"  y="88" fill="#F4F2F8" font-size="11" font-weight="700" font-family="Inter,sans-serif">Onboarding Plan</text>
+        <text x="76"  y="100" fill="#8E8799" font-size="9"  font-family="Inter,sans-serif">Ramp reps faster</text>
+
+        <rect x="222" y="74" width="148" height="34" rx="8" fill="#1d1a25" stroke="#3a3348" stroke-width="1"/>
+        <rect x="222" y="74" width="4"   height="34" rx="2" fill="#14B8A6"/>
+        <text x="238" y="88" fill="#F4F2F8" font-size="11" font-weight="700" font-family="Inter,sans-serif">Certify Rep</text>
+        <text x="238" y="100" fill="#8E8799" font-size="9"  font-family="Inter,sans-serif">4-module competency check</text>
+
+        <rect x="384" y="74" width="148" height="34" rx="8" fill="#1d1a25" stroke="#3a3348" stroke-width="1"/>
+        <rect x="384" y="74" width="4"   height="34" rx="2" fill="#A855F7"/>
+        <text x="400" y="88" fill="#F4F2F8" font-size="11" font-weight="700" font-family="Inter,sans-serif">Scale Winner</text>
+        <text x="400" y="100" fill="#8E8799" font-size="9"  font-family="Inter,sans-serif">Replicate what closed</text>
+
+        <rect x="546" y="74" width="148" height="34" rx="8" fill="#1d1a25" stroke="#3a3348" stroke-width="1"/>
+        <rect x="546" y="74" width="4"   height="34" rx="2" fill="#60a5fa"/>
+        <text x="562" y="88" fill="#F4F2F8" font-size="11" font-weight="700" font-family="Inter,sans-serif">One-off Training</text>
+        <text x="562" y="100" fill="#8E8799" font-size="9"  font-family="Inter,sans-serif">Fast-turn targeted fix</text>
+
+        <text x="420" y="122" fill="#8E8799" font-size="9" font-family="Inter,sans-serif" text-anchor="middle" font-style="italic">Every type grounded in your actual deal history · not templates</text>
+      </svg>
+    </div>
     <div class="wf-footer"></div>
   </div>
+
+  <!-- ── WF 6 ── -->
   <div class="wf-card" id="wf6">
     <div class="wf-card-header">
       <div class="wf-num-badge" style="background:rgba(20,184,166,.12);color:#2dd4bf">06</div>
-      <div class="wf-title-group"><div class="wf-title">Know who absorbed the training, before the deal</div><div class="wf-short">Knowledge Check · rep certification</div></div>
+      <div class="wf-title-group">
+        <div class="wf-title">Know who absorbed the training, before the deal</div>
+        <div class="wf-short">Knowledge Check · rep certification</div>
+      </div>
       <div class="wf-pills"><span class="pill pill-roll">Rolling out</span></div>
     </div>
     <div class="wf-cols">
-      <div class="wf-col"><div class="col-label col-label-before"><svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>Before</div><p>Training meant sending a doc, running a webinar, adding it to the LMS, and assuming absorption. The gaps surfaced in lost deals, which meant you paid for the gap with a real opportunity, not a quiz score.</p></div>
-      <div class="wf-col"><div class="col-label col-label-after"><svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>After</div><p>A rep reads the content, answers a few grounding questions, and the score returns to the manager, so gaps get caught before the rep touches a live deal. <b>You are not measuring quiz scores, you are checking that the right knowledge is in the rep's head before the conversation.</b></p></div>
+      <div class="wf-col">
+        <div class="col-label col-label-before">
+          <svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>Before
+        </div>
+        <p>Training meant sending a doc, running a webinar, adding it to the LMS, and assuming absorption. The gaps surfaced in lost deals, which meant you paid for the gap with a real opportunity, not a quiz score.</p>
+      </div>
+      <div class="wf-col">
+        <div class="col-label col-label-after">
+          <svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>After
+        </div>
+        <p>A rep reads the content, answers a few grounding questions, and the score returns to the manager, so gaps get caught before the rep touches a live deal. <b>You are not measuring quiz scores, you are checking that the right knowledge is in the rep's head before the conversation.</b></p>
+      </div>
     </div>
-    <div class="video-slot"><div class="video-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div><div class="vt">Build video</div><div class="vs">ASMR walkthrough · drops in when produced</div></div></div>
+    <div class="wf-graphic">
+      <svg viewBox="0 0 840 130" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <rect width="840" height="130" fill="#17141d"/>
+        <text x="420" y="18" fill="#8E8799" font-size="8" font-weight="700" font-family="Inter,sans-serif" letter-spacing=".1em" text-anchor="middle">KNOWLEDGE CHECK · BEFORE THE DEAL, NOT AFTER</text>
+        <!-- Rep 1: Ready -->
+        <circle cx="160" cy="60" r="20" fill="rgba(16,185,129,.1)" stroke="#10B981" stroke-width="1.5"/>
+        <circle cx="160" cy="54" r="8" fill="#10B981" fill-opacity=".25"/>
+        <path d="M148 72 Q160 66 172 72" fill="#10B981" fill-opacity=".25" stroke="none"/>
+        <text x="160" y="90" fill="#10B981" font-size="9" font-weight="700" font-family="Inter,sans-serif" text-anchor="middle">Ready</text>
+        <rect x="120" y="96" width="80" height="6" rx="3" fill="#2c2737"/>
+        <rect x="120" y="96" width="80" height="6" rx="3" fill="#10B981" fill-opacity=".7"/>
+        <text x="160" y="115" fill="#8E8799" font-size="8.5" font-family="Inter,sans-serif" text-anchor="middle">100%</text>
+        <!-- Rep 2: Ready -->
+        <circle cx="310" cy="60" r="20" fill="rgba(16,185,129,.1)" stroke="#10B981" stroke-width="1.5"/>
+        <circle cx="310" cy="54" r="8" fill="#10B981" fill-opacity=".25"/>
+        <path d="M298 72 Q310 66 322 72" fill="#10B981" fill-opacity=".25" stroke="none"/>
+        <text x="310" y="90" fill="#10B981" font-size="9" font-weight="700" font-family="Inter,sans-serif" text-anchor="middle">Ready</text>
+        <rect x="270" y="96" width="80" height="6" rx="3" fill="#2c2737"/>
+        <rect x="270" y="96" width="72" height="6" rx="3" fill="#10B981" fill-opacity=".7"/>
+        <text x="310" y="115" fill="#8E8799" font-size="8.5" font-family="Inter,sans-serif" text-anchor="middle">90%</text>
+        <!-- Rep 3: Gap flagged -->
+        <circle cx="460" cy="60" r="20" fill="rgba(245,158,11,.1)" stroke="#F59E0B" stroke-width="1.5"/>
+        <circle cx="460" cy="54" r="8" fill="#F59E0B" fill-opacity=".25"/>
+        <path d="M448 72 Q460 66 472 72" fill="#F59E0B" fill-opacity=".25" stroke="none"/>
+        <text x="460" y="90" fill="#F59E0B" font-size="9" font-weight="700" font-family="Inter,sans-serif" text-anchor="middle">Gap flagged</text>
+        <rect x="420" y="96" width="80" height="6" rx="3" fill="#2c2737"/>
+        <rect x="420" y="96" width="45" height="6" rx="3" fill="#F59E0B" fill-opacity=".7"/>
+        <text x="460" y="115" fill="#8E8799" font-size="8.5" font-family="Inter,sans-serif" text-anchor="middle">56%</text>
+        <!-- Rep 4: Not started -->
+        <circle cx="610" cy="60" r="20" fill="rgba(239,68,68,.08)" stroke="#EF4444" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <circle cx="610" cy="54" r="8" fill="#EF4444" fill-opacity=".15"/>
+        <path d="M598 72 Q610 66 622 72" fill="#EF4444" fill-opacity=".15" stroke="none"/>
+        <text x="610" y="90" fill="#EF4444" font-size="9" font-weight="700" font-family="Inter,sans-serif" text-anchor="middle">Not started</text>
+        <rect x="570" y="96" width="80" height="6" rx="3" fill="#2c2737"/>
+        <rect x="570" y="96" width="6" height="6" rx="3" fill="#EF4444" fill-opacity=".5"/>
+        <text x="610" y="115" fill="#8E8799" font-size="8.5" font-family="Inter,sans-serif" text-anchor="middle">0%</text>
+        <!-- Timeline label -->
+        <line x1="60" y1="127" x2="780" y2="127" stroke="#2c2737" stroke-width="1"/>
+        <text x="420" y="127" fill="#3a3348" font-size="8" font-family="Inter,sans-serif" text-anchor="middle" dy="-3">gap caught before they touch a live deal</text>
+      </svg>
+    </div>
     <div class="wf-footer"></div>
   </div>
+
+  <!-- ── WF 7 ── -->
   <div class="wf-card" id="wf7">
     <div class="wf-card-header">
       <div class="wf-num-badge" style="background:rgba(139,92,246,.14);color:#a78bfa">07</div>
-      <div class="wf-title-group"><div class="wf-title">Prep for a call in 2 minutes, not 30</div><div class="wf-short">Agent Chat · grounded in your live pipeline</div></div>
+      <div class="wf-title-group">
+        <div class="wf-title">Prep for a call in 2 minutes, not 30</div>
+        <div class="wf-short">Agent Chat · grounded in your live pipeline</div>
+      </div>
       <div class="wf-pills"><span class="pill pill-live">Live</span></div>
     </div>
     <div class="wf-cols">
-      <div class="wf-col"><div class="col-label col-label-before"><svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>Before</div><p>Call prep meant 30 minutes of tab-hopping, the CRM for deal history, LinkedIn for the contact, the call tool for previous calls, chat for context, notes to compile it. Most reps skipped it on a busy day.</p></div>
-      <div class="wf-col"><div class="col-label col-label-after"><svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>After</div><p>2-minute call prep grounded in live pipeline, company context, and the rep's own history, <b>available the night before without opening another tab.</b></p></div>
+      <div class="wf-col">
+        <div class="col-label col-label-before">
+          <svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>Before
+        </div>
+        <p>Call prep meant 30 minutes of tab-hopping, the CRM for deal history, LinkedIn for the contact, the call tool for previous calls, chat for context, notes to compile it. Most reps skipped it on a busy day.</p>
+      </div>
+      <div class="wf-col">
+        <div class="col-label col-label-after">
+          <svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>After
+        </div>
+        <p>2-minute call prep grounded in live pipeline, company context, and the rep's own history, <b>available the night before without opening another tab.</b></p>
+      </div>
     </div>
-    <div class="video-slot"><div class="video-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div><div class="vt">Build video</div><div class="vs">ASMR walkthrough · drops in when produced</div></div></div>
+    <div class="wf-graphic">
+      <svg viewBox="0 0 840 130" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <rect width="840" height="130" fill="#17141d"/>
+        <!-- Left: browser tab chaos -->
+        <text x="175" y="18" fill="#8E8799" font-size="9" font-family="Inter,sans-serif" text-anchor="middle" font-weight="700">BEFORE</text>
+        <rect x="60"  y="28" width="150" height="22" rx="4" fill="#221e2b" stroke="#3a3348"/>
+        <rect x="60"  y="38" width="150" height="22" rx="4" fill="#221e2b" stroke="#3a3348"/>
+        <rect x="60"  y="48" width="150" height="22" rx="4" fill="#1d1a25" stroke="#2c2737"/>
+        <rect x="60"  y="58" width="150" height="22" rx="4" fill="#221e2b" stroke="#3a3348"/>
+        <rect x="60"  y="68" width="150" height="22" rx="4" fill="#221e2b" stroke="#3a3348"/>
+        <text x="68" y="43" fill="#8E8799" font-size="8.5" font-family="Inter,sans-serif">CRM — deal history</text>
+        <text x="68" y="53" fill="#8E8799" font-size="8.5" font-family="Inter,sans-serif">LinkedIn — contact</text>
+        <text x="68" y="63" fill="#F4F2F8" font-size="8.5" font-family="Inter,sans-serif" font-weight="600">Gong — previous calls</text>
+        <text x="68" y="73" fill="#8E8799" font-size="8.5" font-family="Inter,sans-serif">Slack — context</text>
+        <text x="68" y="83" fill="#8E8799" font-size="8.5" font-family="Inter,sans-serif">Notes — compile it</text>
+        <!-- Big time label -->
+        <text x="175" y="108" fill="#EF4444" font-size="26" font-weight="900" font-family="Inter,sans-serif" text-anchor="middle">30 min</text>
+        <!-- Arrow -->
+        <path d="M230 65 L310 65" stroke="#3a3348" stroke-width="2" stroke-dasharray="4,3"/>
+        <polygon points="310,60 322,65 310,70" fill="#3a3348"/>
+        <!-- Right: clean chat -->
+        <text x="560" y="18" fill="#8E8799" font-size="9" font-family="Inter,sans-serif" text-anchor="middle" font-weight="700">AFTER</text>
+        <rect x="340" y="26" width="380" height="80" rx="10" fill="#1d1a25" stroke="#8B5CF6" stroke-width="1" stroke-opacity=".5"/>
+        <!-- Chat bubbles -->
+        <rect x="356" y="36" width="240" height="20" rx="6" fill="rgba(139,92,246,.12)" stroke="rgba(139,92,246,.3)" stroke-width="1"/>
+        <text x="366" y="50" fill="#C9C4D6" font-size="9.5" font-family="Inter,sans-serif">Prep me for my call with Acme Corp tomorrow</text>
+        <rect x="356" y="62" width="340" height="34" rx="6" fill="rgba(16,185,129,.07)" stroke="rgba(16,185,129,.25)" stroke-width="1"/>
+        <text x="366" y="75" fill="#C9C4D6" font-size="9" font-family="Inter,sans-serif">Last call: pricing objection on seats. Champion: Sarah (VP Ops).</text>
+        <text x="366" y="88" fill="#C9C4D6" font-size="9" font-family="Inter,sans-serif">Similar win: focus on time-to-ramp. Deal at $48K, 3 competitors.</text>
+        <text x="560" y="120" fill="#10B981" font-size="26" font-weight="900" font-family="Inter,sans-serif" text-anchor="middle">2 min</text>
+      </svg>
+    </div>
     <div class="wf-footer"></div>
   </div>
+
+  <!-- ── WF 8 ── -->
   <div class="wf-card" id="wf8">
     <div class="wf-card-header">
       <div class="wf-num-badge" style="background:rgba(245,158,11,.12);color:#fbbf24">08</div>
-      <div class="wf-title-group"><div class="wf-title">Make every AI output sound like your company</div><div class="wf-short">Company Context · 5 minutes once</div></div>
+      <div class="wf-title-group">
+        <div class="wf-title">Make every AI output sound like your company</div>
+        <div class="wf-short">Company Context · 5 minutes once</div>
+      </div>
       <div class="wf-pills"><span class="pill pill-live">Live</span></div>
     </div>
     <div class="wf-cols">
-      <div class="wf-col"><div class="col-label col-label-before"><svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>Before</div><p>Every AI tool produced generic output. The battlecard named the wrong competitors because those are what the model knows. The objections were hypothetical. It sounded like a template because it was one.</p></div>
-      <div class="wf-col"><div class="col-label col-label-after"><svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>After</div><p>5 minutes once, enter your URL, auto-fill 7 sections, review and save. <b>From then on every scan, work item, chat answer, and piece of content speaks in your voice</b>, with your real competitors and your specific pricing objections.</p></div>
+      <div class="wf-col">
+        <div class="col-label col-label-before">
+          <svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>Before
+        </div>
+        <p>Every AI tool produced generic output. The battlecard named the wrong competitors because those are what the model knows. The objections were hypothetical. It sounded like a template because it was one.</p>
+      </div>
+      <div class="wf-col">
+        <div class="col-label col-label-after">
+          <svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>After
+        </div>
+        <p>5 minutes once, enter your URL, auto-fill 7 sections, review and save. <b>From then on every scan, work item, chat answer, and piece of content speaks in your voice</b>, with your real competitors and your specific pricing objections.</p>
+      </div>
     </div>
-    <div class="video-slot"><div class="video-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div><div class="vt">Build video</div><div class="vs">ASMR walkthrough · drops in when produced</div></div></div>
+    <div class="wf-graphic">
+      <svg viewBox="0 0 840 130" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <rect width="840" height="130" fill="#17141d"/>
+        <!-- Central context card -->
+        <rect x="310" y="30" width="220" height="70" rx="10" fill="#1d1a25" stroke="#F59E0B" stroke-width="1.5"/>
+        <text x="420" y="52" fill="#F59E0B" font-size="10" font-weight="700" font-family="Inter,sans-serif" text-anchor="middle" letter-spacing=".04em">COMPANY CONTEXT</text>
+        <line x1="326" y1="58" x2="514" y2="58" stroke="#2c2737" stroke-width="1"/>
+        <text x="420" y="72" fill="#C9C4D6" font-size="9.5" font-family="Inter,sans-serif" text-anchor="middle">Your ICP · Competitors</text>
+        <text x="420" y="85" fill="#C9C4D6" font-size="9.5" font-family="Inter,sans-serif" text-anchor="middle">Objections · Pricing context</text>
+        <!-- Output arrows + content type labels -->
+        <path d="M330 45 L202 28" stroke="#3a3348" stroke-width="1.5" stroke-dasharray="3,2"/>
+        <rect x="82" y="16" width="112" height="26" rx="6" fill="#221e2b" stroke="#3a3348"/>
+        <text x="138" y="33" fill="#C9C4D6" font-size="10" font-family="Inter,sans-serif" text-anchor="middle">Playbook</text>
+        <path d="M510 45 L636 28" stroke="#3a3348" stroke-width="1.5" stroke-dasharray="3,2"/>
+        <rect x="644" y="16" width="112" height="26" rx="6" fill="#221e2b" stroke="#3a3348"/>
+        <text x="700" y="33" fill="#C9C4D6" font-size="10" font-family="Inter,sans-serif" text-anchor="middle">Battlecard</text>
+        <path d="M330 85 L202 102" stroke="#3a3348" stroke-width="1.5" stroke-dasharray="3,2"/>
+        <rect x="82" y="90" width="112" height="26" rx="6" fill="#221e2b" stroke="#3a3348"/>
+        <text x="138" y="107" fill="#C9C4D6" font-size="10" font-family="Inter,sans-serif" text-anchor="middle">Agent chat</text>
+        <path d="M510 85 L636 102" stroke="#3a3348" stroke-width="1.5" stroke-dasharray="3,2"/>
+        <rect x="644" y="90" width="112" height="26" rx="6" fill="#221e2b" stroke="#3a3348"/>
+        <text x="700" y="107" fill="#C9C4D6" font-size="10" font-family="Inter,sans-serif" text-anchor="middle">Outreach</text>
+        <text x="420" y="120" fill="#8E8799" font-size="9" font-family="Inter,sans-serif" text-anchor="middle" font-style="italic">5 minutes once · every output speaks in your voice from then on</text>
+      </svg>
+    </div>
     <div class="wf-footer"></div>
   </div>
+
+  <!-- ── WF 9 ── -->
   <div class="wf-card" id="wf9">
     <div class="wf-card-header">
       <div class="wf-num-badge" style="background:rgba(59,130,246,.14);color:#60a5fa">09</div>
-      <div class="wf-title-group"><div class="wf-title">Connect your stack once, and feed it from one source</div><div class="wf-short">Integrations · HubSpot, Apollo, HeyReach, Confluence</div></div>
-      <div class="wf-pills"><span class="pill pill-live">Live</span><span class="pill pill-roll">Cross-tool push rolling out</span></div>
+      <div class="wf-title-group">
+        <div class="wf-title">Connect your stack once, and feed it from one source</div>
+        <div class="wf-short">Integrations · HubSpot, Apollo, HeyReach, Confluence</div>
+      </div>
+      <div class="wf-pills">
+        <span class="pill pill-live">Live</span>
+        <span class="pill pill-roll">Cross-tool push rolling out</span>
+      </div>
     </div>
     <div class="wf-cols">
-      <div class="wf-col"><div class="col-label col-label-before"><svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>Before</div><p>Five tools, five silos. The CRM had your deals, the prospecting tool had your leads, the outreach tool had your campaigns, and none of them talked. Your ICP lived in someone's head; your winning messaging sat in a won deal no one re-read.</p></div>
-      <div class="wf-col"><div class="col-label col-label-after"><svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>After</div><p>Connect once. Your deals flow into scans automatically. Rolling out: your closed-won ICP flows into your prospecting sequences, your proven messaging into your outreach campaigns, your playbooks publish to your wiki. <b>Every tool gets smarter from the same source.</b></p></div>
+      <div class="wf-col">
+        <div class="col-label col-label-before">
+          <svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>Before
+        </div>
+        <p>Five tools, five silos. The CRM had your deals, the prospecting tool had your leads, the outreach tool had your campaigns, and none of them talked. Your ICP lived in someone's head; your winning messaging sat in a won deal no one re-read.</p>
+      </div>
+      <div class="wf-col">
+        <div class="col-label col-label-after">
+          <svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>After
+        </div>
+        <p>Connect once. Your deals flow into scans automatically. Rolling out: your closed-won ICP flows into your prospecting sequences, your proven messaging into your outreach campaigns, your playbooks publish to your wiki. <b>Every tool gets smarter from the same source.</b></p>
+      </div>
     </div>
-    <div class="video-slot"><div class="video-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div><div class="vt">Build video</div><div class="vs">ASMR walkthrough · drops in when produced</div></div></div>
+    <div class="wf-graphic">
+      <svg viewBox="0 0 840 130" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <rect width="840" height="130" fill="#17141d"/>
+        <!-- ProvenLoop center hub -->
+        <circle cx="420" cy="65" r="34" fill="rgba(139,92,246,.12)" stroke="#8B5CF6" stroke-width="1.5"/>
+        <text x="420" y="61" fill="#8B5CF6" font-size="10" font-weight="700" font-family="Inter,sans-serif" text-anchor="middle">Proven</text>
+        <text x="420" y="74" fill="#8B5CF6" font-size="10" font-weight="700" font-family="Inter,sans-serif" text-anchor="middle">Loop</text>
+        <!-- HubSpot (left) -->
+        <line x1="386" y1="65" x2="252" y2="65" stroke="#3a3348" stroke-width="1.5"/>
+        <rect x="130" y="51" width="114" height="28" rx="8" fill="#221e2b" stroke="#FF7A59" stroke-width="1" stroke-opacity=".7"/>
+        <text x="187" y="69" fill="#FF7A59" font-size="10" font-weight="700" font-family="Inter,sans-serif" text-anchor="middle">HubSpot</text>
+        <!-- Apollo (top) -->
+        <line x1="420" y1="31" x2="420" y2="14" stroke="#3a3348" stroke-width="1.5"/>
+        <rect x="358" y="4" width="124" height="24" rx="8" fill="#221e2b" stroke="#60a5fa" stroke-width="1" stroke-opacity=".7"/>
+        <text x="420" y="20" fill="#60a5fa" font-size="10" font-weight="700" font-family="Inter,sans-serif" text-anchor="middle">Apollo</text>
+        <!-- HeyReach (right) -->
+        <line x1="454" y1="65" x2="596" y2="65" stroke="#3a3348" stroke-width="1.5"/>
+        <rect x="604" y="51" width="114" height="28" rx="8" fill="#221e2b" stroke="#14B8A6" stroke-width="1" stroke-opacity=".7"/>
+        <text x="661" y="69" fill="#14B8A6" font-size="10" font-weight="700" font-family="Inter,sans-serif" text-anchor="middle">HeyReach</text>
+        <!-- Confluence (bottom) -->
+        <line x1="420" y1="99" x2="420" y2="116" stroke="#3a3348" stroke-width="1.5"/>
+        <rect x="352" y="104" width="136" height="24" rx="8" fill="#221e2b" stroke="#60a5fa" stroke-width="1" stroke-opacity=".5"/>
+        <text x="420" y="120" fill="#60a5fa" font-size="10" font-weight="700" font-family="Inter,sans-serif" text-anchor="middle">Confluence</text>
+        <!-- Data flow dots on lines -->
+        <circle cx="320" cy="65" r="3" fill="#8B5CF6" fill-opacity=".6"/>
+        <circle cx="290" cy="65" r="3" fill="#8B5CF6" fill-opacity=".35"/>
+        <circle cx="510" cy="65" r="3" fill="#8B5CF6" fill-opacity=".6"/>
+        <circle cx="540" cy="65" r="3" fill="#8B5CF6" fill-opacity=".35"/>
+        <circle cx="420" cy="44" r="3" fill="#8B5CF6" fill-opacity=".6"/>
+        <circle cx="420" cy="108" r="3" fill="#8B5CF6" fill-opacity=".6"/>
+      </svg>
+    </div>
     <div class="wf-footer"></div>
   </div>
+
+  <!-- ── WF 10 ── -->
   <div class="wf-card" id="wf10">
     <div class="wf-card-header">
       <div class="wf-num-badge" style="background:rgba(236,72,153,.14);color:#f472b6">10</div>
-      <div class="wf-title-group"><div class="wf-title">Make every agent in your stack smarter on what closes</div><div class="wf-short">Agent Tower · cross-platform context layer</div></div>
+      <div class="wf-title-group">
+        <div class="wf-title">Make every agent in your stack smarter on what closes</div>
+        <div class="wf-short">Agent Tower · cross-platform context layer</div>
+      </div>
       <div class="wf-pills"><span class="pill pill-roll">Rolling out</span></div>
     </div>
     <div class="wf-cols">
-      <div class="wf-col"><div class="col-label col-label-before"><svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>Before</div><p>Every AI sales tool ran blind. Your prospecting AI did not know which messaging closed your last ten deals; your CRM copilot guessed your ICP from demographics; your campaigns ran on templates. Each platform an island, all buying inputs from the same generic pool, producing the same generic results as your competitors.</p></div>
-      <div class="wf-col"><div class="col-label col-label-after"><svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>After</div><p>Rolling out. ProvenLoop sits in the middle as the context layer: your closed-won and closed-lost history, your real ICP, your proven objection handles, your rep readiness, and feeds that to every other agent in your stack. Your Breeze finds the accounts, your Apollo sequences them, your HeyReach runs LinkedIn, your Gong coaches after. None of them know what closed your last 50 deals. <b>ProvenLoop does.</b></p><p style="margin-top:14px">The Approve-First gate stops any action that touches money, prospects, or live data for a one-tap approval: the leverage of a swarm with a human in the loop at every consequential step.</p></div>
+      <div class="wf-col">
+        <div class="col-label col-label-before">
+          <svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>Before
+        </div>
+        <p>Every AI sales tool ran blind. Your prospecting AI did not know which messaging closed your last ten deals; your CRM copilot guessed your ICP from demographics; your campaigns ran on templates. Each platform an island, all buying inputs from the same generic pool, producing the same generic results as your competitors.</p>
+      </div>
+      <div class="wf-col">
+        <div class="col-label col-label-after">
+          <svg class="col-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>After
+        </div>
+        <p>Rolling out. ProvenLoop sits in the middle as the context layer: your closed-won and closed-lost history, your real ICP, your proven objection handles, your rep readiness, and feeds that to every other agent in your stack. Your Breeze finds the accounts, your Apollo sequences them, your HeyReach runs LinkedIn, your Gong coaches after. None of them know what closed your last 50 deals. <b>ProvenLoop does.</b></p>
+        <p style="margin-top:14px">The Approve-First gate stops any action that touches money, prospects, or live data for a one-tap approval: the leverage of a swarm with a human in the loop at every consequential step.</p>
+      </div>
     </div>
-    <div class="video-slot"><div class="video-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div><div class="vt">Build video</div><div class="vs">ASMR walkthrough · drops in when produced</div></div></div>
-    <div class="wf-footer"><a href="/#tower" class="xlink">See Agent Tower <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <div class="wf-graphic">
+      <svg viewBox="0 0 840 130" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <rect width="840" height="130" fill="#17141d"/>
+        <!-- ProvenLoop tower (center) -->
+        <rect x="366" y="14" width="108" height="102" rx="10" fill="rgba(139,92,246,.1)" stroke="#8B5CF6" stroke-width="1.5"/>
+        <text x="420" y="38" fill="#8B5CF6" font-size="9" font-weight="700" font-family="Inter,sans-serif" text-anchor="middle" letter-spacing=".06em">PROVEN</text>
+        <text x="420" y="50" fill="#8B5CF6" font-size="9" font-weight="700" font-family="Inter,sans-serif" text-anchor="middle" letter-spacing=".06em">LOOP</text>
+        <line x1="380" y1="56" x2="460" y2="56" stroke="#2c2737" stroke-width="1"/>
+        <text x="420" y="69" fill="#8E8799" font-size="8" font-family="Inter,sans-serif" text-anchor="middle">Context</text>
+        <text x="420" y="80" fill="#C9C4D6" font-size="8" font-family="Inter,sans-serif" text-anchor="middle">ICP · Won/Lost</text>
+        <text x="420" y="91" fill="#C9C4D6" font-size="8" font-family="Inter,sans-serif" text-anchor="middle">Objections</text>
+        <text x="420" y="102" fill="#C9C4D6" font-size="8" font-family="Inter,sans-serif" text-anchor="middle">Rep readiness</text>
+        <!-- Lines to platforms -->
+        <line x1="366" y1="50" x2="246" y2="36" stroke="#3a3348" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <line x1="366" y1="80" x2="246" y2="94" stroke="#3a3348" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <line x1="474" y1="50" x2="594" y2="36" stroke="#3a3348" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <line x1="474" y1="80" x2="594" y2="94" stroke="#3a3348" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <!-- Platform chips -->
+        <rect x="100" y="22" width="138" height="28" rx="8" fill="#221e2b" stroke="#FF7A59" stroke-width="1" stroke-opacity=".6"/>
+        <text x="169" y="40" fill="#FF7A59" font-size="10" font-weight="700" font-family="Inter,sans-serif" text-anchor="middle">HubSpot Breeze</text>
+        <rect x="100" y="80" width="138" height="28" rx="8" fill="#221e2b" stroke="#60a5fa" stroke-width="1" stroke-opacity=".6"/>
+        <text x="169" y="98" fill="#60a5fa" font-size="10" font-weight="700" font-family="Inter,sans-serif" text-anchor="middle">Apollo AI</text>
+        <rect x="602" y="22" width="138" height="28" rx="8" fill="#221e2b" stroke="#14B8A6" stroke-width="1" stroke-opacity=".6"/>
+        <text x="671" y="40" fill="#14B8A6" font-size="10" font-weight="700" font-family="Inter,sans-serif" text-anchor="middle">HeyReach</text>
+        <rect x="602" y="80" width="138" height="28" rx="8" fill="#221e2b" stroke="#A855F7" stroke-width="1" stroke-opacity=".6"/>
+        <text x="671" y="98" fill="#A855F7" font-size="10" font-weight="700" font-family="Inter,sans-serif" text-anchor="middle">Gong</text>
+        <!-- Labels -->
+        <text x="169" y="120" fill="#8E8799" font-size="8.5" font-family="Inter,sans-serif" text-anchor="middle">Find &amp; sequence</text>
+        <text x="671" y="120" fill="#8E8799" font-size="8.5" font-family="Inter,sans-serif" text-anchor="middle">Outreach &amp; coach</text>
+        <text x="420" y="122" fill="#8B5CF6" font-size="8.5" font-weight="700" font-family="Inter,sans-serif" text-anchor="middle">Context layer · knows what closed your last 50 deals</text>
+      </svg>
+    </div>
+    <div class="wf-footer">
+      <a href="/#tower" class="xlink">See Agent Tower <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
   </div>
+
+  <!-- CUMULATIVE TALLY BANNER -->
   <div class="stack-tally">
-    <div class="st-text"><h3>Scroll that stack. This is what you no longer need to buy separately.</h3><p>Ten workflows, one platform. The argument is not features, it is the analyst you did not hire, the LMS you did not buy, the content vendor you did not renew, the five tools that never talked to each other.</p></div>
-    <div class="st-chips"><span class="st-chip">RevOps analyst ($80K+)</span><span class="st-chip">LMS platform</span><span class="st-chip">Content vendor</span><span class="st-chip">5-tool stack</span><span class="st-chip">Manual pipeline reviews</span><span class="st-chip">Generic AI outputs</span></div>
+    <div class="st-text">
+      <h3>Scroll that stack. This is what you no longer need to buy separately.</h3>
+      <p>Ten workflows, one platform. The argument is not features, it is the analyst you did not hire, the LMS you did not buy, the content vendor you did not renew, the five tools that never talked to each other.</p>
+    </div>
+    <div class="st-chips">
+      <span class="st-chip">RevOps analyst ($80K+)</span>
+      <span class="st-chip">LMS platform</span>
+      <span class="st-chip">Content vendor</span>
+      <span class="st-chip">5-tool stack</span>
+      <span class="st-chip">Manual pipeline reviews</span>
+      <span class="st-chip">Generic AI outputs</span>
+    </div>
   </div>
 </div>
+
+<!-- ROI CALCULATOR -->
 <section class="roi-section" id="roi">
   <div class="roi-inner">
     <div class="roi-header">
@@ -363,38 +932,76 @@ footer{border-top:1px solid var(--line);padding:40px 0;background:var(--bg)}
       <p>Enter your team size, your average deal value, and the hours your team spends on these tasks, and the calculator shows an illustrative estimate based on your inputs.</p>
       <p class="roi-disclaimer">It is a model, not a promise. The number is yours, computed from what you enter, and labeled illustrative throughout.</p>
     </div>
+
     <div class="roi-grid">
-      <div class="roi-input-group"><label for="inp-reps">Number of reps</label><input class="roi-input" type="number" id="inp-reps" min="1" max="500" value="5" placeholder="e.g. 5"></div>
-      <div class="roi-input-group"><label for="inp-managers">Number of managers</label><input class="roi-input" type="number" id="inp-managers" min="1" max="100" value="2" placeholder="e.g. 2"></div>
-      <div class="roi-input-group"><label for="inp-deal">Avg deal value ($)</label><input class="roi-input" type="number" id="inp-deal" min="1000" value="40000" placeholder="e.g. 40000"></div>
-      <div class="roi-input-group"><label for="inp-cycle">Avg sales cycle (days)</label><input class="roi-input" type="number" id="inp-cycle" min="1" value="60" placeholder="e.g. 60"></div>
-      <div class="roi-input-group"><label for="inp-pipeline-hrs">Hrs / week on pipeline review (per manager)</label><input class="roi-input" type="number" id="inp-pipeline-hrs" min="0" max="40" value="3" placeholder="e.g. 3"></div>
-      <div class="roi-input-group"><label for="inp-prep-hrs">Hrs / week on call prep (per rep)</label><input class="roi-input" type="number" id="inp-prep-hrs" min="0" max="40" value="2.5" placeholder="e.g. 2.5"></div>
-      <div class="roi-input-group"><label for="inp-content">Content assets created / year</label><input class="roi-input" type="number" id="inp-content" min="0" value="24" placeholder="e.g. 24"></div>
-      <div class="roi-input-group"><label for="inp-outbound">Outbound contacts / month</label><input class="roi-input" type="number" id="inp-outbound" min="0" value="500" placeholder="e.g. 500"></div>
+      <div class="roi-input-group">
+        <label for="inp-reps">Number of reps</label>
+        <input class="roi-input" type="number" id="inp-reps" min="1" max="500" value="5" placeholder="e.g. 5">
+      </div>
+      <div class="roi-input-group">
+        <label for="inp-managers">Number of managers</label>
+        <input class="roi-input" type="number" id="inp-managers" min="1" max="100" value="2" placeholder="e.g. 2">
+      </div>
+      <div class="roi-input-group">
+        <label for="inp-deal">Avg deal value ($)</label>
+        <input class="roi-input" type="number" id="inp-deal" min="1000" value="40000" placeholder="e.g. 40000">
+      </div>
+      <div class="roi-input-group">
+        <label for="inp-cycle">Avg sales cycle (days)</label>
+        <input class="roi-input" type="number" id="inp-cycle" min="1" value="60" placeholder="e.g. 60">
+      </div>
+      <div class="roi-input-group">
+        <label for="inp-pipeline-hrs">Hrs / week on pipeline review (per manager)</label>
+        <input class="roi-input" type="number" id="inp-pipeline-hrs" min="0" max="40" value="3" placeholder="e.g. 3">
+      </div>
+      <div class="roi-input-group">
+        <label for="inp-prep-hrs">Hrs / week on call prep (per rep)</label>
+        <input class="roi-input" type="number" id="inp-prep-hrs" min="0" max="40" value="2.5" placeholder="e.g. 2.5">
+      </div>
+      <div class="roi-input-group">
+        <label for="inp-content">Content assets created / year</label>
+        <input class="roi-input" type="number" id="inp-content" min="0" value="24" placeholder="e.g. 24">
+      </div>
+      <div class="roi-input-group">
+        <label for="inp-outbound">Outbound contacts / month</label>
+        <input class="roi-input" type="number" id="inp-outbound" min="0" value="500" placeholder="e.g. 500">
+      </div>
     </div>
+
     <div class="roi-output" id="roi-output">
       <div class="roi-output-header">Your illustrative time + cost estimate</div>
       <div class="roi-rows" id="roi-rows"></div>
-      <div class="roi-total-row"><span class="roi-total-label">Total illustrative value / year</span><span class="roi-total-val" id="roi-total">$0</span></div>
+      <div class="roi-total-row">
+        <span class="roi-total-label">Total illustrative value / year</span>
+        <span class="roi-total-val" id="roi-total">$0</span>
+      </div>
       <div class="roi-illus-note">Every figure is illustrative, based on your inputs, and assumes commonly reported industry benchmarks (e.g. ~$80K manager salary, 50-week year, 28 min saved per call prep). These are estimates for directional sizing, not guarantees of any result.</div>
     </div>
+
     <div class="roi-gate" id="roi-gate">
       <p><strong>Save and share your estimate.</strong> Enter your work email and we will send you the full breakdown with workflow-by-workflow detail.</p>
       <div class="roi-gate-form">
         <input type="email" class="roi-email" id="roi-email" placeholder="you@company.com">
         <button class="roi-submit" id="roi-btn" onclick="submitROI()">Send my estimate</button>
       </div>
-      <span class="roi-saved" id="roi-saved"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Sent. Check your inbox.</span>
+      <span class="roi-saved" id="roi-saved">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Sent. Check your inbox.
+      </span>
     </div>
-    <div style="text-align:center;margin-top:28px"><a href="https://provenloop.ai/signup?utm_source=provenloop-site&utm_medium=referral&utm_campaign=workflows-roi" class="btn-primary">Try the Demo and run the real thing on your data</a></div>
+
+    <div style="text-align:center;margin-top:28px">
+      <a href="https://provenloop.ai/signup?utm_source=provenloop-site&amp;utm_medium=referral&amp;utm_campaign=workflows-roi" class="btn-primary">Try the Demo and run the real thing on your data</a>
+    </div>
   </div>
 </section>
+
+<!-- FINAL CTA -->
 <section class="final-cta">
   <div class="wrap">
     <h2>Run these on your own data.</h2>
     <div class="cta-row">
-      <a href="https://provenloop.ai/signup?utm_source=provenloop-site&utm_medium=referral&utm_campaign=workflows-final" class="btn-primary">Try the Demo, free</a>
+      <a href="https://provenloop.ai/signup?utm_source=provenloop-site&amp;utm_medium=referral&amp;utm_campaign=workflows-final" class="btn-primary">Try the Demo, free</a>
       <a href="#roi" class="btn-secondary">See what it is worth to you</a>
     </div>
     <div class="xlinks-bar">
@@ -405,6 +1012,8 @@ footer{border-top:1px solid var(--line);padding:40px 0;background:var(--bg)}
     </div>
   </div>
 </section>
+
+<!-- FOOTER -->
 <footer>
   <div class="foot">
     <div><div class="logo" style="margin-bottom:10px"><img src="/favicon.svg" alt="" aria-hidden="true" style="width:24px;height:24px" /><img class="brand-wordmark" src="/provenloop-wordmark-dark.png" alt="ProvenLoop" /></div><div style="font-size:12.5px;color:var(--muted);max-width:240px">The revenue platform for startups going from zero to 100.</div></div>
@@ -413,26 +1022,93 @@ footer{border-top:1px solid var(--line);padding:40px 0;background:var(--bg)}
     <div><h4>Legal</h4><a href="/terms">Terms</a><a href="/privacy">Privacy</a></div>
   </div>
 </footer>
+
+<!-- ROI CALCULATOR LOGIC -->
 <script>
-const MGMT_HOURLY=80000/50/40;const REP_HOURLY=80000/50/40;const OPS_HOURLY=60000/50/40;
-function fmt(n){if(n>=1000000)return'$'+(n/1000000).toFixed(1)+'M';if(n>=1000)return'$'+(n/1000).toFixed(0)+'K';return'$'+Math.round(n).toLocaleString()}
-function fmtHrs(h){return h>=1000?(h/1000).toFixed(1)+'K hrs':Math.round(h)+' hrs'}
-function calc(){
-  const reps=Math.max(1,+document.getElementById('inp-reps').value||5);
-  const mgrs=Math.max(1,+document.getElementById('inp-managers').value||2);
-  const deal=Math.max(1000,+document.getElementById('inp-deal').value||40000);
-  const pipeHrs=Math.max(0,+document.getElementById('inp-pipeline-hrs').value||3);
-  const prepHrs=Math.max(0,+document.getElementById('inp-prep-hrs').value||2.5);
-  const content=Math.max(0,+document.getElementById('inp-content').value||24);
-  const outbound=Math.max(0,+document.getElementById('inp-outbound').value||500);
-  const wf1Val=60*mgrs*OPS_HOURLY;const wf2Val=pipeHrs*50*mgrs*MGMT_HOURLY;const wf3Val=3*2*12*mgrs*MGMT_HOURLY;const wf4Val=4*6*mgrs*MGMT_HOURLY;const wf5Val=content*3*OPS_HOURLY;const wf6Val=2*4*reps*OPS_HOURLY;const wf7Val=prepHrs*50*reps*REP_HOURLY;const wf9Val=5*12*mgrs*OPS_HOURLY;const wf10Val=outbound*12*(1/60)*REP_HOURLY;
-  const total=wf1Val+wf2Val+wf3Val+wf4Val+wf5Val+wf6Val+wf7Val+wf9Val+wf10Val;
-  const rows=[{n:'1 · Day-One Retrospective',pill:'live',hrs:60*mgrs,val:wf1Val,note:'analyst hours saved'},{n:'2 · System Scan',pill:'live',hrs:pipeHrs*50*mgrs,val:wf2Val,note:'manager review time'},{n:'3 · Finding to Fix',pill:'live',hrs:3*2*12*mgrs,val:wf3Val,note:'coordination time'},{n:'4 · The Loop',pill:'live',hrs:4*6*mgrs,val:wf4Val,note:'loop overhead saved'},{n:'5 · Content Generation',pill:'live',hrs:content*3,val:wf5Val,note:'drafting hours saved'},{n:'6 · Knowledge Check',pill:'roll',hrs:2*4*reps,val:wf6Val,note:'LMS admin time (rolling out)'},{n:'7 · Agent Chat (call prep)',pill:'live',hrs:prepHrs*50*reps,val:wf7Val,note:'rep prep hours saved'},{n:'8 · Company Context',pill:'live',hrs:null,val:null,note:'compounds all other workflows'},{n:'9 · Integrations',pill:'live',hrs:5*12*mgrs,val:wf9Val,note:'manual reconciliation'},{n:'10 · Agent Tower',pill:'roll',hrs:outbound*12*(1/60),val:wf10Val,note:'outbound research (rolling out)'}];
-  let html='';for(const r of rows){const p=r.pill==='live'?'<span class="pill pill-live status">Live</span>':'<span class="pill pill-roll status">Rolling out</span>';const v=r.val==null?'Compounds all other values':fmt(r.val)+'/yr';const nt=r.hrs!=null?fmtHrs(r.hrs)+' saved · '+r.note:r.note;html+=`<div class="roi-row"><span class="roi-row-label">${r.n} ${p}</span><span style="text-align:right"><span class="roi-row-val">${v}</span><br><span class="roi-row-note">${nt}</span></span></div>`}
-  document.getElementById('roi-rows').innerHTML=html;document.getElementById('roi-total').textContent=fmt(total);
+const MGMT_HOURLY = 80000/50/40;
+const REP_HOURLY  = 80000/50/40;
+const OPS_HOURLY  = 60000/50/40;
+
+function fmt(n){
+  if(n>=1000000) return '$'+(n/1000000).toFixed(1)+'M';
+  if(n>=1000) return '$'+(n/1000).toFixed(0)+'K';
+  return '$'+Math.round(n).toLocaleString();
 }
-document.querySelectorAll('.roi-input').forEach(el=>el.addEventListener('input',calc));calc();
-async function submitROI(){const email=document.getElementById('roi-email').value.trim();if(!email||!email.includes('@'))return;const btn=document.getElementById('roi-btn');btn.disabled=true;btn.textContent='Sending...';try{await fetch('/api/capture',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,source:'roi-calculator',page:'/workflows'})})}catch(e){}btn.style.display='none';document.getElementById('roi-email').style.display='none';document.getElementById('roi-saved').style.display='flex'}
+function fmtHrs(h){
+  return h>=1000?(h/1000).toFixed(1)+'K hrs':Math.round(h)+' hrs';
+}
+
+function calc(){
+  const reps    = Math.max(1, +document.getElementById('inp-reps').value    || 5);
+  const mgrs    = Math.max(1, +document.getElementById('inp-managers').value || 2);
+  const deal    = Math.max(1000, +document.getElementById('inp-deal').value  || 40000);
+  const pipeHrs = Math.max(0, +document.getElementById('inp-pipeline-hrs').value || 3);
+  const prepHrs = Math.max(0, +document.getElementById('inp-prep-hrs').value || 2.5);
+  const content = Math.max(0, +document.getElementById('inp-content').value  || 24);
+  const outbound= Math.max(0, +document.getElementById('inp-outbound').value || 500);
+
+  const wf1Val  = 60*mgrs*OPS_HOURLY;
+  const wf2Val  = pipeHrs*50*mgrs*MGMT_HOURLY;
+  const wf3Val  = 3*2*12*mgrs*MGMT_HOURLY;
+  const wf4Val  = 4*6*mgrs*MGMT_HOURLY;
+  const wf5Val  = content*3*OPS_HOURLY;
+  const wf6Val  = 2*4*reps*OPS_HOURLY;
+  const wf7Val  = prepHrs*50*reps*REP_HOURLY;
+  const wf9Val  = 5*12*mgrs*OPS_HOURLY;
+  const wf10Val = outbound*12*(1/60)*REP_HOURLY;
+
+  const total = wf1Val+wf2Val+wf3Val+wf4Val+wf5Val+wf6Val+wf7Val+wf9Val+wf10Val;
+
+  const rows=[
+    {n:'1 · Day-One Retrospective', pill:'live', hrs:60*mgrs, val:wf1Val, note:'analyst hours saved'},
+    {n:'2 · System Scan',           pill:'live', hrs:pipeHrs*50*mgrs, val:wf2Val, note:'manager review time'},
+    {n:'3 · Finding to Fix',        pill:'live', hrs:3*2*12*mgrs, val:wf3Val, note:'coordination time'},
+    {n:'4 · The Loop',              pill:'live', hrs:4*6*mgrs, val:wf4Val, note:'loop overhead saved'},
+    {n:'5 · Content Generation',    pill:'live', hrs:content*3, val:wf5Val, note:'drafting hours saved'},
+    {n:'6 · Knowledge Check',       pill:'roll', hrs:2*4*reps, val:wf6Val, note:'LMS admin time (rolling out)'},
+    {n:'7 · Agent Chat (call prep)', pill:'live', hrs:prepHrs*50*reps, val:wf7Val, note:'rep prep hours saved'},
+    {n:'8 · Company Context',       pill:'live', hrs:null, val:null, note:'compounds all other workflows'},
+    {n:'9 · Integrations',          pill:'live', hrs:5*12*mgrs, val:wf9Val, note:'manual reconciliation'},
+    {n:'10 · Agent Tower',          pill:'roll', hrs:outbound*12*(1/60), val:wf10Val, note:'outbound research (rolling out)'},
+  ];
+
+  let html='';
+  for(const r of rows){
+    const pillHtml=r.pill==='live'
+      ?'<span class="pill pill-live status">Live</span>'
+      :'<span class="pill pill-roll status">Rolling out</span>';
+    const valStr=r.val==null?'Compounds all other values':fmt(r.val)+'/yr';
+    const noteStr=r.hrs!=null?fmtHrs(r.hrs)+' saved · '+r.note:r.note;
+    html+=`<div class="roi-row">
+      <span class="roi-row-label">${r.n} ${pillHtml}</span>
+      <span style="text-align:right"><span class="roi-row-val">${valStr}</span><br><span class="roi-row-note">${noteStr}</span></span>
+    </div>`;
+  }
+  document.getElementById('roi-rows').innerHTML=html;
+  document.getElementById('roi-total').textContent=fmt(total);
+}
+
+document.querySelectorAll('.roi-input').forEach(el=>el.addEventListener('input',calc));
+calc();
+
+async function submitROI(){
+  const email=document.getElementById('roi-email').value.trim();
+  if(!email||!email.includes('@')) return;
+  const btn=document.getElementById('roi-btn');
+  btn.disabled=true;btn.textContent='Sending...';
+  try{
+    await fetch('/api/capture',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email,source:'roi-calculator',page:'/workflows'})
+    });
+  }catch(e){/* fail-soft */}
+  btn.style.display='none';
+  document.getElementById('roi-email').style.display='none';
+  const saved=document.getElementById('roi-saved');
+  saved.style.display='flex';
+}
 </script>
+
 </body>
 </html>
