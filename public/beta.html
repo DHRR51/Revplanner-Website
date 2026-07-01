@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ProvenLoop — Join the Closed Beta</title>
+<style>
+  :root {
+    --bg: #0A0A0F; --surface: #13131A; --surface2: #1C1C26;
+    --border: #2A2A3A; --muted: #8A8A98; --text: #F3F3F7;
+    --purple: #8B5CF6; --purple-dim: rgba(139,92,246,0.12);
+    --green: #10B981; --amber: #F59E0B;
+    --grad: linear-gradient(135deg, #EC4899, #8B5CF6, #3B82F6);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; min-height: 100vh; }
+
+  /* Nav */
+  nav { padding: 20px 48px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); }
+  .logo { font-size: 17px; font-weight: 800; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .nav-back { font-size: 13px; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 6px; }
+  .nav-back:hover { color: var(--text); }
+
+  /* Hero */
+  .hero { text-align: center; padding: 64px 24px 48px; max-width: 580px; margin: 0 auto; }
+  .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--purple); margin-bottom: 16px; }
+  h1 { font-size: 36px; font-weight: 800; line-height: 1.15; margin-bottom: 16px; }
+  .hero-sub { color: var(--muted); font-size: 15px; line-height: 1.6; margin-bottom: 12px; }
+  .spots-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.3); color: var(--amber); padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+  .spots-dot { width: 7px; height: 7px; background: var(--amber); border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+  /* Form container */
+  .form-wrap { max-width: 560px; margin: 0 auto; padding: 0 24px 80px; }
+
+  /* Progress bar */
+  .progress-bar { height: 3px; background: var(--border); border-radius: 3px; margin-bottom: 36px; overflow: hidden; }
+  .progress-fill { height: 100%; background: var(--grad); border-radius: 3px; transition: width .4s ease; }
+  .progress-label { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-bottom: 8px; }
+
+  /* Steps */
+  .step { display: none; }
+  .step.active { display: block; }
+
+  /* Question */
+  .q-label { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+  .q-sub { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+
+  /* Option cards */
+  .options { display: grid; gap: 10px; margin-bottom: 28px; }
+  .options.cols2 { grid-template-columns: 1fr 1fr; }
+  .option { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; cursor: pointer; display: flex; align-items: flex-start; gap: 12px; transition: border-color .15s, background .15s; }
+  .option:hover { border-color: var(--purple); background: var(--purple-dim); }
+  .option.selected { border-color: var(--purple); background: var(--purple-dim); }
+  .option-check { width: 18px; height: 18px; border: 1.5px solid var(--border); border-radius: 50%; flex-shrink: 0; margin-top: 1px; transition: all .15s; display: flex; align-items: center; justify-content: center; }
+  .option.selected .option-check { background: var(--purple); border-color: var(--purple); }
+  .option.selected .option-check::after { content: '✓'; font-size: 11px; color: #fff; }
+  .option-text .title { font-size: 13px; font-weight: 600; margin-bottom: 2px; }
+  .option-text .desc { font-size: 12px; color: var(--muted); }
+
+  /* Text input */
+  .text-input { width: 100%; background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 12px 16px; border-radius: 10px; font-size: 14px; margin-bottom: 28px; resize: none; }
+  .text-input:focus { outline: none; border-color: var(--purple); }
+  input.text-input { height: 46px; }
+
+  /* Nav buttons */
+  .btn-row { display: flex; gap: 10px; }
+  .btn { padding: 11px 24px; border-radius: 9px; font-size: 14px; font-weight: 700; cursor: pointer; border: none; transition: opacity .15s; }
+  .btn:hover { opacity: .85; }
+  .btn-next { background: var(--purple); color: #fff; flex: 1; }
+  .btn-back { background: transparent; border: 1px solid var(--border); color: var(--muted); padding: 11px 18px; }
+  .btn-submit { background: var(--grad); color: #fff; flex: 1; font-size: 15px; padding: 14px; }
+
+  /* Result screens */
+  .result { display: none; text-align: center; padding: 48px 24px; max-width: 500px; margin: 0 auto; }
+  .result.active { display: block; }
+  .result-icon { font-size: 56px; margin-bottom: 20px; }
+  .result h2 { font-size: 26px; font-weight: 800; margin-bottom: 12px; }
+  .result p { color: var(--muted); font-size: 15px; line-height: 1.6; margin-bottom: 24px; }
+  .result-detail { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: left; margin-bottom: 24px; }
+  .result-detail .row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+  .result-detail .row:last-child { border-bottom: none; }
+  .result-detail .row span:first-child { color: var(--muted); }
+  .result-detail .row span:last-child { font-weight: 600; }
+  .tag-green { color: var(--green); }
+  .tag-amber { color: var(--amber); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">ProvenLoop</div>
+  <a class="nav-back" href="#">← Back to provenloop.io</a>
+</nav>
+
+<!-- FORM -->
+<div id="formSection">
+  <div class="hero">
+    <div class="eyebrow">Closed Beta</div>
+    <h1>Apply for early access</h1>
+    <p class="hero-sub">We're onboarding 25 companies in Cohort 1. Each one gets hands-on setup and direct access to the team. Takes 2 minutes.</p>
+    <div class="spots-badge"><span class="spots-dot"></span> 11 spots remaining</div>
+  </div>
+
+  <div class="form-wrap">
+    <div class="progress-label">
+      <span id="stepLabel">Step 1 of 5</span>
+      <span id="stepPct">20%</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:20%"></div></div>
+
+    <!-- STEP 1: Role -->
+    <div class="step active" id="step1">
+      <div class="q-label">What's your role?</div>
+      <div class="q-sub">Pick the one that fits best.</div>
+      <div class="options">
+        <div class="option" onclick="select(this,'role','founder')">
+          <div class="option-check"></div>
+          <div class="option-text"><div class="title">Founder / Owner</div><div class="desc">You're running sales yourself</div></div>
+        </div>
+        <div class="option" onclick="select(this,'role','founding-ae')">
+          <div class="option-check"></div>
+          <div class="option-text"><div class="title">Founding AE</div><div class="desc">First or second sales hire at an early-stage company</div></div>
+        </div>
+        <div class="option" onclick="select(this,'role','sales-manager')">
+          <div class="option-check"></div>
+          <div class="option-text"><div class="title">Sales Manager</div><div class="desc">You manage a team of reps</div></div>
+        </div>
+        <div class="option" onclick="select(this,'role','revops')">
+          <div class="option-check"></div>
+          <div class="option-text"><div class="title">RevOps / Enablement</div><div class="desc">You build and run the revenue system</div></div>
+        </div>
+        <div class="option" onclick="select(this,'role','cro')">
+          <div class="option-check"></div>
+          <div class="option-text"><div class="title">CRO / VP Sales</div><div class="desc">You own the number</div></div>
+        </div>
+        <div class="option" onclick="select(this,'role','other')">
+          <div class="option-check"></div>
+          <div class="option-text"><div class="title">Something else</div><div class="desc"></div></div>
+        </div>
+      </div>
+      <div class="btn-row"><button class="btn btn-next" onclick="next(2)">Next →</button></div>
+    </div>
+
+    <!-- STEP 2: Company size + CRM -->
+    <div class="step" id="step2">
+      <div class="q-label">How big is your company, and what CRM do you use?</div>
+      <div class="q-sub">Company size</div>
+      <div class="options cols2" style="margin-bottom:20px;">
+        <div class="option" onclick="select(this,'size','1-10')"><div class="option-check"></div><div class="option-text"><div class="title">1–10 people</div></div></div>
+        <div class="option" onclick="select(this,'size','11-50')"><div class="option-check"></div><div class="option-text"><div class="title">11–50 people</div></div></div>
+        <div class="option" onclick="select(this,'size','51-200')"><div class="option-check"></div><div class="option-text"><div class="title">51–200 people</div></div></div>
+        <div class="option" onclick="select(this,'size','200+')"><div class="option-check"></div><div class="option-text"><div class="title">200+ people</div></div></div>
+      </div>
+      <div class="q-sub">CRM</div>
+      <div class="options cols2" style="margin-bottom:28px;">
+        <div class="option" onclick="select(this,'crm','hubspot')"><div class="option-check"></div><div class="option-text"><div class="title">HubSpot</div></div></div>
+        <div class="option" onclick="select(this,'crm','salesforce')"><div class="option-check"></div><div class="option-text"><div class="title">Salesforce</div></div></div>
+        <div class="option" onclick="select(this,'crm','pipedrive')"><div class="option-check"></div><div class="option-text"><div class="title">Pipedrive</div></div></div>
+        <div class="option" onclick="select(this,'crm','none')"><div class="option-check"></div><div class="option-text"><div class="title">No CRM / other</div></div></div>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-back" onclick="next(1)">← Back</button>
+        <button class="btn btn-next" onclick="next(3)">Next →</button>
+      </div>
+    </div>
+
+    <!-- STEP 3: Deal history -->
+    <div class="step" id="step3">
+      <div class="q-label">How many deals did you close in the last 12 months?</div>
+      <div class="q-sub">We use your closed deal history to build your ICP and retrospective. More deals = richer insight.</div>
+      <div class="options">
+        <div class="option" onclick="select(this,'deals','0-9')"><div class="option-check"></div><div class="option-text"><div class="title">Fewer than 10</div><div class="desc">Early stage — we'll help you build from what you have</div></div></div>
+        <div class="option" onclick="select(this,'deals','10-49')"><div class="option-check"></div><div class="option-text"><div class="title">10–49 deals</div><div class="desc">Good foundation for pattern recognition</div></div></div>
+        <div class="option" onclick="select(this,'deals','50-199')"><div class="option-check"></div><div class="option-text"><div class="title">50–199 deals</div><div class="desc">Strong signal — ICP and retrospective will be sharp</div></div></div>
+        <div class="option" onclick="select(this,'deals','200+')"><div class="option-check"></div><div class="option-text"><div class="title">200+ deals</div><div class="desc">Deep history — full platform value from day one</div></div></div>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-back" onclick="next(2)">← Back</button>
+        <button class="btn btn-next" onclick="next(4)">Next →</button>
+      </div>
+    </div>
+
+    <!-- STEP 4: Pain -->
+    <div class="step" id="step4">
+      <div class="q-label">What's the #1 thing you're trying to fix in the next 90 days?</div>
+      <div class="q-sub">Pick your biggest pain.</div>
+      <div class="options">
+        <div class="option" onclick="select(this,'pain','win-rate')"><div class="option-check"></div><div class="option-text"><div class="title">Win rate / closing more deals</div><div class="desc">I know what I'm losing but not why</div></div></div>
+        <div class="option" onclick="select(this,'pain','ramp')"><div class="option-check"></div><div class="option-text"><div class="title">Ramping new reps faster</div><div class="desc">New hires take too long to hit quota</div></div></div>
+        <div class="option" onclick="select(this,'pain','content')"><div class="option-check"></div><div class="option-text"><div class="title">Sales content and enablement</div><div class="desc">Reps are winging it — no consistent playbook</div></div></div>
+        <div class="option" onclick="select(this,'pain','icp')"><div class="option-check"></div><div class="option-text"><div class="title">Knowing who to target</div><div class="desc">ICP is fuzzy — spending time on the wrong deals</div></div></div>
+        <div class="option" onclick="select(this,'pain','pipeline')"><div class="option-check"></div><div class="option-text"><div class="title">Pipeline visibility and forecast</div><div class="desc">I don't know what's real until it's too late</div></div></div>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-back" onclick="next(3)">← Back</button>
+        <button class="btn btn-next" onclick="next(5)">Next →</button>
+      </div>
+    </div>
+
+    <!-- STEP 5: Contact -->
+    <div class="step" id="step5">
+      <div class="q-label">Last step — how do we reach you?</div>
+      <div class="q-sub">We review every application personally. No automated drip. If you're a fit, Dan reaches out directly.</div>
+      <input class="text-input" type="text" placeholder="Your name" id="fname" style="margin-bottom:10px;">
+      <input class="text-input" type="email" placeholder="Work email" id="femail" style="margin-bottom:10px;">
+      <input class="text-input" type="text" placeholder="Company name" id="fcompany" style="margin-bottom:10px;">
+      <textarea class="text-input" rows="3" placeholder="Anything else you want us to know? (optional)" id="fnotes"></textarea>
+      <div class="btn-row">
+        <button class="btn btn-back" onclick="next(4)">← Back</button>
+        <button class="btn btn-submit" onclick="submit()">Apply for beta access →</button>
+      </div>
+      <div style="font-size:12px;color:var(--muted);margin-top:14px;text-align:center;">No spam. We read every application. Expect a reply within 48 hours.</div>
+    </div>
+  </div>
+</div>
+
+<!-- RESULT: STRONG FIT -->
+<div class="result" id="resultGreen">
+  <div class="result-icon">🎯</div>
+  <h2>You're exactly who we built this for.</h2>
+  <p>Based on your answers, ProvenLoop will be valuable for you from day one. We'll be in touch within 48 hours with next steps.</p>
+  <div class="result-detail">
+    <div class="row"><span>Fit score</span><span class="tag-green">Strong fit ✓</span></div>
+    <div class="row"><span>Why</span><span>HubSpot CRM + closed deal history + sales motion</span></div>
+    <div class="row"><span>What to expect</span><span>Personal invite from Dan</span></div>
+    <div class="row"><span>Timeline</span><span>Within 48 hours</span></div>
+  </div>
+  <p style="font-size:13px;">In the meantime — <a href="https://provenloop.io" style="color:var(--purple);">read how the loop works →</a></p>
+</div>
+
+<!-- RESULT: GOOD FIT / WAITLIST -->
+<div class="result" id="resultAmber">
+  <div class="result-icon">⏳</div>
+  <h2>You're on the waitlist.</h2>
+  <p>You look like a good fit but Cohort 1 spots are limited. We're keeping your application for Cohort 2. We'll reach out as soon as a spot opens.</p>
+  <div class="result-detail">
+    <div class="row"><span>Status</span><span class="tag-amber">Waitlisted</span></div>
+    <div class="row"><span>Cohort 2 timing</span><span>~8 weeks</span></div>
+    <div class="row"><span>What helps</span><span>HubSpot connected + 10+ closed deals</span></div>
+  </div>
+  <p style="font-size:13px;">Questions? Email <a href="mailto:dan@provenloop.io" style="color:var(--purple);">dan@provenloop.io</a></p>
+</div>
+
+<!-- RESULT: NOT YET -->
+<div class="result" id="resultGray">
+  <div class="result-icon">🔭</div>
+  <h2>Not quite the right time — but keep us bookmarked.</h2>
+  <p>ProvenLoop works best when there's closed deal history to learn from. Right now we'd be guessing alongside you. Come back once you have 10+ closed deals in a CRM.</p>
+  <div class="result-detail">
+    <div class="row"><span>Status</span><span>Not yet</span></div>
+    <div class="row"><span>Come back when</span><span>10+ closed deals logged in a CRM</span></div>
+    <div class="row"><span>Best first step</span><span>Get HubSpot free + start logging deals</span></div>
+  </div>
+  <p style="font-size:13px;">We'll still send you the free <a href="#" style="color:var(--purple);">Founder's Sales Playbook →</a></p>
+</div>
+
+<script>
+const answers = {};
+const steps = 5;
+
+function select(el, key, val) {
+  // deselect siblings in same question group
+  el.closest('.options').querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  answers[key] = val;
+}
+
+function next(n) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  const el = document.getElementById('step' + n);
+  if (el) el.classList.add('active');
+  const pct = Math.round((n / steps) * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('stepLabel').textContent = 'Step ' + n + ' of ' + steps;
+  document.getElementById('stepPct').textContent = pct + '%';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function score() {
+  let s = 0;
+  // Role
+  if (['founder','founding-ae','sales-manager','cro'].includes(answers.role)) s += 3;
+  else if (answers.role === 'revops') s += 2;
+  // Size
+  if (['1-10','11-50'].includes(answers.size)) s += 3;
+  else if (answers.size === '51-200') s += 2;
+  // CRM
+  if (answers.crm === 'hubspot') s += 3;
+  else if (answers.crm === 'salesforce') s += 2;
+  else if (answers.crm === 'pipedrive') s += 1;
+  // Deals
+  if (answers.deals === '10-49') s += 2;
+  else if (answers.deals === '50-199' || answers.deals === '200+') s += 3;
+  else if (answers.deals === '0-9') s += 0;
+  return s;
+}
+
+async function submit() {
+  const name = document.getElementById('fname').value.trim();
+  const email = document.getElementById('femail').value.trim();
+  const company = document.getElementById('fcompany').value.trim();
+  const notes = document.getElementById('fnotes').value.trim();
+  if (!name || !email || !company) { alert('Name, email, and company are required.'); return; }
+  if (!answers.role || !answers.size || !answers.crm || !answers.deals || !answers.pain) {
+    alert('Please complete all steps before submitting.'); return;
+  }
+
+  const btn = document.querySelector('.btn-submit');
+  btn.disabled = true;
+  btn.textContent = 'Submitting…';
+
+  try {
+    const res = await fetch('/api/beta-applications', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, company, role: answers.role, size: answers.size, crm: answers.crm, deals: answers.deals, pain: answers.pain, notes: notes || undefined })
+    });
+    const data = res.ok ? await res.json() : null;
+    const fit = data?.fit || (score() >= 9 ? 'strong' : score() >= 5 ? 'waitlist' : 'not-yet');
+
+    document.getElementById('formSection').style.display = 'none';
+    if (fit === 'strong') {
+      document.getElementById('resultGreen').classList.add('active');
+    } else if (fit === 'waitlist') {
+      document.getElementById('resultAmber').classList.add('active');
+    } else {
+      document.getElementById('resultGray').classList.add('active');
+    }
+  } catch (e) {
+    // Fail-soft: show result based on local score
+    const s = score();
+    document.getElementById('formSection').style.display = 'none';
+    if (s >= 9) document.getElementById('resultGreen').classList.add('active');
+    else if (s >= 5) document.getElementById('resultAmber').classList.add('active');
+    else document.getElementById('resultGray').classList.add('active');
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
