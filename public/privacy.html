@@ -3,68 +3,189 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Policy — RevPlanner</title>
-<link rel="icon" href="/favicon.svg">
+<title>Privacy Policy — ProvenLoop</title>
+<meta name="description" content="ProvenLoop Privacy Policy. DLEA.IO LLC operating as ProvenLoop, a Delaware limited liability company." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://provenloop.io/privacy" />
+<link rel="icon" href="/favicon.svg" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/icon-16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/icon-180.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="ProvenLoop" />
+<meta property="og:title" content="Privacy Policy — ProvenLoop" />
+<meta property="og:url" content="https://provenloop.io/privacy" />
 <style>
-body { font-family: 'DM Sans', system-ui, sans-serif; max-width: 760px; margin: 48px auto; padding: 0 24px; color: #222; line-height: 1.6; }
-h1 { font-size: 32px; margin-bottom: 8px; }
-h2 { font-size: 22px; margin-top: 36px; }
-.meta { color: #777; font-size: 14px; margin-bottom: 32px; }
-a { color: #5b2c8a; }
-table { border-collapse: collapse; width: 100%; margin: 16px 0; }
-th, td { text-align: left; border: 1px solid #ddd; padding: 8px 12px; font-size: 14px; }
-th { background: #f5f0fa; }
+  :root{
+    --bg:#121016;--bg2:#17141d;--card:#1d1a25;--card2:#221e2b;--line:#2c2737;--line2:#3a3348;
+    --ink:#F4F2F8;--ink2:#C9C4D6;--muted:#8E8799;
+    --purple:#8B5CF6;--pink:#EC4899;--blue:#3B82F6;--green:#10B981;--amber:#F59E0B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--purple);text-decoration:none}
+  a:hover{color:#a78bfa}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 28px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(18,16,22,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .navin{display:flex;align-items:center;gap:26px;height:62px}
+  .logo{font-weight:800;font-size:18px;display:flex;align-items:center;gap:8px}
+  .brand-wordmark{height:20px;display:block}
+  .navlinks{display:flex;gap:22px;font-size:13.5px;color:var(--ink2);font-weight:500;margin-left:8px}
+  .navlinks a{color:var(--ink2)}
+  .navlinks a:hover{color:var(--ink)}
+  .navr{margin-left:auto;display:flex;align-items:center;gap:14px}
+  .nbtn{font-size:13px;font-weight:600;padding:8px 16px;border-radius:9px;border:1px solid var(--line2);background:var(--card2);color:var(--ink)}
+  .nbtn.grad{border:none;color:#fff;background:#3B82F6;box-shadow:0 4px 16px rgba(59,130,246,.36)}
+  .legal-header{background:var(--bg2);border-bottom:1px solid var(--line);padding:52px 0 40px}
+  .legal-header .breadcrumb{font-size:12px;color:var(--muted);margin-bottom:14px}
+  .legal-header .breadcrumb a{color:var(--muted)}
+  .legal-header .breadcrumb a:hover{color:var(--ink2)}
+  .legal-header h1{font-size:38px;font-weight:800;letter-spacing:-.025em;margin-bottom:10px}
+  .legal-header .meta{font-size:13.5px;color:var(--muted)}
+  .legal-header .meta a{color:var(--purple)}
+  .legal-body{padding:52px 0 80px}
+  .legal-content{max-width:760px}
+  .legal-content h2{font-size:18px;font-weight:700;letter-spacing:-.01em;color:var(--ink);margin:40px 0 12px;padding-top:4px;border-top:1px solid var(--line)}
+  .legal-content h2:first-child{margin-top:0;border-top:none}
+  .legal-content p{font-size:15px;color:var(--ink2);margin-bottom:14px;line-height:1.7}
+  .legal-content ul{margin:8px 0 14px 18px}
+  .legal-content li{font-size:15px;color:var(--ink2);margin-bottom:7px;line-height:1.65}
+  .legal-content li strong,.legal-content p strong{color:var(--ink)}
+  .legal-content a{color:var(--purple)}
+  .legal-content a:hover{color:#a78bfa}
+  .legal-content .note{font-size:13px;color:var(--muted);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin-bottom:20px;line-height:1.6}
+  .legal-content table{width:100%;border-collapse:collapse;margin:14px 0 20px;font-size:13.5px}
+  .legal-content thead tr{background:var(--card2)}
+  .legal-content th{text-align:left;padding:10px 14px;color:var(--ink);font-weight:600;border:1px solid var(--line2)}
+  .legal-content td{padding:10px 14px;color:var(--ink2);border:1px solid var(--line);vertical-align:top}
+  .legal-content tr:nth-child(even) td{background:rgba(255,255,255,.015)}
+  footer{border-top:1px solid var(--line);padding:40px 0;background:var(--bg)}
+  .foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:24px}
+  .foot h4{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:13px}
+  .foot a{display:block;font-size:13px;color:var(--ink2);margin-bottom:9px}
+  .foot a:hover{color:var(--ink)}
+  @media (max-width:820px){.foot{grid-template-columns:1fr 1fr}.navlinks{display:none}h1{font-size:28px}}
+  @media (max-width:500px){.foot{grid-template-columns:1fr}}
 </style>
+<!-- HubSpot tracking (marketing portal 246125112) -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/246125112.js"></script>
+<!-- Vercel Web Analytics -->
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
-<h1>Privacy Policy</h1>
-<p class="meta">Effective: June 4, 2026 · <a href="/">← Back to RevPlanner</a></p>
 
-<p>RevPlanner is operated by DLEA.IO LLC d/b/a RevPlanner, a Delaware limited liability company. This Privacy Policy describes how we collect, use, and share information when you use the Service.</p>
+<nav>
+  <div class="wrap navin">
+    <a class="logo" href="/"><img src="/favicon.svg" alt="" aria-hidden="true" style="width:26px;height:26px" /><img class="brand-wordmark" src="/provenloop-wordmark-dark.png" alt="ProvenLoop" /></a>
+    <div class="navlinks">
+      <a href="/#loop">Product</a>
+      <a href="/#roles">For every role</a>
+      <a href="/#tower">LoopOps</a>
+      <a href="/#stack">Pricing</a>
+    </div>
+    <div class="navr">
+      <a href="https://provenloop.ai/login" style="font-size:13px;color:var(--ink2)">Sign In</a>
+      <a class="nbtn grad" href="https://provenloop.ai/signup?utm_source=provenloop-site&utm_medium=referral&utm_campaign=legal">Try the Demo</a>
+    </div>
+  </div>
+</nav>
 
-<h2>1. What we collect</h2>
-<p>When you create an account: name, email, company, and (during checkout) billing details handled by Stripe — we do not store card numbers. When you connect data sources: CRM records, call recordings, and knowledge base content you authorize us to access. When you use the Service: usage logs, generated content, and product analytics.</p>
+<div class="legal-header">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="/">ProvenLoop</a> &nbsp;/&nbsp; Privacy Policy</div>
+    <h1>Privacy Policy</h1>
+    <div class="meta">Effective: July 20, 2026 &nbsp;·&nbsp; DLEA.IO LLC (operating as ProvenLoop) &nbsp;·&nbsp; <a href="/terms">Terms of Service</a></div>
+  </div>
+</div>
 
-<h2>2. How we use it</h2>
-<p>To provide the Service: read your data, generate enablement content, coach your reps, and surface pipeline insights. To bill you: process subscription payments via Stripe and Chargebee. To improve the Service: aggregate, anonymized usage analytics. We do not sell your data.</p>
+<div class="legal-body">
+  <div class="wrap">
+    <div class="legal-content">
 
-<h2>3. Subprocessors</h2>
-<p>We use the following third parties to deliver the Service. Each is bound by a data processing agreement to the extent it processes personal data on our behalf. We will update this list when subprocessors are added or removed. Customers on annual contracts will receive at least 14 days' notice of new subprocessors via email; customers on monthly contracts receive notice via this page and in-product notification. You may object to the use of a new subprocessor by emailing us at the address in section 10; if we cannot reach a reasonable accommodation, you may terminate your subscription without penalty.</p>
-<table>
-<thead><tr><th>Subprocessor</th><th>Purpose</th><th>Data location</th></tr></thead>
-<tbody>
-<tr><td>Anthropic</td><td>LLM inference for content generation and agent capabilities</td><td>US</td></tr>
-<tr><td>OpenAI</td><td>Secondary LLM inference (fallback / specific features)</td><td>US</td></tr>
-<tr><td>Render</td><td>Application hosting, database (PostgreSQL), background jobs</td><td>US</td></tr>
-<tr><td>Vercel</td><td>Marketing site hosting and edge analytics</td><td>US</td></tr>
-<tr><td>Auth0 (an Okta company)</td><td>Authentication, identity, and session management</td><td>US</td></tr>
-<tr><td>HubSpot</td><td>CRM integration (when you connect HubSpot); marketing form capture</td><td>US</td></tr>
-<tr><td>Stripe</td><td>Payment processing</td><td>US</td></tr>
-<tr><td>Chargebee</td><td>Subscription management</td><td>US</td></tr>
-<tr><td>Microsoft Azure (legacy)</td><td>Legacy application hosting; being decommissioned</td><td>US</td></tr>
-<tr><td>GitHub (Microsoft)</td><td>Source code repository — no customer personal data is sent here; referenced for completeness</td><td>US</td></tr>
-</tbody>
-</table>
+      <div class="note">Draft for publish — counsel review recommended. Not legal advice.</div>
 
-<h2>4. AI processing</h2>
-<p>Content you upload or connect to RevPlanner is sent to our AI providers (Anthropic Claude, and OpenAI for certain features) for inference. Under our commercial agreements with these providers, your data is not used to train their models. Inference is performed in U.S. data centers. We do not sell or share your data with third parties for advertising purposes. If you require regional data residency (e.g., EU-only processing), please contact us — this is a roadmap capability rather than a current commitment.</p>
+      <p>ProvenLoop is operated by DLEA.IO LLC, a Delaware limited liability company operating as ProvenLoop. This Privacy Policy describes how we collect, use, and share information when you use the Service.</p>
 
-<h2>5. Data retention</h2>
-<p>Account data: retained while your subscription is active and for 90 days after cancellation, then deleted. Generated content: retained as long as your subscription is active; you can export at any time. Logs: 30 days. Backups: 35 days.</p>
+      <h2>1. Information We Collect</h2>
+      <ul>
+        <li><strong>Account information</strong> you provide: name, email, company, role.</li>
+        <li><strong>Customer Data</strong> you connect or upload: CRM records, deal and pipeline data, contacts, and other business data from systems you authorize (e.g., HubSpot).</li>
+        <li><strong>Usage information</strong>: how you interact with the Service, device and log data, and cookies (see §8).</li>
+        <li><strong>Billing information</strong>: processed by our payment providers; we do not store full card numbers.</li>
+      </ul>
 
-<h2>6. Your rights</h2>
-<p>You can request access, correction, export, or deletion of your personal data by emailing <a href="mailto:dan@revplanner.io">dan@revplanner.io</a>. We will respond within the timeframe required by applicable law (typically 30–45 days). Residents of jurisdictions with applicable privacy laws — including but not limited to California (CCPA / CPRA), Colorado (CPA), Virginia (VCDPA), Connecticut (CTDPA), Utah (UCPA), the EU and UK (GDPR / UK GDPR), and other states with comprehensive privacy legislation — have additional rights under those laws. We honor verifiable consumer requests as required by the applicable statute, including rights of access, deletion, correction, opt-out of sale/sharing, and limitation of sensitive data processing. To exercise these rights, email us at the address above and identify the jurisdiction whose law you are invoking.</p>
+      <h2>2. How We Use Information</h2>
+      <p>We use information to: provide and operate the Service; analyze your connected data to produce insights and enablement content for you; personalize and improve the Service; communicate with you; process payments; maintain security; and comply with legal obligations.</p>
 
-<h2>7. Security</h2>
-<p>Data is encrypted in transit (TLS 1.2+) and at rest using industry-standard encryption (AES-256). Access is gated by SSO/OAuth, scoped API tokens, and least-privilege RBAC. We log administrative actions and review access quarterly.</p>
+      <h2>3. Subprocessors</h2>
+      <p>We use the following third-party subprocessors to provide the Service. We update this list as our infrastructure evolves.</p>
+      <table>
+        <thead><tr><th>Subprocessor</th><th>Purpose</th><th>Data location</th></tr></thead>
+        <tbody>
+          <tr><td>Anthropic</td><td>AI inference (analysis, content generation, agent capabilities)</td><td>US</td></tr>
+          <tr><td>Render</td><td>Application hosting, PostgreSQL database, background jobs</td><td>US</td></tr>
+          <tr><td>Vercel</td><td>Marketing site hosting</td><td>US</td></tr>
+          <tr><td>Auth0 (an Okta company)</td><td>Authentication, identity, session management</td><td>US</td></tr>
+          <tr><td>HubSpot</td><td>CRM integration (when you connect it); marketing form capture</td><td>US</td></tr>
+          <tr><td>Apollo</td><td>Data enrichment (when used)</td><td>US</td></tr>
+          <tr><td>HeyReach</td><td>Outreach integration (when connected)</td><td>US</td></tr>
+          <tr><td>Tavily</td><td>Web search for research features (no Customer Data sent)</td><td>US</td></tr>
+          <tr><td>Resend</td><td>Transactional email delivery</td><td>US</td></tr>
+          <tr><td>Stripe</td><td>Payment processing</td><td>US</td></tr>
+          <tr><td>Chargebee</td><td>Subscription management</td><td>US</td></tr>
+        </tbody>
+      </table>
+      <p>We will update this list when subprocessors are added or removed. Customers on annual contracts will receive at least 14 days' notice of new subprocessors by email; customers on monthly contracts receive notice via this page and in-product notification. You may object to a new subprocessor by emailing us at the address in §10; if we cannot reach a reasonable accommodation, you may terminate your subscription without penalty.</p>
 
-<h2>8. Cookies</h2>
-<p>We use essential cookies for authentication and session management. We use Vercel Analytics and HubSpot Analytics for product and marketing analytics, which may set cookies and similar technologies for usage measurement. We do not use advertising cookies or sell behavioral data.</p>
+      <h2>4. AI Processing</h2>
+      <p>Content you upload or connect to ProvenLoop is sent to our AI providers (currently Anthropic) for inference. Under our commercial agreements with these providers, your data is not used to train their models. Inference is performed in U.S. data centers. We do not sell or share your data with third parties for advertising purposes. If you require regional data residency (e.g., EU-only processing), please contact us — this is a roadmap capability rather than a current commitment.</p>
 
-<h2>9. Changes to this policy</h2>
-<p>We will provide advance notice — typically at least 30 days — before material changes take effect, by email or in-product notice.</p>
+      <h2>5. How We Share Information</h2>
+      <p>We share information only: with subprocessors (§3) to operate the Service; to comply with law or valid legal process; to protect our rights, users, or the public; and in connection with a merger, acquisition, or sale of assets (with notice). We do not sell your personal information.</p>
 
-<h2>10. Contact</h2>
-<p>For privacy-related questions or to exercise your rights, email <a href="mailto:dan@revplanner.io">dan@revplanner.io</a>. Our legal mailing address is c/o United States Corporation Agents, Inc., 131 Continental Drive Suite 305, Newark DE 19713 (registered agent for DLEA.IO LLC).</p>
+      <h2>6. Your Rights</h2>
+      <p>You can request access, correction, export, or deletion of your personal data by emailing <a href="mailto:privacy@provenloop.io">privacy@provenloop.io</a>. We respond within the timeframe required by applicable law (typically 30-45 days). Residents of jurisdictions with applicable privacy laws — including but not limited to California (CCPA/CPRA), Colorado (CPA), Virginia (VCDPA), Connecticut (CTDPA), Utah (UCPA), the EU and UK (GDPR/UK GDPR), and other states with comprehensive privacy legislation — have additional rights under those laws, including access, deletion, correction, opt-out of sale/sharing, and limitation of sensitive-data processing. To exercise these rights, email us and identify the jurisdiction whose law you are invoking.</p>
+
+      <h2>7. Data Retention</h2>
+      <p>We retain Customer Data for as long as your account is active or as needed to provide the Service, and thereafter as required for legal, tax, or regulatory purposes or to resolve disputes. On termination, you may request export or deletion, subject to any legal-hold or retention requirements.</p>
+
+      <h2>8. Cookies</h2>
+      <p>We use essential cookies for authentication and session management (required for the app to work).</p>
+      <p>On this marketing site (provenloop.io), we use <strong>HubSpot Analytics</strong> (portal 246125112), which sets a cookie named <strong>hubspotutk</strong>. This cookie tracks your browsing session on the marketing site and is used to attribute form submissions (such as the beta application) to your session in HubSpot, so we can understand how visitors found us. The hubspotutk cookie persists for 13 months. HubSpot's privacy policy is available at <a href="https://legal.hubspot.com/privacy-policy" target="_blank" rel="noopener">legal.hubspot.com/privacy-policy</a>.</p>
+      <p>We also use <strong>Vercel Web Analytics</strong> for aggregate site-traffic measurement. Vercel Web Analytics does not set persistent cookies and does not collect personally identifiable information.</p>
+      <p>We do not use advertising cookies. We do not sell behavioral data.</p>
+
+      <h2>9. Security</h2>
+      <p>We use administrative, technical, and physical safeguards designed to protect personal data, including encryption of stored integration credentials and access controls. No method of transmission or storage is completely secure; we cannot guarantee absolute security.</p>
+
+      <h2>10. Contact</h2>
+      <p>Privacy questions or to exercise your rights: <a href="mailto:privacy@provenloop.io">privacy@provenloop.io</a><br>
+      Support: <a href="mailto:support@provenloop.io">support@provenloop.io</a><br>
+      DLEA.IO LLC (operating as ProvenLoop), c/o United States Corporation Agents, Inc., 131 Continental Drive Suite 305, Newark, DE 19713.</p>
+
+      <h2>11. Changes to This Policy</h2>
+      <p>We may update this Policy from time to time. For material changes, we will provide advance notice — typically at least 30 days — by email or in-product notice. Continued use after the effective date constitutes acceptance.</p>
+
+      <p style="margin-top:40px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)">&#169; 2026 DLEA.IO LLC (operating as ProvenLoop). All rights reserved.</p>
+
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <div class="logo" style="margin-bottom:10px"><img src="/favicon.svg" alt="" aria-hidden="true" style="width:24px;height:24px" /><img class="brand-wordmark" src="/provenloop-wordmark-dark.png" alt="ProvenLoop" /></div>
+      <div style="font-size:12.5px;color:var(--muted);max-width:240px">The revenue platform for startups going from zero to 100.</div>
+    </div>
+    <div><h4>Product</h4><a href="/#loop">The Loop</a><a href="/#reveal">The Retrospective</a><a href="/#tower">Agent Tower</a><a href="/#automations">Automations</a><a href="/#stack">Founder Stack</a></div>
+    <div><h4>For every role</h4><a href="/for-founder.html">For Founders</a><a href="/for-sales-leaders.html">For Sales Leaders</a><a href="/for-sales-manager.html">For Sales Managers</a><a href="/for-enablement.html">For Enablement Leaders</a></div>
+    <div><h4>Legal</h4><a href="/terms">Terms</a><a href="/privacy">Privacy</a></div>
+  </div>
+</footer>
+
 </body>
 </html>
