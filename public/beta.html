@@ -85,6 +85,10 @@
   .tag-green { color: var(--green); }
   .tag-amber { color: var(--amber); }
 </style>
+<!-- HubSpot tracking (marketing portal 246125112) -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/246125112.js"></script>
+<!-- Vercel Web Analytics -->
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 
@@ -306,6 +310,9 @@ async function submit() {
     alert('Please complete all steps before submitting.'); return;
   }
 
+  // Read HubSpot visitor tracking cookie for session attribution
+  const hutk = document.cookie.split(';').map(c => c.trim()).find(c => c.startsWith('hubspotutk='))?.split('=')[1] || undefined;
+
   const btn = document.querySelector('.btn-submit');
   btn.disabled = true;
   btn.textContent = 'Submitting…';
@@ -314,7 +321,7 @@ async function submit() {
     const res = await fetch('/api/beta-applications', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, company, role: answers.role, size: answers.size, crm: answers.crm, deals: answers.deals, pain: answers.pain, notes: notes || undefined })
+      body: JSON.stringify({ name, email, company, role: answers.role, size: answers.size, crm: answers.crm, deals: answers.deals, pain: answers.pain, notes: notes || undefined, hutk })
     });
     const data = res.ok ? await res.json() : null;
     const fit = data?.fit || (score() >= 9 ? 'strong' : score() >= 5 ? 'waitlist' : 'not-yet');
