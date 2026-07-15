@@ -73,6 +73,7 @@
   .mt{display:block;font-size:14px;font-weight:700;color:var(--ink);letter-spacing:-.01em}
   .md{display:block;font-size:12px;color:var(--muted);margin-top:2px;line-height:1.4}
 
+  /* hero: real live nebula asset */
   .hero{position:relative;overflow:hidden;padding:74px 0 84px;
     background:#2a1550 url('/hero-bg.png') center top/cover no-repeat}
   .hero::after{content:"";position:absolute;inset:0;pointer-events:none;
@@ -89,6 +90,7 @@
   .cta.s{border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff}
   .trust{font-size:12.5px;color:#fff;margin-top:18px}
 
+  /* Pod diagram */
   .pod-wrap{margin:36px auto 0;max-width:660px}
   .pod-diagram{width:100%;background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:30px 24px;display:flex;align-items:center;justify-content:center}
   .pod-svg{width:100%;max-width:580px;height:auto}
@@ -102,6 +104,7 @@
   .lead{font-size:15.5px;color:var(--ink2)}
   .lead.big{font-size:16.5px}
 
+  /* Feature list */
   .feat-list{max-width:760px;margin:28px auto 0;display:flex;flex-direction:column;gap:0}
   .feat{display:flex;gap:16px;padding:18px 0;border-top:1px solid var(--line)}
   .feat:last-child{border-bottom:1px solid var(--line)}
@@ -170,11 +173,12 @@
     </div>
     <div class="navr">
       <a href="https://provenloop.ai/login" style="font-size:13px;color:var(--ink2)">Sign In</a>
-      <a class="nbtn grad" href="https://provenloop.ai/signup?utm_source=provenloop-site&utm_medium=referral&utm_campaign=for-bdr-team">Try the Demo</a>
+      <a class="nbtn grad" href="https://provenloop.ai/signup?utm_source=provenloop-site&amp;utm_medium=referral&amp;utm_campaign=for-bdr-team">Try the Demo</a>
     </div>
   </div>
 </nav>
 
+<!-- HERO -->
 <header class="hero">
   <div class="wrap">
     <a href="/#tower" class="kicker">Selling is the new moat.<span class="arr">read why &rarr;</span></a>
@@ -182,11 +186,12 @@
     <h1 class="hh">Your BDR pod, humans and agents,<br>in one view.</h1>
     <p class="subh">The manager, the BDRs, and the agents working the top of funnel together: everyone on the same proven motion, pulled from the deals that actually closed, in one place. Human-led, agent-run.</p>
     <div class="cta-row">
-      <a class="cta p" href="https://provenloop.ai/signup?utm_source=provenloop-site&utm_medium=referral&utm_campaign=for-bdr-team">Try the Demo. See the proven motion, from your own wins.</a>
+      <a class="cta p" href="https://provenloop.ai/signup?utm_source=provenloop-site&amp;utm_medium=referral&amp;utm_campaign=for-bdr-team">Try the Demo. See the proven motion, from your own wins.</a>
       <a class="cta s" href="#loop">See how the loop works</a>
     </div>
     <div class="trust">Read-only on your CRM. No implementation team. Cancel anytime.</div>
 
+    <!-- Pod-in-one-view diagram -->
     <div class="pod-wrap">
       <div class="pod-diagram">
         <svg class="pod-svg" viewBox="0 0 560 260" xmlns="http://www.w3.org/2000/svg" aria-label="BDR pod diagram: Manager, BDRs, and Agents all connected to the Proven Motion in the center">
@@ -197,12 +202,18 @@
               <stop offset="1" stop-color="#3B82F6"/>
             </linearGradient>
           </defs>
+
+          <!-- connector lines -->
           <line x1="148" y1="130" x2="220" y2="130" stroke="#3a3348" stroke-width="1.5" stroke-dasharray="5 4"/>
           <line x1="412" y1="130" x2="340" y2="130" stroke="#3a3348" stroke-width="1.5" stroke-dasharray="5 4"/>
           <line x1="280" y1="196" x2="280" y2="168" stroke="rgba(168,85,247,.45)" stroke-width="1.5" stroke-dasharray="5 4"/>
+
+          <!-- arrowheads -->
           <polygon points="220,127 212,130 220,133" fill="#3a3348"/>
           <polygon points="340,127 348,130 340,133" fill="#3a3348"/>
           <polygon points="277,168 280,160 283,168" fill="rgba(168,85,247,.45)"/>
+
+          <!-- CENTER: Proven Motion -->
           <circle cx="280" cy="130" r="46" fill="rgba(139,92,246,.12)" stroke="#8B5CF6" stroke-width="1.5"/>
           <circle cx="280" cy="130" r="34" fill="rgba(139,92,246,.07)" stroke="rgba(139,92,246,.3)" stroke-width="1"/>
           <circle cx="280" cy="117" r="9" fill="rgba(139,92,246,.18)" stroke="rgba(139,92,246,.7)" stroke-width="1.5"/>
@@ -210,6 +221,8 @@
           <text x="280" y="134" text-anchor="middle" font-family="Inter,-apple-system,sans-serif" font-size="9.5" font-weight="700" fill="#C9C4D6" letter-spacing=".04em">PROVEN</text>
           <text x="280" y="146" text-anchor="middle" font-family="Inter,-apple-system,sans-serif" font-size="9.5" font-weight="700" fill="#C9C4D6" letter-spacing=".04em">MOTION</text>
           <text x="280" y="159" text-anchor="middle" font-family="Inter,-apple-system,sans-serif" font-size="8" fill="rgba(201,196,214,.55)">ICP + message + objections</text>
+
+          <!-- LEFT: Manager node -->
           <rect x="28" y="98" width="120" height="64" rx="14" fill="rgba(29,26,37,.9)" stroke="#3a3348" stroke-width="1.5"/>
           <circle cx="66" cy="118" r="7" fill="rgba(139,92,246,.18)" stroke="#8B5CF6" stroke-width="1.5"/>
           <path d="M54 134c0-6.6 5.4-12 12-12s12 5.4 12 12" fill="none" stroke="#8B5CF6" stroke-width="1.5"/>
@@ -218,6 +231,8 @@
           <text x="88" y="121" font-family="Inter,-apple-system,sans-serif" font-size="10" font-weight="700" fill="#F4F2F8">Manager</text>
           <text x="56" y="148" text-anchor="middle" font-family="Inter,-apple-system,sans-serif" font-size="8.5" fill="#8E8799">coaches, owns</text>
           <text x="56" y="158" text-anchor="middle" font-family="Inter,-apple-system,sans-serif" font-size="8.5" fill="#8E8799">the number</text>
+
+          <!-- RIGHT: BDRs node -->
           <rect x="412" y="98" width="120" height="64" rx="14" fill="rgba(29,26,37,.9)" stroke="#3a3348" stroke-width="1.5"/>
           <rect x="430" y="110" width="28" height="20" rx="5" fill="rgba(59,130,246,.16)" stroke="#3B82F6" stroke-width="1.5"/>
           <path d="M430 130l4-4" fill="none" stroke="#3B82F6" stroke-width="1.5"/>
@@ -225,12 +240,16 @@
           <text x="464" y="121" font-family="Inter,-apple-system,sans-serif" font-size="10" font-weight="700" fill="#F4F2F8">BDRs</text>
           <text x="472" y="148" text-anchor="middle" font-family="Inter,-apple-system,sans-serif" font-size="8.5" fill="#8E8799">run the</text>
           <text x="472" y="158" text-anchor="middle" font-family="Inter,-apple-system,sans-serif" font-size="8.5" fill="#8E8799">conversation</text>
+
+          <!-- BOTTOM: Agents node (AI gradient) -->
           <rect x="194" y="196" width="172" height="54" rx="14" fill="rgba(29,26,37,.9)" stroke="rgba(168,85,247,.5)" stroke-width="1.5"/>
           <path d="M218 210l2 6 6 2-6 2-2 6-2-6-6-2 6-2 2-6z" fill="rgba(168,85,247,.2)" stroke="url(#agGrad)" stroke-width="1.4"/>
           <path d="M233 212l1 3 3 1-3 1-1 3-1-3-3-1 3-1 1-3z" fill="rgba(236,72,153,.15)" stroke="url(#agGrad)" stroke-width="1.2"/>
           <text x="252" y="222" font-family="Inter,-apple-system,sans-serif" font-size="10" font-weight="700" fill="#F4F2F8">Agents</text>
           <text x="280" y="238" text-anchor="middle" font-family="Inter,-apple-system,sans-serif" font-size="8.5" fill="#8E8799">research, list-building, first drafts</text>
           <text x="280" y="248" text-anchor="middle" font-family="Inter,-apple-system,sans-serif" font-size="8" fill="rgba(168,85,247,.7)">under the human's direction</text>
+
+          <!-- label -->
           <text x="28" y="250" font-family="Inter,-apple-system,sans-serif" font-size="9" font-weight="700" fill="rgba(201,196,214,.45)" letter-spacing=".08em">HUMAN-LED, AGENT-RUN</text>
         </svg>
       </div>
@@ -238,6 +257,7 @@
   </div>
 </header>
 
+<!-- THE BIND -->
 <section>
   <div class="wrap sh">
     <div class="eyebrow-c">The BDR Team's Bind</div>
@@ -246,6 +266,7 @@
   </div>
 </section>
 
+<!-- WHAT PROVENLOOP DOES -->
 <section class="sec-alt">
   <div class="wrap">
     <div class="sh center">
@@ -322,6 +343,7 @@
   </div>
 </section>
 
+<!-- THE PROOF -->
 <section>
   <div class="wrap">
     <div class="proof">
@@ -332,6 +354,7 @@
   </div>
 </section>
 
+<!-- WHY NOW -->
 <section class="sec-alt">
   <div class="wrap why">
     <div class="eyebrow-c" style="text-align:center">Why now</div>
@@ -340,11 +363,12 @@
   </div>
 </section>
 
+<!-- CTA BAND -->
 <section class="ctaband" id="loop">
   <div class="wrap">
     <h2>See the proven motion, from your own wins.</h2>
     <div class="cta-row">
-      <a class="cta p" href="https://provenloop.ai/signup?utm_source=provenloop-site&utm_medium=referral&utm_campaign=for-bdr-team">Try the Demo, free</a>
+      <a class="cta p" href="https://provenloop.ai/signup?utm_source=provenloop-site&amp;utm_medium=referral&amp;utm_campaign=for-bdr-team">Try the Demo, free</a>
       <a class="cta s" href="/#loop" style="border-color:var(--line2);background:var(--card2)">See how the loop works</a>
     </div>
     <div class="xlinks">
@@ -357,6 +381,7 @@
   </div>
 </section>
 
+<!-- LEAD MAGNET -->
 <section>
   <div class="wrap">
     <div class="magnet">
@@ -367,7 +392,7 @@
         <input type="email" placeholder="you@yourcompany.com" aria-label="Work email" />
         <button class="send" type="submit">Send me the playbook</button>
       </form>
-      <div class="orskip">Or let ProvenLoop build the motion from your own wins automatically. <a href="https://provenloop.ai/signup?utm_source=provenloop-site&utm_medium=referral&utm_campaign=for-bdr-team-magnet">Try the Demo &rarr;</a></div>
+      <div class="orskip">Or let ProvenLoop build the motion from your own wins automatically. <a href="https://provenloop.ai/signup?utm_source=provenloop-site&amp;utm_medium=referral&amp;utm_campaign=for-bdr-team-magnet">Try the Demo &rarr;</a></div>
     </div>
   </div>
 </section>
@@ -381,5 +406,13 @@
   </div>
 </footer>
 
+  <!-- Chatbase widget -->
+  <script>
+    window.embeddedChatbotConfig = {
+      chatbotId: "bnl93BR6hbVYp7AJSRDdF",
+      domain: "www.chatbase.co"
+    }
+  </script>
+  <script src="https://www.chatbase.co/embed.min.js" chatbotId="bnl93BR6hbVYp7AJSRDdF" domain="www.chatbase.co" defer></script>
 </body>
 </html>
