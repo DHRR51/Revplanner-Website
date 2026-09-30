@@ -80,7 +80,30 @@
   .final{background:var(--grad);border-radius:24px;padding:52px 36px;text-align:center;color:#fff;margin:14px 24px 60px}
   .final h2{color:#fff}.final p{color:rgba(255,255,255,.92);margin:12px auto 0;font-size:16.5px;max-width:56ch}.final .btn{background:#fff;color:var(--violet-600);margin-top:22px}.final .btn:hover{background:#F3EEFF}
   footer{padding:36px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
-  @media(max-width:860px){.steps,.who-grid{grid-template-columns:1fr}.nav-right .back{display:none}}
+  .demo{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+  .mock{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 14px 40px -26px rgba(80,40,140,.3);overflow:hidden}
+  .mock-h{display:flex;align-items:center;gap:8px;padding:11px 16px;border-bottom:1px solid var(--line);font-size:12px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:var(--muted)}
+  .mock-h .dot3{width:9px;height:9px;border-radius:50%;background:var(--grad);flex:0 0 auto}
+  .mock-b{padding:16px}
+  .rtabs{display:flex;gap:14px;border-bottom:1px solid var(--line);padding-bottom:9px;margin-bottom:13px;font-size:12px;font-weight:600;color:var(--muted);flex-wrap:wrap}
+  .rtabs .tab.on{color:var(--violet)}
+  .nm{background:var(--violet-50);border:1px solid #E4DBFB;border-radius:12px;padding:14px}
+  .nm-lab{font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--violet)}
+  .nm-h{font-size:14.5px;font-weight:800;margin:6px 0 10px;line-height:1.3}
+  .nmstep{display:flex;gap:9px;padding:5px 0;font-size:12.5px;line-height:1.4;color:var(--ink)}
+  .nmstep .n{flex:0 0 auto;width:18px;height:18px;border-radius:50%;background:var(--violet);color:#fff;font-size:10px;font-weight:800;display:grid;place-items:center;margin-top:1px}
+  .nm-foot{margin-top:10px;font-size:11.5px;font-weight:700;color:var(--good)}
+  .ksf-lab{font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin:15px 0 8px}
+  .chip-row{display:flex;flex-direction:column;gap:7px}
+  .chip{font-size:12px;font-weight:600;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 11px;color:var(--ink)}
+  .tk-intro{font-size:12.5px;color:var(--muted);margin-bottom:12px;line-height:1.45}
+  .tk{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
+  .tk:last-child{border-bottom:0}
+  .tk .box{flex:0 0 auto;width:15px;height:15px;border:2px solid #CBBEEA;border-radius:50%;margin-top:2px}
+  .tk .t{font-size:13px;font-weight:600;color:var(--ink);line-height:1.35}
+  .tk .src{display:inline-block;margin-top:5px;font-size:10.5px;font-weight:700;color:var(--amber);background:#FFFBEB;border:1px solid #FDE9C8;border-radius:999px;padding:2px 8px}
+  .caption{font-size:13px;color:var(--muted);margin-top:14px;max-width:760px}
+  @media(max-width:860px){.steps,.who-grid,.demo{grid-template-columns:1fr}.nav-right .back{display:none}}
 
   /* build: real logo */
   .brand{display:inline-flex;align-items:center;gap:8px}
@@ -116,7 +139,45 @@
   <div class="cta-row"><a class="btn btn-lg" href="#cta">Sign up for the closed beta</a></div>
 </div></header>
 
-<section><div class="wrap prose">
+<section style="padding:22px 0 8px"><div class="wrap">
+  <div class="prose"><span class="eyebrow">See it in action</span><h2>Open the room. See the whole deal, and what to do next.</h2></div>
+  <div class="demo">
+    <div class="mock">
+      <div class="mock-h"><span class="dot3"></span>Account Room &middot; Northwind Trading</div>
+      <div class="mock-b">
+        <div class="rtabs"><span class="tab on">Overview</span><span class="tab">Qualification</span><span class="tab">Content</span><span class="tab">Calls</span><span class="tab">Tasks</span></div>
+        <div class="nm">
+          <div class="nm-lab">Next move</div>
+          <div class="nm-h">Send the ROI model and security docs, then book the CFO review</div>
+          <div class="nmstep"><span class="n">1</span><span>Answer the security questionnaire and send the data-handling overview</span></div>
+          <div class="nmstep"><span class="n">2</span><span>Send the ROI model built on their 25-rep numbers, with the audit-trail comparison against Ridgeline and Kestrel AI</span></div>
+          <div class="nmstep"><span class="n">3</span><span>Book the CFO review with Dana; the VP of Finance joins once the model lands</span></div>
+          <div class="nm-foot">Read across all 3 calls in this room</div>
+        </div>
+        <div class="ksf-lab">Known so far</div>
+        <div class="chip-row">
+          <span class="chip">Dana Reyes, VP Revenue &middot; economic buyer</span>
+          <span class="chip">SOC 2 Type 2 required, 2 to 3 weeks if docs are clean</span>
+          <span class="chip">CFO joins after the ROI model lands</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mock">
+      <div class="mock-h"><span class="dot3"></span>Account Room &middot; tasks from the calls</div>
+      <div class="mock-b">
+        <p class="tk-intro">Everything on this account that wants your attention. The tag on each row says where it came from.</p>
+        <div class="tk"><span class="box"></span><div><div class="t">Send time slots for the CFO review</div><span class="src">from a follow-up insight</span></div></div>
+        <div class="tk"><span class="box"></span><div><div class="t">Send the ROI model built on their numbers</div><span class="src">from an info request</span></div></div>
+        <div class="tk"><span class="box"></span><div><div class="t">Send the audit-trail comparison vs Ridgeline and Kestrel AI</div><span class="src">from an info request</span></div></div>
+        <div class="tk"><span class="box"></span><div><div class="t">Provide SOC 2 documentation for security review</div><span class="src">from an info request</span></div></div>
+      </div>
+    </div>
+  </div>
+  <p class="caption">Illustrative. The room reads across every call on the account to synthesize the next move, and pulls each task out of what was actually said.</p>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap prose">
   <span class="eyebrow">What it is</span>
   <h2>The whole deal, carried across every call.</h2>
   <p>Most tools leave you a separate summary for every call, so remembering where a deal stands means reopening and re-reading all of them. An Account Room does the opposite. It holds the account as one running record: who the champion is, what the buyer committed to, what changed since last time, where the risk is now, and the single next move to make.</p>
