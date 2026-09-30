@@ -9,7 +9,6 @@ export default defineConfig({
         'account-rooms': 'account-rooms.html',
         'agent-chat': 'agent-chat.html',
         'content-library': 'content-library.html',
-        'prospect-match': 'prospect-match.html',
         clips: 'clips.html',
       },
     },
