@@ -1,5 +1,4 @@
 {
-  "routes": [
-    { "src": "/", "dest": "/index.html" },    { "handle": "filesystem" }
-  ]
+  "cleanUrls": true,
+  "trailingSlash": false
 }
