@@ -80,7 +80,36 @@
   .final{background:var(--grad);border-radius:24px;padding:52px 36px;text-align:center;color:#fff;margin:14px 24px 60px}
   .final h2{color:#fff}.final p{color:rgba(255,255,255,.92);margin:12px auto 0;font-size:16.5px;max-width:56ch}.final .btn{background:#fff;color:var(--violet-600);margin-top:22px}.final .btn:hover{background:#F3EEFF}
   footer{padding:36px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
-  @media(max-width:860px){.steps,.who-grid{grid-template-columns:1fr}.nav-right .back{display:none}}
+  .mock{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 14px 40px -26px rgba(80,40,140,.3);overflow:hidden}
+  .mock-h{display:flex;align-items:center;gap:8px;padding:11px 16px;border-bottom:1px solid var(--line);font-size:12px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:var(--muted)}
+  .mock-h .dot3{width:9px;height:9px;border-radius:50%;background:var(--grad);flex:0 0 auto}
+  .mock-b{padding:16px}
+  .caption{font-size:13px;color:var(--muted);margin-top:14px;max-width:760px}
+  .legend{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:12px;font-size:11px;color:var(--muted);font-weight:600}
+  .legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+  .heatwrap{overflow-x:auto}
+  .heat{display:grid;grid-template-columns:96px repeat(7,1fr);gap:5px;font-size:10px;min-width:640px}
+  .heat .hc{color:var(--muted);font-weight:700;display:flex;align-items:center;font-size:10.5px}
+  .heat .ch{color:var(--muted);font-weight:700;text-align:center;padding-bottom:2px;font-size:9.5px}
+  .heat .hd{height:26px;border-radius:5px;display:grid;place-items:center;font-size:10px;font-weight:800}
+  .d-exists{background:#DBEAFE}.d-appr{background:#FEF3C7}.d-proven{background:#DCFCE7;color:#166534}.d-no{background:#F1EEF6}
+  .cc-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .libcard{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fff}
+  .libtags{display:flex;gap:6px;margin-bottom:9px;flex-wrap:wrap}
+  .libtag{font-size:10px;font-weight:700;border-radius:999px;padding:3px 9px;letter-spacing:.02em}
+  .t-type{background:var(--violet-50);color:var(--violet);border:1px solid #E4DBFB}
+  .t-proven{background:#DCFCE7;color:#166534;border:1px solid #CBF3D6}
+  .t-appr{background:#FEF3C7;color:#92400E;border:1px solid #FDE9C8}
+  .t-draft{background:var(--surface);color:var(--muted);border:1px solid var(--line)}
+  .libcard h4{font-size:13.5px;font-weight:800;margin:0;line-height:1.3}
+  .libcard .meta{font-size:11px;color:var(--muted);margin-top:9px}
+  .conv-head{font-size:12.5px;font-weight:700;color:var(--ink);margin-bottom:12px}
+  .conv-head small{color:var(--muted);font-weight:500;margin-left:6px}
+  .conv-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+  .conv{border:1px solid var(--line);border-radius:10px;padding:13px}
+  .conv .ct{font-size:13px;font-weight:800;color:var(--ink)}
+  .conv .cs{font-size:11.5px;color:var(--muted);margin-top:5px;line-height:1.4}
+  @media(max-width:860px){.steps,.who-grid,.cc-grid,.conv-grid{grid-template-columns:1fr}.nav-right .back{display:none}}
 
   /* build: real logo */
   .brand{display:inline-flex;align-items:center;gap:8px}
@@ -116,7 +145,70 @@
   <div class="cta-row"><a class="btn btn-lg" href="#cta">Sign up for the closed beta</a></div>
 </div></header>
 
-<section><div class="wrap prose">
+<section style="padding:22px 0 8px"><div class="wrap">
+  <div class="prose"><span class="eyebrow">See it in action</span><h2>See what you have, what is missing, and what actually wins.</h2></div>
+
+  <div class="mock">
+    <div class="mock-h"><span class="dot3"></span>Content Library &middot; coverage heat map</div>
+    <div class="mock-b">
+      <div class="legend"><span><i style="background:#DBEAFE"></i>Content exists</span><span><i style="background:#FEF3C7"></i>Approved</span><span><i style="background:#DCFCE7"></i>Proven by a rep</span><span><i style="background:#F1EEF6"></i>Nothing yet</span></div>
+      <div class="heatwrap">
+      <div class="heat">
+        <div class="hc"></div><div class="ch">Persona</div><div class="ch">Overview</div><div class="ch">Playbook</div><div class="ch">Objection</div><div class="ch">ROI</div><div class="ch">Battlecard</div><div class="ch">Case</div>
+        <div class="hc">Discover</div><div class="hd d-proven">&#10003;</div><div class="hd d-exists"></div><div class="hd d-proven">&#10003;</div><div class="hd d-appr"></div><div class="hd d-no"></div><div class="hd d-exists"></div><div class="hd d-no"></div>
+        <div class="hc">Qualify</div><div class="hd d-exists"></div><div class="hd d-appr"></div><div class="hd d-proven">&#10003;</div><div class="hd d-proven">&#10003;</div><div class="hd d-no"></div><div class="hd d-appr"></div><div class="hd d-no"></div>
+        <div class="hc">Evaluate</div><div class="hd d-no"></div><div class="hd d-exists"></div><div class="hd d-appr"></div><div class="hd d-exists"></div><div class="hd d-proven">&#10003;</div><div class="hd d-exists"></div><div class="hd d-exists"></div>
+        <div class="hc">Propose</div><div class="hd d-no"></div><div class="hd d-no"></div><div class="hd d-no"></div><div class="hd d-appr"></div><div class="hd d-proven">&#10003;</div><div class="hd d-exists"></div><div class="hd d-proven">&#10003;</div>
+        <div class="hc">Close</div><div class="hd d-no"></div><div class="hd d-no"></div><div class="hd d-no"></div><div class="hd d-no"></div><div class="hd d-appr"></div><div class="hd d-no"></div><div class="hd d-exists"></div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mock" style="margin-top:18px">
+    <div class="mock-h"><span class="dot3"></span>Content Library &middot; your pieces</div>
+    <div class="mock-b">
+      <div class="cc-grid">
+        <div class="libcard">
+          <div class="libtags"><span class="libtag t-type">Objection Response</span><span class="libtag t-proven">Proven by a rep</span></div>
+          <h4>"We already pay for a notetaker"</h4>
+          <div class="meta">Built from a call, Sep 22 &middot; won 2 deals after it was used</div>
+        </div>
+        <div class="libcard">
+          <div class="libtags"><span class="libtag t-type">ROI One-Pager</span><span class="libtag t-appr">Approved</span></div>
+          <h4>ROI model, built on the buyer's numbers</h4>
+          <div class="meta">Built in Agent Chat &middot; used on 4 accounts</div>
+        </div>
+        <div class="libcard">
+          <div class="libtags"><span class="libtag t-type">Playbook</span><span class="libtag t-proven">Proven by a rep</span></div>
+          <h4>Discovery talk track for VP Revenue</h4>
+          <div class="meta">Built from a call, Sep 18 &middot; your highest-converting opener</div>
+        </div>
+        <div class="libcard">
+          <div class="libtags"><span class="libtag t-type">Battlecard</span><span class="libtag t-draft">Draft</span></div>
+          <h4>Audit trail vs Ridgeline and Kestrel AI</h4>
+          <div class="meta">Built in Agent Chat &middot; not yet sent on a deal</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mock" style="margin-top:18px">
+    <div class="mock-h"><span class="dot3"></span>Content Library &middot; what a recording becomes</div>
+    <div class="mock-b">
+      <div class="conv-head">Northwind discovery call<small>audio, 41 min</small></div>
+      <div class="conv-grid">
+        <div class="conv"><div class="ct">Slide deck</div><div class="cs">Written from the transcript, quotes carry timestamps</div></div>
+        <div class="conv"><div class="ct">Document</div><div class="cs">Written from the transcript, quotes carry timestamps</div></div>
+        <div class="conv"><div class="ct">Role play</div><div class="cs">A buyer who behaves like the one on this call, to practise against</div></div>
+      </div>
+    </div>
+  </div>
+
+  <p class="caption">Illustrative. The map shows coverage by stage and content type; a green cell is proven to win by a real rep, a blank cell is a gap you can fill in one click from your calls. Any recording you import can be turned into a deck, a document, or a role play, written from the transcript.</p>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap prose">
   <span class="eyebrow">What it is</span>
   <h2>Your playbook, mapped and honest about the gaps.</h2>
   <p>The Content Library lays your material out on a grid: sales stage down one side, content type across the top (persona, playbook, objection response, ROI one-pager, battlecard, case study). At a glance you see where you have coverage, where there is a hole, and which pieces have actually moved a deal.</p>
