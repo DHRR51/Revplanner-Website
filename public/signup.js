@@ -1,5 +1,8 @@
 /* ProvenLoop closed-beta signup -> HubSpot form "ProvenLoop - Closed Beta Waitlist".
-   Sends the email plus the visit's UTM values (utm_source, utm_medium, utm_campaign, utm_content).
+   Sends the email only as a form field. The visit's UTM values (utm_source, utm_medium,
+   utm_campaign, utm_content) ride on the page address sent with the submission (context.pageUri),
+   because HubSpot Free has no room for utm_* contact properties (Option 1, Dan 2026-10-07).
+   Growth OS reads the UTMs from that saved page address.
    UTM rules: values are lowercased, trimmed and capped at 100 characters. They are kept in
    sessionStorage for the visit so a signup on a later page still carries them. A new URL that
    carries any UTM replaces the stored set (last touch inside a visit). Only the four UTM values
@@ -51,6 +54,20 @@
 
   var UTMS = captureUtms();
 
+  // Current page address with the visit's UTMs written onto it (replacing any utm_* already there).
+  function pageUriWithUtms(utms) {
+    try {
+      var u = new URL(window.location.href);
+      for (var i = 0; i < UTM_KEYS.length; i++) {
+        u.searchParams.delete(UTM_KEYS[i]);
+        if (utms[UTM_KEYS[i]]) u.searchParams.set(UTM_KEYS[i], utms[UTM_KEYS[i]]);
+      }
+      return u.toString();
+    } catch (e) {
+      return window.location.href;
+    }
+  }
+
   function hutk() {
     var m = document.cookie.match(/(?:^|; )hubspotutk=([^;]+)/);
     return m ? m[1] : undefined;
@@ -79,17 +96,13 @@
 
       button.disabled = true;
       button.textContent = 'Sending...';
-      var context = { pageUri: window.location.href, pageName: document.title };
+      var utms = readStored();
+      if (!Object.keys(utms).length) utms = UTMS;
+      var context = { pageUri: pageUriWithUtms(utms), pageName: document.title };
       var t = hutk();
       if (t) context.hutk = t;
 
       var fields = [{ objectTypeId: '0-1', name: 'email', value: email }];
-      var utms = readStored();
-      if (!Object.keys(utms).length) utms = UTMS;
-      for (var i = 0; i < UTM_KEYS.length; i++) {
-        var k = UTM_KEYS[i];
-        if (utms[k]) fields.push({ objectTypeId: '0-1', name: k, value: utms[k] });
-      }
 
       fetch(ENDPOINT, {
         method: 'POST',
