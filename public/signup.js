@@ -120,8 +120,12 @@
       }).then(function (res) {
         if (!res.ok) throw new Error('HubSpot ' + res.status);
         if (window.va) window.va('event', { name: 'beta_signup' });
+        // Confirmation email (server decides if sending is on). Never blocks the redirect for long.
+        var fn = form.querySelector('[name="firstname"]');
+        var confirm = fetch('/api/beta-confirm', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email, firstname: fn ? fn.value.trim() : '' }), keepalive: true }).catch(function () {});
         var to = form.getAttribute('data-redirect');
-        if (to) { window.location.href = to; return; }
+        if (to) { Promise.race([confirm, new Promise(function (r) { setTimeout(r, 2500); })]).then(function () { window.location.href = to; }); return; }
         form.innerHTML = '<p class="beta-msg ok" role="status">You\'re on the list. We\'ll email you when your seat opens.</p>';
       }).catch(function () {
         fail('That did not go through. Please try again in a moment.');
