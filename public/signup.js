@@ -103,6 +103,15 @@
       if (t) context.hutk = t;
 
       var fields = [{ objectTypeId: '0-1', name: 'email', value: email }];
+      // Optional application fields (beta page): first name, company, call recorder.
+      var extra = ['firstname', 'company', 'call_recorder'];
+      for (var x = 0; x < extra.length; x++) {
+        var el = form.querySelector('[name="' + extra[x] + '"]');
+        if (!el) continue;
+        var val = String(el.value || '').trim();
+        if (!val) { fail('Please fill in every field.'); el.focus(); return; }
+        fields.push({ objectTypeId: '0-1', name: extra[x], value: val.slice(0, 200) });
+      }
 
       fetch(ENDPOINT, {
         method: 'POST',
@@ -110,8 +119,10 @@
         body: JSON.stringify({ fields: fields, context: context })
       }).then(function (res) {
         if (!res.ok) throw new Error('HubSpot ' + res.status);
-        form.innerHTML = '<p class="beta-msg ok" role="status">You\'re on the list. We\'ll email you when your seat opens.</p>';
         if (window.va) window.va('event', { name: 'beta_signup' });
+        var to = form.getAttribute('data-redirect');
+        if (to) { window.location.href = to; return; }
+        form.innerHTML = '<p class="beta-msg ok" role="status">You\'re on the list. We\'ll email you when your seat opens.</p>';
       }).catch(function () {
         fail('That did not go through. Please try again in a moment.');
       });

@@ -11,6 +11,8 @@ export default defineConfig({
         'content-library': 'content-library.html',
         'prospect-match': 'prospect-match.html',
         clips: 'clips.html',
+        beta: 'beta.html',
+        'beta-thanks': 'beta/thanks.html',
       },
     },
   },

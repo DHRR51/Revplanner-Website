@@ -30,6 +30,7 @@
 <!-- Vercel Web Analytics -->
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
+<script>/* campaign links land on the beta application */if(/[?&]utm_/.test(location.search)){location.replace("/beta"+location.search)}</script>
 <script defer src="/signup.js"></script>
 
 <style>
@@ -291,9 +292,9 @@
       <a href="#process">Your process</a>
     </div>
     <div class="nav-cta" style="display:flex;gap:10px">
-      <a class="btn btn-primary" href="#cta">Sign up for the closed beta</a>
+      <a class="btn btn-primary" href="/beta">Sign up for the closed beta</a>
     </div>
-    <details class="mnav"><summary aria-label="Open menu"><span></span><span></span><span></span></summary><div class="mnav-menu"><a href="#who">Who it's for</a><span class="grp">Product</span><a class="sub" href="/account-rooms">Account Rooms</a><a class="sub" href="/agent-chat">Agent Chat</a><a class="sub" href="/content-library">Content Library</a><a class="sub" href="/prospect-match">Prospect Match</a><a class="sub" href="/clips">Clips</a><a href="#fit">Where it fits</a><a href="#grounded">Knows your world</a><a href="#story">The whole deal</a><a href="#process">Your process</a><a class="btn btn-primary" href="#cta">Sign up for the closed beta</a></div></details>
+    <details class="mnav"><summary aria-label="Open menu"><span></span><span></span><span></span></summary><div class="mnav-menu"><a href="#who">Who it's for</a><span class="grp">Product</span><a class="sub" href="/account-rooms">Account Rooms</a><a class="sub" href="/agent-chat">Agent Chat</a><a class="sub" href="/content-library">Content Library</a><a class="sub" href="/prospect-match">Prospect Match</a><a class="sub" href="/clips">Clips</a><a href="#fit">Where it fits</a><a href="#grounded">Knows your world</a><a href="#story">The whole deal</a><a href="#process">Your process</a><a class="btn btn-primary" href="/beta">Sign up for the closed beta</a></div></details>
   </div>
 </nav>
 
@@ -305,9 +306,9 @@
       <h1>Your notetaker captures the call. ProvenLoop understands the deal and does the work.</h1>
       <p class="sub">Keep the notetaker you already use. ProvenLoop takes the calls it produces, understands the deal behind them, and does the work to move it forward: the follow-up, the clip, the deck, your next move. Grounded in what was actually said, none of it generic.</p>
       <div class="cta-row">
-        <a class="btn btn-primary btn-lg" href="#cta">Sign up for the closed beta</a>
+        <a class="btn btn-primary btn-lg" href="/beta">Sign up for the closed beta</a>
       </div>
-      <div class="icp"><span class="pin">From $50 a month</span> The deal intelligence built for one seller, not a 20-rep contract. No enterprise pricing, no RevOps team required.</div>
+      <div class="icp">The deal intelligence built for one seller, not a 20-rep contract. No enterprise pricing, no RevOps team required.</div>
       <div class="proof"><span class="dot"></span><span>Grounded in your calls. <b>Nothing generic, nothing invented.</b></span></div>
     </div>
 
@@ -547,7 +548,7 @@
   <div class="final">
     <h2>Bring one call.<br>Watch it understand the deal.</h2>
     <p>Paste a transcript from any tool, or upload the audio. See it grounded in your world, carried across the whole deal, and turned into the work, every claim sourced, in minutes.</p>
-    <form class="beta-form" data-source="home_cta" novalidate><label class="sr" for="beta-email">Work email</label><input id="beta-email" type="email" name="email" placeholder="you@company.com" autocomplete="email" required /><button class="btn btn-white btn-lg" type="submit">Sign up for the closed beta</button><p class="beta-msg" role="status" aria-live="polite"></p></form>
+    <div class="cta-row" style="display:flex;justify-content:center;margin-top:22px"><a class="btn btn-white btn-lg" href="/beta">Apply for the closed beta</a></div>
   </div>
 </section>
 
