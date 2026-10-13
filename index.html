@@ -30,7 +30,7 @@
 <!-- Vercel Web Analytics -->
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
-<script>/* campaign links land on the beta application */if(/[?&]utm_/.test(location.search)){location.replace("/beta"+location.search)}</script>
+<script>/* campaign links land on the beta application (homepage only) */if(/[?&]utm_/.test(location.search)&&!/^\/beta(\/|$)/.test(location.pathname)){location.replace("/beta"+location.search+location.hash)}</script>
 <script defer src="/signup.js"></script>
 
 <style>
