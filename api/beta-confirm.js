@@ -40,6 +40,8 @@ export default async function handler(req, res) {
   const email = String((body && body.email) || '').trim().toLowerCase();
   const firstname = String((body && body.firstname) || '').trim().slice(0, 60);
   if (!EMAIL_RE.test(email)) return res.status(400).json({ ok: false });
+  // Test convention: qa+<anything>@provenloop.io is never emailed (no inbox; avoids bounces).
+  if (/^qa\+[^@]*@provenloop\.io$/.test(email)) return res.status(204).end();
 
   try {
     // HubSpot can take a few seconds to list a new submission: retry briefly.
