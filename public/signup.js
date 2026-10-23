@@ -109,7 +109,7 @@
         var el = form.querySelector('[name="' + extra[x] + '"]');
         if (!el) continue;
         var val = String(el.value || '').trim();
-        if (!val) { fail('Please fill in every field.'); el.focus(); return; }
+        if (!val) { if (!el.required) continue; fail('Please fill in every field.'); el.focus(); return; }
         fields.push({ objectTypeId: '0-1', name: extra[x], value: val.slice(0, 200) });
       }
 
