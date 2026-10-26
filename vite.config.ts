@@ -13,6 +13,8 @@ export default defineConfig({
         clips: 'clips.html',
         beta: 'beta.html',
         'beta-thanks': 'beta/thanks.html',
+        interview: 'interview.html',
+        'interview-thanks': 'interview/thanks.html',
       },
     },
   },
