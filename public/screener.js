@@ -12,7 +12,7 @@
   var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'];
   var STORE_KEY = 'pl_utm';
   // HubSpot contact property for each form input (input name -> property name).
-  var FIELDS = { firstname: 'firstname', company: 'company', linkedin: 'hs_linkedin_url',
+  var FIELDS = { firstname: 'firstname', lastname: 'lastname', company: 'company', linkedin: 'hs_linkedin_url',
     stage0_role: 'stage0_role', stage0_quota: 'stage0_quota', stage0_calls_per_week: 'stage0_calls_per_week',
     stage0_ops_support: 'stage0_ops_support', call_recorder: 'call_recorder' };
 
