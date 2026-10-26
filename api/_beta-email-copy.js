@@ -11,6 +11,7 @@ const LINES = [
   'I\'m letting people in in small groups. When your spot opens, you\'ll get a sign-in link from me, and an onboarding agent will set you up in minutes.',
   'The closed beta: 60 days free, then forty percent off your subscription for good.',
   'If you have questions in the meantime, just reply to this email.',
+  'While you wait, follow ProvenLoop on LinkedIn: linkedin.com/company/provenloop',
 ];
 
 export function renderText(firstname) {
