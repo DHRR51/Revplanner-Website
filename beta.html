@@ -363,7 +363,8 @@
       <p class="sub">Add your email. I'm letting people in in small groups and will email you when your spot opens.</p>
       <form class="beta-form apply-form" data-source="beta_page" data-redirect="/beta/thanks" novalidate>
         <div><label for="ap-email">Work email</label><input id="ap-email" type="email" name="email" placeholder="you@company.com" autocomplete="email" required /></div>
-        <div><label for="ap-first">First name (optional)</label><input id="ap-first" name="firstname" autocomplete="given-name" /></div>
+        <div><label for="ap-first">First name</label><input id="ap-first" name="firstname" autocomplete="given-name" required /></div>
+        <div><label for="ap-last">Last name</label><input id="ap-last" name="lastname" autocomplete="family-name" required /></div>
         <button class="btn btn-primary book-btn" type="submit">Get on the list</button>
         <p class="beta-msg" role="status" aria-live="polite"></p>
       </form>

@@ -103,8 +103,8 @@
       if (t) context.hutk = t;
 
       var fields = [{ objectTypeId: '0-1', name: 'email', value: email }];
-      // Optional application fields (beta page): first name, company, call recorder.
-      var extra = ['firstname', 'company', 'call_recorder'];
+      // Application fields (beta page): first and last name (required on /beta), company, call recorder.
+      var extra = ['firstname', 'lastname', 'company', 'call_recorder'];
       for (var x = 0; x < extra.length; x++) {
         var el = form.querySelector('[name="' + extra[x] + '"]');
         if (!el) continue;
