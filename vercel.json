@@ -27,5 +27,16 @@
       "destination": "/#beta",
       "permanent": false
     }
+  ],
+  "headers": [
+    {
+      "source": "/(signup|screener).js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    }
   ]
 }

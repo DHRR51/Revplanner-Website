@@ -17,7 +17,7 @@
   html{scroll-behavior:smooth;scroll-padding-top:78px}
   body{font-family:"Geist","Segoe UI",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   a{text-decoration:none;color:inherit}
-  .aurora{position:fixed;inset:-10%;z-index:-3;background:radial-gradient(55vw 46vh at 14% -4%,rgba(139,92,246,.34),transparent 60%),radial-gradient(52vw 42vh at 88% 6%,rgba(236,72,153,.23),transparent 58%),radial-gradient(60vw 56vh at 50% 108%,rgba(59,130,246,.2),transparent 60%),linear-gradient(176deg,#0C0717 0%,#08060D 42%,#060713 100%);animation:drift 24s ease-in-out infinite alternate}
+  html{overflow-x:clip}.aurora{position:fixed;inset:-10%;z-index:-3;background:radial-gradient(55vw 46vh at 14% -4%,rgba(139,92,246,.34),transparent 60%),radial-gradient(52vw 42vh at 88% 6%,rgba(236,72,153,.23),transparent 58%),radial-gradient(60vw 56vh at 50% 108%,rgba(59,130,246,.2),transparent 60%),linear-gradient(176deg,#0C0717 0%,#08060D 42%,#060713 100%);animation:drift 24s ease-in-out infinite alternate}
   .vignette{position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(130% 92% at 50% 16%,transparent 44%,rgba(0,0,0,.5) 100%)}
   section{position:relative}
   section::before{content:"";position:absolute;z-index:0;pointer-events:none;width:72vw;height:70vh;max-width:940px;max-height:760px;border-radius:50%;filter:blur(74px);opacity:.22;top:13%}
@@ -263,7 +263,7 @@
 <!-- Vercel Web Analytics -->
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
-<script defer src="/signup.js"></script>
+<script defer src="/signup.js?v=20261118"></script>
 <script>function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,o.onload=function(){window.trackingFunctions.onLoad({appId:"6aa06a12714044000c4d360c"})},document.head.appendChild(o)}initApollo();</script>
 <style>/* beta signup status line (signup.js) */.beta-msg{font-size:14px;line-height:1.5;margin-top:10px}.beta-msg:empty{display:none}.beta-msg.ok{color:#34D399;font-weight:600;margin-top:24px}.beta-msg.err{color:#FBBF24}.ctaband .beta-msg{position:relative;color:#fff;font-weight:600}</style>
 </head>
