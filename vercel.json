@@ -6,6 +6,26 @@
       "source": "/book",
       "destination": "https://app.apollo.io/#/meet/daniel_hughes_8e9/provenloop-beta-onboarding",
       "permanent": false
+    },
+    {
+      "source": "/account-rooms",
+      "destination": "/account-room",
+      "permanent": true
+    },
+    {
+      "source": "/agent-chat",
+      "destination": "/provenchat",
+      "permanent": true
+    },
+    {
+      "source": "/clips",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/beta",
+      "destination": "/#beta",
+      "permanent": false
     }
   ]
 }

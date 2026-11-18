@@ -1,0 +1,475 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
+<title>ProvenLoop: a deal, from call to close</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--violet:#8B5CF6;--violetL:#C4B5FD;--violet2:#7C6BF0;--pink:#EC4899;--blue:#3B82F6;--green:#34D399;--amber:#FBBF24;
+    --ink:#F3F0F9;--ink2:#B7B1C8;--ink3:#837D95;--line:rgba(255,255,255,.09);--line2:rgba(255,255,255,.05);
+    --panel:#17151F;--mono:"Geist Mono",ui-monospace,monospace;--ease:cubic-bezier(.16,1,.3,1)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Geist","Segoe UI",system-ui,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;background:#07060B;min-height:100vh;display:flex;flex-direction:column;align-items:center;gap:18px;padding:36px 16px}
+  body.embed,body.solo{padding:14px 10px;min-height:0;background:transparent}
+  body.embed .lead,body.solo .lead,body.solo .tabs{display:none}
+  .lead{text-align:center;max-width:680px}
+  .lead .k{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--violetL)}
+  .lead h1{font-size:24px;font-weight:800;letter-spacing:-.02em;margin-top:8px}
+  .lead p{color:var(--ink2);font-size:13.5px;margin-top:6px;line-height:1.5}
+  .tabs{display:flex;gap:7px;flex-wrap:wrap;justify-content:center}
+  .tab{font-size:12.5px;font-weight:600;color:var(--ink2);background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:999px;padding:8px 14px;cursor:pointer;transition:.2s}
+  .tab.on{color:#fff;background:rgba(139,92,246,.18);border-color:rgba(139,92,246,.5)}
+  .headline{text-align:center;max-width:660px;min-height:30px}
+  .headline h2{font-size:18px;font-weight:700;letter-spacing:-.01em}.headline span{color:var(--violetL)}
+
+  .stage{position:relative;width:min(97vw,1120px);border-radius:18px;overflow:hidden;padding:24px;
+    background:linear-gradient(rgba(139,92,246,.06) 1px,transparent 1px) 0 0/34px 34px,linear-gradient(90deg,rgba(139,92,246,.06) 1px,transparent 1px) 0 0/34px 34px,radial-gradient(70% 60% at 50% 16%,rgba(139,92,246,.13),transparent 70%),#0A090F;border:1px solid var(--line)}
+  .win{position:relative;border-radius:12px;overflow:hidden;background:#0C0A12;border:1px solid var(--line);box-shadow:0 50px 110px -40px rgba(0,0,0,.9)}
+  .titlebar{display:flex;align-items:center;gap:8px;padding:9px 13px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.02)}
+  .dots{display:flex;gap:6px}.dots i{width:10px;height:10px;border-radius:50%}
+  .dots i:nth-child(1){background:#ff5f57}.dots i:nth-child(2){background:#febc2e}.dots i:nth-child(3){background:#28c840}
+  .wtitle{font-size:12px;color:var(--ink2);font-weight:600;margin:0 auto;display:flex;align-items:center;gap:6px}
+  .wtitle .m{width:14px;height:14px;border-radius:4px;background:linear-gradient(135deg,var(--pink),var(--violet) 55%,var(--blue));display:flex;align-items:center;justify-content:center;color:#fff;font-size:8px;font-weight:800}
+
+  .app{position:relative;display:grid;grid-template-columns:208px 1fr;height:clamp(440px,48vw,580px)}
+  .side{border-right:1px solid var(--line);padding:14px 11px;display:flex;flex-direction:column;background:#0A0810}
+  .brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;padding:4px 7px 16px}
+  .bmk{width:24px;height:24px;border-radius:7px;background:linear-gradient(135deg,var(--pink),var(--violet) 55%,var(--blue))}
+  .nav{display:flex;flex-direction:column;gap:2px}
+  .ni{display:flex;align-items:center;gap:11px;padding:9px 11px;border-radius:9px;font-size:13.5px;color:var(--ink2)}
+  .ni svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;opacity:.8}
+  .ni.on{background:rgba(124,107,240,.22);color:#fff;font-weight:600}.ni.on svg{opacity:1}
+  .ni .bdg{margin-left:auto;background:var(--violet);color:#fff;font-size:10.5px;font-weight:700;border-radius:999px;min-width:19px;height:19px;display:flex;align-items:center;justify-content:center;padding:0 5px}
+  .sfoot{margin-top:auto;display:flex;flex-direction:column;gap:2px}
+  .sfl{font-size:13px;color:var(--ink3);padding:8px 11px}
+  .suser{display:flex;align-items:center;gap:9px;padding:10px 7px 2px;border-top:1px solid var(--line);margin-top:8px}
+  .ua{width:26px;height:26px;border-radius:50%;background:#6b4a3a;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .un{font-size:12.5px;color:#EDEAF5;font-weight:600}.ue{font-size:11px;color:var(--ink3)}
+
+  .main{position:relative;overflow:hidden}
+  .view{position:absolute;inset:0;padding:20px 26px;opacity:0;pointer-events:none;overflow:hidden;transition:opacity .4s var(--ease)}
+  .view.on{opacity:1}
+
+  /* deal chrome */
+  .back{font-size:13px;color:var(--violetL);font-weight:500;text-decoration:underline}
+  .dtitle{display:flex;align-items:center;gap:11px;margin-top:11px}
+  .dtitle h3{font-size:22px;font-weight:800;letter-spacing:-.02em}
+  .fit{font-size:11.5px;font-weight:600;color:var(--green);border:1px solid rgba(52,211,153,.4);border-radius:7px;padding:3px 8px}
+  .dpill{font-size:11.5px;color:var(--ink2);border:1px solid var(--line);border-radius:7px;padding:3px 8px}
+  .dmeta{font-size:12.5px;color:var(--ink3);margin-top:7px}
+  .dacts{position:absolute;top:20px;right:26px;display:flex;gap:9px}
+  .dbtn{font-size:13px;color:#EDEAF5;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:9px;padding:9px 14px;font-weight:500}
+  .dbtn.hot{background:var(--violet);color:#fff;border-color:transparent;font-weight:600}
+  .dbtn.sq{padding:9px 11px;letter-spacing:1px}
+  .dtabs{display:flex;gap:22px;border-bottom:1px solid var(--line);margin-top:16px}
+  .dt{font-size:14px;color:var(--ink2);padding:11px 0;position:relative}
+  .dt.on{color:#fff;font-weight:600}.dt.on::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--violet)}
+  .body{padding-top:18px}
+
+  /* home */
+  .hgreet{font-size:19px;font-weight:700}.hsub{font-size:12.5px;color:var(--ink3);margin-top:2px}
+  .htabs{display:flex;gap:20px;border-bottom:1px solid var(--line);margin:14px 0 0}
+  .htiles{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:16px 0}
+  .htile{border:1px solid var(--line);border-radius:12px;padding:13px 14px;background:rgba(255,255,255,.02)}
+  .tk{font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink3)}
+  .tv{font-size:13.5px;color:#fff;font-weight:600;margin-top:7px;line-height:1.4}
+  .tsub{font-size:11.5px;color:var(--ink2);margin-top:5px;line-height:1.4}
+  .tcite{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;color:var(--violetL);background:rgba(139,92,246,.16);border-radius:999px;padding:2px 8px;margin-top:8px}
+  .hrow{display:flex;align-items:center;gap:12px;padding:13px 2px;border-top:1px solid var(--line2);font-size:13.5px;color:#EDEAF5;transition:opacity .5s,max-height .5s}
+  .hrow .co{color:var(--ink3);font-size:12px;margin-left:auto}
+  .hrow.gone{opacity:0;max-height:0;padding:0;overflow:hidden}
+  .callbar{display:flex;align-items:center;gap:13px;border:1px solid var(--line);border-radius:12px;padding:13px 15px;background:rgba(255,255,255,.02);margin-bottom:4px}
+  .callic{width:36px;height:36px;border-radius:10px;background:rgba(139,92,246,.18);color:var(--violetL);display:flex;align-items:center;justify-content:center;font-size:15px;flex:none}
+  .cprog{height:5px;border-radius:3px;background:rgba(255,255,255,.08);overflow:hidden;margin-top:7px}
+  .cprog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--violet),var(--violetL));border-radius:3px}
+  .askbar{display:flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:11px;padding:11px 14px;color:var(--ink3);font-size:13px;margin-top:14px}
+
+  /* qualification / score rows */
+  .panel{border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.015);padding:18px 20px}
+  .ph{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+  .ph .pt{font-size:15px;font-weight:700;color:#fff}.ph .pm{font-size:12.5px;color:var(--ink3)}
+  .srow{display:grid;grid-template-columns:132px 1fr auto;gap:14px;align-items:start;padding:13px 0;border-top:1px solid var(--line2);opacity:0;transform:translateY(6px);transition:opacity .4s var(--ease),transform .4s var(--ease)}
+  .srow.in{opacity:1;transform:none}
+  .sn{font-size:13.5px;font-weight:600;color:#EDEAF5}
+  .sd{font-size:13px;color:var(--ink2);line-height:1.45}.sd .q{color:var(--violetL)}
+  .tagc{font-size:11.5px;font-weight:600;border-radius:7px;padding:3px 9px;white-space:nowrap}
+  .tagc.ok{color:var(--green);border:1px solid rgba(52,211,153,.4)}.tagc.pa{color:var(--amber);border:1px solid rgba(251,191,36,.4)}.tagc.no{color:var(--ink2);border:1px solid var(--line)}
+  .moments{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+  .mom{border:1px solid;border-radius:11px;padding:13px 15px;font-size:13px;line-height:1.45}
+  .mom.best{border-color:rgba(52,211,153,.4);background:rgba(52,211,153,.07)}
+  .mom.miss{border-color:rgba(251,191,36,.4);background:rgba(251,191,36,.06)}
+  .mom .mt{font-family:var(--mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;margin-bottom:7px}
+  .mom.best .mt{color:var(--green)}.mom.miss .mt{color:var(--amber)}
+  .mom .mq{color:#EDEAF5}
+
+  /* practice score left card */
+  .scoregrid{display:grid;grid-template-columns:330px 1fr;gap:18px}
+  .scard{border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.015);padding:18px}
+  .scap{font-size:12.5px;color:var(--ink3);line-height:1.5}
+  .bignum{display:inline-flex;align-items:baseline;gap:6px;border:1.5px solid rgba(139,92,246,.6);border-radius:14px;padding:10px 18px;margin:14px 0 12px}
+  .bignum b{font-size:48px;font-weight:800;color:#fff;line-height:1}.bignum span{font-size:16px;color:var(--ink3)}
+  .uptag{font-size:12px;color:var(--green);border:1px solid rgba(52,211,153,.4);border-radius:7px;padding:3px 9px}
+  .scmethod{font-size:12.5px;color:var(--ink3);margin:14px 0 10px}
+  .scsum{font-size:13.5px;color:#EDEAF5;line-height:1.5}.scsum b{color:#fff}
+  .attempts{display:flex;gap:10px;margin:16px 0 4px;align-items:flex-end}
+  .att{text-align:center}.att .bar{width:72px;border-radius:9px;background:rgba(139,92,246,.25);transition:height .6s var(--ease)}
+  .att.cur .bar{background:var(--violet)}.att .an{font-size:12px;color:#EDEAF5;margin-top:7px}.att .ad{font-size:11px;color:var(--ink3)}
+  .scbtns{display:flex;flex-direction:column;gap:9px;margin-top:16px;align-items:flex-start}
+  .scbtn{font-size:13px;border-radius:9px;padding:9px 15px;font-weight:600}
+  .scbtn.hot{background:var(--violet);color:#fff}.scbtn.gh{background:rgba(255,255,255,.03);border:1px solid var(--line);color:#EDEAF5}
+
+  /* practice pick */
+  .pickrow{display:grid;grid-template-columns:1fr 1fr 1.1fr auto;gap:16px;border:1px solid var(--line);border-radius:14px;padding:16px 18px;align-items:center}
+  .pcol .pl{font-size:12.5px;color:var(--ink3);margin-bottom:8px}
+  .seg{display:inline-flex;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+  .seg b{font-size:12.5px;padding:7px 12px;color:var(--ink2);font-weight:500}
+  .seg b.on{background:var(--violet);color:#fff;font-weight:600}
+  .psub{font-size:11px;color:var(--ink3);margin-top:7px}
+  .startbtn{background:var(--violet);color:#fff;font-weight:700;font-size:14px;border-radius:11px;padding:12px 20px}
+  .scentabs{display:flex;gap:20px;border-bottom:1px solid var(--line);margin:16px 0 0}
+  .scitem{display:grid;grid-template-columns:22px 1fr auto;gap:12px;align-items:start;padding:13px 0;border-top:1px solid var(--line2)}
+  .radio{width:16px;height:16px;border-radius:50%;border:2px solid var(--ink3);margin-top:2px}
+  .radio.on{border-color:var(--violet);box-shadow:inset 0 0 0 3px var(--violet)}
+  .scit{font-size:13.5px;font-weight:600;color:#fff}.scib{font-size:12px;color:var(--ink2);margin-top:3px;line-height:1.4}
+  .scir{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--ink3);white-space:nowrap}
+  .wtag{font-size:11px;color:var(--amber);border:1px solid rgba(251,191,36,.4);border-radius:6px;padding:2px 7px}
+
+  /* chat */
+  .chrow{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .cav{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--violet),var(--blue));display:flex;align-items:center;justify-content:center;font-size:14px}
+  .badge{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;font-weight:600;color:var(--violetL);background:rgba(139,92,246,.16);border:1px solid rgba(139,92,246,.34);border-radius:999px;padding:5px 11px}
+  .draftlead{font-size:13.5px;color:#EDEAF5;margin:14px 0 8px}
+  .task{display:flex;align-items:flex-start;gap:11px;border:1px solid var(--line);border-radius:11px;padding:12px 14px;margin-bottom:9px;background:rgba(255,255,255,.015);opacity:0;transform:translateY(7px);transition:opacity .4s var(--ease),transform .4s var(--ease)}
+  .task.in{opacity:1;transform:none}
+  .tnum{width:22px;height:22px;border-radius:6px;background:rgba(139,92,246,.18);color:var(--violetL);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none;margin-top:1px}
+  .ttl{font-size:13px;color:#fff;font-weight:600}.tbd{font-size:12.5px;color:var(--ink2);margin-top:3px;line-height:1.45}
+  .copybtn{margin-left:auto;background:rgba(139,92,246,.16);color:var(--violetL);border:1px solid rgba(139,92,246,.4);border-radius:8px;padding:6px 12px;font-size:12px;font-weight:600;white-space:nowrap}
+  .copied{font-size:11.5px;color:var(--green);opacity:0;transition:opacity .3s}.copied.in{opacity:1}
+  .splitchat{display:grid;grid-template-columns:1fr 300px;gap:16px}
+  .docpanel{border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.02);padding:14px;transform:translateX(16px);opacity:0;transition:opacity .5s var(--ease),transform .5s var(--ease)}
+  .docpanel.in{opacity:1;transform:none}
+  .dptitle{font-size:13px;font-weight:700;color:#fff;display:flex;align-items:center;gap:8px;margin-bottom:10px}
+  .dpline{font-size:12.5px;color:var(--ink2);line-height:1.5;padding:4px 0}
+  .dpline.edit{color:#fff;background:rgba(139,92,246,.14);border-radius:6px;padding:4px 7px}
+  .hl{background:rgba(139,92,246,.22);border-radius:4px;padding:0 3px;transition:background .4s}
+  .updated{font-size:11px;color:var(--green);margin-top:8px;opacity:0;transition:opacity .4s}.updated.in{opacity:1}
+
+  /* messages */
+  .msg{display:flex;gap:11px;padding:13px 0;border-top:1px solid var(--line2)}
+  .msg .mav{width:30px;height:30px;border-radius:50%;background:#3a5a6b;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none}
+  .msg.new{opacity:0;transform:translateY(-8px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+  .msg.new.in{opacity:1;transform:none}
+  .mfrom{font-size:13px;font-weight:600;color:#fff}.mtime{font-size:11px;color:var(--ink3);margin-left:7px;font-weight:400}
+  .mtext{font-size:13px;color:#EDEAF5;margin-top:3px;line-height:1.45}
+  .mtag{font-size:10.5px;font-weight:600;color:var(--green);border:1px solid rgba(52,211,153,.4);border-radius:6px;padding:2px 7px;margin-top:7px;display:inline-block}
+
+  /* menu */
+  .menu{position:absolute;right:26px;top:62px;z-index:9;width:184px;background:rgba(14,12,20,.98);border:1px solid var(--line);border-radius:11px;box-shadow:0 30px 60px -26px rgba(0,0,0,.9);padding:6px;opacity:0;transform:translateY(-6px) scale(.98);transition:opacity .22s,transform .22s;pointer-events:none}
+  .menu.in{opacity:1;transform:none}
+  .mi{display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:8px;font-size:13px;color:#EDEAF5}
+  .mi.hot{color:var(--green)}
+
+  .glow{box-shadow:0 0 0 2px rgba(139,92,246,.75),0 0 22px rgba(139,92,246,.4)!important;border-radius:11px;transition:box-shadow .3s}
+
+  .cur{position:absolute;z-index:30;left:0;top:0;width:22px;height:22px;pointer-events:none;transform:translate(300px,300px);transition:transform .66s cubic-bezier(.5,0,.18,1);filter:drop-shadow(0 3px 6px rgba(0,0,0,.6));opacity:0}
+  .cur.on{opacity:1}.cur svg{width:100%;height:100%}
+  .cur .rp{position:absolute;left:1px;top:1px;width:18px;height:18px;border-radius:50%;border:2px solid var(--violetL);opacity:0}
+  .cur .rp.go{animation:rip .5s ease-out}
+  @keyframes rip{0%{opacity:.8;transform:scale(.3)}100%{opacity:0;transform:scale(2.4)}}
+
+  .ctrl{display:flex;align-items:center;gap:12px;width:min(97vw,1120px);padding:0 4px}
+  .pbar{flex:1;height:4px;border-radius:3px;background:rgba(255,255,255,.1);overflow:hidden}
+  .pfill{height:100%;width:0;background:linear-gradient(90deg,var(--violet),var(--violetL));border-radius:3px}
+  .pfill.run{animation:fill linear forwards}
+  @keyframes fill{from{width:0}to{width:100%}}
+  .pausebtn{font:inherit;font-size:12px;font-weight:600;color:var(--ink2);background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:8px;padding:6px 13px;cursor:pointer}
+  .foot{font-size:11px;color:var(--ink3);font-family:var(--mono);letter-spacing:.06em}
+</style></head>
+<body>
+  <div class="lead"><div class="k">A deal, from call to close</div><h1>The product, doing the work that closes a deal.</h1><p>Four short takes of the real flow. Silent, looping, no narration. Switch tabs to watch each one.</p></div>
+
+  <div class="tabs">
+    <button class="tab on" data-c="0">1. The call comes in</button>
+    <button class="tab" data-c="1">2. The follow-up does itself</button>
+    <button class="tab" data-c="2">3. Practice the close</button>
+    <button class="tab" data-c="3">4. The buyer says yes</button>
+  </div>
+  <div class="headline" id="headline"></div>
+
+  <div class="stage"><div class="win">
+    <div class="titlebar"><span class="dots"><i></i><i></i><i></i></span><span class="wtitle"><span class="m">P</span>ProvenLoop</span><span style="width:48px"></span></div>
+    <div class="app">
+      <div class="side">
+        <div class="brand"><span class="bmk"></span>provenloop</div>
+        <div class="nav" id="nav">
+          <div class="ni" data-n="home"><svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7"/><path d="M6 10v9h12v-9"/></svg>Home</div>
+          <div class="ni on" data-n="deals"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg>Deals</div>
+          <div class="ni" data-n="chat"><svg viewBox="0 0 24 24"><path d="M20 15.2A2.5 2.5 0 0 1 17.5 17.7H9.3L5 20.5v-3.3A2.5 2.5 0 0 1 4 15V8.3A2.5 2.5 0 0 1 6.5 5.8h11A2.5 2.5 0 0 1 20 8.3z"/></svg>ProvenChat</div>
+          <div class="ni" data-n="lib"><svg viewBox="0 0 24 24"><path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H18a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6.5A1.5 1.5 0 0 1 5 18.5z"/><path d="M8.2 3v17"/></svg>Library</div>
+          <div class="ni" data-n="agents"><svg viewBox="0 0 24 24"><path d="M12 3l1.9 5.3L19 10l-5.1 1.7L12 17l-1.9-5.3L5 10l5.1-1.7z"/></svg>Agents<span class="bdg">2</span></div>
+        </div>
+        <div class="sfoot"><span class="sfl">Company Context</span><span class="sfl">Settings</span>
+          <div class="suser"><span class="ua">D</span><div><div class="un">Daniel Hughes</div><div class="ue">dan@provenloop.io</div></div></div></div>
+      </div>
+
+      <div class="main" id="main">
+
+        <!-- HOME -->
+        <div class="view" id="vHome">
+          <div class="hgreet">Good afternoon, Daniel</div><div class="hsub">Tuesday, November 18</div>
+          <div class="htabs"><span class="dt on">Today</span><span class="dt">Waiting on buyers</span><span class="dt">Catch up</span></div>
+          <div class="callbar" id="hcall"><span class="callic">&#9679;</span><div style="flex:1"><div style="font-size:13.5px;font-weight:600;color:#fff">New call, Northwind &middot; reading the call</div><div class="cprog"><i id="hprog"></i></div><div style="font-size:11.5px;color:var(--ink3);margin-top:6px" id="hstate">Reading the call, 32 min...</div></div></div>
+          <div class="htiles">
+            <div class="htile" id="htNext"><div class="tk">Next move</div><div class="tv" id="htNextv">Prep for your Harbor call</div><div class="tsub" id="htNexts">Tomorrow 10am</div></div>
+            <div class="htile"><div class="tk">You owe</div><div class="tv"><span id="htOwe">4</span> open</div><div class="tsub">across 3 deals</div></div>
+            <div class="htile"><div class="tk">Deals warming</div><div class="tv">Northwind, Harbor</div><div class="tsub">active this week</div></div>
+          </div>
+          <div style="font-size:11px;color:var(--ink3);font-family:var(--mono);letter-spacing:.08em;text-transform:uppercase">Today</div>
+          <div class="hrow" id="hrowNew" style="opacity:0"><span class="tagc ok" style="color:var(--violetL);border-color:rgba(139,92,246,.4)">Review draft</span>Follow-up to Alex, Priya ready<span class="co">Northwind</span></div>
+          <div class="hrow" id="hrowOwe"><span class="tagc" style="color:var(--violetL);border:1px solid rgba(139,92,246,.4)">You owe</span>Send Alex the one-page summary<span class="co">Northwind</span></div>
+          <div class="hrow"><span class="tagc ok">They owe you</span>Priya to connect the data<span class="co">Harbor</span></div>
+          <div class="askbar" id="hask">&#128172; Ask across every deal...<span style="margin-left:auto;font-size:11px">Tasks</span></div>
+        </div>
+
+        <!-- OVERVIEW -->
+        <div class="view" id="vOver"><div class="dealchrome" data-tab="Overview"></div>
+          <div class="body"><div class="htiles" style="grid-template-columns:1fr 1fr">
+            <div class="htile" id="o0"><div class="tk">Next move</div><div class="tv">Send Alex the one-page summary and confirm the Jan 15 decision.</div><span class="tcite">&#9655; from the call, 21:40</span></div>
+            <div class="htile" id="o1"><div class="tk">Since your last call</div><div class="tsub">Budget moved from $500 to $1,200. Alex named the Jan 15 decision.</div></div>
+            <div class="htile" id="o2"><div class="tk">Commitments</div><div class="tsub">You: one-page summary. Them: Priya connects the data by Thursday.</div></div>
+            <div class="htile" id="o3"><div class="tk">Deal</div><div class="tsub">ICP fit Strong &middot; Qualified 2 of 5 &middot; Decision Jan 15</div></div>
+          </div>
+          <div style="margin-top:16px;font-size:12.5px;color:var(--ink3)">Calls &middot; 2 logged, each line cited to the moment it came from.</div>
+          </div>
+        </div>
+
+        <!-- QUALIFICATION -->
+        <div class="view" id="vQual"><div class="dealchrome" data-tab="More"></div>
+          <div class="body"><div class="panel">
+            <div class="ph"><span class="pt">Qualification, SPICED</span><span class="pm" id="qualn">2 of 5 covered</span></div>
+            <div class="srow" id="sq0"><span class="sn">Situation</span><span class="sd">11-person team, RevOps owner. <span class="q">"just the two of us running every deal."</span></span><span class="tagc ok">Covered</span></div>
+            <div class="srow" id="sq1"><span class="sn">Pain</span><span class="sd">Follow-ups slip after calls. <span class="q">"things fall through the cracks after calls."</span></span><span class="tagc ok">Covered</span></div>
+            <div class="srow" id="sq2"><span class="sn">Impact</span><span class="sd">Time cost implied, nothing quantified yet.</span><span class="tagc pa">Partial</span></div>
+            <div class="srow" id="sq3"><span class="sn">Critical event</span><span class="sd">Anchored to the decision. <span class="q">"signed before your Jan 15 review."</span></span><span class="tagc ok">Covered</span></div>
+            <div class="srow" id="sq4"><span class="sn">Decision</span><span class="sd">Alex owns it. <span class="q">"anything under a hundred a month I can just approve."</span></span><span class="tagc ok">Covered</span></div>
+          </div></div>
+        </div>
+
+        <!-- CHAT (tasks) -->
+        <div class="view" id="vChat">
+          <div class="chrow"><span class="cav">&#128172;</span><div><div style="font-size:15px;font-weight:700;color:#fff">ProvenChat</div><div style="font-size:12px;color:var(--ink3)">grounded in the Northwind deal</div></div></div>
+          <span class="badge" id="cbadge">&#9998; Follow-up Writer</span>
+          <div class="splitchat"><div>
+            <div class="draftlead">I drafted these from your call with Alex and Priya:</div>
+            <div class="task" id="tk0"><span class="tnum">1</span><div style="flex:1"><div class="ttl">Follow-up email to Alex and Priya</div><div class="tbd">Confirms the $1,200 budget and the Jan 15 decision, offers Friday 10am to review.</div></div><button class="copybtn" id="cCopy">Copy</button><span class="copied" id="cCopied">&#10003; Copied</span></div>
+            <div class="task" id="tk1"><span class="tnum">2</span><div style="flex:1"><div class="ttl">Rollout plan for Priya</div><div class="tbd">A dated go-live plan from your approved Library template, so her team is live before the holidays.</div></div></div>
+            <div class="task" id="tk2"><span class="tnum">3</span><div style="flex:1"><div class="ttl">Next-call prep for the order form review</div><div class="tbd">Goal, agenda and the ask: a signed order form by January 15.</div></div></div>
+          </div>
+          <div class="docpanel" id="cDoc"><div class="dptitle">&#128196; Rollout plan <span style="margin-left:auto;font-size:10.5px;color:var(--ink3);font-weight:500">Library</span></div>
+            <div class="dpline">Week 1: workspace set up, two seats live.</div>
+            <div class="dpline edit" id="dpEdit">Week 2: Priya's team onboarded before the holidays.</div>
+            <div class="dpline">Week 3: first deals running in ProvenLoop.</div>
+            <div class="updated" id="cUpd">&#10003; Updated from the document</div>
+          </div></div>
+        </div>
+
+        <!-- PRACTICE PICK -->
+        <div class="view" id="vPick"><div class="dealchrome" data-tab="Practice"></div>
+          <div class="body"><div class="pickrow">
+            <div class="pcol"><div class="pl">Practice against</div><div class="seg"><b class="on">Alex Kim</b><b>Priya Shah</b></div><div class="psub">Economic buyer &middot; plays from his words on 2 calls</div></div>
+            <div class="pcol"><div class="pl">How</div><div class="seg"><b class="on">Type</b><b>Talk out loud</b></div><div class="psub">Talk uses your mic, Chrome or Edge</div></div>
+            <div class="pcol"><div class="pl">Difficulty</div><div class="seg"><b class="on">As heard</b><b>Harder</b><b>Hardest</b></div><div class="psub">Harder and Hardest turn Curveballs on</div></div>
+            <div class="pcol" style="text-align:right"><button class="startbtn" id="pStart">Start practice</button><div class="psub" style="text-align:right">Nothing is sent to Northwind.</div></div>
+          </div>
+          <div class="scentabs"><span class="dt on">Scenario 3</span><span class="dt">How Alex plays</span><span class="dt">Your last attempts 2</span><span class="dt">Your skills</span></div>
+          <div class="scitem"><span class="radio on"></span><div><div class="scit">The next call: order form review</div><div class="scib">Uses your Next call goal, questions and the ask: signed order form by January 15.</div></div><span class="scir">About 10 min</span></div>
+          <div class="scitem"><span class="radio"></span><div><div class="scit">"Can you do better on price if we sign for the full year?"</div><div class="scib">Alex pushes on this. Heard on the Nov 18 call. You have no approved answer yet.</div></div><span class="scir"><span class="wtag">Weak spot</span>About 3 min</span></div>
+          <div class="scitem"><span class="radio"></span><div><div class="scit">"I need to show my CFO the time this saves before I sign."</div><div class="scib">Alex pushes on this. Heard on the Nov 18 call.</div></div><span class="scir">About 3 min</span></div>
+          <div class="scitem"><span class="radio"></span><div><div class="scit">"Priya needs her team live before the holidays. Can you do that?"</div><div class="scib">Priya pushes on this. Heard on the Nov 18 call. Uses your rollout plan.</div></div><span class="scir">About 3 min</span></div>
+          <div style="font-size:12px;color:var(--ink3);margin-top:14px">Your last attempt with Alex: <b style="color:#EDEAF5">71</b> on Nov 14 &middot; Your average this month: <b style="color:#EDEAF5">76</b></div>
+          </div>
+        </div>
+
+        <!-- PRACTICE RUN -->
+        <div class="view" id="vRun"><div class="dealchrome" data-tab="Practice"></div>
+          <div class="body"><div class="panel" style="min-height:300px">
+            <div class="chrow" style="margin-bottom:14px"><span class="cav" style="background:#3a5a6b">A</span><div><div style="font-size:13.5px;font-weight:700;color:#fff">Alex Kim, playing from his words</div><div style="font-size:11.5px;color:var(--ink3)">Scenario: order form review &middot; As heard</div></div><span class="badge push">&#9679; practicing</span></div>
+            <div id="runconvo"></div>
+          </div></div>
+        </div>
+
+        <!-- PRACTICE SCORE (frame 09) -->
+        <div class="view" id="vScore"><div class="dealchrome" data-tab="Practice"></div>
+          <div class="body"><div class="scoregrid">
+            <div class="scard">
+              <div class="scap">Practice with Alex Kim &middot; order form review &middot; As heard &middot; typed &middot; 9 min</div>
+              <div class="bignum"><b id="scNum">0</b><span>/ 100</span></div>
+              <div><span class="uptag" id="scUp" style="opacity:0">Up 13 from 71 on your last attempt</span></div>
+              <div class="scmethod">Scored on your method, SPICED</div>
+              <div class="scsum"><b>Alex would sign.</b> You tied the order form to his January 15 decision and handled the price push with the full-year terms.</div>
+              <div style="font-size:12px;color:var(--ink3);margin:16px 0 4px">Your attempts with Alex</div>
+              <div class="attempts">
+                <div class="att"><div class="bar" id="ab0" style="height:0"></div><div class="an">58</div><div class="ad">Nov 6</div></div>
+                <div class="att"><div class="bar" id="ab1" style="height:0"></div><div class="an">71</div><div class="ad">Nov 14</div></div>
+                <div class="att cur"><div class="bar" id="ab2" style="height:0"></div><div class="an">84</div><div class="ad">Today</div></div>
+              </div>
+              <div class="scbtns"><button class="scbtn hot" id="scAgain">Try again, harder</button><button class="scbtn gh">Add to Next call prep</button><button class="scbtn gh">Back to the room</button></div>
+            </div>
+            <div class="panel">
+              <div class="ph"><span class="pt">How you did, element by element</span><span class="pm">4 of 5 covered</span></div>
+              <div class="srow" id="ss0"><span class="sn">Situation</span><span class="sd">You confirmed the 11-person team and who runs each deal.</span><span class="tagc ok">Covered</span></div>
+              <div class="srow" id="ss1"><span class="sn">Pain</span><span class="sd">You played back his words before pitching. <span class="q">"things fall through the cracks after calls"</span> &middot; your line at 2:10</span><span class="tagc ok">Covered</span></div>
+              <div class="srow" id="ss2"><span class="sn">Impact</span><span class="sd">You never put a number on the time lost each week. <span style="color:var(--ink3)">Fix next time: ask how many hours a week go to follow-ups.</span></span><span class="tagc pa">Partial</span></div>
+              <div class="srow" id="ss3"><span class="sn">Critical event</span><span class="sd">You anchored everything to the January 15 decision. <span class="q">"so we have it signed before your Jan 15 review"</span> &middot; 6:40</span><span class="tagc ok">Covered</span></div>
+              <div class="srow" id="ss4"><span class="sn">Decision</span><span class="sd">You confirmed Alex signs, and asked if anyone else needs to see the order form.</span><span class="tagc ok">Covered</span></div>
+              <div class="moments"><div class="mom best"><div class="mt">Best moment &middot; 7:15</div><div class="mq">"If we lock the full year today, the price holds and you hit Jan 15 with time to spare."</div></div>
+                <div class="mom miss"><div class="mt">Curveball you missed &middot; 4:30</div><div class="mq">Alex asked who else uses it at his size. You moved on without an answer.</div></div></div>
+            </div>
+          </div></div>
+        </div>
+
+        <!-- MESSAGES -->
+        <div class="view" id="vMsg"><div class="dealchrome" data-tab="More"></div>
+          <div class="body"><div class="panel">
+            <div class="ph"><span class="pt">Messages</span><span class="pm">email and replies on this deal</span></div>
+            <div class="msg new" id="mNew"><span class="mav">AK</span><div style="flex:1"><div><span class="mfrom">Alex Kim</span><span class="mtime">just now</span></div><div class="mtext">Yes, let's move forward. Send the order form.</div><span class="mtag">They owe &middot; Done</span></div></div>
+            <div class="msg"><span class="mav">D</span><div style="flex:1"><div><span class="mfrom">You</span><span class="mtime">today, 9:12</span></div><div class="mtext">Sharing the recap and the Jan 15 plan. Happy to walk Priya through it Friday.</div></div></div>
+          </div></div>
+          <div class="menu" id="msgMenu"><div class="mi">Edit deal</div><div class="mi">Share room</div><div class="mi hot" id="msgWon">&#10003; Mark won</div></div>
+        </div>
+
+        <div class="cur" id="cur"><svg viewBox="0 0 24 24" fill="#fff" stroke="#15121D" stroke-width="1.2"><path d="M5 3l15 9-6.5 1.7L10 21z"/></svg><span class="rp" id="rp"></span></div>
+      </div>
+    </div>
+  </div></div>
+
+  <div class="ctrl"><div class="pbar"><div class="pfill" id="pfill"></div></div><button class="pausebtn" id="pausebtn">Pause</button></div>
+  <div class="foot">silent &middot; loops &middot; coded, not recorded</div>
+
+<script>
+(function(){
+  var main=document.getElementById('main'), cur=document.getElementById('cur'), rp=document.getElementById('rp'),
+      pfill=document.getElementById('pfill'), pausebtn=document.getElementById('pausebtn'), headline=document.getElementById('headline');
+  var paused=false, token=0, current=0, reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var solo=false; (function(){ var h=location.hash||''; var m=h.match(/clip=(\d)/); if(m){ solo=true; current=parseInt(m[1],10); document.body.classList.add('solo'); } else if(/embed/.test(h)){ document.body.classList.add('embed'); } })();
+  var DUR=[15000,16000,16000,15000];
+  var HEAD=[
+    'Your notetaker captures the call. <span>ProvenLoop understands the deal.</span>',
+    'Open a task. <span>ProvenLoop drafts it from the call and your approved content.</span>',
+    'Rehearse the closing call against your real buyer. <span>Walk in with a score.</span>',
+    'Every reply lands in the deal. <span>You close it in one click.</span>'
+  ];
+  function $(id){return document.getElementById(id);}
+  function stale(my){return my!==token;}
+  function sleep(ms){return new Promise(function(res){var t=0;(function tick(){ if(t>=ms)return res(); if(!paused)t+=40; setTimeout(tick,40);})();});}
+
+  // fill deal chrome
+  function chrome(tab){
+    return '<a class="back">&#8592; Deals</a><div class="dtitle"><h3>Northwind</h3><span class="fit">Strong fit</span><span class="dpill">Decision Jan 15</span></div>'
+      +'<div class="dmeta">2 calls logged &middot; last call today &middot; Alex Kim, Priya Shah &middot; northwind.com</div>'
+      +'<div class="dacts"><span class="dbtn">Ask about this deal</span><span class="dbtn hot">Log a call</span><span class="dbtn">Paste a transcript</span><span class="dbtn sq">&#8943;</span></div>'
+      +'<div class="dtabs">'+['Overview','Next call','Practice','People','More'].map(function(t){var on=(t===tab||(tab==='More'&&t==='More'))?' on':'';return '<span class="dt'+on+'">'+t+(t==='More'?' &#8964;':'')+'</span>';}).join('')+'</div>';
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.dealchrome'),function(d){ d.innerHTML=chrome(d.getAttribute('data-tab')); });
+
+  function show(id){ ['vHome','vOver','vQual','vChat','vPick','vRun','vScore','vMsg'].forEach(function(x){$(x).classList.toggle('on',x===id);}); }
+  function nav(n){ Array.prototype.forEach.call(document.querySelectorAll('#nav .ni'),function(e){e.classList.toggle('on',e.getAttribute('data-n')===n);}); }
+  function glow(el){ clearGlow(); if(el)el.classList.add('glow'); }
+  function clearGlow(){ Array.prototype.forEach.call(document.querySelectorAll('.glow'),function(e){e.classList.remove('glow');}); }
+  function curTo(el,dx,dy){ var a=main.getBoundingClientRect(), r=el.getBoundingClientRect();
+    cur.classList.add('on'); cur.style.transform='translate('+(r.left-a.left+r.width/2+(dx||0))+'px,'+(r.top-a.top+r.height/2+(dy||0))+'px)'; return sleep(reduce?0:660); }
+  function clickFx(){ rp.classList.remove('go'); void rp.offsetWidth; rp.classList.add('go'); return sleep(reduce?0:230); }
+  function startProg(dur){ pfill.classList.remove('run'); pfill.style.width='0'; void pfill.offsetWidth; pfill.style.animationDuration=(dur/1000)+'s'; pfill.classList.add('run'); pfill.style.animationPlayState=paused?'paused':'running'; }
+
+  function resetAll(){
+    clearGlow();
+    $('hprog').style.width='0'; $('hstate').textContent='Reading the call, 32 min...'; $('hcall').style.display='flex';
+    $('hrowNew').style.opacity='0'; $('hrowOwe').classList.remove('gone'); $('htOwe').textContent='4'; $('htNextv').textContent='Prep for your Harbor call'; $('htNexts').textContent='Tomorrow 10am';
+    ['o0','o1','o2','o3'].forEach(function(x){$(x).style.opacity='0';});
+    ['sq0','sq1','sq2','sq3','sq4'].forEach(function(x){$(x).classList.remove('in');});
+    ['tk0','tk1','tk2'].forEach(function(x){$(x).classList.remove('in');}); $('cCopied').classList.remove('in'); $('cDoc').classList.remove('in'); $('cUpd').classList.remove('in'); $('dpEdit').textContent="Week 2: Priya's team onboarded before the holidays.";
+    $('runconvo').innerHTML='';
+    $('scNum').textContent='0'; $('scUp').style.opacity='0'; ['ss0','ss1','ss2','ss3','ss4'].forEach(function(x){$(x).classList.remove('in');}); ['ab0','ab1','ab2'].forEach(function(x){$(x).style.height='0';});
+    $('mNew').classList.remove('in'); $('msgMenu').classList.remove('in');
+    cur.classList.remove('on'); cur.style.transform='translate(300px,320px)';
+  }
+  function reveal(id){ $(id).style.opacity='1'; $(id).classList.add('in'); }
+
+  async function addRun(who,text,cls){ var d=document.createElement('div'); d.className='msg'; d.style.borderTop='none';
+    d.innerHTML='<span class="mav" style="'+(who==='A'?'background:#3a5a6b':'background:#6b4a3a')+'">'+(who==='A'?'A':'D')+'</span><div><div class="mfrom">'+(who==='A'?'Alex Kim':'You')+'</div><div class="mtext">'+text+'</div></div>';
+    d.style.opacity='0'; d.style.transition='opacity .35s'; $('runconvo').appendChild(d); await sleep(40); d.style.opacity='1'; }
+
+  async function clip0(my){
+    nav('home'); show('vHome'); glow($('hcall'));
+    $('hprog').style.width='100%'; await sleep(2000); if(stale(my))return;
+    $('hstate').textContent='Deal updated. Next move set.'; $('htNextv').textContent='Send Alex the one-page summary'; $('htNexts').textContent='Northwind · today';
+    $('hrowNew').style.opacity='1'; $('hrowNew').classList.add('in'); glow($('htNext'));
+    await sleep(1600); if(stale(my))return;
+    clearGlow(); await curTo($('hrowOwe'),0,0); await clickFx(); if(stale(my))return;
+    nav('deals'); show('vOver'); glow(null); await sleep(350);
+    for(var i=0;i<4;i++){ reveal('o'+i); glow($('o'+i)); await sleep(430); if(stale(my))return; }
+    clearGlow(); await sleep(600); if(stale(my))return;
+    var more=$('vOver').querySelector('.dtabs .dt:last-child'); await curTo(more,0,0); await clickFx(); if(stale(my))return;
+    show('vQual'); await sleep(350);
+    for(var j=0;j<5;j++){ reveal('sq'+j); await sleep(360); if(stale(my))return; }
+    await sleep(900);
+  }
+
+  async function clip1(my){
+    nav('home'); show('vHome'); await sleep(700); if(stale(my))return;
+    glow($('hask')); await curTo($('hask'),70,0); await clickFx(); if(stale(my))return;
+    clearGlow(); nav('chat'); show('vChat'); await sleep(500); if(stale(my))return;
+    for(var i=0;i<3;i++){ reveal('tk'+i); await sleep(520); if(stale(my))return; }
+    await sleep(400); glow($('cCopy')); await curTo($('cCopy'),0,0); await clickFx(); $('cCopied').classList.add('in'); clearGlow();
+    await sleep(1100); if(stale(my))return;
+    $('cDoc').classList.add('in'); await sleep(900); if(stale(my))return;
+    glow($('dpEdit')); await curTo($('dpEdit'),0,0);
+    $('dpEdit').innerHTML='Week 2: Priya\'s team live by <span class="hl">Friday</span>, before the holidays.';
+    await sleep(700); $('cUpd').classList.add('in'); clearGlow();
+    await sleep(1800);
+  }
+
+  async function clip2(my){
+    nav('deals'); show('vPick'); await sleep(1400); if(stale(my))return;
+    glow($('pStart')); await curTo($('pStart'),0,0); await clickFx(); clearGlow(); if(stale(my))return;
+    show('vRun'); await sleep(500); if(stale(my))return;
+    await addRun('A','We like it. But can you do better on price if we sign for the full year?'); await sleep(1100); if(stale(my))return;
+    await addRun('D','If we lock the full year today, the price holds and you hit Jan 15 with time to spare.'); await sleep(1100); if(stale(my))return;
+    await addRun('A','That works. Send the order form and we will get it signed.'); await sleep(1200); if(stale(my))return;
+    show('vScore'); await sleep(450);
+    $('ab0').style.height='46px'; $('ab1').style.height='60px'; $('ab2').style.height='76px';
+    var n=0; (function up(){ if(stale(my))return; if(n<84){n+=2; if(n>84)n=84; $('scNum').textContent=n; setTimeout(up,22);} })();
+    await sleep(1000); $('scUp').style.opacity='1'; if(stale(my))return;
+    for(var i=0;i<5;i++){ reveal('ss'+i); await sleep(300); if(stale(my))return; }
+    await sleep(1500);
+  }
+
+  async function clip3(my){
+    nav('deals'); show('vMsg'); await sleep(600); if(stale(my))return;
+    $('mNew').classList.add('in'); glow($('mNew')); await sleep(1800); if(stale(my))return;
+    clearGlow(); var dots=$('vMsg').querySelector('.dbtn.sq'); await curTo(dots,0,0); await clickFx(); $('msgMenu').classList.add('in'); if(stale(my))return;
+    await sleep(700); glow($('msgWon')); await curTo($('msgWon'),0,0); await clickFx(); if(stale(my))return;
+    $('msgMenu').classList.remove('in'); clearGlow();
+    var pill=$('vMsg').querySelector('.dpill'); pill.textContent='Won'; pill.style.color='var(--green)'; pill.style.borderColor='rgba(52,211,153,.5)';
+    await sleep(1500); if(stale(my))return;
+    nav('home'); show('vHome'); $('hcall').style.display='none'; await sleep(500);
+    $('hrowOwe').classList.add('gone'); $('htOwe').textContent='3'; await sleep(2200);
+  }
+
+  async function runner(){
+    var my=++token; resetAll(); headline.innerHTML='<h2>'+HEAD[current]+'</h2>'; startProg(DUR[current]); await sleep(200); if(stale(my))return;
+    if(current===0) await clip0(my); else if(current===1) await clip1(my); else if(current===2) await clip2(my); else await clip3(my);
+    if(stale(my))return; runner();
+  }
+
+  document.querySelectorAll('.tab').forEach(function(t){ t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('on');}); t.classList.add('on');
+    current=parseInt(t.getAttribute('data-c'),10); runner();
+  }); });
+  pausebtn.addEventListener('click',function(){ paused=!paused; pausebtn.textContent=paused?'Play':'Pause'; pfill.style.animationPlayState=paused?'paused':'running'; });
+
+  headline.innerHTML='<h2>'+HEAD[0]+'</h2>';
+  if('IntersectionObserver' in window && !reduce){
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ runner(); io.disconnect(); } }); },{threshold:.2});
+    io.observe(document.querySelector('.stage'));
+  } else { runner(); }
+})();
+</script>
+</body></html>

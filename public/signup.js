@@ -54,6 +54,17 @@
 
   var UTMS = captureUtms();
 
+  // Campaign landing pages (e.g. /no-crm) carry <meta name="pl-default-campaign" content="...">.
+  // If this visit has no utm_campaign, tag it with that value (keeping any other UTMs present) and
+  // store it for the visit, so signups that follow are identifiable. Added 2026-11-18 (v9 site).
+  (function () {
+    var m = document.querySelector('meta[name="pl-default-campaign"]');
+    var def = m ? clean(m.getAttribute('content') || '') : '';
+    if (!def || UTMS.utm_campaign) return;
+    UTMS.utm_campaign = def;
+    try { window.sessionStorage.setItem(STORE_KEY, JSON.stringify(UTMS)); } catch (e) { /* storage blocked: this page only */ }
+  })();
+
   // Current page address with the visit's UTMs written onto it (replacing any utm_* already there).
   function pageUriWithUtms(utms) {
     try {
@@ -77,6 +88,16 @@
     var input = form.querySelector('input[type="email"]');
     var button = form.querySelector('button[type="submit"]');
     var msg = form.querySelector('.beta-msg');
+    // v9 site forms (form.ecap) have no message line inside: add one right after the form.
+    var outside = false;
+    if (!msg) {
+      msg = document.createElement('p');
+      msg.className = 'beta-msg';
+      msg.setAttribute('role', 'status');
+      msg.setAttribute('aria-live', 'polite');
+      form.parentNode.insertBefore(msg, form.nextSibling);
+      outside = true;
+    }
     var label = button.textContent;
 
     function fail(text) {
@@ -126,6 +147,12 @@
           body: JSON.stringify({ email: email, firstname: fn ? fn.value.trim() : '' }), keepalive: true }).catch(function () {});
         var to = form.getAttribute('data-redirect');
         if (to) { Promise.race([confirm, new Promise(function (r) { setTimeout(r, 2500); })]).then(function () { window.location.href = to; }); return; }
+        if (outside) {
+          form.style.display = 'none';
+          msg.className = 'beta-msg ok';
+          msg.textContent = 'You\'re on the list. We\'ll email you when your seat opens.';
+          return;
+        }
         form.innerHTML = '<p class="beta-msg ok" role="status">You\'re on the list. We\'ll email you when your seat opens.</p>';
       }).catch(function () {
         fail('That did not go through. Please try again in a moment.');
