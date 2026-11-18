@@ -11,6 +11,7 @@ export default defineConfig({
         'vs-chatgpt': 'vs-chatgpt.html',
         'why-different': 'why-different.html',
         'who-its-for': 'who-its-for.html',
+        'keep-your-workflow': 'keep-your-workflow.html',
         'practice': 'practice.html',
         'account-room': 'account-room.html',
         'provenchat': 'provenchat.html',

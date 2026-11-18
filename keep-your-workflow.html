@@ -1,0 +1,437 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The modern Solo AE stack | ProvenLoop</title>
+<meta name="description" content="The modern Solo AE stack: your call recorder, your AI tool, ProvenLoop, and your CRM. Scroll to watch each layer work, and see where ProvenLoop fits in the middle.">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--violet:#8B5CF6;--violetL:#C4B5FD;--pink:#EC4899;--blue:#3B82F6;--green:#34D399;--amber:#FBBF24;
+    --ink:#F3F0F9;--ink2:#B7B1C8;--ink3:#817B95;--line:rgba(255,255,255,.1);--line2:rgba(255,255,255,.06);
+    --mono:"Geist Mono",ui-monospace,monospace;--ease:cubic-bezier(.16,1,.3,1);--grad:linear-gradient(120deg,#EC4899,#8B5CF6 52%,#3B82F6)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Geist","Segoe UI",system-ui,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;background:#07060B;line-height:1.55}
+  .aurora{position:fixed;inset:-10%;z-index:-3;pointer-events:none;background:radial-gradient(55vw 46vh at 14% -4%,rgba(139,92,246,.3),transparent 60%),radial-gradient(52vw 42vh at 88% 6%,rgba(236,72,153,.2),transparent 58%),radial-gradient(60vw 56vh at 50% 108%,rgba(59,130,246,.18),transparent 60%),linear-gradient(176deg,#0C0717,#08060D 42%,#060713);animation:drift 24s ease-in-out infinite alternate}
+  @keyframes drift{0%{transform:translate3d(0,0,0)}100%{transform:translate3d(-2%,1%,0) scale(1.05)}}
+  .vignette{position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(130% 92% at 50% 16%,transparent 44%,rgba(0,0,0,.5) 100%)}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
+  .ic{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+
+  nav.nav{position:fixed;top:0;left:0;right:0;z-index:60;transition:background .3s,border-color .3s,backdrop-filter .3s}
+  nav.nav.solid{background:rgba(10,8,16,.72);backdrop-filter:saturate(1.4) blur(18px);border-bottom:1px solid var(--line)}
+  .nin{max-width:1200px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;gap:26px}
+  .brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:16px;color:#fff;text-decoration:none}
+  .bmk{width:24px;height:24px;border-radius:7px;background:var(--grad);display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:800}
+  .nlinks{display:flex;gap:22px;margin-left:8px}
+  .nlink{font-size:14px;color:var(--ink2);text-decoration:none}.nlink:hover{color:#fff}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;border-radius:11px;padding:10px 18px;text-decoration:none;color:#fff;background:var(--grad);border:none;cursor:pointer}
+  .navcta{margin-left:auto}
+
+  .banner{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:90px 20px 40px}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--violetL)}
+  .banner h1{font-size:clamp(36px,6vw,74px);font-weight:800;letter-spacing:-.03em;margin-top:16px;line-height:1.02}
+  .banner p{color:var(--ink2);font-size:18px;max-width:46ch;margin:18px auto 0}
+  .scrollcue{margin-top:40px;display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--ink3);font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none}
+  .scrollcue svg{width:22px;height:22px;animation:bob 1.8s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+  /* STACK OF LIVE SCREENS (sticky), each plays when active */
+  .scrolly{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:start}
+  .viz{position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center}
+  .stackcol{width:min(100%,500px);display:flex;flex-direction:column;gap:12px;position:relative}
+  .flowline{position:absolute;left:-16px;top:12px;bottom:12px;width:2px;background:linear-gradient(rgba(139,92,246,.35),rgba(139,92,246,.05));border-radius:2px}
+  .flowdot{position:absolute;left:-20px;top:40px;width:10px;height:10px;border-radius:50%;background:var(--grad);box-shadow:0 0 16px 3px rgba(139,92,246,.7);transition:top .7s var(--ease);z-index:2}
+  .spark{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;opacity:0;pointer-events:none;animation:twk 3.6s ease-in-out infinite}
+  @keyframes twk{0%,100%{opacity:0;transform:scale(.6)}50%{opacity:.45;transform:scale(1)}}
+  .screen{position:relative;border:1px solid var(--line);border-radius:14px;background:#0C0A12;overflow:hidden;opacity:.4;transform:scale(.985);transition:opacity .5s var(--ease),transform .5s var(--ease),box-shadow .5s,border-color .5s}
+  #SC2.active::after{content:"";position:absolute;inset:-18px;z-index:-1;border-radius:24px;background:radial-gradient(60% 70% at 50% 50%,rgba(139,92,246,.38),transparent 72%);filter:blur(16px);animation:breathe 3s ease-in-out infinite}
+  @keyframes breathe{0%,100%{opacity:.7}50%{opacity:1}}
+  .screen.done{opacity:.8}
+  .screen.active{opacity:1;transform:scale(1) translateX(14px);border-color:rgba(139,92,246,.5);box-shadow:0 20px 50px -22px rgba(139,92,246,.5)}
+  .scbar{display:flex;align-items:center;gap:9px;padding:9px 13px;border-bottom:1px solid var(--line2);background:rgba(255,255,255,.02)}
+  .scdot{width:8px;height:8px;border-radius:50%;background:var(--ink3)}
+  .screen.active .scdot{background:var(--green);box-shadow:0 0 0 0 rgba(52,211,153,.6);animation:pulse 1.5s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(52,211,153,.5)}70%{box-shadow:0 0 0 7px rgba(52,211,153,0)}100%{box-shadow:0 0 0 0 rgba(52,211,153,0)}}
+  .sctitle{font-size:12.5px;font-weight:700;color:#fff}
+  .scpill{margin-left:auto;font-size:10px;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink3)}
+  .scbody{padding:13px 15px;min-height:104px}
+
+  /* scene 0: summary */
+  .suml{font-size:12.5px;color:#EDEAF5;line-height:1.4;padding:5px 0;display:flex;gap:9px;opacity:0;transform:translateY(6px);transition:opacity .4s var(--ease),transform .4s var(--ease)}
+  .suml.in{opacity:1;transform:none}
+  .suml .b{color:var(--violetL)}
+  .genbar{height:3px;border-radius:2px;background:rgba(255,255,255,.08);overflow:hidden;margin-bottom:10px}
+  .genbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--violet),var(--violetL));transition:width 1.3s linear}
+  .screen.active .genbar i{width:100%}
+
+  /* scene 1: chat */
+  .ub{max-width:88%;margin-left:auto;background:rgba(139,92,246,.16);border:1px solid rgba(139,92,246,.34);border-radius:12px;border-top-right-radius:4px;padding:9px 11px;font-size:12.5px;color:#fff;opacity:0;transform:translateY(6px);transition:.4s}
+  .ab{max-width:92%;background:#201d29;border:1px solid var(--line);border-radius:12px;border-top-left-radius:4px;padding:9px 11px;font-size:12.5px;color:#EDEAF5;line-height:1.45;margin-top:9px;min-height:20px}
+  .screen.active .ub{opacity:1;transform:none}
+  .caret{display:inline-block;width:2px;height:1em;background:var(--violetL);vertical-align:-2px;animation:blink 1s step-end infinite}
+  @keyframes blink{50%{opacity:0}}
+
+  /* scene 2: provenloop tiles */
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .ptile{border:1px solid var(--line);border-radius:10px;padding:9px 11px;background:rgba(255,255,255,.02);opacity:0;transform:translateY(7px) scale(.96);transition:opacity .4s var(--ease),transform .4s var(--ease)}
+  .ptile.in{opacity:1;transform:none}
+  .ptk{font-size:10px;font-family:var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--violetL)}
+  .ptv{font-size:12px;color:#fff;font-weight:600;margin-top:3px;line-height:1.3}
+
+  /* scene 3: crm */
+  .crow{display:grid;grid-template-columns:86px 1fr;gap:10px;padding:6px 0;border-top:1px solid var(--line2);font-size:12px;opacity:0;transform:translateX(-8px);transition:opacity .4s var(--ease),transform .4s var(--ease)}
+  .crow:first-child{border-top:none}
+  .crow.in{opacity:1;transform:none}
+  .crk{color:var(--ink3)}.crv{color:#EDEAF5;font-weight:500}
+  .crmok{display:inline-flex;align-items:center;gap:7px;margin-top:10px;font-size:11.5px;color:var(--green);opacity:0;transition:.4s}
+  .crmok.in{opacity:1}
+
+  .steps{display:flex;flex-direction:column}
+  .step{min-height:94vh;display:flex;flex-direction:column;justify-content:center;opacity:.32;transition:opacity .45s}
+  .step.on{opacity:1}
+  .step .num{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--violetL)}
+  .step h3{font-size:clamp(25px,3.1vw,36px);font-weight:800;letter-spacing:-.02em;margin-top:12px;line-height:1.1}
+  .step.hot h3{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .step p{color:var(--ink2);font-size:16.5px;margin-top:13px;max-width:42ch;line-height:1.6}
+  .step .tag{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:12.5px;color:var(--violetL);background:rgba(139,92,246,.14);border:1px solid rgba(139,92,246,.34);border-radius:999px;padding:5px 13px;width:fit-content}
+
+  .recap{padding:60px 0 20px;text-align:center}
+  .recap h2{font-size:clamp(26px,3.4vw,40px);font-weight:800;letter-spacing:-.02em}
+  .recap p{color:var(--ink2);font-size:17px;max-width:54ch;margin:14px auto 0}
+  .rrow{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px;text-align:left}
+  .rcard{border:1px solid var(--line);border-radius:14px;padding:20px;background:rgba(255,255,255,.02)}
+  .rcard .rk{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--violetL)}
+  .rcard h4{font-size:16px;font-weight:700;margin-top:9px;color:#fff}
+  .rcard p{font-size:13.5px;color:var(--ink2);margin-top:7px;max-width:none}
+
+  .story{padding:76px 0 10px}
+  .shead{text-align:center;max-width:740px;margin:0 auto}
+  .shead h2{font-size:clamp(28px,3.9vw,46px);font-weight:800;letter-spacing:-.025em;margin-top:14px;line-height:1.08}
+  .shead p{color:var(--ink2);font-size:17px;margin-top:14px}
+  .vs{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:46px}
+  .vscol{border:1px solid var(--line);border-radius:18px;padding:24px 24px 10px}
+  .vscol.without{background:rgba(255,255,255,.015)}
+  .vscol.with{background:radial-gradient(90% 100% at 50% 0,rgba(139,92,246,.15),transparent 72%);border-color:rgba(139,92,246,.42)}
+  .vsh{font-size:12.5px;font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+  .vscol.without .vsh{color:var(--ink3)}.vscol.with .vsh{color:var(--violetL)}
+  .vsitem{display:flex;gap:12px;align-items:flex-start;padding:13px 0;border-top:1px solid var(--line2);font-size:14.5px;line-height:1.45}
+  .vsitem:first-of-type{border-top:none}
+  .vscol.without .vsitem{color:var(--ink2)}.vscol.with .vsitem{color:#EDEAF5}
+  .vx{color:#F87171;flex:none;font-weight:700;font-size:13px;margin-top:1px}
+  .vk{width:17px;height:17px;flex:none;color:var(--green);margin-top:1px}
+  .closer{text-align:center;max-width:700px;margin:50px auto 0;border-top:1px solid var(--line2);padding-top:44px}
+  .closer h3{font-size:clamp(24px,3.3vw,38px);font-weight:800;letter-spacing:-.02em;line-height:1.12}
+  .closer p{color:var(--ink2);font-size:17px;margin-top:16px;line-height:1.65}
+  .closer .big{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-weight:700}
+  @media(max-width:720px){.vs{grid-template-columns:1fr}}
+
+  .cta{padding:72px 0 86px;text-align:center}
+  .ctaband{border:1px solid var(--line);border-radius:22px;padding:46px 30px;background:radial-gradient(70% 90% at 50% 0%,rgba(139,92,246,.18),transparent 70%)}
+  .ctaband h2{font-size:clamp(26px,3.4vw,40px);font-weight:800;letter-spacing:-.02em}
+  .ctaband p{color:var(--ink2);margin:12px auto 0;max-width:46ch}
+  .ecap{display:flex;gap:8px;max-width:440px;margin:24px auto 0;background:rgba(255,255,255,.04);border:1px solid var(--line2);border-radius:14px;padding:6px 6px 6px 16px}
+  .ecap input{flex:1;background:none;border:none;outline:none;color:#fff;font:inherit;font-size:14px}
+  .ecap input::placeholder{color:var(--ink3)}
+
+  footer{border-top:1px solid var(--line);padding:40px 0;margin-top:30px}
+  .fgrid{display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;font-size:13.5px}
+  .fcol h5{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px}
+  .fcol a{display:block;color:var(--ink2);text-decoration:none;margin:7px 0}.fcol a:hover{color:#fff}
+  .fbrand{display:flex;align-items:center;gap:9px;font-weight:700;color:#fff}
+  .fbot{display:flex;justify-content:space-between;gap:12px;margin-top:28px;font-size:12px;color:var(--ink3);border-top:1px solid var(--line2);padding-top:18px}
+
+  @media(max-width:860px){.scrolly{grid-template-columns:1fr;gap:0}.viz{position:sticky;top:56px;height:auto;padding:16px 0}.stackcol{width:100%}.screen.active{transform:scale(1)}.step{min-height:64vh}.nlinks{display:none}.rrow{grid-template-columns:1fr}}
+  @media(prefers-reduced-motion:reduce){.aurora,.scrollcue svg{animation:none}}
+</style>
+<link rel="canonical" href="https://www.provenloop.io/keep-your-workflow" />
+<meta name="theme-color" content="#7C3AED" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="ProvenLoop" />
+<meta property="og:title" content="The modern Solo AE stack | ProvenLoop" />
+<meta property="og:description" content="The modern Solo AE stack: your call recorder, your AI tool, ProvenLoop, and your CRM. Scroll to watch each layer work, and see where ProvenLoop fits in the middle." />
+<meta property="og:url" content="https://www.provenloop.io/keep-your-workflow" />
+<meta property="og:image" content="https://www.provenloop.io/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="The modern Solo AE stack | ProvenLoop" />
+<meta name="twitter:description" content="The modern Solo AE stack: your call recorder, your AI tool, ProvenLoop, and your CRM. Scroll to watch each layer work, and see where ProvenLoop fits in the middle." />
+<meta name="twitter:image" content="https://www.provenloop.io/og-image.png" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="/provenloop-favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/icon-16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/icon-180.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<!-- HubSpot tracking (NA2, portal 246125112) -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/246125112.js"></script>
+<!-- Vercel Web Analytics -->
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/signup.js?v=20261118"></script>
+<script>function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,o.onload=function(){window.trackingFunctions.onLoad({appId:"6aa06a12714044000c4d360c"})},document.head.appendChild(o)}initApollo();</script>
+<style>/* beta signup status line (signup.js) */.beta-msg{font-size:14px;line-height:1.5;margin-top:10px}.beta-msg:empty{display:none}.beta-msg.ok{color:#34D399;font-weight:600;margin-top:24px}.beta-msg.err{color:#FBBF24}.ctaband .beta-msg{position:relative;color:#fff;font-weight:600}</style>
+<style>.pl-mark{height:28px;width:auto;display:block;flex:none}.pl-word{height:19px;width:auto;display:block}.brand,.fbrand{display:flex;align-items:center;gap:8px}</style><style id="topnav-v9">.topnav{background:transparent!important;max-width:none!important;margin:0!important;padding:0!important;display:block!important;border:0!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}.topnav.solid{background:rgba(10,8,16,.72)!important;backdrop-filter:saturate(1.4) blur(18px)!important;-webkit-backdrop-filter:saturate(1.4) blur(18px)!important;border-bottom:1px solid rgba(255,255,255,.08)!important}.topnav .in{width:100%!important;max-width:none!important;padding:0 32px!important;height:60px!important;justify-content:flex-start!important;background:transparent!important}.topnav .nlinks{margin-left:auto!important;margin-right:18px}.topnav.solid .nlinks,.topnav.solid .nlinks a,.topnav.solid .navlink{color:rgba(255,255,255,.82)!important}</style><style id="pl-icons">.plic{width:19px;height:19px;display:inline-block;vertical-align:middle;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;fill:none}.mitem .mi{color:var(--violetL,#C4B5FD)!important;background:rgba(139,92,246,.16)!important}.plic.em{width:1em;height:1em;vertical-align:-.12em}</style><style id="nav-parity">/* shared feature-page top nav + mega menus + footer (ported from who-its-for.html, dark values resolved) */
+.topnav a,footer a{text-decoration:none;color:inherit}
+.topnav{position:fixed;top:0;left:0;right:0;z-index:60;transition:background .25s ease,border-color .25s ease,box-shadow .25s ease}
+.topnav .in{display:flex;align-items:center;justify-content:space-between}
+.topnav .brand{display:flex;align-items:center;gap:8px;font-size:19px;font-weight:700;color:#fff}
+.topnav .nlinks{display:flex;gap:4px;align-items:center;font-size:14.5px;font-weight:500;color:rgba(255,255,255,.82)}
+.topnav .nlinks a:hover{color:#fff}
+.topnav .btn.w{display:inline-flex;align-items:center;justify-content:center;font:inherit;font-weight:600;border-radius:12px;border:1px solid transparent;cursor:pointer;transition:.15s;background:#fff;color:#6D28D9;padding:9px 16px;font-size:14px;gap:0}
+.topnav .btn.w:hover{background:#F3EEFF}
+.topnav.solid .btn.w{background:#7C3AED;color:#fff}.topnav.solid .btn.w:hover{background:#C4B5FD}
+.topnav.solid .nlinks a:hover{color:#F3F0F9}
+.navlink{font:inherit;font-size:14.5px;font-weight:500;color:inherit;background:none;border:none;cursor:pointer;padding:8px 12px;display:inline-flex;align-items:center;gap:6px;border-radius:9px;text-decoration:none}
+.navlink .car{font-size:10px;opacity:.7;transition:transform .2s}
+.navitem{position:static;display:inline-flex}
+.navitem:hover .navlink .car{transform:rotate(180deg)}
+.mega{position:fixed;left:0;right:0;top:57px;background:rgba(14,12,20,.97);border-bottom:1px solid rgba(255,255,255,.1);box-shadow:0 36px 70px -34px rgba(20,16,25,.34);opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity .2s,transform .2s,visibility .2s;z-index:55}
+.navitem:hover .mega,.navitem:focus-within .mega{opacity:1;visibility:visible;transform:none}
+.megawrap{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 310px;gap:44px;padding:34px 28px}
+.megawrap.sol{grid-template-columns:1fr 1fr;max-width:760px}
+.mlabel{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#847E97;margin-bottom:16px}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:6px 24px}
+.mitem{display:flex;gap:13px;padding:11px 12px;border-radius:12px;transition:background .15s}
+.mitem:hover{background:rgba(139,92,246,.14)}
+.mitem .mi{width:38px;height:38px;border-radius:10px;background:rgba(139,92,246,.14);color:#C4B5FD;display:flex;align-items:center;justify-content:center;font-size:18px;flex:none}
+.mitem .mt{font-weight:600;color:#F3F0F9;font-size:14.5px;letter-spacing:-.01em}
+.mitem .md{font-size:12px;color:#847E97;margin-top:2px;line-height:1.35}
+.mrail{border-left:1px solid rgba(255,255,255,.1);padding-left:36px}
+.mrail .rowlink,.mcol .rowlink{display:flex;gap:11px;align-items:center;padding:8px 0;color:#B7B1C8;font-size:14px;font-weight:500}
+.mrail .rowlink:hover,.mcol .rowlink:hover{color:#F3F0F9}
+.mrail .rowlink .dotm{width:8px;height:8px;border-radius:3px;background:#C9C4D6;flex:none}
+.megacard{margin-top:18px;display:block;background:rgba(139,92,246,.14);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:14px 15px}
+.megacard .mt{font-weight:700;color:#C4B5FD;font-size:13.5px}
+.megacard .md{font-size:12px;color:#B7B1C8;margin-top:3px}
+.topnav:has(.navitem:hover) .nlinks,.topnav:has(.navitem:hover) .navlink{color:#B7B1C8}
+.topnav:has(.navitem:hover) .btn.w{background:#7C3AED;color:#fff}
+@media(max-width:860px){.topnav .nlinks{display:none!important}}
+footer{background:#0C0B11;color:#9A95A8;padding:60px 0 34px;font-size:13.5px;border-top:0;margin-top:0}
+footer .wrap{max-width:1220px}
+footer .fgrid{display:grid;grid-template-columns:1.4fr repeat(4,1fr);gap:30px;justify-content:initial;flex-wrap:initial;font-size:inherit}
+footer .fcol h5{font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#6E6981;margin:0 0 14px}
+footer .fcol a{display:block;color:#B6B1C4;padding:5px 0;margin:0}
+footer .fcol a:hover{color:#fff}
+footer .fbrand{display:flex;align-items:center;gap:8px;font-size:18px;font-weight:700;color:#fff}
+footer .fbot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;border-top:1px solid rgba(255,255,255,.08);margin-top:44px;padding-top:24px;color:#6E6981;font-size:inherit}
+@media(max-width:920px){footer .fgrid{grid-template-columns:1fr}}
+</style><style id="kyw-mobile">html{overflow-x:clip}@media(max-width:860px){.viz{background:#07060B;z-index:5;box-shadow:0 18px 24px -12px #07060B}.viz .screen:not(.active){display:none}.step{min-height:56vh}}</style></head>
+<body id="top"><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-room" viewBox="0 0 24 24"><path d="M3 8.5A1.5 1.5 0 0 1 4.5 7h4L10.5 9h9A1.5 1.5 0 0 1 21 10.5v7A1.5 1.5 0 0 1 19.5 19h-15A1.5 1.5 0 0 1 3 17.5z"/><path d="M3 11h18"/></symbol>
+<symbol id="i-prep" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.2"/></symbol>
+<symbol id="i-practice" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0 0 12 0"/><path d="M12 17v4"/></symbol>
+<symbol id="i-qual" viewBox="0 0 24 24"><path d="M3 20h18"/><path d="M6.5 20v-6"/><path d="M12 20V6"/><path d="M17.5 20v-9"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24"><path d="M20 15.2A2.5 2.5 0 0 1 17.5 17.7H9.3L5 20.5v-3.3A2.5 2.5 0 0 1 4 15V8.3A2.5 2.5 0 0 1 6.5 5.8h11A2.5 2.5 0 0 1 20 8.3z"/></symbol>
+<symbol id="i-library" viewBox="0 0 24 24"><path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H18a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6.5A1.5 1.5 0 0 1 5 18.5z"/><path d="M8.2 3v17"/></symbol>
+<symbol id="i-match" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M15.4 8.6l-2 4.8-4.8 2 2-4.8z"/></symbol>
+<symbol id="i-agents" viewBox="0 0 24 24"><path d="M12 3l1.9 5.3L19 10l-5.1 1.7L12 17l-1.9-5.3L5 10l5.1-1.7z"/><path d="M18.5 15l.6 1.8 1.9.6-1.9.6-.6 1.8-.6-1.8-1.9-.6 1.9-.6z"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></symbol>
+<symbol id="i-caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3L5 13h6l-1 8 8-10h-6z"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+<symbol id="i-quote" viewBox="0 0 24 24"><path d="M10 8H6a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h1.5v.5a2.5 2.5 0 0 1-2.5 2.5"/><path d="M20 8h-4a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h1.5v.5a2.5 2.5 0 0 1-2.5 2.5"/></symbol>
+<symbol id="i-rocket" viewBox="0 0 24 24"><path d="M5 15c-1.5 1.5-2 5-2 5s3.5-.5 5-2a2.8 2.8 0 0 0-3-3z"/><path d="M9 13l-2-2c3-7 8-8 12-8 0 4-1 9-8 12l-2-2"/><circle cx="14.5" cy="9.5" r="1.4"/></symbol>
+<symbol id="i-diff" viewBox="0 0 24 24"><path d="M4 7h10"/><path d="M4 12h16"/><path d="M4 17h7"/></symbol>
+<symbol id="i-link" viewBox="0 0 24 24"><path d="M9.5 14.5l5-5"/><path d="M8.6 11.2 6.8 13a3 3 0 0 0 4.2 4.2l1.8-1.8"/><path d="M15.4 12.8 17.2 11a3 3 0 0 0-4.2-4.2l-1.8 1.8"/></symbol>
+<symbol id="i-bot" viewBox="0 0 24 24"><rect x="5" y="8" width="14" height="10" rx="2.6"/><path d="M12 5v3"/><circle cx="12" cy="4" r="1.2"/><circle cx="9.4" cy="13" r="1"/><circle cx="14.6" cy="13" r="1"/><path d="M3 12v2"/><path d="M21 12v2"/></symbol>
+<symbol id="i-doc" viewBox="0 0 24 24"><path d="M8 3h6l4 4v12.5A1.5 1.5 0 0 1 16.5 21h-9A1.5 1.5 0 0 1 6 19.5v-15A1.5 1.5 0 0 1 7.5 3z"/><path d="M14 3v4h4"/><path d="M9.5 12.5h5"/><path d="M9.5 15.5h5"/></symbol>
+</defs></svg>
+<div class="aurora"></div><div class="vignette"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="M6 13l6 6 6-6"/></symbol>
+</defs></svg>
+
+<nav class="topnav" id="topnav"><div class="in">
+  <a class="brand" href="/"><img class="pl-mark" src="/brand/provenloop-mark.svg" alt="" width="28" height="28"><img class="pl-word" src="/brand/provenloop-wordmark-dark.png" alt="ProvenLoop" height="19"></a>
+  <div class="nlinks">
+    <div class="navitem">
+      <button class="navlink">Product <span class="car"><svg class="plic em" aria-hidden="true"><use href="#i-caret"/></svg></span></button>
+      <div class="mega"><div class="megawrap">
+        <div>
+          <div class="mlabel">The sales team a solo seller never had</div>
+          <div class="mgrid">
+            <a class="mitem" href="/account-room"><span class="mi"><svg class="plic" aria-hidden="true"><use href="#i-room"/></svg></span><div><div class="mt">Account Room</div><div class="md">Every deal in one place, cited to the call</div></div></a>
+            <a class="mitem" href="/call-prep"><span class="mi"><svg class="plic" aria-hidden="true"><use href="#i-prep"/></svg></span><div><div class="mt">Call Prep</div><div class="md">Walk in briefed, with the gap questions</div></div></a>
+            <a class="mitem" href="/practice"><span class="mi"><svg class="plic" aria-hidden="true"><use href="#i-practice"/></svg></span><div><div class="mt">Practice</div><div class="md">Rehearse your real buyer, with curveballs</div></div></a>
+            <a class="mitem" href="/qualification"><span class="mi"><svg class="plic" aria-hidden="true"><use href="#i-qual"/></svg></span><div><div class="mt">Qualification</div><div class="md">Who actually buys, scored on your method</div></div></a>
+            <a class="mitem" href="/provenchat"><span class="mi"><svg class="plic" aria-hidden="true"><use href="#i-chat"/></svg></span><div><div class="mt">ProvenChat</div><div class="md">Ask across every deal, with the quote</div></div></a>
+            <a class="mitem" href="/content-library"><span class="mi"><svg class="plic" aria-hidden="true"><use href="#i-library"/></svg></span><div><div class="mt">Content Library</div><div class="md">Answers worth reusing, pulled from calls</div></div></a>
+            <a class="mitem" href="/prospect-match"><span class="mi"><svg class="plic" aria-hidden="true"><use href="#i-match"/></svg></span><div><div class="mt">Prospect Match</div><div class="md">Prospects who want what your buyers asked for</div></div></a>
+            <a class="mitem" href="/agents"><span class="mi"><svg class="plic" aria-hidden="true"><use href="#i-agents"/></svg></span><div><div class="mt">Agents</div><div class="md">They do the work, and learn from your calls</div></div></a>
+          </div>
+        </div>
+        <div class="mrail">
+          <div class="mlabel">Works with the recorder you use</div>
+          <a class="rowlink" href="#top"><span class="dotm"></span>The notetaker you use</a>
+          
+          
+          <a class="rowlink" href="#top"><span class="dotm"></span>Zoom, Teams, Meet</a>
+          <a class="rowlink" href="#top"><span class="dotm"></span>Any transcript or audio</a>
+          <a class="megacard" href="/no-crm"><div class="mt">No CRM necessary &#8250;</div><div class="md">Start clean from your calls, sync a CRM later.</div></a>
+        </div>
+      </div></div>
+    </div>
+    <div class="navitem">
+      <button class="navlink">Solutions <span class="car"><svg class="plic em" aria-hidden="true"><use href="#i-caret"/></svg></span></button>
+      <div class="mega"><div class="megawrap sol">
+        <div class="mcol">
+          <div class="mlabel">Who it's for</div>
+          <a class="mitem" href="/who-its-for"><span class="mi"><svg class="plic" aria-hidden="true"><use href="#i-rocket"/></svg></span><div><div class="mt">Solo founders</div><div class="md">Selling what you built, alone</div></div></a>
+          <a class="mitem" href="/keep-your-workflow"><span class="mi"><svg class="plic" aria-hidden="true"><use href="#i-prep"/></svg></span><div><div class="mt">Founding AEs</div><div class="md">Employee number six, no playbook</div></div></a>
+          <a class="mitem" href="/who-its-for"><span class="mi"><svg class="plic" aria-hidden="true"><use href="#i-chat"/></svg></span><div><div class="mt">Small teams</div><div class="md">A few sellers, no RevOps</div></div></a>
+          <a class="mitem" href="/who-its-for"><span class="mi"><svg class="plic" aria-hidden="true"><use href="#i-library"/></svg></span><div><div class="mt">Consultants</div><div class="md">Your own book, your own method</div></div></a>
+        </div>
+        <div class="mcol">
+          <div class="mlabel">Learn</div>
+          <a class="rowlink" href="/no-crm"><span class="dotm"></span>No CRM Necessary</a>
+          <a class="rowlink" href="/vs-chatgpt"><span class="dotm"></span>Why not just ChatGPT</a>
+          <a class="rowlink" href="/why-different"><span class="dotm"></span>Why ProvenLoop is different</a>
+          <a class="rowlink" href="/practice"><span class="dotm"></span>Practice against your real buyer</a>
+          <a class="megacard" href="#beta"><div class="mt">Join the closed beta &#8250;</div><div class="md">Built for the person doing it alone.</div></a>
+        </div>
+      </div></div>
+    </div>
+    <a class="navlink" href="/why-different">Why We&#39;re Different</a>
+  </div>
+  <a class="btn w" href="#beta">Join the closed beta</a>
+</div></nav>
+
+<header class="banner"><div class="wrap">
+  <div class="eyebrow">Where we fit</div>
+  <h1>The modern Solo AE stack.</h1>
+  <p>Your recorder, your AI tool, ProvenLoop, and your CRM. Scroll down to watch each layer work, and see where ProvenLoop fits in the middle.</p>
+  <a class="scrollcue" href="#stack"><svg><use href="#i-down"/></svg>Scroll</a>
+</div></header>
+
+<section id="stack"><div class="wrap"><div class="scrolly">
+  <!-- LEFT: four live screens, one connected story -->
+  <div class="viz"><div class="stackcol">
+    <div class="flowline"></div><div class="flowdot" id="flowdot"></div>
+    <span class="spark" style="left:-34px;top:12%"></span><span class="spark" style="right:-26px;top:30%;animation-delay:.8s"></span><span class="spark" style="left:-30px;top:58%;animation-delay:1.6s"></span><span class="spark" style="right:-32px;top:78%;animation-delay:2.4s"></span>
+    <div class="screen" id="SC0"><div class="scbar"><span class="scdot"></span><span class="sctitle">Call summary</span><span class="scpill">from your recorder</span></div>
+      <div class="scbody"><div class="genbar"><i></i></div>
+        <div class="suml" data-s0><span class="b">&bull;</span>Northwind, discovery, 32 min</div>
+        <div class="suml" data-s0><span class="b">&bull;</span>Budget moved from $500 to $1,200</div>
+        <div class="suml" data-s0><span class="b">&bull;</span>Alex owns the Jan 15 decision</div>
+        <div class="suml" data-s0><span class="b">&bull;</span>You owe Alex a one-page summary</div>
+      </div></div>
+
+    <div class="screen" id="SC1"><div class="scbar"><span class="scdot"></span><span class="sctitle">Your AI tool</span><span class="scpill">ChatGPT or Claude</span></div>
+      <div class="scbody"><div class="ub">Pull the open items on Northwind from ProvenLoop.</div><div class="ab" id="ans1"></div></div></div>
+
+    <div class="screen" id="SC2"><div class="scbar"><span class="scdot"></span><span class="sctitle">ProvenLoop</span><span class="scpill">ready to close</span></div>
+      <div class="scbody"><div class="pgrid">
+        <div class="ptile" data-s2><div class="ptk">Practice</div><div class="ptv">Rehearse your real buyer</div></div>
+        <div class="ptile" data-s2><div class="ptk">Your voice</div><div class="ptv">Follow-up and prep, done for you</div></div>
+        <div class="ptile" data-s2><div class="ptk">Built for one</div><div class="ptv">No team, no RevOps, no CRM</div></div>
+        <div class="ptile" data-s2><div class="ptk">Yours</div><div class="ptv">A coach, not a scorecard</div></div>
+      </div></div></div>
+
+    <div class="screen" id="SC3"><div class="scbar"><span class="scdot"></span><span class="sctitle">Your CRM</span><span class="scpill">up to date</span></div>
+      <div class="scbody">
+        <div class="crow" data-s3><span class="crk">Account</span><span class="crv">Northwind</span></div>
+        <div class="crow" data-s3><span class="crk">Stage</span><span class="crv">Proposal</span></div>
+        <div class="crow" data-s3><span class="crk">Next step</span><span class="crv">Send order form, by Jan 15</span></div>
+        <div class="crow" data-s3><span class="crk">Contacts</span><span class="crv">Alex, Priya</span></div>
+        <div class="crmok" id="crmok"><svg class="ic"><use href="#i-check"/></svg> Updated from your calls</div>
+      </div></div>
+  </div></div>
+
+  <!-- RIGHT: steps -->
+  <div class="steps" id="steps">
+    <div class="step" data-i="0"><div class="num">Layer 1 &middot; the top</div><h3>Your recorder produces the summary.</h3><p>Keep whatever records your calls. The summary and transcript are the raw material, and nothing about your setup has to change.</p><span class="tag"><svg class="ic"><use href="#i-check"/></svg> Zoom, Teams, Meet, or the notetaker you use</span></div>
+
+    <div class="step" data-i="1"><div class="num">Layer 2 &middot; the tool you reach for</div><h3>You ask your AI tool, in plain English.</h3><p>Keep ChatGPT or Claude. Connect it to ProvenLoop and it stops starting from zero: ask for the open items on a deal and it answers from the organized record, not the one transcript you remembered to paste.</p><span class="tag"><svg class="ic"><use href="#i-bot"/></svg> Connect ChatGPT or Claude, ships at general release</span></div>
+
+    <div class="step hot" data-i="2"><div class="num">Layer 3 &middot; the middle</div><h3>ProvenLoop gets you ready to close.</h3><p>A recorder captures the call. The platforms the big teams use score it and report it up to a manager. ProvenLoop is the first layer built for the person actually selling: it drafts your follow-up in your voice, preps your next call, and lets you rehearse the real buyer, rebuilt from their own words, before you walk in. No team, no RevOps, no CRM, nobody grading you.</p><span class="tag"><svg class="ic"><use href="#i-check"/></svg> Rehearse your real buyer, before the call</span></div>
+
+    <div class="step" data-i="3"><div class="num">Layer 4 &middot; the bottom</div><h3>Your CRM stays current.</h3><p>What ProvenLoop learns from your calls keeps your CRM neat and up to date, so the system of record stops being a data-entry chore. No CRM yet? You do not need one to start. When you get one, ProvenLoop fills it clean.</p><span class="tag"><svg class="ic"><use href="#i-check"/></svg> Works with your CRM, or none</span></div>
+  </div>
+</div></div></section>
+
+<section class="story"><div class="wrap">
+  <div class="shead"><span class="eyebrow">Why this stack wins</span>
+    <h2>Plenty of tools record your calls. None of them sell for you.</h2>
+    <p>A recorder makes a summary. The revenue platforms the big teams run score the call and report it up to a manager. Useful, but that is where they stop. ProvenLoop is the only layer that takes the next step, and it was built for the one-person team, not a RevOps department.</p>
+  </div>
+  <div class="vs">
+    <div class="vscol without"><div class="vsh">A recorder, or a platform for big teams</div>
+      <div class="vsitem"><span class="vx">&#10005;</span>Summarizes the call and lists the action items.</div>
+      <div class="vsitem"><span class="vx">&#10005;</span>Scores the call and reports it up to a manager.</div>
+      <div class="vsitem"><span class="vx">&#10005;</span>Assumes a RevOps team, a CRM, and a rollout.</div>
+      <div class="vsitem"><span class="vx">&#10005;</span>Priced and built for a whole org, not for you.</div>
+      <div class="vsitem"><span class="vx">&#10005;</span>Tells you what happened. The doing is still on you.</div>
+    </div>
+    <div class="vscol with"><div class="vsh">ProvenLoop, built for the solo AE</div>
+      <div class="vsitem"><svg class="ic vk"><use href="#i-check"/></svg>Drafts the follow-up and preps the next call, in your voice.</div>
+      <div class="vsitem"><svg class="ic vk"><use href="#i-check"/></svg>Lets you rehearse the real buyer before you meet them.</div>
+      <div class="vsitem"><svg class="ic vk"><use href="#i-check"/></svg>No team, no RevOps, no CRM, no procurement.</div>
+      <div class="vsitem"><svg class="ic vk"><use href="#i-check"/></svg>Private to you: your coach, not your manager's scorecard.</div>
+      <div class="vsitem"><svg class="ic vk"><use href="#i-check"/></svg>Does the work, so you walk in ready and close.</div>
+    </div>
+  </div>
+  <div class="closer">
+    <h3>The best solo AEs are not working more hours.</h3>
+    <p>They stopped settling for a tool that only records the call, and added the one layer that actually sells for them, the same kind of power the big teams pay a fortune for, built for the person doing it alone. The recording was never the hard part. <span class="big">The doing is the edge.</span></p>
+  </div>
+</div></section>
+
+<section class="cta" id="beta"><div class="wrap"><div class="ctaband">
+  <h2>Keep your workflow. Add the layer that runs the deal.</h2>
+  <p>Built for the founding seller doing it alone. Join the closed beta.</p>
+  <form class="ecap beta-form" onsubmit="return false" novalidate><input type="email" name="email" autocomplete="email" placeholder="What's your work email?" aria-label="Work email"><button class="btn" type="submit">Join the closed beta</button></form>
+</div></div></section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fcol"><div class="fbrand"><img class="pl-mark" src="/brand/provenloop-mark.svg" alt="" width="28" height="28"><img class="pl-word" src="/brand/provenloop-wordmark-dark.png" alt="ProvenLoop" height="19"></div><p style="margin-top:14px;max-width:30ch;color:#8A8598">Keep your call recorder. We turn its transcript into the deal.</p></div>
+      <div class="fcol"><h5>Product</h5><a href="/account-room">Account Rooms</a><a href="/call-prep">Call Prep</a><a href="/practice">Practice</a><a href="/provenchat">ProvenChat</a></div>
+      <div class="fcol"><h5>Learn</h5><a href="/no-crm">No CRM</a><a href="/vs-chatgpt">vs ChatGPT</a><a href="/why-different">Why it's different</a></div>
+      <div class="fcol"><h5>Who it's for</h5><a href="/who-its-for">Solo founders</a><a href="/keep-your-workflow">Founding AEs</a><a href="/who-its-for">Small teams</a><a href="/who-its-for">Consultants</a></div>
+      <div class="fcol"><h5>Company</h5><a href="/why-different">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div>
+    </div>
+    <div class="fbot"><span>&copy; 2026 ProvenLoop. All rights reserved.</span><span>You were never meant to sell alone.</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var nav=document.getElementById('topnav');function onScroll(){ if(window.scrollY>36) nav.classList.add('solid'); else nav.classList.remove('solid'); }onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  var screens=[document.getElementById('SC0'),document.getElementById('SC1'),document.getElementById('SC2'),document.getElementById('SC3')];
+  var steps=Array.prototype.slice.call(document.querySelectorAll('.step'));
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var tok=0;
+  function $all(sel){ return Array.prototype.slice.call(document.querySelectorAll(sel)); }
+  function sleep(ms){ return new Promise(function(r){ setTimeout(r,ms); }); }
+  function resetScene(i){
+    if(i===0) $all('[data-s0]').forEach(function(e){e.classList.remove('in');});
+    if(i===1) document.getElementById('ans1').innerHTML='';
+    if(i===2) $all('[data-s2]').forEach(function(e){e.classList.remove('in');});
+    if(i===3){ $all('[data-s3]').forEach(function(e){e.classList.remove('in');}); document.getElementById('crmok').classList.remove('in'); }
+  }
+  async function type(node,text,sp){ node.innerHTML=''; var c=document.createElement('span'); c.className='caret'; node.appendChild(c);
+    for(var k=0;k<text.length;k++){ node.insertBefore(document.createTextNode(text[k]),c); await sleep(sp); } c.remove(); }
+  async function play(i){
+    var my=++tok; resetScene(i); await sleep(360); if(my!==tok)return;
+    if(i===0){ var ls=$all('[data-s0]'); for(var a=0;a<ls.length;a++){ ls[a].classList.add('in'); await sleep(360); if(my!==tok)return; } }
+    else if(i===1){ await sleep(300); await type(document.getElementById('ans1'),'Two open items on Northwind: send Alex the one-page summary, and confirm the Jan 15 decision. Both from your Nov 18 call.',reduce?0:16); }
+    else if(i===2){ var ts=$all('[data-s2]'); for(var b=0;b<ts.length;b++){ ts[b].classList.add('in'); await sleep(300); if(my!==tok)return; } }
+    else if(i===3){ var rs=$all('[data-s3]'); for(var c2=0;c2<rs.length;c2++){ rs[c2].classList.add('in'); await sleep(300); if(my!==tok)return; } await sleep(200); document.getElementById('crmok').classList.add('in'); }
+  }
+  var flowdot=document.getElementById('flowdot');
+  function activate(i){
+    screens.forEach(function(s,k){ s.classList.toggle('active',k===i); s.classList.toggle('done',k<i); });
+    steps.forEach(function(s){ s.classList.toggle('on', parseInt(s.getAttribute('data-i'),10)===i); });
+    if(flowdot){ var t=screens[i]; flowdot.style.top=(t.offsetTop + t.offsetHeight/2 - 5)+'px'; }
+    play(i);
+  }
+  if(reduce){ screens.forEach(function(s){s.classList.add('done');}); steps.forEach(function(s){s.classList.add('on');});
+    $all('[data-s0],[data-s2],[data-s3]').forEach(function(e){e.classList.add('in');}); document.getElementById('crmok').classList.add('in');
+    document.getElementById('ans1').textContent='Two open items on Northwind: send Alex the one-page summary, and confirm the Jan 15 decision.'; return; }
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ activate(parseInt(e.target.getAttribute('data-i'),10)); } }); },{threshold:.55});
+  steps.forEach(function(s){ io.observe(s); });
+  activate(0);
+})();
+</script>
+</body></html>
