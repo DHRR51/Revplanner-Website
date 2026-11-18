@@ -473,4 +473,21 @@
   } else { runner(); }
 })();
 </script>
+<script>
+/* Phone fit: below 1120px wide, render the app window at desktop width and scale it down,
+   so it reads like a shrunken screenshot instead of reflowing. Reports its height to the
+   parent page so the iframe can shrink to match on phones. */
+(function(){
+  var W=1120, st=document.querySelector('.stage'); if(!st) return;
+  var box=document.createElement('div'); box.className='stagefit'; st.parentNode.insertBefore(box,st); box.appendChild(st);
+  function fit(){
+    var avail=Math.min(document.documentElement.clientWidth*0.97,W), k=avail/W;
+    if(k<1){ st.style.width=W+'px'; st.style.transformOrigin='top left'; st.style.transform='scale('+k+')';
+      box.style.width=avail+'px'; box.style.height=(st.offsetHeight*k)+'px'; }
+    else { st.style.width=''; st.style.transform=''; box.style.width=''; box.style.height=''; }
+    try{ parent.postMessage({plVideoH:document.body.scrollHeight},'*'); }catch(e){}
+  }
+  window.addEventListener('resize',fit); if('ResizeObserver' in window) new ResizeObserver(fit).observe(st); fit();
+})();
+</script>
 </body></html>

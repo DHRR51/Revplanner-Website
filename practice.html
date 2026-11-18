@@ -736,4 +736,4 @@
   if(mq.matches||!('IntersectionObserver' in window)){rv.forEach(function(e){e.classList.add('in');});}
   else{var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.05});rv.forEach(function(e){io.observe(e);});setTimeout(function(){rv.forEach(function(e){e.classList.add('in');});},1600);}
 </script>
-</body></html>
+<script>window.addEventListener("message",function(e){if(!e.data||!e.data.plVideoH||window.innerWidth>=900)return;document.querySelectorAll("iframe").forEach(function(f){if(f.contentWindow===e.source)f.style.height=Math.ceil(e.data.plVideoH)+"px";});});</script></body></html>
