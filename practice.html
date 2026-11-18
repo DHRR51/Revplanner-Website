@@ -508,10 +508,10 @@
 <script defer src="/signup.js?v=20261118"></script>
 <script>function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,o.onload=function(){window.trackingFunctions.onLoad({appId:"6aa06a12714044000c4d360c"})},document.head.appendChild(o)}initApollo();</script>
 <style>/* beta signup status line (signup.js) */.beta-msg{font-size:14px;line-height:1.5;margin-top:10px}.beta-msg:empty{display:none}.beta-msg.ok{color:#34D399;font-weight:600;margin-top:24px}.beta-msg.err{color:#FBBF24}.ctaband .beta-msg{position:relative;color:#fff;font-weight:600}</style>
-</head>
+<style>.pl-mark{height:28px;width:auto;display:block;flex:none}.pl-word{height:19px;width:auto;display:block}.brand,.fbrand{display:flex;align-items:center;gap:8px}</style></head>
 <body id="top"><div class="plbg-a"></div><div class="plbg-v"></div><div class="plbg-g"></div>
 <nav class="topnav" id="topnav"><div class="in">
-  <a class="brand" href="/"><span class="mark"></span>provenloop</a>
+  <a class="brand" href="/"><img class="pl-mark" src="/brand/provenloop-mark.svg" alt="" width="28" height="28"><img class="pl-word" src="/brand/provenloop-wordmark-dark.png" alt="ProvenLoop" height="19"></a>
   <div class="nlinks">
     <div class="navitem">
       <button class="navlink">Product <span class="car">&#9662;</span></button>
@@ -560,7 +560,7 @@
         </div>
       </div></div>
     </div>
-    <a class="navlink" href="/why-different">Why different</a>
+    <a class="navlink" href="/why-different">Why We&#39;re Different</a>
   </div>
   <a class="btn w" href="#beta">Join the closed beta</a>
 </div></nav>
@@ -588,7 +588,7 @@
         <div class="cfoot" style="margin-top:14px"><span class="fn">Type or talk. <b>Practice never changes the deal.</b></span><button class="cbtn">Start</button></div>
       </div>
     </div></div>
-  </header><section class="psec" style="padding:30px 0 6px"><div class="pwrap"><div style="text-align:center;margin-bottom:16px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#C4B5FD">See Practice work</div><iframe src="/video/provenloop-video.html#clip=2" title="ProvenLoop Practice in action" loading="lazy" style="display:block;width:100%;max-width:1120px;margin:0 auto;height:clamp(560px,62vw,720px);border:0;border-radius:16px;background:#0A090F"></iframe></div></section>
+  </header><section class="psec" style="padding:30px 0 6px"><div class="pwrap"><div style="text-align:center;margin-bottom:16px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#C4B5FD">See Practice work</div><iframe scrolling="no" src="/video/provenloop-video.html#clip=2" title="ProvenLoop Practice in action" loading="lazy" style="display:block;width:100%;max-width:1120px;margin:0 auto;height:clamp(560px,62vw,720px);border:0;border-radius:16px;background:#0A090F"></iframe></div></section>
 </div>
 
 <!-- IT IS YOUR BUYER -->
@@ -717,7 +717,7 @@
 <footer>
   <div class="wrap">
     <div class="fgrid">
-      <div class="fcol"><div class="fbrand"><span class="mk"></span>provenloop</div><p style="margin-top:14px;max-width:30ch;color:#8A8598">Keep your call recorder. We turn its transcript into the deal.</p></div>
+      <div class="fcol"><div class="fbrand"><img class="pl-mark" src="/brand/provenloop-mark.svg" alt="" width="28" height="28"><img class="pl-word" src="/brand/provenloop-wordmark-dark.png" alt="ProvenLoop" height="19"></div><p style="margin-top:14px;max-width:30ch;color:#8A8598">Keep your call recorder. We turn its transcript into the deal.</p></div>
       <div class="fcol"><h5>Product</h5><a href="/account-room">Account Rooms</a><a href="/call-prep">Call Prep</a><a href="/practice">Practice</a><a href="/provenchat">ProvenChat</a></div>
       <div class="fcol"><h5>Learn</h5><a href="/no-crm">No CRM</a><a href="/vs-chatgpt">vs ChatGPT</a><a href="/why-different">Why it's different</a></div>
       <div class="fcol"><h5>Who it's for</h5><a href="/who-its-for">Solo founders</a><a href="/who-its-for">Founding AEs</a><a href="/who-its-for">Small teams</a><a href="/who-its-for">Consultants</a></div>
@@ -736,4 +736,4 @@
   if(mq.matches||!('IntersectionObserver' in window)){rv.forEach(function(e){e.classList.add('in');});}
   else{var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.05});rv.forEach(function(e){io.observe(e);});setTimeout(function(){rv.forEach(function(e){e.classList.add('in');});},1600);}
 </script>
-<script>window.addEventListener("message",function(e){if(!e.data||!e.data.plVideoH||window.innerWidth>=900)return;document.querySelectorAll("iframe").forEach(function(f){if(f.contentWindow===e.source)f.style.height=Math.ceil(e.data.plVideoH)+"px";});});</script></body></html>
+<script>window.addEventListener("message",function(e){if(!e.data||!e.data.plVideoH)return;document.querySelectorAll("iframe").forEach(function(f){if(f.contentWindow===e.source)f.style.height=Math.ceil(e.data.plVideoH)+"px";});});</script></body></html>
