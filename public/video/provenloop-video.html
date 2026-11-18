@@ -182,8 +182,28 @@
   @keyframes fill{from{width:0}to{width:100%}}
   .pausebtn{font:inherit;font-size:12px;font-weight:600;color:var(--ink2);background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:8px;padding:6px 13px;cursor:pointer}
   .foot{font-size:11px;color:var(--ink3);font-family:var(--mono);letter-spacing:.06em}
-</style></head>
-<body>
+</style><style id="pl-icons">.plic{width:19px;height:19px;display:inline-block;vertical-align:middle;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;fill:none}.mitem .mi{color:var(--violetL,#C4B5FD)!important;background:rgba(139,92,246,.16)!important}.plic.em{width:1em;height:1em;vertical-align:-.12em}</style></head>
+<body><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-room" viewBox="0 0 24 24"><path d="M3 8.5A1.5 1.5 0 0 1 4.5 7h4L10.5 9h9A1.5 1.5 0 0 1 21 10.5v7A1.5 1.5 0 0 1 19.5 19h-15A1.5 1.5 0 0 1 3 17.5z"/><path d="M3 11h18"/></symbol>
+<symbol id="i-prep" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.2"/></symbol>
+<symbol id="i-practice" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0 0 12 0"/><path d="M12 17v4"/></symbol>
+<symbol id="i-qual" viewBox="0 0 24 24"><path d="M3 20h18"/><path d="M6.5 20v-6"/><path d="M12 20V6"/><path d="M17.5 20v-9"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24"><path d="M20 15.2A2.5 2.5 0 0 1 17.5 17.7H9.3L5 20.5v-3.3A2.5 2.5 0 0 1 4 15V8.3A2.5 2.5 0 0 1 6.5 5.8h11A2.5 2.5 0 0 1 20 8.3z"/></symbol>
+<symbol id="i-library" viewBox="0 0 24 24"><path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H18a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6.5A1.5 1.5 0 0 1 5 18.5z"/><path d="M8.2 3v17"/></symbol>
+<symbol id="i-match" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M15.4 8.6l-2 4.8-4.8 2 2-4.8z"/></symbol>
+<symbol id="i-agents" viewBox="0 0 24 24"><path d="M12 3l1.9 5.3L19 10l-5.1 1.7L12 17l-1.9-5.3L5 10l5.1-1.7z"/><path d="M18.5 15l.6 1.8 1.9.6-1.9.6-.6 1.8-.6-1.8-1.9-.6 1.9-.6z"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></symbol>
+<symbol id="i-caret" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3L5 13h6l-1 8 8-10h-6z"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+<symbol id="i-quote" viewBox="0 0 24 24"><path d="M10 8H6a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h1.5v.5a2.5 2.5 0 0 1-2.5 2.5"/><path d="M20 8h-4a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h1.5v.5a2.5 2.5 0 0 1-2.5 2.5"/></symbol>
+<symbol id="i-rocket" viewBox="0 0 24 24"><path d="M5 15c-1.5 1.5-2 5-2 5s3.5-.5 5-2a2.8 2.8 0 0 0-3-3z"/><path d="M9 13l-2-2c3-7 8-8 12-8 0 4-1 9-8 12l-2-2"/><circle cx="14.5" cy="9.5" r="1.4"/></symbol>
+<symbol id="i-diff" viewBox="0 0 24 24"><path d="M4 7h10"/><path d="M4 12h16"/><path d="M4 17h7"/></symbol>
+<symbol id="i-link" viewBox="0 0 24 24"><path d="M9.5 14.5l5-5"/><path d="M8.6 11.2 6.8 13a3 3 0 0 0 4.2 4.2l1.8-1.8"/><path d="M15.4 12.8 17.2 11a3 3 0 0 0-4.2-4.2l-1.8 1.8"/></symbol>
+<symbol id="i-bot" viewBox="0 0 24 24"><rect x="5" y="8" width="14" height="10" rx="2.6"/><path d="M12 5v3"/><circle cx="12" cy="4" r="1.2"/><circle cx="9.4" cy="13" r="1"/><circle cx="14.6" cy="13" r="1"/><path d="M3 12v2"/><path d="M21 12v2"/></symbol>
+<symbol id="i-doc" viewBox="0 0 24 24"><path d="M8 3h6l4 4v12.5A1.5 1.5 0 0 1 16.5 21h-9A1.5 1.5 0 0 1 6 19.5v-15A1.5 1.5 0 0 1 7.5 3z"/><path d="M14 3v4h4"/><path d="M9.5 12.5h5"/><path d="M9.5 15.5h5"/></symbol>
+</defs></svg>
   <div class="lead"><div class="k">A deal, from call to close</div><h1>The product, doing the work that closes a deal.</h1><p>Four short takes of the real flow. Silent, looping, no narration. Switch tabs to watch each one.</p></div>
 
   <div class="tabs">
@@ -226,7 +246,7 @@
           <div class="hrow" id="hrowNew" style="opacity:0"><span class="tagc ok" style="color:var(--violetL);border-color:rgba(139,92,246,.4)">Review draft</span>Follow-up to Alex, Priya ready<span class="co">Northwind</span></div>
           <div class="hrow" id="hrowOwe"><span class="tagc" style="color:var(--violetL);border:1px solid rgba(139,92,246,.4)">You owe</span>Send Alex the one-page summary<span class="co">Northwind</span></div>
           <div class="hrow"><span class="tagc ok">They owe you</span>Priya to connect the data<span class="co">Harbor</span></div>
-          <div class="askbar" id="hask">&#128172; Ask across every deal...<span style="margin-left:auto;font-size:11px">Tasks</span></div>
+          <div class="askbar" id="hask"><svg class="plic em" aria-hidden="true"><use href="#i-chat"/></svg> Ask across every deal...<span style="margin-left:auto;font-size:11px">Tasks</span></div>
         </div>
 
         <!-- OVERVIEW -->
@@ -255,19 +275,19 @@
 
         <!-- CHAT (tasks) -->
         <div class="view" id="vChat">
-          <div class="chrow"><span class="cav">&#128172;</span><div><div style="font-size:15px;font-weight:700;color:#fff">ProvenChat</div><div style="font-size:12px;color:var(--ink3)">grounded in the Northwind deal</div></div></div>
+          <div class="chrow"><span class="cav"><svg class="plic em" aria-hidden="true"><use href="#i-chat"/></svg></span><div><div style="font-size:15px;font-weight:700;color:#fff">ProvenChat</div><div style="font-size:12px;color:var(--ink3)">grounded in the Northwind deal</div></div></div>
           <span class="badge" id="cbadge">&#9998; Follow-up Writer</span>
           <div class="splitchat"><div>
             <div class="draftlead">I drafted these from your call with Alex and Priya:</div>
-            <div class="task" id="tk0"><span class="tnum">1</span><div style="flex:1"><div class="ttl">Follow-up email to Alex and Priya</div><div class="tbd">Confirms the $1,200 budget and the Jan 15 decision, offers Friday 10am to review.</div></div><button class="copybtn" id="cCopy">Copy</button><span class="copied" id="cCopied">&#10003; Copied</span></div>
+            <div class="task" id="tk0"><span class="tnum">1</span><div style="flex:1"><div class="ttl">Follow-up email to Alex and Priya</div><div class="tbd">Confirms the $1,200 budget and the Jan 15 decision, offers Friday 10am to review.</div></div><button class="copybtn" id="cCopy">Copy</button><span class="copied" id="cCopied"><svg class="plic em" aria-hidden="true"><use href="#i-check"/></svg> Copied</span></div>
             <div class="task" id="tk1"><span class="tnum">2</span><div style="flex:1"><div class="ttl">Rollout plan for Priya</div><div class="tbd">A dated go-live plan from your approved Library template, so her team is live before the holidays.</div></div></div>
             <div class="task" id="tk2"><span class="tnum">3</span><div style="flex:1"><div class="ttl">Next-call prep for the order form review</div><div class="tbd">Goal, agenda and the ask: a signed order form by January 15.</div></div></div>
           </div>
-          <div class="docpanel" id="cDoc"><div class="dptitle">&#128196; Rollout plan <span style="margin-left:auto;font-size:10.5px;color:var(--ink3);font-weight:500">Library</span></div>
+          <div class="docpanel" id="cDoc"><div class="dptitle"><svg class="plic em" aria-hidden="true"><use href="#i-doc"/></svg> Rollout plan <span style="margin-left:auto;font-size:10.5px;color:var(--ink3);font-weight:500">Library</span></div>
             <div class="dpline">Week 1: workspace set up, two seats live.</div>
             <div class="dpline edit" id="dpEdit">Week 2: Priya's team onboarded before the holidays.</div>
             <div class="dpline">Week 3: first deals running in ProvenLoop.</div>
-            <div class="updated" id="cUpd">&#10003; Updated from the document</div>
+            <div class="updated" id="cUpd"><svg class="plic em" aria-hidden="true"><use href="#i-check"/></svg> Updated from the document</div>
           </div></div>
         </div>
 
@@ -333,7 +353,7 @@
             <div class="msg new" id="mNew"><span class="mav">AK</span><div style="flex:1"><div><span class="mfrom">Alex Kim</span><span class="mtime">just now</span></div><div class="mtext">Yes, let's move forward. Send the order form.</div><span class="mtag">They owe &middot; Done</span></div></div>
             <div class="msg"><span class="mav">D</span><div style="flex:1"><div><span class="mfrom">You</span><span class="mtime">today, 9:12</span></div><div class="mtext">Sharing the recap and the Jan 15 plan. Happy to walk Priya through it Friday.</div></div></div>
           </div></div>
-          <div class="menu" id="msgMenu"><div class="mi">Edit deal</div><div class="mi">Share room</div><div class="mi hot" id="msgWon">&#10003; Mark won</div></div>
+          <div class="menu" id="msgMenu"><div class="mi">Edit deal</div><div class="mi">Share room</div><div class="mi hot" id="msgWon"><svg class="plic em" aria-hidden="true"><use href="#i-check"/></svg> Mark won</div></div>
         </div>
 
         <div class="cur" id="cur"><svg viewBox="0 0 24 24" fill="#fff" stroke="#15121D" stroke-width="1.2"><path d="M5 3l15 9-6.5 1.7L10 21z"/></svg><span class="rp" id="rp"></span></div>
